@@ -41,19 +41,24 @@ scp -r /data/$USER/ username@helix.nih.gov:/data/CCBR/datashare/tutorial/
 
 When the data has been successully copied to Helix, we need to open the permissions. 
 
+**NOTE: This will give open access to anyone with the link. Ensure this is appropriate for the data type**
+
 ```
-# CD to the shared dir
-cd /data/CCBR/datashare/tutorial/
+#cd to the shared dir
+cd /data/CCBR/datashare/
 
-# run CHMOD
-chmod uog+r *
+#run CHMOD, twice
+chmod -R 777 tutorial
+chmod -R 777 tutorial/*
 
-# run SETFACL
-setfacl -m u:webcpu:r-x *
+#run SETFACL
+setfacl -m u:webcpu:r-x tutorial/*
 ```
 
 ## Public Access
 ---
+**NOTE: You must be logged into [HPC](https://hpc.nih.gov/) in order to access these files from a web browser.**
+
 Files will be available for access through a browser, via tools like `wget` and `UCSC genome track browser` via the following format:
 
 http://hpc.nih.gov/~CCBR/tutorial/file.txt
