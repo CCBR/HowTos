@@ -3,7 +3,8 @@ How To Guides, Best Practices and Tutorial Pages:
     - How To: Create UCSC Tracks
     - How To: Setup HPCDME
     - How To, Best Practoces: GitHub
-    - Other Tutorials: Snakemake, Datashare
+    - How To: Datashare
+    - Tutorials: Snakemake
 
 View the documentation available on our [GitHub Pages](https://ccbr.github.io/HowTos/) website.
 

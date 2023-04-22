@@ -3,8 +3,9 @@ How To Guides, Best Practices and Tutorial Pages:
     - How To: Create UCSC Tracks
     - How To: Setup HPCDME
     - How To, Best Practoces: GitHub
-    - Other Tutorials: Snakemake, Datashare
-
+    - How To: Datashare
+    - Tutorials: Snakemake
+    
 <p style="text-align: center;">The DEVIL is in the DETAILS.
 </p>
 
