@@ -41,7 +41,7 @@ To copy multiple directories recursively, you can also include the `-r` command 
 
 ```
 scp -r /data/$USER/ username@helix.nih.gov:/data/CCBR/datashare/tutorial/
-````
+```
 
 ### Create public permissions for data
 
@@ -50,14 +50,14 @@ When the data has been successully copied, we need to open the permissions.
 **NOTE: This will give open access to anyone with the link. Ensure this is appropriate for the data type**
 
 ```
-#cd to the shared dir
+# cd to the shared dir
 cd /data/CCBR/datashare/
 
-#run CHMOD, twice
+# run CHMOD, twice
 chmod -R 777 tutorial
 chmod -R 777 tutorial/*
 
-#run SETFACL
+# run SETFACL
 setfacl -m u:webcpu:r-x tutorial/*
 ```
 
