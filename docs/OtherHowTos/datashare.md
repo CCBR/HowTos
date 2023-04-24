@@ -1,15 +1,19 @@
-# Datashare on Helix
+# Datashare
 
-Host data on helix that is publicly accessible through a URL
+Host data on [Helix](https://hpc.nih.gov/systems/) or [Biowulf](https://hpc.nih.gov/systems/), that is publicly accessible through a URL
 
 ## Setup
 
 ---
 
-### Access Helix
+### Access Login
 
 ```
+# Helix
 ssh -Y username@helix.nih.gov
+
+# Biowulf
+ssh -Y username@biowulf.nih.gov
 ```
 
 Create a new dir (`tutorial`) in the datashare path:
@@ -23,9 +27,11 @@ mkdir tutorial
 ---
 ### Make a directory in the datashare folder
 
+*NOTE: For all steps below, an example is shown for Helix, but the same process is applicable for Biowulf, after changing the `helix.nih.gov` to `biowulf.nih.gov`*
+
 Now you can transfer your data to the new directory. One method is to use `scp` to copy data from your local machine to Helix. 
 
-Here is an example of using `scp` to copy the file `file.txt` from a local directory to Helix:
+Here is an example of using `scp` to copy the file `file.txt` from a local directory to Helix. 
 
 ```
 scp /data/$USER/file.txt username@helix.nih.gov:/data/CCBR/datashare/tutorial/
@@ -37,9 +43,9 @@ To copy multiple directories recursively, you can also include the `-r` command 
 scp -r /data/$USER/ username@helix.nih.gov:/data/CCBR/datashare/tutorial/
 ````
 
-### Create public permissions for data on Helix
+### Create public permissions for data
 
-When the data has been successully copied to Helix, we need to open the permissions. 
+When the data has been successully copied, we need to open the permissions. 
 
 **NOTE: This will give open access to anyone with the link. Ensure this is appropriate for the data type**
 
