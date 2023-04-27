@@ -101,7 +101,8 @@ nav:
     - Overview: GitHub/overview.md
     - Preparing your environment: GitHub/setup_env.md
     - Creating your GitHub repo: GitHub/setup_repo.md
-    - Repository Management: GitHub/sop_repo.md
+    - Repository Management (Projects,Pipelines): GitHub/sop_proj_repo.md
+    - Repository Management (TechDev): GitHub/sop_techdev_repo.md
     - Documentation: GitHub/sop_docs.md
     - GitHub Actions: GitHub/sop_actions.md
     - Test Data: GitHub/sop_testdata.md
