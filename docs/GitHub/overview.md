@@ -6,8 +6,8 @@
     - Provides information on how to setup a GitHub repository under CCBR, use of templates, and basic GitHub commands
 3. Repository Management:
     - Best practices surrounding how to create a new repository within CCBR
-        - [Projects, new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_proj_repo/)
-        - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_techdev/)
+        - [CCBR Projects, new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_repo_projpipes/)
+        - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_repo_techdev/)
 4. [Documentation](https://ccbr.github.io/HowTos/GitHub/sop_docs/)
     - Best practices surrounding how to create GitHub Pages documentation for pipelines
 5. [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/):
