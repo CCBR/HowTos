@@ -5,7 +5,7 @@
 2. [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/):
     - Describes basic functions to be used with this SOP
 
-## Basic Requirements
+## Basics
 3. [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/basic_repo/):
     - Provides information on how to setup a GitHub repository under CCBR and the use of templates
 4. [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/basic_docs):

@@ -102,7 +102,7 @@ nav:
     - Set-Up: 
       - Preparing your environment: GitHub/howto_setup.md
       - Basic Commands: GitHub/howto_functions.md
-    - Basic Requirements:
+    - Basics:
       - Creating your GitHub Repo: GitHub/basic_repo.md
       - Creating your Documentation: GitHub/basic_docs.md
       - Creating GitHub Actions: GitHub/basic_actions.md
