@@ -1,4 +1,4 @@
-# GitHub Best Practices: Documentation
+# GitHub Set-Up: Documentation
 GitHub [Pages](https://pages.github.com/) is quick and easy way to build static websites for your GitHub repositories. Essentially, you write pages in [Markdown](https://www.markdownguide.org/) which are then rendered to HTML and hosted on GitHub, free of cost! 
 
 CCBR has used GitHub pages to provide extensive, legible and origanized documentation for our pipelines. Examples are included below:

@@ -99,13 +99,23 @@ nav:
   - Intro : index.md
   - GitHub:
     - Overview: GitHub/overview.md
-    - Preparing your environment: GitHub/setup_env.md
-    - Creating your GitHub repo: GitHub/setup_repo.md
-    - Repo Management (Projects,Pipelines): GitHub/sop_repo_projpipes.md
-    - Repo Management (TechDev): GitHub/sop_repo_techdev.md
-    - Documentation: GitHub/sop_docs.md
-    - GitHub Actions: GitHub/sop_actions.md
-    - Test Data: GitHub/sop_testdata.md
+    - Set-Up: 
+      - Preparing your environment: GitHub/howto_setup.md
+      - Basic Commands: GitHub/howto_functions.md
+    - Basic Requirements:
+      - Creating your GitHub Repo: GitHub/basic_repo.md
+      - Creating your Documentation: GitHub/basic_docs.md
+      - Creating GitHub Actions: GitHub/basic_actions.md
+    - Best Practices:
+      - Repo Management: 
+        - Projects,Pipelines: GitHub/sop_repo_projpipes.md
+        - TechDev: GitHub/sop_repo_techdev.md
+      - Documentation: 
+        - Projects,Pipelines: GitHub/sop_docs_projpipes.md
+        - TechDev: GitHub/sop_docs_techdev.md
+      - Test Data: 
+        - Projects,Pipelines: GitHub/sop_testdata_projpipes.md
+        - TechDev: GitHub/sop_testdata_techdev.md
   - HPCDME :
     - Setup : HPCDME/setup.md
     - Biowulf2HPCDME: HPCDME/transfer.md
