@@ -29,7 +29,7 @@ git checkout old_feature
 git pull new_feature
 ```
 
-If you have non-compatable changes in the `old_feature` branch, there are two options:
+If you have non-compatible changes in the `old_feature` branch, there are two options:
 1) ignore local changes and pull remote anyways. This will delete the changes you've made to your remote respository.
 ```bash
 git reset --hard

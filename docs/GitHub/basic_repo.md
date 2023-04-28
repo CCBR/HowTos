@@ -1,4 +1,4 @@
-# GitHub Set-Up: Repository
+# GitHub Basics: Repository
 
 ## Repository Location
 

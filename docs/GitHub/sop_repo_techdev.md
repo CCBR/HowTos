@@ -4,13 +4,13 @@ Users should follow the [set-up]() information provided to learn more about wher
 
 ## Security settings
 
-- Two members of CCBR (creator and one manager) should be granted full administrative priveleges to the repository to ensure the source code can be accessed by other members, as needed
+- Two members of CCBR (creator and one manager) should be granted full administrative privileges to the repository to ensure the source code can be accessed by other members, as needed
 - Both the develop and master branch must be protected (IE have to have a PR to be changed) 
 
 ## CCBR Branch Strategy
 
 ### Branch Naming
-- All repositories should follow the strategy outlined in the  [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/setup_repo/)
+- All repositories should follow the strategy outlined in the [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/basic_repo/)
 
 ### Branch Overview
 

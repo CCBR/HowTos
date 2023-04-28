@@ -10,7 +10,7 @@ Users should follow the [Creating your GitHub repo](https://ccbr.github.io/HowTo
 ## CCBR Branch Strategy
 
 ### Branch Naming
-- All repositories should follow the strategy outlined in the  [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/setup_repo/)
+- All repositories should follow the strategy outlined in the [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/basic_repo/)
 
 ### Branch Overview
 

@@ -1,4 +1,4 @@
-# GitHub Best Practices: GitHub Actions
+# GitHub Basics: GitHub Actions
 
 The following describe the minimum GitHub actions that should be deployed with any production pipeline. The actions are automatically provided via the cookiecutter templates: [NextFlow](https://github.com/CCBR/CCBR_NextflowPipelineCookiecutter) and [Snakemake](https://github.com/CCBR/CCBR_SnakemakePipelineCookiecutter).
 
@@ -9,7 +9,6 @@ The following describe the minimum GitHub actions that should be deployed with a
 
 2. Lintr (required for CCBR projects and new pipelines)
     - This rule will automatically perform a lintr with the data provided in the .test folder of the pipeline. Review the [GitHub Best Practices - Test Data](https://ccbr.github.io/HowTos/GitHub/sop_testdata/) page for more information.
-
 
 3. Dry-run with test sample data for any PR to dev branch (required for CCBR projects and new pipelines)
 

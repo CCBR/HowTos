@@ -1,13 +1,13 @@
-# GitHub Set-Up: Documentation
+# GitHub Basics: Documentation
 GitHub [Pages](https://pages.github.com/) is quick and easy way to build static websites for your GitHub repositories. Essentially, you write pages in [Markdown](https://www.markdownguide.org/) which are then rendered to HTML and hosted on GitHub, free of cost! 
 
-CCBR has used GitHub pages to provide extensive, legible and origanized documentation for our pipelines. Examples are included below:
+CCBR has used GitHub pages to provide extensive, legible and organized documentation for our pipelines. Examples are included below:
 
 - [CARLISLE](https://ccbr.github.io/CARLISLE/)
 - [Pipeliner](https://ccbr.github.io/pipeliner-docs/)
 - [RNA-seek](https://ccbr.github.io/RNA-seek/)
 
-[`Mkdocs`](https://www.mkdocs.org/) is the with documentation tool prefered, with the [Material](https://squidfunk.github.io/mkdocs-material/getting-started/) theme, for most of the CCBR GitHub Pages websites.
+[`Mkdocs`](https://www.mkdocs.org/) is the with documentation tool preferred, with the [Material](https://squidfunk.github.io/mkdocs-material/getting-started/) theme, for most of the CCBR GitHub Pages websites.
 
 ## Install MkDocs, themes
 
