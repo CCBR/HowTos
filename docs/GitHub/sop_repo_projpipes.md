@@ -1,7 +1,12 @@
 # GitHub Best Practices: Project/Pipeline Repository Management
 
-Users should follow the [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/setup_repo/) information provided to learn more about where and how to create a new repository, before following the management best practices below.
-
+Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
+    - [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
+    - [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
+    - [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
+    - [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
+    - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
+    
 ## Security settings
 
 - Two members of CCBR (creator and one manager) should be granted full administrative priveleges to the repository to ensure the source code can be accessed by other members, as needed

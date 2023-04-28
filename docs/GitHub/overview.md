@@ -8,7 +8,7 @@
 ## Basic Requirements
 3. [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/setup_repo/):
     - Provides information on how to setup a GitHub repository under CCBR and the use of templates
-4. [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
+4. [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs):
     - Provides information on how to setup documentation under your repository; provided with all template repos
 5. [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/):
     - Provides information for using GitHub Actions under your repository; provided with all template repos
