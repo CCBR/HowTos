@@ -1,6 +1,7 @@
 # GitHub Best Practices: TechDev Repository Management
 
 Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
+
     - [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
     - [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
     - [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
