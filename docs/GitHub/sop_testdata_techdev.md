@@ -1,16 +1,15 @@
 # GitHub Best Practices: TechDev Test Data
 
 The following information is meant to outline test_data requirements, however, should be altered to fit the needs of the specific techdev developed.
-
-    - [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-    - [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
-    - [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-    - [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
-    - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
-    - Repository Management:
-        - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_repo_techdev/)
-    - Documentation:
-        - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_doc_techdev/)
+- [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
+- [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
+- [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
+- [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
+- [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
+- Repository Management:
+    - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_repo_techdev/)
+- Documentation:
+    - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_doc_techdev/)
 
 ## Requirements
 
