@@ -2,7 +2,7 @@
 
 ## Repository Location
 
-- All CCBR developed pipelines should be created under [CCBR's GitHub Org Account](https://github.com/CCBR/).
+All CCBR developed pipelines, and techdev efforts should be created under [CCBR's GitHub Org Account](https://github.com/CCBR/) and all CCBR team members should have a minimal of read-only permission to the repository.
 
 ## Use of CookieCutter Templates
 
@@ -10,6 +10,8 @@
     - NextFlow Pipelines: https://github.com/CCBR/CCBR_NextflowPipelineCookiecutter
     - Snakemake Pipelines: https://github.com/CCBR/CCBR_SnakemakePipelineCookiecutter
     - TechDev Projects: https://github.com/CCBR/CCBR_CCBRTechDevCookieCutter
+
+> Note: The above cookiecutters templates are themselves under active development! As we continue building a multitude of analysis pipelines, we keep expanding on the list of "commonalities" between these analysis pipelines which need to be added to the template itself. Hence, templates are updated from time-to-time.
 
 ## Creating a new repository
 To create a new repository on Github using [gh cli](https://cli.github.com/), you can run the following command on [Biowulf](https://hpc.nih.gov) after you update the new repository name (`<ADD NEW REPO NAME>`) and the repository description (`<ADD REPO DESCRIPTION>`) commands below. 
