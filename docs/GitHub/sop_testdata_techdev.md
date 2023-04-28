@@ -1,6 +1,7 @@
 # GitHub Best Practices: TechDev Test Data
 
 The following information is meant to outline test_data requirements, however, should be altered to fit the needs of the specific techdev developed.
+
     - [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
     - [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
     - [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
@@ -16,7 +17,7 @@ The following information is meant to outline test_data requirements, however, s
 1. Location of data
     - Test data sets should be stored within a `.test` directory, as found in all cookiecutter templates. 
 2. Documentation
-    - Review information on the [documentation](https://ccbr.github.io/HowTos/GitHub/sop_doc_techdev/) page, which will provide basic information on test data used within the project/pipeline.
+    - Review information on the [documentation](https://ccbr.github.io/HowTos/GitHub/sop_docs_techdev/) page, which will provide basic information on test data used within the project/pipeline.
     - A README file should be created under the `.test` directory, to include the following information:
         - Date of implementation
         - Information on species (IE Homo Sapiens) and data type (IE RNA-Seq)
