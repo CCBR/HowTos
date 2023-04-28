@@ -30,6 +30,7 @@ Users should follow these links to learn more about setting up the repository, b
 - We encourage the use of the [Git Flow tools](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for some actions, available on Biowulf (module load gitflow). Our current branching strategy is based off of the Git Flow strategy shown below :
 
 ![](../images/gitmodel.png)
+ref:https://nvie.com/posts/a-successful-git-branching-model/
 
 1.  Master (named main or master)
     - branch that contains the current release / tagged version of the pipeline
