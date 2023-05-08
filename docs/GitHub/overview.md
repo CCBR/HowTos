@@ -14,12 +14,5 @@
     - Provides information for using GitHub Actions under your repository; provided with all template repos
 
 ## Best Practices
-6. Repository Management:
-    - [CCBR Projects, new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_repo_projpipes/)
-    - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_repo_techdev/)
-7. Documentation:
-    - [new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_docs_projpipes/)
-    - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_docs_techdev/)
-8. Test Data:
-    - [new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_testdata_projpipes/)
-    - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_testdata_techdev/)
+6. [CCBR Projects, new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_projpipes/)
+7. [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_techdev/)

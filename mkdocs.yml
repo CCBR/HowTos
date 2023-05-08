@@ -107,15 +107,10 @@ nav:
       - Creating your Documentation: GitHub/basic_docs.md
       - Creating GitHub Actions: GitHub/basic_actions.md
     - Best Practices:
-      - Repo Management: 
-        - Projects,Pipelines: GitHub/sop_repo_projpipes.md
-        - TechDev: GitHub/sop_repo_techdev.md
-      - Documentation: 
-        - Projects,Pipelines: GitHub/sop_docs_projpipes.md
-        - TechDev: GitHub/sop_docs_techdev.md
-      - Test Data: 
-        - Projects,Pipelines: GitHub/sop_testdata_projpipes.md
-        - TechDev: GitHub/sop_testdata_techdev.md
+      - Projects,Pipelines: GitHub/sop_projpipes.md
+      - TechDev: GitHub/sop_techdev.md
+  TechDev:
+    Best Practices: GitHub/sop_techdev.md
   - HPCDME :
     - Setup : HPCDME/setup.md
     - Biowulf2HPCDME: HPCDME/transfer.md
