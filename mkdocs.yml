@@ -109,7 +109,7 @@ nav:
     - Best Practices:
       - Projects,Pipelines: GitHub/sop_projpipes.md
       - TechDev: GitHub/sop_techdev.md
-  TechDev:
+  - TechDev:
     - Best Practices: GitHub/sop_techdev.md
   - HPCDME :
     - Setup : HPCDME/setup.md
