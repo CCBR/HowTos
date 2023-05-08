@@ -110,7 +110,7 @@ nav:
       - Projects,Pipelines: GitHub/sop_projpipes.md
       - TechDev: GitHub/sop_techdev.md
   TechDev:
-    Best Practices: GitHub/sop_techdev.md
+    - Best Practices: GitHub/sop_techdev.md
   - HPCDME :
     - Setup : HPCDME/setup.md
     - Biowulf2HPCDME: HPCDME/transfer.md
