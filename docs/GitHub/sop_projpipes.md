@@ -1,12 +1,11 @@
 # GitHub Best Practices: Projects and Pipelines
 - Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
+
     - [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
     - [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
-    - [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
+    - [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/basic_repo/)
     - [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
-    - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
-    - Repository Management:
-        - [CCBR Projects, new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_repo_projpipes/)
+    - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/)
 
 ## Pipeline Documentation
 - All pipelines should provide users with documentation for usage, test data, expected outputs, and troubleshooting information. [Mkdocs](https://www.mkdocs.org/) is the recommended tool to perform this action, however, other tools may be utilized. The cookiecutter template's ([NextFlow](https://github.com/CCBR/CCBR_NextflowPipelineCookiecutter), [Snakemake](https://github.com/CCBR/CCBR_SnakemakePipelineCookiecutter)) were written for mkdocs, and provide basic yaml markdown files provided for this use. They should be edited according to the pipelines function and user needs. Examples of the requirements for each page are provided in the cookiecutter templates.
@@ -73,11 +72,11 @@ ref:https://nvie.com/posts/a-successful-git-branching-model/
 1.  Master (named main or master)
     - branch that contains the current release / tagged version of the pipeline
     - merges from Dev branch or hotfix branch allowed
-    - merges require actions_master_branch `pass` from GitHub actions. See [GitHub actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/) #4 for more information testing requirements for merge
+    - merges require actions_master_branch `pass` from GitHub actions. See [GitHub actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/) #4 for more information testing requirements for merge
 2. Develop (named dev or activeDev)
     - branch that contains current dev
     - merges from feature branch allowed
-    - merges require actions_dev_branch `pass` from GitHub actions. See [GitHub actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/) #3 for more information testing requirements for merge
+    - merges require actions_dev_branch `pass` from GitHub actions. See [GitHub actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/) #3 for more information testing requirements for merge
 3. Feature (named feature/unique_feature_name)
     - branch to develop new features that branches off the develop branch
     - recommended usages of `git flow feature start unique_feature_name` followed by `git flow feature publish unique_feature_name`
@@ -127,7 +126,7 @@ The following information is meant to outline test_data requirements for all pip
 1. Location of data
     - Test data sets should be stored within a `.test` directory, as found in all cookiecutter templates. 
 2. Documentation
-    - Review information on the [documentation](https://ccbr.github.io/HowTos/GitHub/sop_docs_techdev/) page, which will provide basic information on test data used within the project/pipeline.
+    - Review information on the [documentation](https://ccbr.github.io/HowTos/GitHub/basic_docs/) page, which will provide basic information on test data used within the project/pipeline.
     - A README file should be created under the `.test` directory, to include the following information:
         - Date of implementation
         - Information on species (IE Homo Sapiens) and data type (IE RNA-Seq)
