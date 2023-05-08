@@ -1,7 +1,4 @@
 # GitHub Best Practices: Projects and Pipelines
-
-## Pipeline Documentation
-
 - Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
     - [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
     - [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
@@ -10,6 +7,8 @@
     - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
     - Repository Management:
         - [CCBR Projects, new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_repo_projpipes/)
+
+## Pipeline Documentation
 - All pipelines should provide users with documentation for usage, test data, expected outputs, and troubleshooting information. [Mkdocs](https://www.mkdocs.org/) is the recommended tool to perform this action, however, other tools may be utilized. The cookiecutter template's ([NextFlow](https://github.com/CCBR/CCBR_NextflowPipelineCookiecutter), [Snakemake](https://github.com/CCBR/CCBR_SnakemakePipelineCookiecutter)) were written for mkdocs, and provide basic yaml markdown files provided for this use. They should be edited according to the pipelines function and user needs. Examples of the requirements for each page are provided in the cookiecutter templates.
 
     1. Background
@@ -46,14 +45,6 @@
             - Review outputs
 
 ## Repository Management
-
-Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
-
-- [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-- [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
-- [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-- [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
-- [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
 
 ## Security settings
 
@@ -130,16 +121,6 @@ ref:https://nvie.com/posts/a-successful-git-branching-model/
 ## Pipelines Test Data
 
 The following information is meant to outline test_data requirements for all pipelines, however, should be altered to fit the needs of the specific pipeline or project developed.
-
-- [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-- [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
-- [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-- [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
-- [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
-- Repository Management:
-    - [CCBR Projects, new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_repo_projpipes/)
-- Documentation:
-    - [new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_doc_projpipes/)
 
 ### Requirements
 

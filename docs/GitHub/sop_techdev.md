@@ -1,7 +1,4 @@
 # GitHub Best Practices
-
-## TechDev Documentation
-
 - Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
     - [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
     - [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
@@ -10,6 +7,9 @@
     - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
     - Repository Management:
         - [Techdev](https://ccbr.github.io/HowTos/GitHub/sop_repo_techdev/)
+
+## TechDev Documentation
+
 - All pipelines should provide users with:
     -  documentation for usage
     -  test data 
@@ -47,13 +47,6 @@
 
 ## TechDev Repository Management
 
-Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
-- [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-- [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
-- [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-- [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
-- [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
-
 ### Security settings
 
 - Two members of CCBR (creator and one manager) should be granted full administrative privileges to the repository to ensure the source code can be accessed by other members, as needed
@@ -86,18 +79,6 @@ Users should follow these links to learn more about setting up the repository, b
     - merges require actions_dev_branch `pass` from GitHub actions. See [GitHub actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/) #3 for more information testing requirements for merge
 
 ## TechDev Test Data
-
-The following information is meant to outline test_data requirements, however, should be altered to fit the needs of the specific techdev developed.
-    
-- [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-- [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
-- [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-- [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
-- [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/sop_actions/)
-- Repository Management:
-    - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_repo_techdev/)
-- Documentation:
-    - [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_doc_techdev/)
 
 ### Requirements
 
