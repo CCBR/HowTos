@@ -1,14 +1,12 @@
-How To Guides, Best Practices and Tutorial Pages:
+This page is designed to share knowledge between analysts within [CCBR](https://bioinformatics.ccr.cancer.gov/ccbr/). 
 
-    - How To: Create UCSC Tracks
-    - How To: Setup HPCDME
+You'll find how-to-guides, best practices and tutorials under the following pages: 
+
     - How To, Best Practices: GitHub, TechDev
-    - How To: Datashare
+    - How To: Setup and use HPCDME
+    - How To: Create UCSC Tracks
+    - How To: Create an R package
+    - How To: use Datashare
     - Tutorials: Snakemake
-
-View the documentation available on our [GitHub Pages](https://ccbr.github.io/HowTos/) website.
-
-<p style="text-align: center;">The DEVIL is in the DETAILS.
-</p>
-
-![](https://i.imgur.com/b0k342o.png)
+    
+This page was created through the [contributions](https://ccbr.github.io/HowTos/contributions/) of several members within [CCBR](https://bioinformatics.ccr.cancer.gov/ccbr/). If you would like to contribute to it's development, please email [Samantha Sevilla](mailto:samantha.sevilla@nih.gov).

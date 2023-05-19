@@ -1,4 +1,5 @@
 The following individuals were the main contributors to these HowTo manuals:
+
 - GitHub: [Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)
 - TechDev: [Samantha Sevilla](https://github.com/slsevilla)
 - HPCDME: [Vishal Koparde](https://github.com/kopardev)
