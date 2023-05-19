@@ -1,8 +1,8 @@
 # Project Information
 site_name: CCBR How Tos
-site_author: Vishal Koparde, Ph.D.
+site_author: Vishal Koparde, Ph.D., Samantha Sevilla, PhD.
 site_description: >-
-  The **DEVIL** is in the **DETAILS**. Step-by-step detailed How To Guides for data management and other CCBR-relevant tasks.
+  Step-by-step detailed How To Guides for data management and other CCBR-relevant tasks.
 
 # Repository
 repo_name: CCBR/HowTos
@@ -119,7 +119,12 @@ nav:
     - Creating Inputs: UCSC/creating_inputs.md
     - Creating Tracks Info: UCSC/creating_track_info.md
     - Creating Tracks: UCSC/creating_tracks.md
+  - Creating an R Package:
+    - Set-Up: Rpackage/setup.md
+    - Creating the package: Rpackage/build_pkg.md
+    - Troubleshooting: Rpackage/common_issues.md
   - Other How Tos:
       - Datashare: OtherHowTos/datashare.md
   - Tutorials:
     - Snakemake: Tutorials/snakemake.md
+  - Contributions: contributions.md
