@@ -1,8 +1,6 @@
 # Creating a Conda Package from an R Package
 
-## Common Issues
-
-### Package Dependency Issues
+## Package Dependency Issues
 
 An important consideration for Conda builds is the list of dependencies, specified versions, and compatibility with each of the other dependencies.
 

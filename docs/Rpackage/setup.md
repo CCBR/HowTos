@@ -1,14 +1,12 @@
 # Creating a Conda Package from an R Package
 
-## Conda Setup
-
-### Set up Conda Tools, installation (if needed)
+## Set up Conda Tools, installation (if needed)
 
 - You will first need to set up Conda in order to use the Conda tools for creating your Conda package. 
 
 - The documentation for getting started can be found [here](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html), including installation guidelines.
 
-### Set up Conda cache
+## Set up Conda cache
 
 In a space shared with other users that may use Conda, your personal Conda cache needs to be specified. To edit how your cache is saved perform the following steps:
 
@@ -55,7 +53,7 @@ channels:<br>
   - defaults<br>
 ```
 
-### Check Conda setup
+## Check Conda setup
 
 To check that conda has been setup with the specified paths from `.condarc` start conda:
 

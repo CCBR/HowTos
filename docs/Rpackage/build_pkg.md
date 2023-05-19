@@ -1,6 +1,6 @@
 # Creating a Conda Package from an R Package
 
-## Conda R Package Creation
+## Overview 
 
 To create a package with Conda, you first need to make a new release and tag in the github repo of the R package you would like to create into a Conda Package.
 
@@ -12,7 +12,7 @@ These files should have the same list of dependencies, and the version numbers f
 
 The `DESCRIPTION` file must also be correctly formatted. For more information, see the following [website](https://r-pkgs.org/description.html).
 
-### Download the R package release from Github
+## Download the R package release from Github
 
 To download the most recent release from the most recent tag on Github, activate Conda then use Conda `skeleton` to pull the correct URL. In the example below, replace `$githubURL` with the URL to your R package's github repo.
 
@@ -165,25 +165,22 @@ Here is some examples of a more open setup for these dependencies:
     - r-rlang >=1.1.0
 ```
 
-### Build the Conda package
+## Build the Conda package
 
-<br>
+When the `meta.yaml` has been prepared, you can now build the Conda package. To do so, run the command, replacing 
 
-When the "meta.yaml" has been prepared, you can now build the Conda package. 
-
-To do so, run the command:
+- `$r-package` with the name of the R package folder that was created after running conda skeleton (the folder where the meta.yaml is located).
+- `$build_log_name.log` with the name for the log file, such as the date, time, and initials.
 
 ```
 conda-build $r-package 2>&1|tee $build_log_name.log
 ```
 
-Replace $r-package with the name of the R package folder that was created after running conda skeleton (the folder where the meta.yaml is located).
+**Example** 
+```
+conda-build r-dspworkflow 2>&1|tee 05_12_23_330_nc.log
 
-*Example:* r-dspworkflow
-
-Replace $build_log_name.log with the name for the log file, such as the date, time, and initials.
-
-*Example:* 05_12_23_330_nc.log
+```
 
 The log file will list how conda has built the package, including what dependencies version numbers and corresponding build strings were used to resolve the conda environment. These dependencies are what we specified in the "meta.yaml" file. The log file will be useful troubleshooting a failed build.
 
