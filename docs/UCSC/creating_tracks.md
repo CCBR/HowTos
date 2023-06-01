@@ -1,3 +1,5 @@
+Biowulf/Helix hosts its own instance of the [UCSC Genome Browser](https://hpcnihapps.cit.nih.gov/genome/) which is behind the NIH firewall.
+
 # Generating New Tracks
 1. Login to VPN
 2. Login to the [UCSC Browser website](https://hpcnihapps.cit.nih.gov/genome/cgi-bin/hgSession)
@@ -29,3 +31,5 @@
 13. This will move the descriptive name entered into the "session name" list
 14. Select the descriptve name, view your track information as saved
 15. Copy the hyperlink for this session and share as needed
+
+> TIP: Unindexed file formats like `bed` and `gtf` take significantly longer to load in the genome Browser and it is recommended to convert them to indexed formats like `bigBed` and `bigWig` prior to adding them to your session.
