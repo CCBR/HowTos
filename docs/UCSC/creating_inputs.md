@@ -2,7 +2,7 @@
 In order to use the genomic broswer features, sample files must be created.
 
 ### Individual sample files
-For individual samples, where peak density is to be observed, bigwig formatted files must be generated. If using the CCBR/CARLISLE pipeline these are automatically generated as outputs of the pipeline (WORKDIR/results/bigwig). If not using this pipeline, example code is provided below for the file generation.
+For individual samples, where peak density is to be observed, bigwig formatted files must be generated. If using the CCBR pipelines these are automatically generated as outputs of the pipeline (`WORKDIR/results/bigwig`). In many cases, scaling or normalization of bigwig is required to visualize multiple samples in comparison with each other. See various [deeptools](https://deeptools.readthedocs.io/en/develop/content/tools/bamCompare.html?highlight=normalizeUsing#read-coverage-normalization-options) options for details/ideas. If not using CCBR pipelines, example code is provided below for the file generation.
 ```
 modue load ucsc
         
@@ -71,5 +71,5 @@ Once the links have been generated, the data folder must be open to read and wri
 link_loc="/SHAREDDIR/bigbed/"
 
 # open dir
-chmod -R 777 $link_loc
+chmod -R a+rX $link_loc
 ```

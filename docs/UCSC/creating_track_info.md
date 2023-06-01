@@ -9,6 +9,13 @@ track type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwi
 
 Users may find it helpful to create a single script which would create this text file for all samples. An example of this is listed below, which assumes that input files were generated using the CARLISLE pipeline. It can be edited to adapt to other output files, as needed.
 
+Generally, each "track" line should have at least the following key value pairs:
+- name : label for the track
+- description : defines the center lable displayed
+- type : BAM, BED, bigBed, bigWig, etc.
+- bigDataUrl : URL of the data file
+- for other options see [here](https://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html)
+
 ## Inputs
 - samples_list.txt: a single column text file with sampleID's
 - track_dir: path to the linked files
