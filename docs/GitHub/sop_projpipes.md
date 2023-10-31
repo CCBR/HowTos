@@ -8,7 +8,7 @@
     - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/)
 
 ## Pipeline Documentation
-- All pipelines should provide users with documentation for usage, test data, expected outputs, and troubleshooting information. [Mkdocs](https://www.mkdocs.org/) is the recommended tool to perform this action, however, other tools may be utilized. The cookiecutter template's ([NextFlow](https://github.com/CCBR/CCBR_NextflowPipelineCookiecutter), [Snakemake](https://github.com/CCBR/CCBR_SnakemakePipelineCookiecutter)) were written for mkdocs, and provide basic yaml markdown files provided for this use. They should be edited according to the pipelines function and user needs. Examples of the requirements for each page are provided in the cookiecutter templates.
+- All pipelines should provide users with documentation for usage, test data, expected outputs, and troubleshooting information. [Mkdocs](https://www.mkdocs.org/) is the recommended tool to perform this action, however, other tools may be utilized. The template's ([NextFlow](https://github.com/CCBR/CCBR_NextflowTemplate), [Snakemake](https://github.com/CCBR/CCBR_SnakemakeTemplate)) were written for mkdocs, and provide basic yaml markdown files provided for this use. They should be edited according to the pipelines function and user needs. Examples of the requirements for each page are provided in the templates.
 
     1. Background
         - Information on who the pipeline was developed for, and a statement if it's only been tested on Biowulf. 
@@ -47,7 +47,7 @@
 
 ## Security settings
 
-- Two members of CCBR (creator and one manager) should be granted full administrative priveleges to the repository to ensure the source code can be accessed by other members, as needed
+- Two members of CCBR (creator and one manager) should be granted full administrative privileges to the repository to ensure the source code can be accessed by other members, as needed
 - Both the develop and master branch must be protected (IE have to have a PR to be changed) 
 
 ### CCBR Branch Strategy
@@ -124,7 +124,7 @@ The following information is meant to outline test_data requirements for all pip
 ### Requirements
 
 1. Location of data
-    - Test data sets should be stored within a `.test` directory, as found in all cookiecutter templates. 
+    - Test data sets should be stored within a `.test` directory, as found in all templates. 
 2. Documentation
     - Review information on the [documentation](https://ccbr.github.io/HowTos/GitHub/basic_docs/) page, which will provide basic information on test data used within the project/pipeline.
     - A README file should be created under the `.test` directory, to include the following information:
@@ -135,5 +135,9 @@ The following information is meant to outline test_data requirements for all pip
         - The source of the files
         - Link to scripts used in created the partial test data
 3. Choosing a test data set
-    - At a minimum three test sets should be available: 1) Should include sub-sampled inputs, to test the pipelines functionality, and to be used as the tutorial `test set`. 2) Should include full-sample inputs, of high quality, to test the robustness of the pipelines resources 3) Should include full-sample inputs, of expected project-level quality, to test the robustness of the pipelines error handling
+    - At a minimum three test sets should be available: 
+        
+        1) Should include sub-sampled inputs, to test the pipelines functionality, and to be used as the tutorial `test set`. 
+        2) Should include full-sample inputs, of high quality, to test the robustness of the pipelines resources 
+        3) Should include full-sample inputs, of expected project-level quality, to test the robustness of the pipelines error handling
     - Test data should come from a CCBR project or a a publicly available source. Care should be taken when choosing test data sets, to ensure that the robustness of the pipeline will be tested, as well as the ability of the pipeline to handle both high and low quality data. Multiple test sets may need to be created to meet these goals.

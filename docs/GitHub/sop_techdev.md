@@ -15,7 +15,7 @@
     -  expected outputs and reports  
     -  troubleshooting information 
    
-    Markdown pages can be hosted directly within the repo using GH Pages. [Mkdocs](https://www.mkdocs.org/) is the recommended tool to perform this action, however, other tools may be utilized. The cookiecutter templates ([TechDev](https://github.com/CCBR/CCBR_CCBRTechDevCookieCutter)) template's (written for mkdocs) provided have basic yaml markdown files provided for this use, and should be edited according to the pipelines function and user needs. Also, track blockers/hurdles using GitHub Issues.
+    Markdown pages can be hosted directly within the repo using GH Pages. [Mkdocs](https://www.mkdocs.org/) is the recommended tool to perform this action, however, other tools may be utilized. The templates ([TechDev](https://github.com/CCBR/CCBR_CCBRTechDevTemplate)) template's (written for mkdocs) provided have basic yaml markdown files provided for this use, and should be edited according to the pipelines function and user needs. Also, track blockers/hurdles using GitHub Issues.
 
     1. **Overview**
         - Information on the goal of the TechDev project.
@@ -82,7 +82,7 @@
 ### Requirements
 
 1. Location of data
-    - Test data sets should be stored within a `.test` directory, as found in all cookiecutter templates. 
+    - Test data sets should be stored within a `.test` directory, as found in all templates. 
 2. Documentation
     - Review information on the [documentation](https://ccbr.github.io/HowTos/GitHub/basic_docs/) page, which will provide basic information on test data used within the project/pipeline.
     - A README file should be created under the `.test` directory, to include the following information:

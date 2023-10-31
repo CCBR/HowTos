@@ -6,12 +6,12 @@ All CCBR developed pipelines, and techdev efforts should be created under [CCBR'
 
 ## Use of CookieCutter Templates
 
-- All CCBR developed pipelines should be created from the appropriate cookiecutter template:
-    - NextFlow Pipelines: https://github.com/CCBR/CCBR_NextflowPipelineCookiecutter
-    - Snakemake Pipelines: https://github.com/CCBR/CCBR_SnakemakePipelineCookiecutter
-    - TechDev Projects: https://github.com/CCBR/CCBR_CCBRTechDevCookieCutter
+- All CCBR developed pipelines should be created from the appropriate templates:
+    - Nextflow Pipelines: https://github.com/CCBR/CCBR_NextflowTemplate
+    - Snakemake Pipelines: https://github.com/CCBR/CCBR_SnakemakeTemplate
+    - TechDev Projects: https://github.com/CCBR/CCBR_TechDevTemplate
 
-> Note: The above cookiecutters templates are themselves under active development! As we continue building a multitude of analysis pipelines, we keep expanding on the list of "commonalities" between these analysis pipelines which need to be added to the template itself. Hence, templates are updated from time-to-time.
+> Note: The above templates are themselves under active development! As we continue building a multitude of analysis pipelines, we keep expanding on the list of "commonalities" between these analysis pipelines which need to be added to the template itself. Hence, templates are updated from time-to-time.
 
 ## Creating a new repository
 To create a new repository on Github using [gh cli](https://cli.github.com/), you can run the following command on [Biowulf](https://hpc.nih.gov) after you update the new repository name (`<ADD NEW REPO NAME>`) and the repository description (`<ADD REPO DESCRIPTION>`) commands below. 
@@ -26,7 +26,14 @@ Naming Nomenclature:
 ### 1) Creating a new project OR new pipeline repository
 ```bash
 gh repo create CCBR/<ADD NEW REPO NAME> \
---template CCBR/CCBR_SnakemakePipelineCookiecutter \
+--template CCBR/CCBR_NextflowTemplate \
+--description "<ADD REPO DESCRIPTION>" \
+--public \
+--confirm
+```
+```bash
+gh repo create CCBR/<ADD NEW REPO NAME> \
+--template CCBR/CCBR_SnakemakeTemplate \
 --description "<ADD REPO DESCRIPTION>" \
 --public \
 --confirm
@@ -35,12 +42,11 @@ gh repo create CCBR/<ADD NEW REPO NAME> \
 ### 2) Creating a new techDev
 ```bash
 gh repo create CCBR/techdev_<ADD NEW REPO NAME> \
---template CCBR/CCBR_CCBRTechDevCookieCutter \
+--template CCBR/CCBR_TechDevTemplate \
 --description "<ADD REPO DESCRIPTION>" \
 --public \
 --confirm
 ```
-
 
 Once the repo is created, then you can clone a local copy of the new repository:
 

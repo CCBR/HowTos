@@ -1,4 +1,3 @@
-
 # GitHub HowTo: Basic Functions
 The following outlines basic GitHub function to `push` and `pull` from your repository. It also includes information on creating a new branch and deleting a branch. These commands should be used in line with guidance on [GitHub Repo Management](https://ccbr.github.io/HowTos/GitHub/sop_repo/).
 
