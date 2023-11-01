@@ -106,7 +106,7 @@ nav:
       - Creating your GitHub Repo: GitHub/basic_repo.md
       - Creating your Documentation: GitHub/basic_docs.md
       - Creating GitHub Actions: GitHub/basic_actions.md
-      - Using Pre-Commit: Github/howto_precommit.md
+      - Using Pre-Commit: GitHub/howto_precommit.md
     - Best Practices:
       - Projects,Pipelines: GitHub/sop_projpipes.md
       - TechDev: GitHub/sop_techdev.md
