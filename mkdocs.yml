@@ -126,6 +126,7 @@ nav:
     - Troubleshooting: Rpackage/common_issues.md
   - Other How Tos:
       - Datashare: OtherHowTos/datashare.md
+      - Zenodo: OtherHowTos/zenodo.md
   - Tutorials:
     - Snakemake: Tutorials/snakemake.md
   - Contributions: contributions.md
