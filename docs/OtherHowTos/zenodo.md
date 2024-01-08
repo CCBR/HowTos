@@ -12,7 +12,8 @@ The GitHub repository should include the following:
 
 1. README page
 2. Documentation page, such as mkdocs, with usage and contact information
-3. Tagged and versioned, stable repository
+3. A citation `CITATION.cff`; [Example here](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff)
+4. Tagged and versioned, stable repository
 
 ## Link GitHub account to Zenodo
 
@@ -52,10 +53,6 @@ The GitHub repository should include the following:
     - Publisher: Zenodo
     - Related works: "Is original form of" "github website" URL 
 
-4. Select the Zenodo release
-
-- Scroll to the bottom right, under `Export`, select `Citation File Format` and `Export`.
-
 ## Add DOI, citation to GitHub
 
 1. Go to [Zenodo](https://zenodo.org/)
@@ -68,6 +65,6 @@ The GitHub repository should include the following:
 
 5. Return to the GitHub repository and edit the `README` of the GitHub repo, adding the DOI link.
 
-6. Create a new file `CITATION.cff`. Paste the exported `cff` file. 
+6. Update the `CITATION.cff` as needed.
 
 7. Create a new tagged version. 
