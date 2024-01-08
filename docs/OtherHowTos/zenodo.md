@@ -42,15 +42,15 @@ The GitHub repository should include the following:
 
 3. Update the following information:
 
-- Resource Type: Software
-- Title: Full Pipeline Name (ShorthandName) (IE Mouse nEoanTigen pRedictOr (METRO)
-- Creators: Add creators, including ORCID's whenever possible
-- Description: A short description of the main features of the pipeline
-- Additional Description: If you use this software, please cite it as below.
-- Keywords and subjects: Add several keywords related to the pipeline
-- Version: add the version used in GitHub
-- Publisher: Zenodo
-- Related works: "Is original form of" "github website" URL 
+    - Resource Type: Software
+    - Title: Full Pipeline Name (ShorthandName) (IE Mouse nEoanTigen pRedictOr (METRO)
+    - Creators: Add creators, including ORCID's whenever possible
+    - Description: A short description of the main features of the pipeline
+    - Additional Description: If you use this software, please cite it as below.
+    - Keywords and subjects: Add several keywords related to the pipeline
+    - Version: add the version used in GitHub
+    - Publisher: Zenodo
+    - Related works: "Is original form of" "github website" URL 
 
 4. Select the Zenodo release
 
