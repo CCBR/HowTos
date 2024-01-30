@@ -90,7 +90,6 @@ However, if you're updating an established repository, you may need to add some 
     The Pull Request template file helps developers and collaborators remember to write descriptive PR comments, link any relevant issues that the PR resolves, write unit tests, update the docs, and update the changelog.
     You can customize the Checklist in the template depending on the needs of the repo.
 
-
 - [Issue templates](https://github.com/CCBR/CCBR_NextflowTemplate/tree/main/.github/ISSUE_TEMPLATE) (optional)
 
     Issue templates help users know how they can best communicate with maintainers to report bugs and request new features. These are helpful but not required.
@@ -98,3 +97,8 @@ However, if you're updating an established repository, you may need to add some 
     - [`.github/ISSUE_TEMPLATE/bug_report.yml`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.github/ISSUE_TEMPLATE/bug_report.yml)
     - [`.github/ISSUE_TEMPLATE/config.yml`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.github/ISSUE_TEMPLATE/config.yml)
     - [`.github/ISSUE_TEMPLATE/feature_request.yml`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.github/ISSUE_TEMPLATE/feature_request.yml)
+
+- [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/)
+
+    GitHub Actions are automated workflows that run on GitHub's servers to execute unit tests, render documentation, build docker containers, etc. 
+    Most Actions need to be customized for each repo. Learn more about them [here](https://ccbr.github.io/HowTos/GitHub/basic_actions/).
