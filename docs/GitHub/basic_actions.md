@@ -19,3 +19,8 @@ The following describe the minimum GitHub actions that should be deployed with a
 
 5. Auto pull/push from source (if applicable for CCBR projects and new pipelines)
     - If the pipeline is forked from another location and updating this forked pipeline is required, an action will automatically perform a pull from the source location at least once a week.
+
+6. Add assigned issues & PRs to user projects.
+
+    When an issue or PR is assigned to a CCBR member, this action will automatically add it to their personal GitHub Project, if they have one.
+    This file can be copy and pasted exactly as-is into any CCBR repo from [here](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.github/workflows/projects.yml).
