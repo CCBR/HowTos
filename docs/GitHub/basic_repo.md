@@ -53,3 +53,52 @@ Once the repo is created, then you can clone a local copy of the new repository:
 ```bash
 gh repo clone CCBR/<reponame>.git
 ```
+
+## Minimal helper components
+
+If you start from one of the above templates, you'll have these files already.
+However, if you're updating an established repository, you may need to add some of these manually.
+
+- [`CHANGELOG.md`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CHANGELOG.md)
+    
+    The changelog file should be at the top level of your repo. One exception is if your repo is an R package, it should be called [`NEWS.md`](https://r-pkgs.org/other-markdown.html#sec-news) instead. You can see an example changelog of a pipeline in active development [here](https://github.com/CCBR/CHAMPAGNE/blob/main/CHANGELOG.md).
+
+- [`VERSION`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/VERSION)
+
+    The version file should be at the top level of your repo. If your repo is a **Python package**, it can be at at the package root instead, e.g. `src/pkg/VERSION`. If your repo is an **R package**, the version should be inside the [`DESCRIPTION`](https://r-pkgs.org/description.html) file instead.
+    Every time a PR is opened, the PR owner should add a line to the changelog to describe any user-facing changes such as new features added, bugs fixed, documentation updates, or performance improvements.
+
+    You will also need a CLI command to print the version. The implementation will be different depending on your repo's language and structure.
+
+- [`CITATION.cff`]((https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff))
+
+    The citation file must be at the top level of your repo. See template [here](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff).
+
+    You will also need a CLI command to print the citation. The implementation will be different depending on your repo's language and structure.
+
+- Pre-commit config files
+
+    Pre-commit hooks provide an automated way to style code, draw attention to typos, and validate commit messages. Learn more about pre-commit [here](https://ccbr.github.io/HowTos/GitHub/howto_precommit/).
+    These files can be customized depending on the needs of the repo. For example, you don't need the hook for formatting R code if your repo does not and will never contain any R code.
+
+    - [`.pre-commit-config.yaml`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.pre-commit-config.yaml)
+    - [`.pretterignore`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.prettierignore)
+    - [`.prettierrc`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.prettierrc)
+
+- [`.github/PULL_REQUEST_TEMPLATE.md`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
+
+    The Pull Request template file helps developers and collaborators remember to write descriptive PR comments, link any relevant issues that the PR resolves, write unit tests, update the docs, and update the changelog.
+    You can customize the Checklist in the template depending on the needs of the repo.
+
+- [Issue templates](https://github.com/CCBR/CCBR_NextflowTemplate/tree/main/.github/ISSUE_TEMPLATE) (optional)
+
+    Issue templates help users know how they can best communicate with maintainers to report bugs and request new features. These are helpful but not required.
+
+    - [`.github/ISSUE_TEMPLATE/bug_report.yml`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.github/ISSUE_TEMPLATE/bug_report.yml)
+    - [`.github/ISSUE_TEMPLATE/config.yml`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.github/ISSUE_TEMPLATE/config.yml)
+    - [`.github/ISSUE_TEMPLATE/feature_request.yml`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.github/ISSUE_TEMPLATE/feature_request.yml)
+
+- [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/)
+
+    GitHub Actions are automated workflows that run on GitHub's servers to execute unit tests, render documentation, build docker containers, etc. 
+    Most Actions need to be customized for each repo. Learn more about them [here](https://ccbr.github.io/HowTos/GitHub/basic_actions/).
