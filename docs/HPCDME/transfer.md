@@ -103,7 +103,7 @@ v2.0.2-dev
 
 ```bash
 parkit_folder2hpcdme --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --dest /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER --projectdesc "some_description" --projecttitle "some_title" --makereadme --hpcdmutilspath $HPC_DM_UTILS --executor local
-````
+```
 
 <details>
   <summary></summary>
