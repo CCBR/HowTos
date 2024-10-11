@@ -37,7 +37,7 @@ Rawdata or Project folders from Biowulf can be parked at a secure location after
 parkit_folder2hpcdme --help
 ```
 <details>
-  <summary></summary>
+  <summary><em>Expected sample output</em></summary>
 
 ```bash
 usage: parkit_folder2hpcdme [-h] [--restartfrom RESTARTFROM] [--executor EXECUTOR] [--folder FOLDER] [--dest DEST]
@@ -92,7 +92,7 @@ parkit --version
 ```
 
 <details>
-  <summary></summary>
+  <summary><em>Expected sample output</em></summary>
 
 ```bash
 v2.0.2-dev
@@ -106,7 +106,7 @@ parkit_folder2hpcdme --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --dest /CC
 ```
 
 <details>
-  <summary></summary>
+  <summary><em>Expected sample output</em></summary>
 
 ```bash
 ################ Running createtar #############################
@@ -161,7 +161,7 @@ dm_delete_collection -r /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER
 ```
 
 <details>
-  <summary></summary>
+  <summary><em>Expected sample output</em></summary>
 
 ```bash
 Reading properties from /data/kopardevn/GitRepos/HPC_DME_APIs/utils/hpcdme.properties
