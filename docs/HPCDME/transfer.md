@@ -1,199 +1,183 @@
-### Background
+<!-- TOC -->
 
-Rawdata or Project folders from Biowulf can be parked at a secure location after the analysis has reached a endpoint. Traditionally, CCBR analysts had access to the GridFTP Globus Archive for doing this. But, this Globus Archive has been running past 95% full lately.
+- [1. Background](#1-background)
+- [2. parkit](#2-parkit)
+  - [2.1. `parkit_folder2hpcdme` usage](#21-parkit_folder2hpcdme-usage)
+  - [2.2. `parkit_folder2hpcdme` testing](#22-parkit_folder2hpcdme-testing)
+    - [get dummy data](#get-dummy-data)
+    - [load conda env](#load-conda-env)
+    - [run `parkit_folder2hpcdme`](#run-parkit_folder2hpcdme)
+    - [verify transfer](#verify-transfer)
+    - [cleanup](#cleanup)
 
-This document outlines how a projects folder can be directly parked on HPCDME as a single "tar.gz" ball. It is assumed that HPC DME API CLUs are already setup as per [these](https://ccbr.github.io/HowTos/HPCDME/setup/) instructions.
+<!-- /TOC -->
 
-Here are the steps:
+###  1. <a name='Background'></a>Background
 
-#### Create tarball
+Rawdata or Project folders from Biowulf can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.
 
-Once you have a list of files that you want to include in the tarball, create the tarball. This may take a while and should be submitted as a slurm job.
+###  2. <a name='parkit'></a>parkit
+
+[**parkit**](https://github.com/CCBR/parkit) is designed to assist analysts in archiving project data from the NIH's Biowulf/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:
+- create tarballs of their data (including `.filelist` and `.md5sum` files), 
+- generate metadata, 
+- create collections on HPC-DME, and 
+- deposit tar files into the system for long-term storage. 
+**parkit** also features comprehensive workflows that support both folder-based and tarball-based archiving. These workflows are integrated with the SLURM job scheduler, enabling efficient execution of archival tasks on the Biowulf HPC cluster. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.
+
+> :exclamation: **NOTE**: HPC DME API CLUs should already be setup as per [these](https://ccbr.github.io/HowTos/HPCDME/setup/) instructions in order to use **parkit**
+
+> :exclamation: **NOTE**: `HPC_DM_UTILS` environment variable should be set to point to the `utils` folder under the `HPC_DME_APIs` repo setup. Please see [these](https://ccbr.github.io/HowTos/HPCDME/setup/#edit-bashrc) instructions.
+
+[`parkit_folder2hpcdme`](https://github.com/CCBR/parkit/blob/master/README.md#parkit_folder2hpcdme) is the preferred **parkit** command to completely archive an entire folder as a tarball on HPCDME using SLURM.
+
+####  2.1. <a name='parkit_folder2hpcdmeusage'></a>`parkit_folder2hpcdme` usage
 
 ```bash
-% cd /data/CCBR/projects
-% du -hs /data/CCBR/projects/ccbr796
-440G	/data/CCBR/projects/ccbr796
-% echo "tar czvf ccbr796.tar.gz /data/CCBR/projects/ccbr796" > do_tar_gz
-% swarm -f do_tar_gz --partition=ccr,norm --time=24:00:00 -t 2 -g 100
-41985209
+parkit_folder2hpcdme --help
+```
+<details>
+  <summary></summary>
+
+```bash
+usage: parkit_folder2hpcdme [-h] [--restartfrom RESTARTFROM] [--executor EXECUTOR] [--folder FOLDER] [--dest DEST]
+                            [--projectdesc PROJECTDESC] [--projecttitle PROJECTTITLE] [--rawdata] [--cleanup] [--makereadme]
+                            --hpcdmutilspath HPCDMUTILSPATH [--version]
+
+End-to-end parkit: Folder 2 HPCDME
+
+options:
+  -h, --help            show this help message and exit
+  --restartfrom RESTARTFROM
+                        if restarting then restart from this step. Options are: createemptycollection, createmetadata, deposittar
+  --executor EXECUTOR   slurm or local
+  --folder FOLDER       project folder to archive
+  --dest DEST           vault collection path (Analysis goes under here!)
+  --projectdesc PROJECTDESC
+                        project description
+  --projecttitle PROJECTTITLE
+                        project title
+  --rawdata             If tarball is rawdata and needs to go under folder Rawdata
+  --cleanup             post transfer step to delete local files
+  --makereadme          make readme file with destination location on vault
+  --hpcdmutilspath HPCDMUTILSPATH
+                        what should be the value of env var HPC_DM_UTILS
+  --version             print version
 ```
 
-#### Create filelist
+</details>
 
-Sometime you just want to know what files are in the tarball. Hence, it is important to upload a filelist along with the tarball.
+####  2.2. <a name='parkit_folder2hpcdmetest'></a>`parkit_folder2hpcdme` testing
+
+##### get dummy data
 
 ```bash
-% tar tzvf ccbr796.tar.gz > ccbr796.tar.gz.filelist
+# make a tmp folder
+mkdir -p /data/$USER/parkit_tmp
+# copy dummy project folder into the tmp folder
+cp -r /data/CCBR/projects/CCBR-12345 /data/$USER/parkit_tmp/CCBR-12345-$USER
+# check if HPC_DM_UTILS has been set
+echo $HPC_DM_UTILS
 ```
 
-#### Create Project
-
-If the Project collection does not exist in HPCDME (verify using the web interface), then you may need to create it.
+##### load conda env
 
 ```bash
-% cd /data/kopardevn/SandBox/parkit
-% bash create_empty_project_collection.sh /CCBR_Archive/GRIDFTP/Project_CCBR-796 CCBR-796 CCBR-796
-{
-    "metadataEntries": [
-        {
-         "attribute": "collection_type",
-         "value": "Project"
-        },
-        {
-         "attribute": "project_start_date",
-         "value": "20220616",
-         "dateFormat": "yyyyMMdd"
-        },
-        {
-         "attribute": "access",
-         "value": "Open Access"
-        },
-        {
-         "attribute": "method",
-         "value": "NGS"
-        },
-        {
-         "attribute": "origin",
-         "value": "CCBR"
-        },
-        {
-         "attribute": "project_affiliation",
-         "value": "CCBR"
-        },
-        {
-         "attribute": "project_description",
-         "value": "CCBR-796"
-        },
-        {
-         "attribute": "project_status",
-         "value": "Completed"
-        },
-        {
-         "attribute": "retention_years",
-         "value": "7"
-        },
-        {
-         "attribute": "project_title",
-         "value": "CCBR-796"
-        },
-        {
-         "attribute": "summary_of_samples",
-         "value": "Unknown"
-        },
-        {
-         "attribute": "organism",
-         "value": "Unknown"
-        }
-    ]
-}
-dm_register_collection /dev/shm/Project_CCBR-796.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-796
+# source conda
+. "/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"
+# activate parkit or parkit_dev environment
+conda activate parkit
+# check version of parkit
+parkit --version
 ```
 
-> **Error**: Have encountered this error message:
-> ```bash
-> Error during registration, HTTP_CODE: 503
-> Cannot find the response message file
-> collection-registration-response-message.json.tmp
-> ```
-> 503 error means that the API is down!
-
-#### Create Analysis
-
-If the Analysis collection does not exist in HPCDME (verify using the web interface) under the Project collection, then you may need to create it.
+<details>
+  <summary></summary>
 
 ```bash
-% cd /data/kopardevn/SandBox/parkit
-% bash create_empty_analysis_collection.sh /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis
-dm_register_collection /dev/shm/Analysis.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis
+v2.0.2-dev
+```
+</details>
+
+##### run `parkit_folder2hpcdme`
+
+```bash
+parkit_folder2hpcdme --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --dest /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER --projectdesc "some_description" --projecttitle "some_title" --makereadme --hpcdmutilspath $HPC_DM_UTILS --executor local
+````
+
+<details>
+  <summary></summary>
+
+```bash
+################ Running createtar #############################
+parkit createtar --folder "/data/$USER/parkit_tmp/CCBR-12345-kopardevn"
+tar cvf /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar /data/$USER/parkit_tmp/CCBR-12345-kopardevn > /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar file was created!
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist file was created!
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.md5 file was created!
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist.md5 file was created!
+################################################################
+############ Running createemptycollection ######################
+parkit createemptycollection --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn" --projectdesc "description" --projecttitle "title"
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/995b4648-08c2-44b7-a728-470408cb539a.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn
+cat /dev/shm/995b4648-08c2-44b7-a728-470408cb539a.json && rm -f /dev/shm/995b4648-08c2-44b7-a728-470408cb539a.json
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/f2d4badf-b7e6-4e10-8e93-2df9da6cdbbf.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/f2d4badf-b7e6-4e10-8e93-2df9da6cdbbf.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Rawdata
+cat /dev/shm/f2d4badf-b7e6-4e10-8e93-2df9da6cdbbf.json && rm -f /dev/shm/f2d4badf-b7e6-4e10-8e93-2df9da6cdbbf.json
+################################################################
+########### Running createmetadata ##############################
+parkit createmetadata --tarball "/data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.metadata.json file was created!
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist.metadata.json file was created!
+################################################################
+############# Running deposittar ###############################
+parkit deposittar --tarball "/data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345-kopardevn.tar.filelist /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject_multipart /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345-kopardevn.tar /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar
+################################################################
 ```
 
-Done! Now you have a location ready for the the tarball to be parked.
+</details>
 
-#### Create metadata
+> :exclamation: **NOTE**: change `--executor local` to `--executor slurm` when submitting to SLURM
 
-Using `meta` script from [`pyrkit`](https://github.com/CCBR/pyrkit), we can then generate the required `.metadata.json` file for the tarball. Analysis collection `/CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis` should already exist in the HPCDME vault.
+> :exclamation: **NOTE**: add `--rawdata` when folder contains raw fastqs
+
+##### verify transfer
+
+Transfer can be verified by logging into [HPC DME web interface](https://hpcdmeweb.nci.nih.gov/browse?base).
+
+![alt text](verification.png)
+
+##### cleanup
+
+Delete unwanted collection from HPC DME.
 
 ```bash
-% echo "/data/kopardevn/SandBox/pyrkit/src/meta combined --input /data/CCBR/projects/ccbr796.tar.gz --output /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis" > do_get_metadata
-% swarm -f do_get_metadata --partition=ccr,norm --time=24:00:00 -t 2 -g 100
+# load java
+module load java
+# delete collection recursively
+dm_delete_collection -r /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER
 ```
 
-If the file is large (100s of GB), then this may take a while as the md5sum of the file is being calculated. Hence, this should be submitted to the slurm. 
-
-Metadata also needs to be created for the filelist file. These files are generally small (few MBs) and the following command can be directly run on an interactive node.
-
-```bash
-% /data/kopardevn/SandBox/pyrkit/src/meta combined --input /data/CCBR/projects/ccbr796.tar.gz.filelist --output /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis
-```
-
-The above command, when run sucessfully, will create `/data/CCBR/projects/ccbr796.tar.gz.filelist.metadata.json`
-
-#### Transfer
-
-`dm_register_dataobject` cannot be used for large files (>10GB), but it can be replaced by `dm_register_dataobject_multipart`
+<details>
+  <summary></summary>
 
 ```bash
-% dm_register_dataobject_multipart /data/CCBR/projects/ccbr796.tar.gz.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis/ccbr796.tar.gz /data/CCBR/projects/ccbr796.tar.gz
-Reading properties from /data/kopardevn/SandBox/HPC_DME_APIs/utils/hpcdme.properties
-Registering file: /data/CCBR/projects/ccbr796.tar.gz
-Destination archive path: /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis/ccbr796.tar.gz
+Reading properties from /data/kopardevn/GitRepos/HPC_DME_APIs/utils/hpcdme.properties
+WARNING: You have requested recursive delete of the collection. This will delete all files and sub-collections within it recursively. Are you sure you want to proceed? (Y/N):
+Y
+Would you like to see the list of files to delete ?
+N
+The collection /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn and all files and sub-collections within it will be recursively deleted. Proceed with deletion ? (Y/N):
+Y
+Executing: https://hpcdmeapi.nci.nih.gov:8080/collection
+Wrote results into /data/kopardevn/HPCDMELOG/tmp/getCollections_Records20241010.txt
 Cmd process Completed
-Jun 16, 2022 10:55:25 AM org.springframework.shell.core.AbstractShell handleExecutionResult
+Oct 10, 2024 4:43:09 PM org.springframework.shell.core.AbstractShell handleExecutionResult
 INFO: CLI_SUCCESS
 ```
 
-Depending on the size of the file, this step can be done in a reasonable amount of time (<1hr) and can be run in an interactive node.
+</details>
 
-Remember, the filelist file also needs to be registered separately like this:
-
-```bash
-% dm_register_dataobject /data/CCBR/projects/ccbr796.tar.gz.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis/ccbr796.tar.gz.filelist /data/CCBR/projects/ccbr796.tar.gz.filelist
-```
-
-As filelist files are smaller (few MBs), we can run `dm_register_dataobject` in place of `dm_register_dataobject_multipart`.
-
-#### Cleanup
-
-Once the tarball is successfully transferred over the HPCDME, it can be deleted from the local filesystem.
-
-```bash
-% rm -f /data/CCBR/projects/ccbr796.tar.gz
-```
-
-The contents of the local analysis folder can also be deleted.
-
-```bash
-% cd /data/CCBR/projects/ccbr796 && rm -rf *
-```
-
-A note can be added to the recently emptied folder stating where the contents are currently parked.
-
-```bash
-% cd /data/CCBR/projects/ccbr796
-% echo "This folder was converted to a tarball (tar.gz) and pushed to HPCDME. Its new location is \`/CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis/ccbr796.tar.gz\` in HPCDME" > README.md
-```
-
-Done!
-
-> **NOTE FOR LARGE FILES**: It is recommended by HPCDME staff that files to be transferred should not be too large (1TB or smaller). Hence, if the file to be transferred is larger than 1TB, it should be split into 1TB-size chunks and upload those.
-> Splitting can be done like this:
-> ```bash
-> split -b 1T ccbr796.tar.gz "ccbr796.tar.gz.part_"
-> ```
-> Metadata needs to be individidually created for each of the parts, namely, `ccbr796.tar.gz.part_aa`, `ccbr796.tar.gz.part_ab`, etc 
-> ```bash
-> % /data/kopardevn/SandBox/pyrkit/src/meta combined --input /data/CCBR/projects/ccbr796.tar.gz.part_aa --output /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis
-> % /data/kopardevn/SandBox/pyrkit/src/meta combined --input /data/CCBR/projects/ccbr796.tar.gz.part_ab --output /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis
-> ...
-> ```
-> Next each 1TB part can be registered like so:
-> ```bash
-> % dm_register_dataobject_multipart /data/CCBR/projects/ccbr796.tar.gz.part_aa.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis/ccbr796.tar.gz.part_aa /data/CCBR/projects/ccbr796.tar.gz.part_aa
-> % dm_register_dataobject_multipart /data/CCBR/projects/ccbr796.tar.gz.part_ab.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-796/Analysis/ccbr796.tar.gz.part_ab /data/CCBR/projects/ccbr796.tar.gz.part_ab
-> ...
-> ```
-> Once these files are downloaded then can be joined together using the `cat` command before ungzipping/untaring.
-> ```bash 
-> % cat ccbr796.tar.gz.part_* > ccbr796.tar.gz
-> ``` 
+> :warning: Reach out to [Vishal Koparde](mailto:vishal.koparde@nih.gov) in case you run into issues.
