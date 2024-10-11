@@ -33,6 +33,8 @@ cp hpcdme.properties-sample hpcdme.properties
 
 Some of the parameters in this file have become obsolete over the course of time and are commmented out. Change paths and default values, as needed
 
+> Note: replace `$USER` with your actual username in the properties file. Bash variables will not be interpolated.
+
 ```bash
 #HPC DME Server URL
 #Production server settings
