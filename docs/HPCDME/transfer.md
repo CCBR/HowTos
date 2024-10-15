@@ -2,11 +2,11 @@
 
 - [1. Background](#1-background)
 - [2. parkit](#2-parkit)
-  - [2.1. `parkit_folder2hpcdme` usage](#21-parkit_folder2hpcdme-usage)
-  - [2.2. `parkit_folder2hpcdme` testing](#22-parkit_folder2hpcdme-testing)
+  - [2.1. `projark` usage](#21-projark-usage)
+  - [2.2. `projark` testing](#22-projark-testing)
     - [get dummy data](#get-dummy-data)
     - [load conda env](#load-conda-env)
-    - [run `parkit_folder2hpcdme`](#run-parkit_folder2hpcdme)
+    - [run `projark`](#run-projark)
     - [verify transfer](#verify-transfer)
     - [cleanup](#cleanup)
 
@@ -29,45 +29,37 @@ Rawdata or Project folders from Biowulf can be parked at a secure location after
 
 > :exclamation: **NOTE**: `HPC_DM_UTILS` environment variable should be set to point to the `utils` folder under the `HPC_DME_APIs` repo setup. Please see [these](https://ccbr.github.io/HowTos/HPCDME/setup/#edit-bashrc) instructions.
 
-[`parkit_folder2hpcdme`](https://github.com/CCBR/parkit/blob/master/README.md#parkit_folder2hpcdme) is the preferred **parkit** command to completely archive an entire folder as a tarball on HPCDME using SLURM.
+[`projark`](https://github.com/CCBR/parkit) is the preferred **parkit** command to completely archive an entire folder as a tarball on HPCDME using SLURM.
 
-####  2.1. <a name='parkit_folder2hpcdmeusage'></a>`parkit_folder2hpcdme` usage
+####  2.1. <a name='projarkusage'></a>`projark` usage
 
 ```bash
-parkit_folder2hpcdme --help
+projark --help
 ```
 <details>
   <summary><em>Expected sample output</em></summary>
 
 ```bash
-usage: parkit_folder2hpcdme [-h] [--restartfrom RESTARTFROM] [--executor EXECUTOR] [--folder FOLDER] [--dest DEST]
-                            [--projectdesc PROJECTDESC] [--projecttitle PROJECTTITLE] [--rawdata] [--cleanup] [--makereadme]
-                            --hpcdmutilspath HPCDMUTILSPATH [--version]
+usage: projark [-h] --folder FOLDER --projectnumber PROJECTNUMBER
+               [--executor EXECUTOR] [--rawdata] [--cleanup]
 
-End-to-end parkit: Folder 2 HPCDME
+Wrapper for folder2hpcdme for quick CCBR project archiving!
 
 options:
   -h, --help            show this help message and exit
-  --restartfrom RESTARTFROM
-                        if restarting then restart from this step. Options are: createemptycollection, createmetadata, deposittar
+  --folder FOLDER       Input folder path to archive
+  --projectnumber PROJECTNUMBER
+                        CCBR project number.. destination will be
+                        /CCBR_Archive/GRIDFTP/Project_CCBR-<projectnumber>
   --executor EXECUTOR   slurm or local
-  --folder FOLDER       project folder to archive
-  --dest DEST           vault collection path (Analysis goes under here!)
-  --projectdesc PROJECTDESC
-                        project description
-  --projecttitle PROJECTTITLE
-                        project title
-  --rawdata             If tarball is rawdata and needs to go under folder Rawdata
+  --rawdata             If tarball is rawdata and needs to go under folder
+                        Rawdata
   --cleanup             post transfer step to delete local files
-  --makereadme          make readme file with destination location on vault
-  --hpcdmutilspath HPCDMUTILSPATH
-                        what should be the value of env var HPC_DM_UTILS
-  --version             print version
 ```
 
 </details>
 
-####  2.2. <a name='parkit_folder2hpcdmetest'></a>`parkit_folder2hpcdme` testing
+####  2.2. <a name='projarktest'></a>`projark` testing
 
 ##### get dummy data
 
@@ -89,6 +81,7 @@ echo $HPC_DM_UTILS
 conda activate parkit
 # check version of parkit
 parkit --version
+projark --version
 ```
 
 <details>
@@ -96,50 +89,55 @@ parkit --version
 
 ```bash
 v2.0.2-dev
+projark is using the following parkit version:
+v2.0.2-dev
 ```
 </details>
 
-##### run `parkit_folder2hpcdme`
+##### run `projark`
 
 ```bash
-parkit_folder2hpcdme --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --dest /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER --projectdesc "some_description" --projecttitle "some_title" --makereadme --hpcdmutilspath $HPC_DM_UTILS --executor local
+projark --folder /data/CCBR/projects/CCBR-12345 --projectnumber 12345-$USER --executor local
 ```
 
 <details>
   <summary><em>Expected sample output</em></summary>
 
 ```bash
+SOURCE_CONDA_CMD is set to: . "/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"
+HPC_DM_UTILS is set to: /data/kopardevn/GitRepos/HPC_DME_APIs/utils
+parkit_folder2hpcdme --folder "/data/CCBR/projects/CCBR-12345" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn" --projecttitle "CCBR-12345-kopardevn" --projectdesc "CCBR-12345-kopardevn" --executor "local" --hpcdmutilspath /data/kopardevn/GitRepos/HPC_DME_APIs/utils --makereadme
 ################ Running createtar #############################
-parkit createtar --folder "/data/$USER/parkit_tmp/CCBR-12345-kopardevn"
-tar cvf /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar /data/$USER/parkit_tmp/CCBR-12345-kopardevn > /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist
-createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar file was created!
-createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist file was created!
-createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.md5 file was created!
-createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist.md5 file was created!
+parkit createtar --folder "/data/CCBR/projects/CCBR-12345"
+tar cvf /data/CCBR/projects/CCBR-12345.tar /data/CCBR/projects/CCBR-12345 > /data/CCBR/projects/CCBR-12345.tar.filelist
+createmetadata: /data/CCBR/projects/CCBR-12345.tar file was created!
+createmetadata: /data/CCBR/projects/CCBR-12345.tar.filelist file was created!
+createmetadata: /data/CCBR/projects/CCBR-12345.tar.md5 file was created!
+createmetadata: /data/CCBR/projects/CCBR-12345.tar.filelist.md5 file was created!
 ################################################################
 ############ Running createemptycollection ######################
-parkit createemptycollection --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn" --projectdesc "description" --projecttitle "title"
-module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/995b4648-08c2-44b7-a728-470408cb539a.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn
-cat /dev/shm/995b4648-08c2-44b7-a728-470408cb539a.json && rm -f /dev/shm/995b4648-08c2-44b7-a728-470408cb539a.json
-module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/f2d4badf-b7e6-4e10-8e93-2df9da6cdbbf.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis
-module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/f2d4badf-b7e6-4e10-8e93-2df9da6cdbbf.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Rawdata
-cat /dev/shm/f2d4badf-b7e6-4e10-8e93-2df9da6cdbbf.json && rm -f /dev/shm/f2d4badf-b7e6-4e10-8e93-2df9da6cdbbf.json
+parkit createemptycollection --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn" --projectdesc "CCBR-12345-kopardevn" --projecttitle "CCBR-12345-kopardevn"
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn
+cat /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json && rm -f /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Rawdata
+cat /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json && rm -f /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json
 ################################################################
 ########### Running createmetadata ##############################
-parkit createmetadata --tarball "/data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
-createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.metadata.json file was created!
-createmetadata: /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist.metadata.json file was created!
+parkit createmetadata --tarball "/data/CCBR/projects/CCBR-12345.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
+createmetadata: /data/CCBR/projects/CCBR-12345.tar.metadata.json file was created!
+createmetadata: /data/CCBR/projects/CCBR-12345.tar.filelist.metadata.json file was created!
 ################################################################
 ############# Running deposittar ###############################
-parkit deposittar --tarball "/data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
-module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345-kopardevn.tar.filelist /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.filelist
-module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject_multipart /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345-kopardevn.tar /data/$USER/parkit_tmp/CCBR-12345-kopardevn.tar
+parkit deposittar --tarball "/data/CCBR/projects/CCBR-12345.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject /data/CCBR/projects/CCBR-12345.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar.filelist /data/CCBR/projects/CCBR-12345.tar.filelist
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject_multipart /data/CCBR/projects/CCBR-12345.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar /data/CCBR/projects/CCBR-12345.tar
 ################################################################
 ```
 
 </details>
 
-> :exclamation: **NOTE**: change `--executor local` to `--executor slurm` when submitting to SLURM
+> :exclamation: **NOTE**: remove `--executor local` from the command when running on real data (not test data) to submit jobs through SLURM
 
 > :exclamation: **NOTE**: add `--rawdata` when folder contains raw fastqs
 
@@ -156,6 +154,8 @@ Delete unwanted collection from HPC DME.
 ```bash
 # load java
 module load java
+# load dm_ commands
+source $HPC_DM_UTILS/functions
 # delete collection recursively
 dm_delete_collection -r /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER
 ```
@@ -181,3 +181,6 @@ INFO: CLI_SUCCESS
 </details>
 
 > :warning: Reach out to [Vishal Koparde](mailto:vishal.koparde@nih.gov) in case you run into issues.
+
+
+
