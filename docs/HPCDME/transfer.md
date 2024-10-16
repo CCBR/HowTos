@@ -97,7 +97,7 @@ v2.0.2-dev
 ##### run `projark`
 
 ```bash
-projark --folder /data/CCBR/projects/CCBR-12345 --projectnumber 12345-$USER --executor local
+projark --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --projectnumber 12345-$USER --executor local
 ```
 
 <details>
@@ -106,14 +106,14 @@ projark --folder /data/CCBR/projects/CCBR-12345 --projectnumber 12345-$USER --ex
 ```bash
 SOURCE_CONDA_CMD is set to: . "/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"
 HPC_DM_UTILS is set to: /data/kopardevn/GitRepos/HPC_DME_APIs/utils
-parkit_folder2hpcdme --folder "/data/CCBR/projects/CCBR-12345" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn" --projecttitle "CCBR-12345-kopardevn" --projectdesc "CCBR-12345-kopardevn" --executor "local" --hpcdmutilspath /data/kopardevn/GitRepos/HPC_DME_APIs/utils --makereadme
+parkit_folder2hpcdme --folder "/data/$USER/parkit_tmp/CCBR-12345-$USER" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn" --projecttitle "CCBR-12345-kopardevn" --projectdesc "CCBR-12345-kopardevn" --executor "local" --hpcdmutilspath /data/kopardevn/GitRepos/HPC_DME_APIs/utils --makereadme
 ################ Running createtar #############################
-parkit createtar --folder "/data/CCBR/projects/CCBR-12345"
-tar cvf /data/CCBR/projects/CCBR-12345.tar /data/CCBR/projects/CCBR-12345 > /data/CCBR/projects/CCBR-12345.tar.filelist
-createmetadata: /data/CCBR/projects/CCBR-12345.tar file was created!
-createmetadata: /data/CCBR/projects/CCBR-12345.tar.filelist file was created!
-createmetadata: /data/CCBR/projects/CCBR-12345.tar.md5 file was created!
-createmetadata: /data/CCBR/projects/CCBR-12345.tar.filelist.md5 file was created!
+parkit createtar --folder "/data/$USER/parkit_tmp/CCBR-12345-$USER"
+tar cvf /data/$USER/parkit_tmp/CCBR-12345-$USER.tar /data/$USER/parkit_tmp/CCBR-12345-$USER > /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar file was created!
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist file was created!
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.md5 file was created!
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.md5 file was created!
 ################################################################
 ############ Running createemptycollection ######################
 parkit createemptycollection --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn" --projectdesc "CCBR-12345-kopardevn" --projecttitle "CCBR-12345-kopardevn"
@@ -124,14 +124,14 @@ module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collec
 cat /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json && rm -f /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json
 ################################################################
 ########### Running createmetadata ##############################
-parkit createmetadata --tarball "/data/CCBR/projects/CCBR-12345.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
-createmetadata: /data/CCBR/projects/CCBR-12345.tar.metadata.json file was created!
-createmetadata: /data/CCBR/projects/CCBR-12345.tar.filelist.metadata.json file was created!
+parkit createmetadata --tarball "/data/$USER/parkit_tmp/CCBR-12345-$USER.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json file was created!
+createmetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json file was created!
 ################################################################
 ############# Running deposittar ###############################
-parkit deposittar --tarball "/data/CCBR/projects/CCBR-12345.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
-module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject /data/CCBR/projects/CCBR-12345.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar.filelist /data/CCBR/projects/CCBR-12345.tar.filelist
-module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject_multipart /data/CCBR/projects/CCBR-12345.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar /data/CCBR/projects/CCBR-12345.tar
+parkit deposittar --tarball "/data/$USER/parkit_tmp/CCBR-12345-$USER.tar" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar.filelist /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist
+module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject_multipart /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar /data/$USER/parkit_tmp/CCBR-12345-$USER.tar
 ################################################################
 ```
 
