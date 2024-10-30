@@ -3,9 +3,10 @@
 - [1. Background](#1-background)
 - [2. parkit](#2-parkit)
   - [2.1. `projark` usage](#21-projark-usage)
+    - [load conda env](#load-conda-env)
+    - [`projark` help](#projark-help)
   - [2.2. `projark` testing](#22-projark-testing)
     - [get dummy data](#get-dummy-data)
-    - [load conda env](#load-conda-env)
     - [run `projark`](#run-projark)
     - [verify transfer](#verify-transfer)
     - [cleanup](#cleanup)
@@ -32,6 +33,30 @@ Rawdata or Project folders from Biowulf can be parked at a secure location after
 [`projark`](https://github.com/CCBR/parkit) is the preferred **parkit** command to completely archive an entire folder as a tarball on HPCDME using SLURM.
 
 ####  2.1. <a name='projarkusage'></a>`projark` usage
+
+##### load conda env
+
+```bash
+# source conda
+. "/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"
+# activate parkit or parkit_dev environment
+conda activate parkit
+# check version of parkit
+parkit --version
+projark --version
+```
+
+<details>
+  <summary><em>Expected sample output</em></summary>
+
+```bash
+v2.0.2-dev
+projark is using the following parkit version:
+v2.0.2-dev
+```
+</details>
+
+##### projark help
 
 ```bash
 projark --help
@@ -71,28 +96,6 @@ cp -r /data/CCBR/projects/CCBR-12345 /data/$USER/parkit_tmp/CCBR-12345-$USER
 # check if HPC_DM_UTILS has been set
 echo $HPC_DM_UTILS
 ```
-
-##### load conda env
-
-```bash
-# source conda
-. "/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"
-# activate parkit or parkit_dev environment
-conda activate parkit
-# check version of parkit
-parkit --version
-projark --version
-```
-
-<details>
-  <summary><em>Expected sample output</em></summary>
-
-```bash
-v2.0.2-dev
-projark is using the following parkit version:
-v2.0.2-dev
-```
-</details>
 
 ##### run `projark`
 
