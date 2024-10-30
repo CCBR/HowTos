@@ -33,9 +33,11 @@ cp hpcdme.properties-sample hpcdme.properties
 
 Some of the parameters in this file have become obsolete over the course of time and are commmented out. Change paths and default values, as needed.
 
-> Note: replace `$USER` with your actual username in the properties file. Bash variables will not be interpolated.
->
-> Note: be sure to set the proxy server URL as below (`hpc.server.proxy.url=10.1.200.75`) when running on biowulf/helix.
+**NOTES**
+
+- Replace `$USER` with your actual username in the properties file. Bash variables will not be interpolated.
+- Leave `hpc.ssl.keystore.password=changeit` as-is. `changeit` is not a variable but the actual password for our team.
+- Be sure to set the proxy server URL as below (`hpc.server.proxy.url=10.1.200.75`) when running on biowulf/helix.
 
 ```bash
 #HPC DME Server URL
