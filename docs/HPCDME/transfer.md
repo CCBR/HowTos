@@ -3,9 +3,10 @@
 - [1. Background](#1-background)
 - [2. parkit](#2-parkit)
   - [2.1. `projark` usage](#21-projark-usage)
+    - [load conda env](#load-conda-env)
+    - [`projark` help](#projark-help)
   - [2.2. `projark` testing](#22-projark-testing)
     - [get dummy data](#get-dummy-data)
-    - [load conda env](#load-conda-env)
     - [run `projark`](#run-projark)
     - [verify transfer](#verify-transfer)
     - [cleanup](#cleanup)
@@ -54,6 +55,8 @@ projark is using the following parkit version:
 v2.0.2-dev
 ```
 </details>
+
+##### projark help
 
 ```bash
 projark --help
