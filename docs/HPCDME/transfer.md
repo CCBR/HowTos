@@ -33,6 +33,28 @@ Rawdata or Project folders from Biowulf can be parked at a secure location after
 
 ####  2.1. <a name='projarkusage'></a>`projark` usage
 
+##### load conda env
+
+```bash
+# source conda
+. "/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"
+# activate parkit or parkit_dev environment
+conda activate parkit
+# check version of parkit
+parkit --version
+projark --version
+```
+
+<details>
+  <summary><em>Expected sample output</em></summary>
+
+```bash
+v2.0.2-dev
+projark is using the following parkit version:
+v2.0.2-dev
+```
+</details>
+
 ```bash
 projark --help
 ```
@@ -71,28 +93,6 @@ cp -r /data/CCBR/projects/CCBR-12345 /data/$USER/parkit_tmp/CCBR-12345-$USER
 # check if HPC_DM_UTILS has been set
 echo $HPC_DM_UTILS
 ```
-
-##### load conda env
-
-```bash
-# source conda
-. "/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"
-# activate parkit or parkit_dev environment
-conda activate parkit
-# check version of parkit
-parkit --version
-projark --version
-```
-
-<details>
-  <summary><em>Expected sample output</em></summary>
-
-```bash
-v2.0.2-dev
-projark is using the following parkit version:
-v2.0.2-dev
-```
-</details>
 
 ##### run `projark`
 
