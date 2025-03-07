@@ -115,6 +115,7 @@ nav:
   - HPCDME :
     - Setup : HPCDME/setup.md
     - Biowulf2HPCDME: HPCDME/transfer.md
+    - Helix2HPCDME: HPCDME/transferFromHelix.md
   - UCSC Tracks:
     - Overview: UCSC/overview.md
     - Creating Inputs: UCSC/creating_inputs.md

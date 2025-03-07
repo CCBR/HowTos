@@ -1,36 +1,48 @@
 <!-- TOC -->
 
-- [Background](#background)
-- [parkit](#parkit)
-    - [projark usage](#projark-usage)
-        - [load conda env](#load-conda-env)
-        - [projark help](#projark-help)
-    - [projark testing](#projark-testing)
-        - [get dummy data](#get-dummy-data)
-        - [run projark](#run-projark)
-        - [verify transfer](#verify-transfer)
-        - [cleanup](#cleanup)
+- [1. Background](#1-background)
+- [2. parkit](#2-parkit)
+  - [2.1. `projark` usage](#21-projark-usage)
+    - [load conda env](#load-conda-env)
+    - [projark help](#projark-help)
+  - [2.2. `projark` testing](#22-projark-testing)
+    - [get dummy data](#get-dummy-data)
+    - [run `projark`](#run-projark)
+    - [verify transfer](#verify-transfer)
+    - [cleanup](#cleanup)
 
 <!-- /TOC -->
 
 ###  1. <a name='Background'></a>Background
 
-Rawdata or Project folders from Biowulf can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.
+Rawdata or Project folders from Helix can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.
 
 ###  2. <a name='parkit'></a>parkit
 
-[**parkit**](https://github.com/CCBR/parkit) is designed to assist analysts in archiving project data from the NIH's Biowulf/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:
+[**parkit**](https://github.com/CCBR/parkit) is designed to assist analysts in archiving project data from the NIH's Helix/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:
 - create tarballs of their data (including `.filelist` and `.md5sum` files), 
 - generate metadata, 
 - create collections on HPC-DME, and 
 - deposit tar files into the system for long-term storage. 
-**parkit** also features comprehensive workflows that support both folder-based and tarball-based archiving. These workflows are integrated with the SLURM job scheduler, enabling efficient execution of archival tasks on the Biowulf HPC cluster. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.
+**parkit** also features comprehensive workflows that support both folder-based and tarball-based archiving. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.
 
 > :exclamation: **NOTE**: HPC DME API CLUs should already be setup as per [these](https://ccbr.github.io/HowTos/HPCDME/setup/) instructions in order to use **parkit**
 
 > :exclamation: **NOTE**: `HPC_DM_UTILS` environment variable should be set to point to the `utils` folder under the `HPC_DME_APIs` repo setup. Please see [these](https://ccbr.github.io/HowTos/HPCDME/setup/#edit-bashrc) instructions.
 
-[`projark`](https://github.com/CCBR/parkit) is the preferred **parkit** command to completely archive an entire folder as a tarball on HPCDME using SLURM.
+> :exclamation: **NOTE**: If it has been a few months since you last used HPC_DME_APIs or parkit or projark, then please run the following commands before you start using `parkit` or `projark`: 
+> 
+> `cd $HPC_DM_UTILS`
+> 
+> `git pull` 
+> 
+> `source $HPC_DM_UTILS/functions`
+> 
+> `dm_generate_token`
+
+[`projark`](https://github.com/CCBR/parkit) is the preferred **parkit** command to completely archive an entire folder as a tarball on HPCDME. SLURM is not available on Helix and it could take a few hours to upload large files. Hence, it is recommended to use "tmux" or "screen" command for `projark` to continue running even when you log out of Helix.
+
+> :exclamation: **NOTE**: Run the following commands inside a screen or tmux session.
 
 ####  2.1. <a name='projarkusage'></a>`projark` usage
 
@@ -50,9 +62,9 @@ projark --version
   <summary><em>Expected sample output</em></summary>
 
 ```bash
-v2.0.2-dev
+v2.1.2
 projark is using the following parkit version:
-v2.0.2-dev
+v2.1.2
 ```
 </details>
 
@@ -103,6 +115,8 @@ echo $HPC_DM_UTILS
 projark --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --projectnumber 12345-$USER --executor local
 ```
 
+> :exclamation: **NOTE**: `--executor slurm` will not work on Helix
+
 <details>
   <summary><em>Expected sample output</em></summary>
 
@@ -140,7 +154,6 @@ module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataob
 
 </details>
 
-> :exclamation: **NOTE**: remove `--executor local` from the command when running on real data (not test data) to submit jobs through SLURM
 
 > :exclamation: **NOTE**: add `--rawdata` when folder contains raw fastqs
 
