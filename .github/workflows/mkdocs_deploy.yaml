@@ -26,6 +26,8 @@ jobs:
         run: |
           pip install mkdocs
           pip install pymdown-extensions
+          pip install mkdocs-git-revision-date-plugin
+          pip install mkdocs-minify-plugin
 
       - name: Deploy using mkdocs
         run: mkdocs gh-deploy --force
