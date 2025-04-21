@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # or your default branch
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -23,7 +24,7 @@ jobs:
 
       - name: Install MkDocs and ReadTheDocs theme
         run: |
-          pip install mkdocs mkdocs-rtd-theme
+          pip install mkdocs
 
       - name: Deploy using mkdocs
         run: mkdocs gh-deploy --force
