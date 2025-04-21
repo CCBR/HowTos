@@ -1,18 +1,18 @@
 # Overview of GitHub Topics
 ## Getting set-up and familiar with GitHub
-1. [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/):
+- [Preparing your environment](howto_setup.md):
     - Describes how to create a PAT, add GH to your bash profile and use password-less login features
-2. [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/):
+- [Basic Commands](howto_functions.md):
     - Describes basic functions to be used with this SOP
 
 ## Basics
-3. [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/basic_repo/):
+- [Creating your GitHub repo](basic_repo.md):
     - Provides information on how to setup a GitHub repository under CCBR and the use of templates
-4. [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/basic_docs):
+- [Creating your Documentation](basic_docs.md):
     - Provides information on how to setup documentation under your repository; provided with all template repos
-5. [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/):
+- [GitHub Actions](basic_actions.md):
     - Provides information for using GitHub Actions under your repository; provided with all template repos
 
 ## Best Practices
-6. [CCBR Projects, new Pipelines](https://ccbr.github.io/HowTos/GitHub/sop_projpipes/)
-7. [TechDev](https://ccbr.github.io/HowTos/GitHub/sop_techdev/)
+- [CCBR Projects, new Pipelines](sop_projpipes.md)
+- [TechDev](sop_techdev.md)

@@ -1,23 +1,10 @@
-<!-- TOC -->
+# File Transfer from HELIX
 
-- [1. Background](#1-background)
-- [2. parkit](#2-parkit)
-  - [2.1. `projark` usage](#21-projark-usage)
-    - [load conda env](#load-conda-env)
-    - [projark help](#projark-help)
-  - [2.2. `projark` testing](#22-projark-testing)
-    - [get dummy data](#get-dummy-data)
-    - [run `projark`](#run-projark)
-    - [verify transfer](#verify-transfer)
-    - [cleanup](#cleanup)
-
-<!-- /TOC -->
-
-###  1. <a name='Background'></a>Background
+##  <a name='Background'></a>Background
 
 Rawdata or Project folders from Helix can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.
 
-###  2. <a name='parkit'></a>parkit
+## <a name='parkit'></a>parkit
 
 [**parkit**](https://github.com/CCBR/parkit) is designed to assist analysts in archiving project data from the NIH's Helix/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:
 - create tarballs of their data (including `.filelist` and `.md5sum` files), 
@@ -26,11 +13,11 @@ Rawdata or Project folders from Helix can be parked at a secure location after t
 - deposit tar files into the system for long-term storage. 
 **parkit** also features comprehensive workflows that support both folder-based and tarball-based archiving. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.
 
-> :exclamation: **NOTE**: HPC DME API CLUs should already be setup as per [these](https://ccbr.github.io/HowTos/HPCDME/setup/) instructions in order to use **parkit**
+> ❗  **NOTE**: HPC DME API CLUs should already be setup as per [these](setup.md) instructions in order to use **parkit**
 
-> :exclamation: **NOTE**: `HPC_DM_UTILS` environment variable should be set to point to the `utils` folder under the `HPC_DME_APIs` repo setup. Please see [these](https://ccbr.github.io/HowTos/HPCDME/setup/#edit-bashrc) instructions.
+> ❗  **NOTE**: `HPC_DM_UTILS` environment variable should be set to point to the `utils` folder under the `HPC_DME_APIs` repo setup. Please see [these](setup.md#edit-bashrc) instructions.
 
-> :exclamation: **NOTE**: If it has been a few months since you last used HPC_DME_APIs or parkit or projark, then please run the following commands before you start using `parkit` or `projark`: 
+> ❗  **NOTE**: If it has been a few months since you last used HPC_DME_APIs or parkit or projark, then please run the following commands before you start using `parkit` or `projark`: 
 > 
 > `cd $HPC_DM_UTILS`
 > 
@@ -42,11 +29,11 @@ Rawdata or Project folders from Helix can be parked at a secure location after t
 
 [`projark`](https://github.com/CCBR/parkit) is the preferred **parkit** command to completely archive an entire folder as a tarball on HPCDME. SLURM is not available on Helix and it could take a few hours to upload large files. Hence, it is recommended to use "tmux" or "screen" command for `projark` to continue running even when you log out of Helix.
 
-> :exclamation: **NOTE**: Run the following commands inside a screen or tmux session.
+> ❗  **NOTE**: Run the following commands inside a screen or tmux session.
 
-####  2.1. <a name='projarkusage'></a>`projark` usage
+###  <a name='projarkusage'></a>`projark` usage
 
-##### load conda env
+#### load conda env
 
 ```bash
 # source conda
@@ -68,7 +55,7 @@ v2.1.2
 ```
 </details>
 
-##### projark help
+#### projark help
 
 ```bash
 projark --help
@@ -96,9 +83,9 @@ options:
 
 </details>
 
-####  2.2. <a name='projarktest'></a>`projark` testing
+### <a name='projarktest'></a>`projark` testing
 
-##### get dummy data
+#### get dummy data
 
 ```bash
 # make a tmp folder
@@ -109,13 +96,13 @@ cp -r /data/CCBR/projects/CCBR-12345 /data/$USER/parkit_tmp/CCBR-12345-$USER
 echo $HPC_DM_UTILS
 ```
 
-##### run `projark`
+#### run `projark`
 
 ```bash
 projark --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --projectnumber 12345-$USER --executor local
 ```
 
-> :exclamation: **NOTE**: `--executor slurm` will not work on Helix
+> ❗ **NOTE**: `--executor slurm` will not work on Helix
 
 <details>
   <summary><em>Expected sample output</em></summary>
@@ -155,15 +142,15 @@ module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataob
 </details>
 
 
-> :exclamation: **NOTE**: add `--rawdata` when folder contains raw fastqs
+> ❗  **NOTE**: add `--rawdata` when folder contains raw fastqs
 
-##### verify transfer
+#### verify transfer
 
 Transfer can be verified by logging into [HPC DME web interface](https://hpcdmeweb.nci.nih.gov/browse?base).
 
 ![alt text](verification.png)
 
-##### cleanup
+#### cleanup
 
 Delete unwanted collection from HPC DME.
 
@@ -196,7 +183,7 @@ INFO: CLI_SUCCESS
 
 </details>
 
-> :warning: Reach out to [Vishal Koparde](mailto:vishal.koparde@nih.gov) in case you run into issues.
+> ⚠️ Reach out to [Vishal Koparde](mailto:vishal.koparde@nih.gov) in case you run into issues.
 
 
 

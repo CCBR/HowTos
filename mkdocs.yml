@@ -14,27 +14,8 @@ copyright: Copyright &copy; 2022 CCBR
 
 # Configuration
 theme:
-  name: material
-  features:
-    - navigation.tabs
-    - navigation.top
-    - navigation.indexes
-    - toc.integrate 
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-    - scheme: slate
-      primary: red
-      accent: red
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
-  logo: assets/images/doc-book.svg
-  favicon: assets/images/favicon.png
+  name: readthedocs
+  locale: en
 
 # Plugins
 plugins:
@@ -128,6 +109,7 @@ nav:
   - Other How Tos:
       - Datashare: OtherHowTos/datashare.md
       - Zenodo: OtherHowTos/zenodo.md
+      - LucidCharts: OtherHowTos/lucidcharts.md
   - Tutorials:
     - Snakemake: Tutorials/snakemake.md
   - Contributions: contributions.md

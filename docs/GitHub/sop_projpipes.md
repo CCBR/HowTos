@@ -1,11 +1,11 @@
 # GitHub Best Practices: Projects and Pipelines
 - Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
 
-    - [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-    - [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
-    - [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/basic_repo/)
-    - [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
-    - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/)
+    - [Preparing your environment](howto_setup.md)
+    - [Basic Commands](howto_functions.md)
+    - [Creating your GitHub repo](GitHub/basic_repo.md)
+    - [Creating your Documentation](setup_docs.md)
+    - [GitHub Actions](basic_actions.md)
 
 ## Pipeline Documentation
 - All pipelines should provide users with documentation for usage, test data, expected outputs, and troubleshooting information. [Mkdocs](https://www.mkdocs.org/) is the recommended tool to perform this action, however, other tools may be utilized. The template's ([NextFlow](https://github.com/CCBR/CCBR_NextflowTemplate), [Snakemake](https://github.com/CCBR/CCBR_SnakemakeTemplate)) were written for mkdocs, and provide basic yaml markdown files provided for this use. They should be edited according to the pipelines function and user needs. Examples of the requirements for each page are provided in the templates.
@@ -45,20 +45,21 @@
 
 ## Repository Management
 
-## Security settings
+### Security settings
 
-- Two members of CCBR (creator and one manager) should be granted full administrative privileges to the repository to ensure the source code can be accessed by other members, as needed
-- Both the develop and master branch must be protected (IE have to have a PR to be changed) 
+- `AdminTeam` should have a minimum of `maintain` role to the repo
+- Both the develop and master branch must be protected (IE have to have a PR to be changed)
+- Repo visibility should be set to Private or Internal and made Public only when required.
 
 ### CCBR Branch Strategy
 
 #### Branch Naming
-- All repositories should follow the strategy outlined in the [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/basic_repo/)
+- All repositories should follow the strategy outlined in the [Creating your GitHub repo](basic_repo.md)
 
 #### Branch Overview
 
 - All repositories should include a minimum of two branches at any time: 
-    - main (master) 
+    - main ( or master ) 
     - dev
 - Additional branches should be created as needed. These would include feature branches, developed using individual, feature specific addition and hotfix branches, developed using individual, bug specific fixes. 
 - Utilization of these branches should follow the documentation below.
@@ -72,11 +73,11 @@ ref:https://nvie.com/posts/a-successful-git-branching-model/
 1.  Master (named main or master)
     - branch that contains the current release / tagged version of the pipeline
     - merges from Dev branch or hotfix branch allowed
-    - merges require actions_master_branch `pass` from GitHub actions. See [GitHub actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/) #4 for more information testing requirements for merge
+    - merges require actions_master_branch `pass` from GitHub actions. See [GitHub actions](basic_actions.md) #4 for more information testing requirements for merge
 2. Develop (named dev or activeDev)
     - branch that contains current dev
     - merges from feature branch allowed
-    - merges require actions_dev_branch `pass` from GitHub actions. See [GitHub actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/) #3 for more information testing requirements for merge
+    - merges require actions_dev_branch `pass` from GitHub actions. See [GitHub actions](basic_actions.md) #3 for more information testing requirements for merge
 3. Feature (named feature/unique_feature_name)
     - branch to develop new features that branches off the develop branch
     - recommended usages of `git flow feature start unique_feature_name` followed by `git flow feature publish unique_feature_name`
@@ -86,7 +87,11 @@ ref:https://nvie.com/posts/a-successful-git-branching-model/
     - recommended usage of `git flow hotfix start unique_hotfix_name`
     - no merges into this branch are expected 
 
-> NOTE: While the `git flow feature start` command is recommended for feature branch merging, the `git flow feature finish` is not. Using the `finish` command will automatically merge the `feature` branch into the `dev` branch, without any testing, and regardless of divergence that may have occured during feature development.
+> 💡 **Note**  
+> While the `git flow feature start` command is recommended for feature branch creation, the `git flow feature finish` command is not. Using the `finish` command will automatically merge the `feature` branch into the `dev` branch without any testing and regardless of any divergence that may have occurred during feature development.
+
+
+
 
 #### General Workflow (Steps)
 1. Assuming that you have already cloned the repo and initiated git flow with `git flow init`
@@ -101,7 +106,7 @@ ref:https://nvie.com/posts/a-successful-git-branching-model/
 - The following format of versioning should be followed:
 
     ```
-    v.X.Y.Z
+    vX.Y.Z
     ```
 
 - The following rules should be applies when determining the version release:
@@ -117,16 +122,16 @@ ref:https://nvie.com/posts/a-successful-git-branching-model/
     - Updates to the dev branch can be tagged, but should not be versioned
     - If the pipeline is available locally (IE on Biowulf), version changes should be added for use
 
-## Pipelines Test Data
+### Pipelines Test Data
 
 The following information is meant to outline test_data requirements for all pipelines, however, should be altered to fit the needs of the specific pipeline or project developed.
 
-### Requirements
+#### Requirements
 
 1. Location of data
     - Test data sets should be stored within a `.test` directory, as found in all templates. 
 2. Documentation
-    - Review information on the [documentation](https://ccbr.github.io/HowTos/GitHub/basic_docs/) page, which will provide basic information on test data used within the project/pipeline.
+    - Review information on the [documentation](basic_docs.md) page, which will provide basic information on test data used within the project/pipeline.
     - A README file should be created under the `.test` directory, to include the following information:
         - Date of implementation
         - Information on species (IE Homo Sapiens) and data type (IE RNA-Seq)
@@ -135,9 +140,8 @@ The following information is meant to outline test_data requirements for all pip
         - The source of the files
         - Link to scripts used in created the partial test data
 3. Choosing a test data set
-    - At a minimum three test sets should be available: 
-        
+    - At a minimum three test sets are recommended to be available:         
         1) Should include sub-sampled inputs, to test the pipelines functionality, and to be used as the tutorial `test set`. 
         2) Should include full-sample inputs, of high quality, to test the robustness of the pipelines resources 
         3) Should include full-sample inputs, of expected project-level quality, to test the robustness of the pipelines error handling
-    - Test data should come from a CCBR project or a a publicly available source. Care should be taken when choosing test data sets, to ensure that the robustness of the pipeline will be tested, as well as the ability of the pipeline to handle both high and low quality data. Multiple test sets may need to be created to meet these goals.
+    - Test data should come from a CCBR project or a publicly available source. Care should be taken when choosing test data sets, to ensure that the robustness of the pipeline will be tested, as well as the ability of the pipeline to handle both high and low quality data. Multiple test sets may need to be created to meet these goals. On BIOWULF, these test data files can be stored under `/data/CCBR_Pipeliner/testdata` for easy access by all users of the pipeline(s).
