@@ -25,6 +25,7 @@ jobs:
       - name: Install MkDocs and ReadTheDocs theme
         run: |
           pip install mkdocs
+          pip install pymdown-extensions
 
       - name: Deploy using mkdocs
         run: mkdocs gh-deploy --force
