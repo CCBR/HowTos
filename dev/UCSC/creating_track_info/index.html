@@ -1,0 +1,83 @@
+<!DOCTYPE html><html class=writer-html5 lang=en> <head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><meta name=author content="Vishal Koparde, Ph.D., Samantha Sevilla, PhD."><link rel="shortcut icon" href=../../img/favicon.ico><title>Creating Tracks Info - CCBR How Tos</title><link rel=stylesheet href=../../css/theme.css><link rel=stylesheet href=../../css/theme_extra.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css><link href=../../css/version-select.css rel=stylesheet><script>
+        // Current page data
+        var mkdocs_page_name = "Creating Tracks Info";
+        var mkdocs_page_input_path = "UCSC/creating_track_info.md";
+        var mkdocs_page_url = null;
+      </script><!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]--><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js></script><script>hljs.highlightAll();</script></head> <body class=wy-body-for-nav role=document> <div class=wy-grid-for-nav> <nav data-toggle=wy-nav-shift class="wy-nav-side stickynav"> <div class=wy-side-scroll> <div class=wy-side-nav-search> <a href=../.. class="icon icon-home"> CCBR How Tos </a> <div class=version> {'provider': 'mike'} </div><div role=search> <form id=rtd-search-form class=wy-form action=../../search.html method=get> <input type=text name=q placeholder="Search docs" aria-label="Search docs" title="Type search term here"> </form> </div> </div> <div class="wy-menu wy-menu-vertical" data-spy=affix role=navigation aria-label="Navigation menu"> <ul> <li class=toctree-l1><a class="reference internal" href=../..>Intro</a> </li> </ul> <p class=caption><span class=caption-text>GitHub</span></p> <ul> <li class=toctree-l1><a href=../../GitHub/overview/ class="reference internal">Overview</a> </li> <li class=toctree-l1><a class="reference internal">Set-Up</a> <ul> <li class=toctree-l2><a href=../../GitHub/howto_setup/ class="reference internal">Preparing your environment</a> </li> <li class=toctree-l2><a href=../../GitHub/howto_functions/ class="reference internal">Basic Commands</a> </li> </ul> </li> <li class=toctree-l1><a class="reference internal">Basics</a> <ul> <li class=toctree-l2><a href=../../GitHub/basic_repo/ class="reference internal">Creating your GitHub Repo</a> </li> <li class=toctree-l2><a href=../../GitHub/basic_docs/ class="reference internal">Creating your Documentation</a> </li> <li class=toctree-l2><a href=../../GitHub/basic_actions/ class="reference internal">Creating GitHub Actions</a> </li> <li class=toctree-l2><a href=../../GitHub/howto_precommit/ class="reference internal">Using Pre-Commit</a> </li> </ul> </li> <li class=toctree-l1><a class="reference internal">Best Practices</a> <ul> <li class=toctree-l2><a href=../../GitHub/sop_projpipes/ class="reference internal">Projects,Pipelines</a> </li> <li class=toctree-l2><a href=../../GitHub/sop_techdev/ class="reference internal">TechDev</a> </li> </ul> </li> </ul> <p class=caption><span class=caption-text>TechDev</span></p> <ul> <li class=toctree-l1><a href=../../GitHub/sop_techdev/ class="reference internal">TechDev</a> </li> </ul> <p class=caption><span class=caption-text>HPCDME</span></p> <ul> <li class=toctree-l1><a href=../../HPCDME/setup/ class="reference internal">Setup</a> </li> <li class=toctree-l1><a href=../../HPCDME/transfer/ class="reference internal">Biowulf2HPCDME</a> </li> <li class=toctree-l1><a href=../../HPCDME/transferFromHelix/ class="reference internal">Helix2HPCDME</a> </li> </ul> <p class=caption><span class=caption-text>UCSC Tracks</span></p> <ul class=current> <li class=toctree-l1><a href=../overview/ class="reference internal">Overview</a> </li> <li class=toctree-l1><a href=../creating_inputs/ class="reference internal">Creating Inputs</a> </li> <li class="toctree-l1 current"><a class="reference internal current" href=#>Creating Tracks Info</a> <ul class=current> <li class=toctree-l2><a class="reference internal" href=#single-samples>Single samples</a> </li> <li class=toctree-l2><a class="reference internal" href=#inputs>Inputs</a> </li> </ul> </li> <li class=toctree-l1><a href=../creating_tracks/ class="reference internal">Creating Tracks</a> </li> </ul> <p class=caption><span class=caption-text>Creating an R Package</span></p> <ul> <li class=toctree-l1><a href=../../Rpackage/setup/ class="reference internal">Set-Up</a> </li> <li class=toctree-l1><a href=../../Rpackage/build_pkg/ class="reference internal">Creating the package</a> </li> <li class=toctree-l1><a href=../../Rpackage/common_issues/ class="reference internal">Troubleshooting</a> </li> </ul> <p class=caption><span class=caption-text>Other How Tos</span></p> <ul> <li class=toctree-l1><a href=../../OtherHowTos/datashare/ class="reference internal">Datashare</a> </li> <li class=toctree-l1><a href=../../OtherHowTos/zenodo/ class="reference internal">Zenodo</a> </li> <li class=toctree-l1><a href=../../OtherHowTos/lucidcharts/ class="reference internal">LucidCharts</a> </li> </ul> <p class=caption><span class=caption-text>Tutorials</span></p> <ul> <li class=toctree-l1><a href=../../Tutorials/snakemake/ class="reference internal">Snakemake</a> </li> </ul> <ul> <li class=toctree-l1><a href=../../contributions/ class="reference internal">Contributions</a> </li> </ul> </div> </div> </nav> <section data-toggle=wy-nav-shift class=wy-nav-content-wrap> <nav class=wy-nav-top role=navigation aria-label="Mobile navigation menu"> <i data-toggle=wy-nav-top class="fa fa-bars"></i> <a href=../..>CCBR How Tos</a> </nav> <div class=wy-nav-content> <div class=rst-content><div role=navigation aria-label="breadcrumbs navigation"> <ul class=wy-breadcrumbs> <li><a href=../.. class="icon icon-home" aria-label=Docs></a></li> <li class=breadcrumb-item>UCSC Tracks</li> <li class="breadcrumb-item active">Creating Tracks Info</li> <li class=wy-breadcrumbs-aside> <a href=https://github.com/CCBR/HowTos/edit/main/docs/UCSC/creating_track_info.md>Edit on CCBR/HowTos</a> </li> </ul> <hr> </div> <div role=main class=document itemscope=itemscope itemtype=http://schema.org/Article> <div class=section itemprop=articleBody> <h1 id=generating-track-information>Generating Track information<a class=headerlink href=#generating-track-information title="Permanent link">&para;</a></h1> <h2 id=single-samples>Single samples<a class=headerlink href=#single-samples title="Permanent link">&para;</a></h2> <p>It's recommended to create a text file of all sample track information to ease in editing and submission to the UCSC browser website. A single line of code is needed for each sample which will provide the track location, sample name, description of the sample, whether to autoscale the samples, max height of the samples, view limits, and color. An example is provided below.</p> <pre class=highlight><code>track type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225</code></pre> <p>Users may find it helpful to create a single script which would create this text file for all samples. An example of this is listed below, which assumes that input files were generated using the CARLISLE pipeline. It can be edited to adapt to other output files, as needed.</p> <p>Generally, each "track" line should have at least the following key value pairs: - name : label for the track - description : defines the center lable displayed - type : BAM, BED, bigBed, bigWig, etc. - bigDataUrl : URL of the data file - for other options see <a href=https://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html>here</a></p> <h2 id=inputs>Inputs<a class=headerlink href=#inputs title="Permanent link">&para;</a></h2> <ul> <li>samples_list.txt: a single column text file with sampleID's</li> <li>track_dir: path to the linked files</li> <li>track_output: path to output file</li> <li>peak_list: all peak types to be included</li> <li>method_list: what method to be included</li> <li>dedupe_list: type of duplication to be included</li> </ul> <pre class=highlight><code># input arguments
+sample_list_input=/"path/to/samples.txt"
+track_dir="/path/to/shared/dir/"
+track_output="/path/to/output/file/tracks.txt
+peak_list=("norm.relaxed.bed" "narrowPeak" "broadGo_peaks.bed" "narrowGo_peaks.bed")
+method_list=("fragmentsbased")
+dedup_list=("dedup")
+
+# read sample file
+IFS=$'\n' read -d '' -r -a sample_list &lt; $sample_list_input
+
+run_sample_tracks (){
+    sample_id=$1
+    dedup_id=$2
+
+    # sample name
+    # eg siNC_H3K27Ac_1.dedup.bigwig
+    complete_sample_id="${sample_id}.${dedup_id}"
+
+    # set link location
+    link_loc="${track_dir}/bigwig/${complete_sample_id}.bigwig"
+
+    # echo track info
+    echo "track type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225" &gt;&gt; $track_output
+}
+
+# iterate through samples
+# at the sample level only DEDUP matters
+for sample_id in ${sample_list[@]}; do
+    for dedup_id in ${dedup_list[@]}; do
+        run_sample_tracks $sample_id $dedup_id
+    done
+done</code></pre> <h1 id=contrast-samples>Contrast samples<a class=headerlink href=#contrast-samples title="Permanent link">&para;</a></h1> <p>It's recommended to create a text file of all sample track information to ease in editing and submission to the UCSC browser website. A single line of code is needed for each contrast which will provide the track location, contrast name, file type, and whether to color the sample. An example is provided below.</p> <pre class=highlight><code>track name=${sample_id}_${peak_type} bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigbed/${complete_sample_id}_fragmentsbased_diffresults.bigbed type=bigBed itemRgb=On</code></pre> <p>Users may find it helpful to create a single script which would create this text file for all contrasts. An example of this is listed below, which assumes that input files were generated using the CARLISLE pipeline. It can be edited to adapt to other output files, as needed.</p> <h2 id=inputs_1>Inputs<a class=headerlink href=#inputs_1 title="Permanent link">&para;</a></h2> <ul> <li>samples_list.txt: a single column text file with sampleID's</li> <li>track_dir: path to the linked files</li> <li>track_output: path to output file</li> <li>peak_list: all peak types to be included</li> <li>method_list: what method to be included</li> <li>dedupe_list: type of duplication to be included</li> </ul> <pre class=highlight><code># input arguments
+sample_list_input=/"path/to/samples.txt"
+track_dir="/path/to/shared/dir/"
+track_output="/path/to/output/file/tracks.txt
+peak_list=("norm.relaxed.bed" "narrowPeak" "broadGo_peaks.bed" "narrowGo_peaks.bed")
+method_list=("fragmentsbased")
+dedup_list=("dedup")
+
+# read sample file
+IFS=$'\n' read -d '' -r -a deg_list &lt; $deg_list_input
+
+run_comparison_tracks (){
+    peak_type=$1
+    method_type=$2
+    dedup_type=$3
+    sample_id=$4
+
+    # sample name
+    # eg siSmyd3_2m_Smyd3_0.25HCHO_500K_vs_siNC_2m_Smyd3_0.25HCHO_500K__no_dedup__norm.relaxed
+    complete_sample_id="${sample_id}__${dedup_type}__${peak_type}"
+
+    # set link location
+    link_loc="${track_dir}/bigbed/${complete_sample_id}_${method_type}_diffresults.bigbed"
+
+    # echo track info
+    echo "track name=${sample_id}_${peak_type} bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigbed/${complete_sample_id}_fragmentsbased_diffresults.bigbed type=bigBed itemRgb=On" &gt;&gt; $track_info
+}
+
+# iterate through samples / peaks / methods / dedup
+for sample_id in ${deg_list[@]}; do
+    for peak_id in ${peak_list[@]}; do
+        for method_id in ${method_list[@]}; do
+            for dedup_id in ${dedup_list[@]}; do
+                run_comparison_tracks $peak_id $method_id $dedup_id $sample_id
+            done
+        done
+    done
+done</code></pre> <h1 id=other-tips>Other tips<a class=headerlink href=#other-tips title="Permanent link">&para;</a></h1> <p>Users can also change the colors of the tracks using standard HTML color features. Common colors used are provided below: <pre class=highlight><code>Red=205,92,92
+Blue=65,105,225
+Black=0,0,0</code></pre></p> </div> </div><footer> <div class=rst-footer-buttons role=navigation aria-label="Footer Navigation"> <a href=../creating_inputs/ class="btn btn-neutral float-left" title="Creating Inputs"><span class="icon icon-circle-arrow-left"></span> Previous</a> <a href=../creating_tracks/ class="btn btn-neutral float-right" title="Creating Tracks">Next <span class="icon icon-circle-arrow-right"></span></a> </div> <hr> <div role=contentinfo> <!-- Copyright etc --> <p>Copyright &copy; 2025 CCBR</p> </div> Built with <a href=https://www.mkdocs.org/ >MkDocs</a> using a <a href=https://github.com/readthedocs/sphinx_rtd_theme>theme</a> provided by <a href=https://readthedocs.org>Read the Docs</a>. </footer> </div> </div> </section> </div> <div class=rst-versions role=note aria-label=Versions> <span class=rst-current-version data-toggle=rst-current-version> <span> <a href=https://github.com/CCBR/HowTos class="fa fa-code-fork" style="color: #fcfcfc"> CCBR/HowTos</a> </span> <span><a href=../creating_inputs/ style="color: #fcfcfc">&laquo; Previous</a></span> <span><a href=../creating_tracks/ style="color: #fcfcfc">Next &raquo;</a></span> </span> </div> <script src=../../js/jquery-3.6.0.min.js></script> <script>var base_url = "../..";</script> <script src=../../js/theme_extra.js></script> <script src=../../js/theme.js></script> <script src=../../search/main.js></script> <script src=../../js/version-select.js></script> <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script> </body> </html> 
