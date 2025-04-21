@@ -9,4 +9,4 @@ You'll find how-to-guides, best practices and tutorials under the following page
     - How To: use Datashare
     - Tutorials: Snakemake
     
-This page was created through the [contributions](https://ccbr.github.io/HowTos/contributions/) of several members within [CCBR](https://bioinformatics.ccr.cancer.gov/ccbr/). If you would like to contribute to it's development, please email [Samantha Sevilla](mailto:samantha.sevilla@nih.gov).
+This page was created through the [contributions](https://ccbr.github.io/HowTos/contributions/) of several members within [CCBR](https://bioinformatics.ccr.cancer.gov/ccbr/). If you would like to contribute to it's development, please reach out to  [Vishal Koparde](https://teams.microsoft.com/l/chat/0/0?users=vishal.koparde@nih.gov).
