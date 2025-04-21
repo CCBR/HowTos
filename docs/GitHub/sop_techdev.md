@@ -20,8 +20,7 @@
     1. **Overview**
         - Information on the goal of the TechDev project.
     2. **Analysis**            
-        ***2.1. Background***
-        - Provide any relaxant background to the project to be completed. This might include information on: - problem that was encountered leadings to this techdev - new feature or tool developed to be benchmarked - relevant biological or statistical information needed to perform this analysis
+        ***2.1. Background*** - Provide any relaxant background to the project to be completed. This might include information on: - problem that was encountered leadings to this techdev - new feature or tool developed to be benchmarked - relevant biological or statistical information needed to perform this analysis
         
         ***2.2. Resources***
         - This page should include any relevant tools that were used for testing. If these tools were loaded via Biowulf, include all version numbers. If they were installed locally, provide information on installation, source location, and any reference documents used. 

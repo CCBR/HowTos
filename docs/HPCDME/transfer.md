@@ -1,40 +1,32 @@
-<!-- TOC -->
+# File Transfers from Biowulf
 
-- [Background](#background)
-- [parkit](#parkit)
-    - [projark usage](#projark-usage)
-        - [load conda env](#load-conda-env)
-        - [projark help](#projark-help)
-    - [projark testing](#projark-testing)
-        - [get dummy data](#get-dummy-data)
-        - [run projark](#run-projark)
-        - [verify transfer](#verify-transfer)
-        - [cleanup](#cleanup)
 
-<!-- /TOC -->
+> 🛑 **STOP**: `dm_register_dataobject_multipart` does not work via SLURM. Hence, file transfers are NOT working when initiated from BIOWULF. We recommend [transferring files from Helix.](transferFromHelix.md)
 
-###  1. <a name='Background'></a>Background
+##  <a name='Background'></a>Background
 
 Rawdata or Project folders from Biowulf can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.
 
-###  2. <a name='parkit'></a>parkit
+##  <a name='parkit'></a>parkit
 
 [**parkit**](https://github.com/CCBR/parkit) is designed to assist analysts in archiving project data from the NIH's Biowulf/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:
+
 - create tarballs of their data (including `.filelist` and `.md5sum` files), 
 - generate metadata, 
 - create collections on HPC-DME, and 
 - deposit tar files into the system for long-term storage. 
+
 **parkit** also features comprehensive workflows that support both folder-based and tarball-based archiving. These workflows are integrated with the SLURM job scheduler, enabling efficient execution of archival tasks on the Biowulf HPC cluster. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.
 
-> :exclamation: **NOTE**: HPC DME API CLUs should already be setup as per [these](https://ccbr.github.io/HowTos/HPCDME/setup/) instructions in order to use **parkit**
+> ❗ **NOTE**:  HPC DME API CLUs should already be setup as per [these](https://ccbr.github.io/HowTos/HPCDME/setup/) instructions in order to use **parkit**
 
-> :exclamation: **NOTE**: `HPC_DM_UTILS` environment variable should be set to point to the `utils` folder under the `HPC_DME_APIs` repo setup. Please see [these](https://ccbr.github.io/HowTos/HPCDME/setup/#edit-bashrc) instructions.
+> ❗ **NOTE**: `HPC_DM_UTILS` environment variable should be set to point to the `utils` folder under the `HPC_DME_APIs` repo setup. Please see [these](https://ccbr.github.io/HowTos/HPCDME/setup/#edit-bashrc) instructions.
 
 [`projark`](https://github.com/CCBR/parkit) is the preferred **parkit** command to completely archive an entire folder as a tarball on HPCDME using SLURM.
 
-####  2.1. <a name='projarkusage'></a>`projark` usage
+###  <a name='projarkusage'></a>`projark` usage
 
-##### load conda env
+#### load conda env
 
 ```bash
 # source conda
@@ -56,7 +48,7 @@ v2.0.2-dev
 ```
 </details>
 
-##### projark help
+#### projark help
 
 ```bash
 projark --help
@@ -84,9 +76,9 @@ options:
 
 </details>
 
-####  2.2. <a name='projarktest'></a>`projark` testing
+###  <a name='projarktest'></a>`projark` testing
 
-##### get dummy data
+#### get dummy data
 
 ```bash
 # make a tmp folder
@@ -97,7 +89,7 @@ cp -r /data/CCBR/projects/CCBR-12345 /data/$USER/parkit_tmp/CCBR-12345-$USER
 echo $HPC_DM_UTILS
 ```
 
-##### run `projark`
+#### run `projark`
 
 ```bash
 projark --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --projectnumber 12345-$USER --executor local
@@ -140,17 +132,17 @@ module load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataob
 
 </details>
 
-> :exclamation: **NOTE**: remove `--executor local` from the command when running on real data (not test data) to submit jobs through SLURM
+> ❗ **NOTE**: remove `--executor local` from the command when running on real data (not test data) to submit jobs through SLURM
 
-> :exclamation: **NOTE**: add `--rawdata` when folder contains raw fastqs
+> ❗ **NOTE**: add `--rawdata` when folder contains raw fastqs
 
-##### verify transfer
+#### verify transfer
 
 Transfer can be verified by logging into [HPC DME web interface](https://hpcdmeweb.nci.nih.gov/browse?base).
 
 ![alt text](verification.png)
 
-##### cleanup
+#### cleanup
 
 Delete unwanted collection from HPC DME.
 
@@ -183,7 +175,7 @@ INFO: CLI_SUCCESS
 
 </details>
 
-> :warning: Reach out to [Vishal Koparde](mailto:vishal.koparde@nih.gov) in case you run into issues.
+> ⚠️ Reach out to [Vishal Koparde](mailto:vishal.koparde@nih.gov) in case you run into issues.
 
 
 
