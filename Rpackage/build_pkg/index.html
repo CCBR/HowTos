@@ -1,0 +1,122 @@
+<!DOCTYPE html><html class=writer-html5 lang=en> <head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><meta name=author content="Vishal Koparde, Ph.D., Samantha Sevilla, PhD."><link rel="shortcut icon" href=../../img/favicon.ico><title>Creating the package - CCBR How Tos</title><link rel=stylesheet href=../../css/theme.css><link rel=stylesheet href=../../css/theme_extra.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css><script>
+        // Current page data
+        var mkdocs_page_name = "Creating the package";
+        var mkdocs_page_input_path = "Rpackage/build_pkg.md";
+        var mkdocs_page_url = null;
+      </script><!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]--><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js></script><script>hljs.highlightAll();</script></head> <body class=wy-body-for-nav role=document> <div class=wy-grid-for-nav> <nav data-toggle=wy-nav-shift class="wy-nav-side stickynav"> <div class=wy-side-scroll> <div class=wy-side-nav-search> <a href=../.. class="icon icon-home"> CCBR How Tos </a> <div class=version> {'provider': 'mike'} </div><div role=search> <form id=rtd-search-form class=wy-form action=../../search.html method=get> <input type=text name=q placeholder="Search docs" aria-label="Search docs" title="Type search term here"> </form> </div> </div> <div class="wy-menu wy-menu-vertical" data-spy=affix role=navigation aria-label="Navigation menu"> <ul> <li class=toctree-l1><a class="reference internal" href=../..>Intro</a> </li> </ul> <p class=caption><span class=caption-text>GitHub</span></p> <ul> <li class=toctree-l1><a href=../../GitHub/overview/ class="reference internal">Overview</a> </li> <li class=toctree-l1><a class="reference internal">Set-Up</a> <ul> <li class=toctree-l2><a href=../../GitHub/howto_setup/ class="reference internal">Preparing your environment</a> </li> <li class=toctree-l2><a href=../../GitHub/howto_functions/ class="reference internal">Basic Commands</a> </li> </ul> </li> <li class=toctree-l1><a class="reference internal">Basics</a> <ul> <li class=toctree-l2><a href=../../GitHub/basic_repo/ class="reference internal">Creating your GitHub Repo</a> </li> <li class=toctree-l2><a href=../../GitHub/basic_docs/ class="reference internal">Creating your Documentation</a> </li> <li class=toctree-l2><a href=../../GitHub/basic_actions/ class="reference internal">Creating GitHub Actions</a> </li> <li class=toctree-l2><a href=../../GitHub/howto_precommit/ class="reference internal">Using Pre-Commit</a> </li> </ul> </li> <li class=toctree-l1><a class="reference internal">Best Practices</a> <ul> <li class=toctree-l2><a href=../../GitHub/sop_projpipes/ class="reference internal">Projects,Pipelines</a> </li> <li class=toctree-l2><a href=../../GitHub/sop_techdev/ class="reference internal">TechDev</a> </li> </ul> </li> </ul> <p class=caption><span class=caption-text>TechDev</span></p> <ul> <li class=toctree-l1><a href=../../GitHub/sop_techdev/ class="reference internal">TechDev</a> </li> </ul> <p class=caption><span class=caption-text>HPCDME</span></p> <ul> <li class=toctree-l1><a href=../../HPCDME/setup/ class="reference internal">Setup</a> </li> <li class=toctree-l1><a href=../../HPCDME/transfer/ class="reference internal">Biowulf2HPCDME</a> </li> <li class=toctree-l1><a href=../../HPCDME/transferFromHelix/ class="reference internal">Helix2HPCDME</a> </li> </ul> <p class=caption><span class=caption-text>UCSC Tracks</span></p> <ul> <li class=toctree-l1><a href=../../UCSC/overview/ class="reference internal">Overview</a> </li> <li class=toctree-l1><a href=../../UCSC/creating_inputs/ class="reference internal">Creating Inputs</a> </li> <li class=toctree-l1><a href=../../UCSC/creating_track_info/ class="reference internal">Creating Tracks Info</a> </li> <li class=toctree-l1><a href=../../UCSC/creating_tracks/ class="reference internal">Creating Tracks</a> </li> </ul> <p class=caption><span class=caption-text>Creating an R Package</span></p> <ul class=current> <li class=toctree-l1><a href=../setup/ class="reference internal">Set-Up</a> </li> <li class="toctree-l1 current"><a class="reference internal current" href=#>Creating the package</a> <ul class=current> <li class=toctree-l2><a class="reference internal" href=#overview>Overview</a> </li> <li class=toctree-l2><a class="reference internal" href=#download-the-r-package-release-from-github>Download the R package release from Github</a> </li> <li class=toctree-l2><a class="reference internal" href=#build-the-conda-package>Build the Conda package</a> </li> </ul> </li> <li class=toctree-l1><a href=../common_issues/ class="reference internal">Troubleshooting</a> </li> </ul> <p class=caption><span class=caption-text>Other How Tos</span></p> <ul> <li class=toctree-l1><a href=../../OtherHowTos/datashare/ class="reference internal">Datashare</a> </li> <li class=toctree-l1><a href=../../OtherHowTos/zenodo/ class="reference internal">Zenodo</a> </li> <li class=toctree-l1><a href=../../OtherHowTos/lucidcharts/ class="reference internal">LucidCharts</a> </li> </ul> <p class=caption><span class=caption-text>Tutorials</span></p> <ul> <li class=toctree-l1><a href=../../Tutorials/snakemake/ class="reference internal">Snakemake</a> </li> </ul> <ul> <li class=toctree-l1><a href=../../contributions/ class="reference internal">Contributions</a> </li> </ul> </div> </div> </nav> <section data-toggle=wy-nav-shift class=wy-nav-content-wrap> <nav class=wy-nav-top role=navigation aria-label="Mobile navigation menu"> <i data-toggle=wy-nav-top class="fa fa-bars"></i> <a href=../..>CCBR How Tos</a> </nav> <div class=wy-nav-content> <div class=rst-content><div role=navigation aria-label="breadcrumbs navigation"> <ul class=wy-breadcrumbs> <li><a href=../.. class="icon icon-home" aria-label=Docs></a></li> <li class=breadcrumb-item>Creating an R Package</li> <li class="breadcrumb-item active">Creating the package</li> <li class=wy-breadcrumbs-aside> <a href=https://github.com/CCBR/HowTos/edit/main/docs/Rpackage/build_pkg.md>Edit on CCBR/HowTos</a> </li> </ul> <hr> </div> <div role=main class=document itemscope=itemscope itemtype=http://schema.org/Article> <div class=section itemprop=articleBody> <h1 id=creating-a-conda-package-from-an-r-package>Creating a Conda Package from an R Package<a class=headerlink href=#creating-a-conda-package-from-an-r-package title="Permanent link">&para;</a></h1> <h2 id=overview>Overview<a class=headerlink href=#overview title="Permanent link">&para;</a></h2> <p>To create a package with Conda, you first need to make a new release and tag in the github repo of the R package you would like to create into a Conda Package.</p> <p>For more information on best practices in R package creation, review this <a href=https://r-pkgs.org/whole-game.html>documentation</a>.</p> <p>Before creating the release on github, please check for proper dependencies listed in the files <code>NAMESPACE</code> and <code>DESCRIPTION</code>.</p> <p>These files should have the same list of dependencies, and the version numbers for dependencies can be specified in the <code>DESCRIPTION</code> file. The <code>DESCRIPTION</code> file must be edited manually, while the NAMESPACE file should not be edited manually, but rather created automatically using the document() function. </p> <p>The <code>DESCRIPTION</code> file must also be correctly formatted. For more information, see the following <a href=https://r-pkgs.org/description.html>website</a>.</p> <h2 id=download-the-r-package-release-from-github>Download the R package release from Github<a class=headerlink href=#download-the-r-package-release-from-github title="Permanent link">&para;</a></h2> <p>To download the most recent release from the most recent tag on Github, activate Conda then use Conda <code>skeleton</code> to pull the correct URL. In the example below, replace <code>$githubURL</code> with the URL to your R package's github repo.</p> <pre class=highlight><code>conda activate 
+
+conda skeleton cran $githubURL</code></pre> <p>A folder is then created for the downloaded release. Ror example running the following:</p> <pre class=highlight><code>conda skeleton cran https://github.com/NIDAP-Community/DSPWorkflow</code></pre> <p>Creates the folder</p> <pre class=highlight><code>r-dspworkflow</code></pre> <p>Within this newly created folder is a file named <code>meta.yaml</code>. You will need to edit this file to include the channels and edit any information on the the package version number or dependency version numbers.</p> <p>Here is an example of the top of the <code>meta.yaml</code> file with the channels section added:</p> <pre class=highlight><code>{% set version = '0.9.5.2' %}
+
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
+
+package:
+  name: r-dspworkflow
+  version: {{ version|replace("-", "_") }}
+
+channels:
+  - conda-forge
+  - bioconda
+  - default
+  - file://rstudio-files/RH/ccbr-projects/Conda_package_tutorial/local_channel/channel
+
+source:
+
+  git_url: https://github.com/NIDAP-Community/DSPWorkflow
+  git_tag: 0.9.5
+
+build:
+  merge_build_host: True  # [win]
+  # If this is a new build for the same version, increment the build number.
+  number: 0
+  # no skip
+
+  # This is required to make R link correctly on Linux.
+  rpaths:
+    - lib/R/lib/
+    - lib/
+
+    # Suggests: testthat (== 3.1.4)
+requirements:
+  build:
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}git
+    - {{ posix }}zip               # [win]</code></pre> <p>Here is an example of the sections for specifying dependency versions from the <code>meta.yaml</code> file:</p> <pre class=highlight><code>  host:
+    - r-base =4.1.3=h2f963a2_5
+    - bioconductor-biobase =2.54.0=r41hc0cfd56_2
+    - bioconductor-biocgenerics =0.40.0=r41hdfd78af_0
+    - bioconductor-geomxtools =3.1.1=r41hdfd78af_0
+    - bioconductor-nanostringnctools =1.2.0
+    - bioconductor-spatialdecon =1.4.3
+    - bioconductor-complexheatmap =2.10.0=r41hdfd78af_0
+    - r-cowplot =1.1.1=r41hc72bb7e_1
+    - r-dplyr =1.0.9=r41h7525677_0
+    - r-ggforce =0.3.4=r41h7525677_0
+    - r-ggplot2 =3.3.6=r41hc72bb7e_1
+    - r-gridextra =2.3=r41hc72bb7e_1004
+    - r-gtable =0.3.0=r41hc72bb7e_3
+    - r-knitr =1.40=r41hc72bb7e_1
+    - r-patchwork =1.1.2=r41hc72bb7e_1
+    - r-reshape2 =1.4.4=r41h7525677_2
+    - r-scales =1.2.1=r41hc72bb7e_1
+    - r-tibble =3.1.8=r41h06615bd_1
+    - r-tidyr =1.2.1=r41h7525677_1
+    - r-umap =0.2.9.0=r41h7525677_1
+    - r-rtsne =0.16=r41h37cf8d7_1
+    - r-magrittr =2.0.3=r41h06615bd_1
+    - r-rlang =1.1.0=r41h38f115c_0
+
+  run:
+    - r-base =4.1.3=h2f963a2_5
+    - bioconductor-biobase =2.54.0=r41hc0cfd56_2
+    - bioconductor-biocgenerics =0.40.0=r41hdfd78af_0
+    - bioconductor-geomxtools =3.1.1=r41hdfd78af_0
+    - bioconductor-nanostringnctools =1.2.0
+    - bioconductor-spatialdecon =1.4.3
+    - bioconductor-complexheatmap =2.10.0=r41hdfd78af_0
+    - r-cowplot =1.1.1=r41hc72bb7e_1
+    - r-dplyr =1.0.9=r41h7525677_0
+    - r-ggforce =0.3.4=r41h7525677_0
+    - r-ggplot2 =3.3.6=r41hc72bb7e_1
+    - r-gridextra =2.3=r41hc72bb7e_1004
+    - r-gtable =0.3.0=r41hc72bb7e_3
+    - r-knitr =1.40=r41hc72bb7e_1
+    - r-patchwork =1.1.2=r41hc72bb7e_1
+    - r-reshape2 =1.4.4=r41h7525677_2
+    - r-scales =1.2.1=r41hc72bb7e_1
+    - r-tibble =3.1.8=r41h06615bd_1
+    - r-tidyr =1.2.1=r41h7525677_1
+    - r-umap =0.2.9.0=r41h7525677_1
+    - r-rtsne =0.16=r41h37cf8d7_1
+    - r-magrittr =2.0.3=r41h06615bd_1
+    - r-rlang =1.1.0=r41h38f115c_0</code></pre> <p>In the above example, each of the dependencies has been assigned a conda build string, so that when conda builds a conda package, it will only use that specific build of the dependency from the listed conda channels. The above example is very restrictive, the dependencies can also be listed in the "meta.yaml" file to be more open--it will choose a conda build string that fits in with the other resolved dependency build strings based on what is available in the channels. </p> <p>Also note that the "host" section matches the "run" section.</p> <p>Here is some examples of a more open setup for these dependencies:</p> <pre class=highlight><code>  host:
+    - r-base &gt;=4.1.3
+    - bioconductor-biobase &gt;=2.54.0
+    - bioconductor-biocgenerics &gt;=0.40.0
+    - bioconductor-geomxtools &gt;=3.1.1
+    - bioconductor-nanostringnctools &gt;=1.2.0
+    - bioconductor-spatialdecon =1.4.3
+    - bioconductor-complexheatmap &gt;=2.10.0
+    - r-cowplot &gt;=1.1.1
+    - r-dplyr &gt;=1.0.9
+    - r-ggforce &gt;=0.3.4
+    - r-ggplot2 &gt;=3.3.6
+    - r-gridextra &gt;=2.3
+    - r-gtable &gt;=0.3.0
+    - r-knitr &gt;=1.40
+    - r-patchwork &gt;=1.1.2
+    - r-reshape2 &gt;=1.4.4
+    - r-scales &gt;=1.2.1
+    - r-tibble &gt;=3.1.8
+    - r-tidyr &gt;=1.2.1
+    - r-umap &gt;=0.2.9.0
+    - r-rtsne &gt;=0.16
+    - r-magrittr &gt;=2.0.3
+    - r-rlang &gt;=1.1.0</code></pre> <h2 id=build-the-conda-package>Build the Conda package<a class=headerlink href=#build-the-conda-package title="Permanent link">&para;</a></h2> <p>When the <code>meta.yaml</code> has been prepared, you can now build the Conda package. To do so, run the command, replacing </p> <ul> <li><code>$r-package</code> with the name of the R package folder that was created after running conda skeleton (the folder where the meta.yaml is located).</li> <li><code>$build_log_name.log</code> with the name for the log file, such as the date, time, and initials.</li> </ul> <pre class=highlight><code>conda-build $r-package 2&gt;&amp;1|tee $build_log_name.log</code></pre> <p><strong>Example</strong> <pre class=highlight><code>conda-build r-dspworkflow 2&gt;&amp;1|tee 05_12_23_330_nc.log
+</code></pre></p> <p>The log file will list how conda has built the package, including what dependencies version numbers and corresponding build strings were used to resolve the conda environment. These dependencies are what we specified in the "meta.yaml" file. The log file will be useful troubleshooting a failed build.</p> <p>Be aware, the build can take anywhere from several minutes to an hour to complete, depending on the size of the package and the number of dependencies. </p> <p>The conda package will be built as a tar.bz2 file.</p> </div> </div><footer> <div class=rst-footer-buttons role=navigation aria-label="Footer Navigation"> <a href=../setup/ class="btn btn-neutral float-left" title=Set-Up><span class="icon icon-circle-arrow-left"></span> Previous</a> <a href=../common_issues/ class="btn btn-neutral float-right" title=Troubleshooting>Next <span class="icon icon-circle-arrow-right"></span></a> </div> <hr> <div role=contentinfo> <!-- Copyright etc --> <p>Copyright &copy; 2025 CCBR</p> </div> Built with <a href=https://www.mkdocs.org/ >MkDocs</a> using a <a href=https://github.com/readthedocs/sphinx_rtd_theme>theme</a> provided by <a href=https://readthedocs.org>Read the Docs</a>. </footer> </div> </div> </section> </div> <div class=rst-versions role=note aria-label=Versions> <span class=rst-current-version data-toggle=rst-current-version> <span> <a href=https://github.com/CCBR/HowTos class="fa fa-code-fork" style="color: #fcfcfc"> CCBR/HowTos</a> </span> <span><a href=../setup/ style="color: #fcfcfc">&laquo; Previous</a></span> <span><a href=../common_issues/ style="color: #fcfcfc">Next &raquo;</a></span> </span> </div> <script src=../../js/jquery-3.6.0.min.js></script> <script>var base_url = "../..";</script> <script src=../../js/theme_extra.js></script> <script src=../../js/theme.js></script> <script src=../../search/main.js></script> <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script> </body> </html> 
