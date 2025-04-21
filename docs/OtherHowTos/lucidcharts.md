@@ -1,4 +1,4 @@
-# Account managements of Lucid Charts Documents
+# Account management of Lucid Charts Documents
 
 Remember:
 
