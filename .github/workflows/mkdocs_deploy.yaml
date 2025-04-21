@@ -1,0 +1,29 @@
+name: Deploy MkDocs with ReadTheDocs theme
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install MkDocs and ReadTheDocs theme
+        run: |
+          pip install mkdocs mkdocs-rtd-theme
+
+      - name: Deploy using mkdocs
+        run: mkdocs gh-deploy --force
