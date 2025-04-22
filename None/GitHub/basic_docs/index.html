@@ -1,0 +1,149 @@
+<!DOCTYPE html><html class=writer-html5 lang=en> <head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1.0"><meta name=author content="Vishal Koparde, Ph.D., Samantha Sevilla, PhD."><link rel="shortcut icon" href=../../img/favicon.ico><title>Creating your Documentation - CCBR How Tos</title><link rel=stylesheet href=../../css/theme.css><link rel=stylesheet href=../../css/theme_extra.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css><link href=../../css/version-select.css rel=stylesheet><script>
+        // Current page data
+        var mkdocs_page_name = "Creating your Documentation";
+        var mkdocs_page_input_path = "GitHub/basic_docs.md";
+        var mkdocs_page_url = null;
+      </script><!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]--><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js></script><script>hljs.highlightAll();</script></head> <body class=wy-body-for-nav role=document> <div class=wy-grid-for-nav> <nav data-toggle=wy-nav-shift class="wy-nav-side stickynav"> <div class=wy-side-scroll> <div class=wy-side-nav-search> <a href=../.. class="icon icon-home"> CCBR How Tos </a><div role=search> <form id=rtd-search-form class=wy-form action=../../search.html method=get> <input type=text name=q placeholder="Search docs" aria-label="Search docs" title="Type search term here"> </form> </div> </div> <div class="wy-menu wy-menu-vertical" data-spy=affix role=navigation aria-label="Navigation menu"> <ul> <li class=toctree-l1><a class="reference internal" href=../..>Intro</a> </li> </ul> <p class=caption><span class=caption-text>GitHub</span></p> <ul class=current> <li class=toctree-l1><a href=../overview/ class="reference internal">Overview</a> </li> <li class=toctree-l1><a class="reference internal">Set-Up</a> <ul> <li class=toctree-l2><a href=../howto_setup/ class="reference internal">Preparing your environment</a> </li> <li class=toctree-l2><a href=../howto_functions/ class="reference internal">Basic Commands</a> </li> </ul> </li> <li class="toctree-l1 current"><a class="reference internal current">Basics</a> <ul class=current> <li class=toctree-l2><a href=../basic_repo/ class="reference internal">Creating your GitHub Repo</a> </li> <li class="toctree-l2 current"><a class="reference internal current" href=#>Creating your Documentation</a> <ul class=current> <li class=toctree-l3><a class="reference internal" href=#install-mkdocs-themes>Install MkDocs, themes</a> </li> <li class=toctree-l3><a class="reference internal" href=#conventions>Conventions</a> </li> <li class=toctree-l3><a class="reference internal" href=#create-website>Create website</a> </li> <li class=toctree-l3><a class="reference internal" href=#add-mkdocsyaml>Add mkdocs.yaml</a> </li> <li class=toctree-l3><a class="reference internal" href=#create-indexmd>Create index.md</a> </li> <li class=toctree-l3><a class="reference internal" href=#build-site>Build site</a> </li> <li class=toctree-l3><a class="reference internal" href=#deploy-site>Deploy site</a> </li> <li class=toctree-l3><a class="reference internal" href=#add-to-the-github-page>Add to the GitHub page</a> </li> </ul> </li> <li class=toctree-l2><a href=../basic_actions/ class="reference internal">Creating GitHub Actions</a> </li> <li class=toctree-l2><a href=../howto_precommit/ class="reference internal">Using Pre-Commit</a> </li> </ul> </li> <li class=toctree-l1><a class="reference internal">Best Practices</a> <ul> <li class=toctree-l2><a href=../sop_projpipes/ class="reference internal">Projects,Pipelines</a> </li> <li class=toctree-l2><a href=../sop_techdev/ class="reference internal">TechDev</a> </li> </ul> </li> </ul> <p class=caption><span class=caption-text>TechDev</span></p> <ul> <li class=toctree-l1><a href=../sop_techdev/ class="reference internal">TechDev</a> </li> </ul> <p class=caption><span class=caption-text>HPCDME</span></p> <ul> <li class=toctree-l1><a href=../../HPCDME/setup/ class="reference internal">Setup</a> </li> <li class=toctree-l1><a href=../../HPCDME/transfer/ class="reference internal">Biowulf2HPCDME</a> </li> <li class=toctree-l1><a href=../../HPCDME/transferFromHelix/ class="reference internal">Helix2HPCDME</a> </li> </ul> <p class=caption><span class=caption-text>UCSC Tracks</span></p> <ul> <li class=toctree-l1><a href=../../UCSC/overview/ class="reference internal">Overview</a> </li> <li class=toctree-l1><a href=../../UCSC/creating_inputs/ class="reference internal">Creating Inputs</a> </li> <li class=toctree-l1><a href=../../UCSC/creating_track_info/ class="reference internal">Creating Tracks Info</a> </li> <li class=toctree-l1><a href=../../UCSC/creating_tracks/ class="reference internal">Creating Tracks</a> </li> </ul> <p class=caption><span class=caption-text>Creating an R Package</span></p> <ul> <li class=toctree-l1><a href=../../Rpackage/setup/ class="reference internal">Set-Up</a> </li> <li class=toctree-l1><a href=../../Rpackage/build_pkg/ class="reference internal">Creating the package</a> </li> <li class=toctree-l1><a href=../../Rpackage/common_issues/ class="reference internal">Troubleshooting</a> </li> </ul> <p class=caption><span class=caption-text>Other How Tos</span></p> <ul> <li class=toctree-l1><a href=../../OtherHowTos/datashare/ class="reference internal">Datashare</a> </li> <li class=toctree-l1><a href=../../OtherHowTos/zenodo/ class="reference internal">Zenodo</a> </li> <li class=toctree-l1><a href=../../OtherHowTos/lucidcharts/ class="reference internal">LucidCharts</a> </li> </ul> <p class=caption><span class=caption-text>Tutorials</span></p> <ul> <li class=toctree-l1><a href=../../Tutorials/snakemake/ class="reference internal">Snakemake</a> </li> </ul> <ul> <li class=toctree-l1><a href=../../contributions/ class="reference internal">Contributions</a> </li> </ul> </div> </div> </nav> <section data-toggle=wy-nav-shift class=wy-nav-content-wrap> <nav class=wy-nav-top role=navigation aria-label="Mobile navigation menu"> <i data-toggle=wy-nav-top class="fa fa-bars"></i> <a href=../..>CCBR How Tos</a> </nav> <div class=wy-nav-content> <div class=rst-content><div role=navigation aria-label="breadcrumbs navigation"> <ul class=wy-breadcrumbs> <li><a href=../.. class="icon icon-home" aria-label=Docs></a></li> <li class=breadcrumb-item>GitHub</li> <li class=breadcrumb-item>Basics</li> <li class="breadcrumb-item active">Creating your Documentation</li> <li class=wy-breadcrumbs-aside> <a href=https://github.com/CCBR/HowTos/edit/main/docs/GitHub/basic_docs.md>Edit on CCBR/HowTos</a> </li> </ul> <hr> </div> <div role=main class=document itemscope=itemscope itemtype=http://schema.org/Article> <div class=section itemprop=articleBody> <h1 id=github-basics-documentation>GitHub Basics: Documentation<a class=headerlink href=#github-basics-documentation title="Permanent link">&para;</a></h1> <p>GitHub <a href=https://pages.github.com/ >Pages</a> is quick and easy way to build static websites for your GitHub repositories. Essentially, you write pages in <a href=https://www.markdownguide.org/ >Markdown</a> which are then rendered to HTML and hosted on GitHub, free of cost! </p> <p>CCBR has used GitHub pages to provide extensive, legible and organized documentation for our pipelines. Examples are included below:</p> <ul> <li><a href=https://ccbr.github.io/CARLISLE/ >CARLISLE</a></li> <li><a href=https://ccbr.github.io/pipeliner-docs/ >Pipeliner</a></li> <li><a href=https://ccbr.github.io/RNA-seek/ >RNA-seek</a></li> </ul> <p><a href=https://www.mkdocs.org/ ><code>Mkdocs</code></a> is the with documentation tool preferred, with the <a href=https://squidfunk.github.io/mkdocs-material/getting-started/ >Material</a> theme, for most of the CCBR GitHub Pages websites.</p> <h2 id=install-mkdocs-themes>Install MkDocs, themes<a class=headerlink href=#install-mkdocs-themes title="Permanent link">&para;</a></h2> <p><code>mkdocs</code> and the Material for mkdocs theme can be installed using the following:</p> <pre class=highlight><code class=language-bash>pip install --upgrade pip
+pip install mkdocs
+pip install mkdocs-material</code></pre> <p>Also install other common dependencies:</p> <pre class=highlight><code class=language-bash>pip install mkdocs-pymdownx-material-extras
+pip install mkdocs-git-revision-date-localized-plugin
+pip install mkdocs-git-revision-date-plugin
+pip install mkdocs-minify-plugin</code></pre> <h2 id=conventions>Conventions<a class=headerlink href=#conventions title="Permanent link">&para;</a></h2> <p>Generally, for GitHub repos with GitHub pages:</p> <ul> <li>The repository needs to be public (not private)</li> <li>The main/master branch has the markdown documents under a <code>docs</code> folder at the root level</li> <li>Rendered HTMLs are hosted under a <code>gh-pages</code> branch at root level</li> </ul> <h2 id=create-website>Create website<a class=headerlink href=#create-website title="Permanent link">&para;</a></h2> <p>The following steps can be followed to build your first website </p> <h2 id=add-mkdocsyaml>Add <code>mkdocs.yaml</code><a class=headerlink href=#add-mkdocsyaml title="Permanent link">&para;</a></h2> <p><code>mkdocs.yaml</code> needs to be added to the root of the <strong>master</strong> branch. A template of this file is available in the <a href=https://github.com/CCBR/CCBR_CCBRTechDevCookieCutter>cookiecutter</a> template.</p> <pre class=highlight><code class=language-bash>git clone https://github.com/CCBR/xyz.git
+cd xyz
+vi mkdocs.yaml
+git add mkdocs.yaml
+git commit -m "adding mkdocs.yaml"
+git push</code></pre> <p>Here is a sample <code>mkdocs.yaml</code>:</p> <pre class=highlight><code class=language-yaml># Project Information
+site_name: CCBR How Tos
+site_author: Vishal Koparde, Ph.D.
+site_description: &gt;-
+  The **DEVIL** is in the **DETAILS**. Step-by-step detailed How To Guides for data management and other CCBR-relevant tasks.
+
+# Repository
+repo_name: CCBR/HowTos
+repo_url: https://github.com/CCBR/HowTos
+edit_uri: https://github.com/CCBR/HowTos/edit/main/docs/
+
+# Copyright
+copyright: Copyright &amp;copy; 2023 CCBR
+
+# Configuration
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.indexes
+    - toc.integrate 
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  logo: assets/images/doc-book.svg
+  favicon: assets/images/favicon.png
+
+# Plugins
+plugins:
+  - search
+  - git-revision-date
+  - minify:
+      minify_html: true
+
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/solid/users
+      link: http://bioinformatics.cancer.gov
+    - icon: fontawesome/brands/github
+      link: https://github.com/CCRGeneticsBranch
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/orgs/nciccbr/repositories
+  version:
+    provider: mike
+
+
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page Tree
+nav:
+  - Intro : index.md</code></pre> <h2 id=create-indexmd>Create <code>index.md</code><a class=headerlink href=#create-indexmd title="Permanent link">&para;</a></h2> <p>Create <code>docs</code> folder, add your <code>index.md</code> there.</p> <pre class=highlight><code class=language-bash>mkdir docs
+echo "### Testing" &gt; docs/index.md
+git add docs/index.md
+git commit -m "adding landing page"
+git push</code></pre> <h2 id=build-site>Build site<a class=headerlink href=#build-site title="Permanent link">&para;</a></h2> <p><code>mkdocs</code> can now be used to render <code>.md</code> to HTML</p> <pre class=highlight><code class=language-bash>mkdocs build
+INFO     -  Cleaning site directory
+INFO     -  Building documentation to directory: /Users/$USER/Documents/GitRepos/parkit/site
+INFO     -  Documentation built in 0.32 seconds</code></pre> <p>The above command creates a local <code>site</code> folder which is the root of your "to-be-hosted" website. You can now open the HTMLs in the <code>site</code> folder locally to ensure that that HTML is as per you liking. If not, then you can make edits to the <code>.md</code> files and rebuild the site.</p> <p><strong>NOTE</strong>: You do not want to push the <code>site</code> folder back to GH and hence it needs to be added to <code>.gitignore</code> file:</p> <pre class=highlight><code class=language-bash>echo "**/site/*" &gt; .gitignore
+git add .gitignore
+git commit -m "adding .gitignore"
+git push</code></pre> <h2 id=deploy-site>Deploy site<a class=headerlink href=#deploy-site title="Permanent link">&para;</a></h2> <p>The following command with auto-create a <code>gh-pages</code> branch (if it does not exist) and copy the contents of the <code>site</code> folder to the root of that branch. It will also provide you the URL to your newly created website.</p> <pre class=highlight><code class=language-bash>mkdocs gh-deploy
+INFO     -  Cleaning site directory
+INFO     -  Building documentation to directory: /Users/kopardevn/Documents/GitRepos/xyz/site
+INFO     -  Documentation built in 0.34 seconds
+WARNING  -  Version check skipped: No version specified in previous deployment.
+INFO     -  Copying '/Users/kopardevn/Documents/GitRepos/xyz/site' to 'gh-pages' branch and pushing to
+            GitHub.
+Enumerating objects: 51, done.
+Counting objects: 100(51/51), done.
+Delta compression using up to 16 threads
+Compressing objects: 100(47/47), done.
+Writing objects: 100(51/51), 441.71 KiB | 4.29 MiB/s, done.
+Total 51 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100(4/4), done.
+remote:
+remote: Create a pull request for 'gh-pages' on GitHub by visiting:
+remote:      https://github.com/CCBR/xyz/pull/new/gh-pages
+remote:
+To https://github.com/CCBR/xyz.git
+ * [new branch]      gh-pages -&gt; gh-pages
+INFO     -  Your documentation should shortly be available at: https://CCBR.github.io/xyz/</code></pre> <p>Now if you point your web browser to the URL from <code>gh-deploy</code> command (IE https://CCBR.github.io/xyz/) you will see your HTML hosted on GitHub. After creating your docs, the cookiecutter template includes a GitHub action which will automatically perform the above tasks whenever a push is performed to the main branch.</p> <h2 id=add-to-the-github-page>Add to the GitHub page<a class=headerlink href=#add-to-the-github-page title="Permanent link">&para;</a></h2> <ol> <li>Go to the main GitHub page of your repository</li> <li>On the top right select the <code>gear</code> icon next to <code>About</code></li> <li>Under <code>Website</code>, select <code>Use your GitHub Pages website</code>.</li> <li>Select <code>Save Changes</code></li> </ol> </div> </div><footer> <div class=rst-footer-buttons role=navigation aria-label="Footer Navigation"> <a href=../basic_repo/ class="btn btn-neutral float-left" title="Creating your GitHub Repo"><span class="icon icon-circle-arrow-left"></span> Previous</a> <a href=../basic_actions/ class="btn btn-neutral float-right" title="Creating GitHub Actions">Next <span class="icon icon-circle-arrow-right"></span></a> </div> <hr> <div role=contentinfo> <!-- Copyright etc --> <p>Copyright &copy; 2025 CCBR</p> </div> Built with <a href=https://www.mkdocs.org/ >MkDocs</a> using a <a href=https://github.com/readthedocs/sphinx_rtd_theme>theme</a> provided by <a href=https://readthedocs.org>Read the Docs</a>. </footer> </div> </div> </section> </div> <div class=rst-versions role=note aria-label=Versions> <span class=rst-current-version data-toggle=rst-current-version> <span> <a href=https://github.com/CCBR/HowTos class="fa fa-code-fork" style="color: #fcfcfc"> CCBR/HowTos</a> </span> <span><a href=../basic_repo/ style="color: #fcfcfc">&laquo; Previous</a></span> <span><a href=../basic_actions/ style="color: #fcfcfc">Next &raquo;</a></span> </span> </div> <script src=../../js/jquery-3.6.0.min.js></script> <script>var base_url = "../..";</script> <script src=../../js/theme_extra.js></script> <script src=../../js/theme.js></script> <script src=../../search/main.js></script> <script src=../../js/version-select.js></script> <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script> </body> </html> 
