@@ -1,0 +1,5 @@
+mkdocs
+mike
+pymdown-extensions
+mkdocs-git-revision-date-plugin
+mkdocs-minify-plugin
