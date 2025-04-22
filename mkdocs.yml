@@ -35,8 +35,6 @@ extra:
       link: https://github.com/CCBR
     - icon: fontawesome/solid/paper-plane
       link: mailto:vishal.koparde@nih.gov
-  version:
-    provider: mike
 
 
 # Extensions
