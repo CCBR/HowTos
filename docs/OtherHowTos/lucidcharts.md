@@ -4,8 +4,8 @@ Remember:
 
 - All Lucid charts CCBR documents should be owned by `nciccbr@mail.nih.gov`
 - Your lucidcharts username should be your `nih.gov` email address
-- Do **NOT** use non `nih.gov` email address, aka personal email account, for viewing or editing CCBR lucid chart documents
-- Do **NOT** share lucid chart documents with non `nih.gov` email address ( unless absolutely necessary )
+- Only use your `nih.gov` email address to view or edit CCBR Lucidchart documents. Do not use personal email accounts.
+- Share Lucidchart documents only with `nih.gov` email addresses, unless absolutely necessary.
 
 ## Existing document:
 

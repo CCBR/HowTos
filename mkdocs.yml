@@ -7,7 +7,7 @@ site_description: >-
 # Repository
 repo_name: CCBR/HowTos
 repo_url: https://github.com/CCBR/HowTos
-edit_uri: https://github.com/CCBR/HowTos/edit/main/docs/
+edit_uri: ""
 
 # Copyright
 copyright: Copyright &copy; 2025 CCBR
