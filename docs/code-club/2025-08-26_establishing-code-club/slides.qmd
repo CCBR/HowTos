@@ -1,0 +1,96 @@
+---
+title: "Establishing a Community of Practice"
+subtitle: "CCBR Code Club"
+date: 2025-08-26
+date-format: MMM DD, YYYY
+mainfont: Roboto
+format: 
+  fnl-revealjs: 
+    logo: /_extensions/fnl/fnl-logo-light.png
+    embed-resources: true
+---
+
+## Agenda
+
+- Establishing a Community of Practice with Code Clubs
+- Tutorial on building docker containers
+
+## Survey
+
+Please fill out this survey if you haven't already!
+
+<https://forms.gle/yT5LWko7LhAmGpZM6>
+
+## Recap
+
+Journal club in February 2025
+
+![](ferenc-2024.png)
+
+## Recap
+
+::: {.align-center}
+
+![_The improvement process in software dev is like rock climbing_](../2025-02-11_journal-club/fig1.png){width=37%}
+
+:::
+
+## Journal club for code
+
+Just like a regular **journal club** seminar helps scientists keep up with the
+literature in their field, **code club** helps computational scientists keep up
+with best practices in software development.
+
+::: footer
+Hagan et al. 2020. PLOS Comp Biol.
+
+<https://doi.org/10.1371/journal.pcbi.1008119>
+:::
+
+## Code Club as a community of practice
+
+> Communities of practice are groups of people who share a concern or a passion
+> for something they do and learn how to do it better as they interact regularly.
+
+::: footer
+Wenger-Trayner, E. and Wenger-Trayner, B. 2015.
+
+<https://www.wenger-trayner.com/introduction-to-communities-of-practice.>
+:::
+
+## Goals of Code Club
+
+- Adopt good practices in software development
+- Improve the quality of our code
+- Learn from each other
+- Focus on CCBR-specific practices, ways of working
+
+## Formats for code club
+
+- Traditional powerpoint slides
+- Live demos
+- Hands-on activities
+- Peer code review
+
+Experimentation is encouraged!
+
+## Resource Sharing
+
+Code Club resources can be shared in the [CCBR HowTos repo](https://github.com/CCBR/HowTos).
+
+- presentation slides
+- tutorial documents
+- links for further learning
+
+::: footer
+<https://github.com/CCBR/HowTos>
+:::
+
+::: {.notes}
+:::
+
+## Discussion
+
+Questions, comments, suggestions?
+
+## Next: docker tutorial

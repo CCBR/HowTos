@@ -1,0 +1,6 @@
+---
+title: Code Club
+---
+
+- [Journal Club where the idea to have a CCBR Code Club was proposed](./2025-02-11_journal-club/slides.qmd)
+- [First Code Club: Establishing a community of practice](./2025-08-26_establishing-code-club/slides.qmd)

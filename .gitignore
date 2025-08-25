@@ -2,3 +2,7 @@
 **/site/**
 
 *DS*
+.Rproj.user
+
+/.quarto/
+/_site/
