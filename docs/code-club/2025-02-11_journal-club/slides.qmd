@@ -1,0 +1,186 @@
+---
+title: "Improving bioinformatics software quality through teamwork"
+subtitle: "CCBR Journal Club"
+date: 2025-02-11
+date-format: MMM DD, YYYY
+mainfont: Roboto
+format: 
+  fnl-revealjs: 
+    logo: /_extensions/fnl/fnl-logo-light.png
+    embed-resources: true
+---
+
+## The problem
+
+Bioinformatics is critical for biological research,
+but bioinformatics software often does not follow good software engineering practices.
+
+:::{.align-center}
+![](https://imgs.xkcd.com/comics/dependency.png){height="60%"}
+:::
+
+:::{.footer}
+<https://imgs.xkcd.com/comics/dependency.png>
+:::
+
+## Implications
+
+- error-prone code can lead to invalid scientific findings
+- technical debt - makes future changes more difficult
+
+## Causes of poor software quality in bioinformatics
+
+- many bioinformaticians lack training in software development
+- academia credits individual researchers to aid their careers, which deincentivizes teams
+
+## Writing good code is hard!
+
+:::{.align-center}
+![](https://imgs.xkcd.com/comics/good_code.png){height="600px"}
+:::
+
+:::{.footer}
+<https://imgs.xkcd.com/comics/good_code.png>
+:::
+
+## The trap of technical debt
+
+:::{.align-center}
+![](https://imgs.xkcd.com/comics/fixing_problems.png){height="400px"}
+:::
+
+:::{.footer}
+<https://imgs.xkcd.com/comics/fixing_problems.png>
+:::
+
+## The trap of "perfect" code
+
+:::{.align-center}
+![](https://imgs.xkcd.com/comics/the_general_problem.png){height="300px"}
+:::
+
+> _I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight._
+
+:::{.footer}
+<https://imgs.xkcd.com/comics/the_general_problem.png>
+:::
+
+## The authors' proposed solution
+
+Organize bioinformaticians into collaborative **teams** to facilitate:
+
+1. software quality seminars
+1. code reviews
+1. resource sharing
+
+(i.e. a learning community)
+
+:::{.fragment}
+### Goal
+Persuade academic researchers to organize collaborative teams within their institutions to improve software quality
+:::
+
+## Lessons from the tech industry
+
+- the team is a basic unit: there are no lone geniuses
+- teams incentivize collective ownership
+- the team context requires all members to adopt good software practices
+
+:::{.notes}
+you can't collaborate effectively without version control software.
+your teammates won't want to work with hard-to-read code.
+:::
+
+## Lessons from rock climbing
+
+Climbers view the route together and discuss the best way to climb it.
+
+:::{.align-center}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K2zoh6_4Pvw?si=1ARgd53tineqnn5y&amp;start=4344" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+:::
+
+:::{.footer}
+<https://www.youtube.com/live/K2zoh6_4Pvw?feature=shared&t=4344>
+:::
+
+:::{.notes}
+- start at 1:12:24
+- stop by 1:13:56
+:::
+
+## Lessons from rock climbing
+
+:::{.align-center}
+![](./fig1.png){height="600px"}
+:::
+
+:::{.footer}
+Fig 1. Kerenc _et al._ 2024. [10.1093/bioinformatics/btae632](https://doi.org/10.1093/bioinformatics/btae632)
+:::
+
+:::{.notes}
+discuss most optimal way to reach goal before you start the project
+:::
+
+## Improving software dev as a team
+
+a learning community with:
+
+1. software quality seminars
+2. code reviews
+3. resource sharing
+
+## 1. Software quality seminars
+
+- presentations & demos covering new techniques, tools, methods, and theory
+- topics are applicable across multiple projects
+- result: members acquire new knowledge to apply to their projects, community gains a shared vocabulary to discuss their work
+
+## 2. Code review sessions
+
+- review a section of code line-by-line to offer feedback
+- standard practice in industry, but seldom implemented in academia
+- result: enforce consistent coding standards, detect bugs, positive peer pressure to write good
+
+## 3. Resource sharing
+
+- external open access resources + internal resources
+- repositories, packages, libraries, seminar recordings
+- result: encourages re-use and further enables knowledge sharing
+
+:::{.fragment}
+<https://ferenckata.github.io/ImprovingSoftwareTogether.github.io/index.html>
+:::
+
+## Outcomes
+
+organizing academic bioinformaticians into teams:
+
+- fosters collaboration while allowing individuals to retain personal ownership & advance their careers
+- lowers the barrier to adapt new technologies and techniques
+- improves software quality to enable deeper trust in the resulting scientific discoveries
+- benefits large & small projects alike
+
+## Future perspectives
+
+#### Challenges in encouraging good software practices
+
+- Funding agencies reward novelty; few grants fund maintenance
+- Academia considers journal publications as _the_ token of success
+
+:::{.fragment}
+#### Silver linings
+- Funding for critical software maintenance: Chan Zuckerberg Initiative, Schmidt Futures
+- Journal of Open Source Software: great venue for publishing scientific software
+:::
+
+## Group discussion
+
+- In what ways do the authors' ideas apply to us?
+- How are we already applying some of their ideas?
+- Are there ways we could improve our teamwork?
+
+:::{.notes}
+- Academia vs Core resource
+- Reusable software vs One-time-use analysis code
+:::

@@ -19,8 +19,8 @@ website:
     left:
       - text: Home
         href: index.md
-    right: 
       - href: contributors.qmd
+    right:
       - icon: github
         href: https://github.com/CCBR/HowTos
 
