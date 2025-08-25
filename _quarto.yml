@@ -1,0 +1,41 @@
+project:
+  type: website
+  title: "How-Tos"
+  output-dir: _site
+
+website:
+  repo-url: https://github.com/CCBR/HowTos
+  repo-actions: [edit, issue]
+  site-url: https://ccbr.github.io/HowTos
+  search: false
+  sidebar:
+    contents:
+      - section: "How-To Guides"
+        contents: docs/**
+      - contributors.qmd
+  navbar:
+    title: false
+    left:
+      - text: Home
+        href: index.md
+    right: 
+      - icon: github
+        menu:
+        - text: Repo
+          href: https://github.com/CCBR/HowTos
+        - text: Issues
+          href: https://github.com/CCBR/HowTos/issues
+
+  page-footer:
+    left: |
+      Created by the
+      [CCR Collaborative Bioinformatics Resource](https://github.com/CCBR)
+
+execute:
+  freeze: auto
+
+format:
+  fnl-html:
+    embed-resources: true
+    code-fold: true
+    toc: true
