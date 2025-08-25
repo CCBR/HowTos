@@ -1,8 +1,8 @@
 ---
+title: "LucidChart"
+description: "Account management of Lucid Charts Documents"
 author: "[Ned Cauley](https://github.com/escauley)"
 ---
-
-# Account management of Lucid Charts Documents
 
 Remember:
 

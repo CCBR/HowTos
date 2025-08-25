@@ -1,8 +1,8 @@
 ---
+title: "common issues"
 author: "[Ned Cauley](https://github.com/escauley)"
 ---
 
-# Creating a Conda Package from an R Package
 
 ## Package Dependency Issues
 

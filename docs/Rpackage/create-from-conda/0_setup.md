@@ -1,4 +1,5 @@
 ---
+title: "setup"
 author: "[Ned Cauley](https://github.com/escauley)"
 ---
 
