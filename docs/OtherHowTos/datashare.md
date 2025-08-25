@@ -1,10 +1,12 @@
+---
+author: "[Ned Cauley](https://github.com/escauley)"
+---
+
 # Datashare
 
 Host data on [Helix](https://hpc.nih.gov/systems/) or [Biowulf](https://hpc.nih.gov/systems/), that is publicly accessible through a URL
 
 ## Setup
-
----
 
 ### Access Login
 
@@ -24,10 +26,10 @@ mkdir tutorial
 ```
 
 ## Processing
----
+
 ### Make a directory in the datashare folder
 
-*NOTE: For all steps below, an example is shown for Helix, but the same process is applicable for Biowulf, after changing the `helix.nih.gov` to `biowulf.nih.gov`*
+**NOTE: For all steps below, an example is shown for Helix, but the same process is applicable for Biowulf, after changing the `helix.nih.gov` to `biowulf.nih.gov`**
 
 Now you can transfer your data to the new directory. One method is to use `scp` to copy data from your local machine to Helix. 
 
@@ -62,7 +64,7 @@ setfacl -m u:webcpu:r-x tutorial/*
 ```
 
 ## Public Access
----
+
 **NOTE: You must be logged into [HPC](https://hpc.nih.gov/) in order to access these files from a web browser.**
 
 Files will be available for access through a browser, via tools like `wget` and `UCSC genome track browser` via the following format:

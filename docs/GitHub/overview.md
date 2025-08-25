@@ -1,4 +1,8 @@
-# Overview of GitHub Topics
+---
+title: Overview of GitHub Topics
+author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
+---
+
 ## Getting set-up and familiar with GitHub
 - [Preparing your environment](howto_setup.md):
     - Describes how to create a PAT, add GH to your bash profile and use password-less login features

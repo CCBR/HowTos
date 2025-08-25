@@ -91,8 +91,8 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-  logo: assets/images/doc-book.svg
-  favicon: assets/images/favicon.png
+  logo: images/doc-book.svg
+  favicon: images/favicon.png
 
 # Plugins
 plugins:

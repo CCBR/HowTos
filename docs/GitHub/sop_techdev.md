@@ -1,11 +1,17 @@
-# GitHub Best Practices
+---
+title: "GitHub Best Practices: TechDev projects"
+author: "[Samantha Sevilla](https://github.com/slsevilla)"
+---
+
+## GitHub Best Practices
+
 - Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
 
-    - [Preparing your environment](https://ccbr.github.io/HowTos/GitHub/howto_setup/)
-    - [Basic Commands](https://ccbr.github.io/HowTos/GitHub/howto_functions/)
-    - [Creating your GitHub repo](https://ccbr.github.io/HowTos/GitHub/basic_repo/)
-    - [Creating your Documentation](https://ccbr.github.io/HowTos/GitHub/setup_docs)
-    - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/)
+    - [Preparing your environment](/GitHub/howto_setup/)
+    - [Basic Commands](/GitHub/howto_functions/)
+    - [Creating your GitHub repo](/GitHub/basic_repo/)
+    - [Creating your Documentation](/GitHub/setup_docs)
+    - [GitHub Actions](/GitHub/basic_actions/)
 
 ## TechDev Documentation
 

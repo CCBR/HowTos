@@ -1,9 +1,10 @@
 # GitHub Best Practices: Projects and Pipelines
+
 - Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
 
     - [Preparing your environment](howto_setup.md)
     - [Basic Commands](howto_functions.md)
-    - [Creating your GitHub repo](GitHub/basic_repo.md)
+    - [Creating your GitHub repo](basic_repo.md)
     - [Creating your Documentation](setup_docs.md)
     - [GitHub Actions](basic_actions.md)
 

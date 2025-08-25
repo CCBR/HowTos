@@ -1,3 +1,7 @@
+---
+author: "[Ned Cauley](https://github.com/escauley)"
+---
+
 # Creating a Conda Package from an R Package
 
 ## Set up Conda Tools, installation (if needed)
