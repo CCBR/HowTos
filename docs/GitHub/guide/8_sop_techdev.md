@@ -7,11 +7,11 @@ author: "[Samantha Sevilla](https://github.com/slsevilla)"
 
 - Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
 
-    - [Preparing your environment](/GitHub/howto_setup/)
-    - [Basic Commands](/GitHub/howto_functions/)
-    - [Creating your GitHub repo](/GitHub/basic_repo/)
-    - [Creating your Documentation](/GitHub/setup_docs)
-    - [GitHub Actions](/GitHub/basic_actions/)
+    - [Preparing your environment](/GitHub/1_howto_setup/)
+    - [Basic Commands](/GitHub/2_howto_functions/)
+    - [Creating your GitHub repo](/GitHub/3_basic_repo/)
+    - [Creating your Documentation](/GitHub/4_setup_docs/)
+    - [GitHub Actions](/GitHub/5_basic_actions/)
 
 ## TechDev Documentation
 
