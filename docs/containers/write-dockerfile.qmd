@@ -1,0 +1,14 @@
+---
+title: Writing Dockerfiles
+author: Kelly Sovacool
+---
+
+<https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/>
+
+Start from CCBR base container where possible
+
+Examples:
+
+- use conda/mamba: <https://github.com/CCBR/Dockers2/blob/83b1685254d5d75f6dabb96d63e502335f2994ef/intervene/ccbr_intervene_0.6/Dockerfile.v1>
+- install tool from source: <https://github.com/CCBR/Dockers2/blob/83b1685254d5d75f6dabb96d63e502335f2994ef/kraken/ccbr_kraken_2.1.1/Dockerfile.v1>
+- install R package: <https://github.com/CCBR/MOSuite/blob/dd90d049bc494f144595eae116611e0dd4befad9/Dockerfile>
