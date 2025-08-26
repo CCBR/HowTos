@@ -19,7 +19,7 @@ Pull the container image from dockerhub:
 singularity pull docker://kellysovacool/minimal:v2
 ```
 
-It will convert it to a SIF file and write it in your current directory.
+Singularity will convert the docker image to a SIF file and write it in your current directory.
 
 ```sh
 file minimal_v2.sif
@@ -28,10 +28,18 @@ file minimal_v2.sif
 
 Run the container in an interactive bash shell:
 ```sh
+singularity shell minimal_v2.sif bash
+```
+
+Alternatively, you can pull the container and run it interactively in one command like this:
+
+```sh
 singularity shell docker://kellysovacool/minimal:v1 bash
 ```
 
 Run any commands you wish to while inside the container.
+
+You can exit the container by typing `exit` and pressing enter.
 
 ## Cache directory
 
@@ -41,7 +49,7 @@ However, there is limited space in user's home directories.
 Instead, we recommend setting it to a location with more disk space, such as
 `/data/$USER/.singularity`.
 
-You can set this custom cache directory location in your `~/.bashrc` or `~/.zshrc`:
+You can set this custom cache directory location by pasting the following line in your `~/.bashrc` or `~/.zshrc`:
 
 ```sh
 export SINGULARITY_CACHEDIR=/data/$USER/.singularity
@@ -53,6 +61,6 @@ You can check the cache directory variable like so:
 ```sh
 echo $SINGULARITY_CACHEDIR
 ```
-> /data/sovacoolkl/.singularity
+> /data/$USER/.singularity
 
-(Your own username will appear instead of `sovacoolkl`.)
+(Your own username will appear instead of `$USER`.)
