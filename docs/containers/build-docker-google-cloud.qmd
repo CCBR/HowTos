@@ -119,6 +119,33 @@ docker push NAMESPACE/minimal:v1
 
 ![On the repository page, you can see the list of tags that have been pushed and optionally add a description, category, overview, etc.](img/dockerhub-minimal.png)
 
+## Pull any public container
+
+You can pull any public container from dockerhub (including the one you just pushed).
+
+Here's an example of pulling a container from the CCBR dockerhub account:
+
+```sh
+docker pull nciccbr/ccbr_ubuntu_22.04:v4
+```
+
+The namespace is `nciccbr`, the container name is `ccbr_ubuntu_22.04`, and
+the version tag is `v4`.
+
+![](img/docker-pull.png)
+
+Run the container interactively:
+
+```sh
+docker run -it nciccbr/ccbr_ubuntu_22.04:v4 bash
+```
+
+This is the base image that we use for building most other CCBR containers.
+
+![<https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general>](img/dockerhub-ubuntu-base.png)
+
+![CCBR base image overview with list of installed tools](img/dockerhub-ubuntu-base-overview.png)
+
 ## Docker Docs
 
 View the Docker getting started tutorial for more detailed information:
