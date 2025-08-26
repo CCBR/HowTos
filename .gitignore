@@ -1,8 +1,8 @@
 **/.koparde*
-**/site/**
+/site/
 
-*DS*
+.DS_Store
+
 .Rproj.user
-
 /.quarto/
 /_site/
