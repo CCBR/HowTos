@@ -1,6 +1,7 @@
+# Generating New Tracks
+
 Biowulf/Helix hosts its own instance of the [UCSC Genome Browser](https://hpcnihapps.cit.nih.gov/genome/) which is behind the NIH firewall.
 
-# Generating New Tracks
 1. Login to VPN
 2. Login to the [UCSC Browser website](https://hpcnihapps.cit.nih.gov/genome/cgi-bin/hgSession)
 3. Select "My Data > Custom Tracks"

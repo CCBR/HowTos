@@ -3,7 +3,6 @@ title: "common issues"
 author: "[Ned Cauley](https://github.com/escauley)"
 ---
 
-
 ## Package Dependency Issues
 
 An important consideration for Conda builds is the list of dependencies, specified versions, and compatibility with each of the other dependencies.

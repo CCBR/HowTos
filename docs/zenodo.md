@@ -1,8 +1,7 @@
 ---
+title: "Zenodo"
 author: "[Ned Cauley](https://github.com/escauley)"
 ---
-
-# Zenodo
 
 Submit a pipeline to Zenodo in order to create a DOI for publication.
 

@@ -1,8 +1,7 @@
 ---
+title: File Transfers from Biowulf
 author: "[Vishal Koparde](https://github.com/kopardev)"
 ---
-
-# File Transfers from Biowulf
 
 > 🛑 **STOP**: `dm_register_dataobject_multipart` does not work via SLURM. Hence, file transfers are NOT working when initiated from BIOWULF. We recommend [transferring files from Helix.](transferFromHelix.md)
 

@@ -1,8 +1,7 @@
 ---
+title: Snakemake
 author: "[Samantha Sevilla](https://github.com/slsevilla)"
 ---
-
-# Snakemake
 
 Step-by-step guide for setting up and learning to use Snakemake, with examples and use cases
 
