@@ -1150,7 +1150,7 @@
     "href": "docs/containers/singularity-biowulf.html",
     "title": "How to use containers with singularity on biowulf",
     "section": "",
-    "text": "Log in to biowulf and start an interactive session.\nLoad the singularity module\nPull the container image from dockerhub:\nIt will convert it to a SIF file and write it in your current directory.\nRun the container in an interactive bash shell:\nRun any commands you wish to while inside the container.",
+    "text": "Log in to biowulf and start an interactive session.\nLoad the singularity module\nPull the container image from dockerhub:\nSingularity will convert the docker image to a SIF file and write it in your current directory.\nRun the container in an interactive bash shell:\nAlternatively, you can pull the container and run it interactively in one command like this:\nRun any commands you wish to while inside the container.\nYou can exit the container by typing exit and pressing enter.",
     "crumbs": [
       "Home",
       "Containers",
@@ -1162,7 +1162,7 @@
     "href": "docs/containers/singularity-biowulf.html#cache-directory",
     "title": "How to use containers with singularity on biowulf",
     "section": "Cache directory",
-    "text": "Cache directory\nSingularity caches images in a directory set by the SINGULARITY_CACHEDIR environment variable. By default, this is set to $HOME/.singularity. However, there is limited space in user’s home directories. Instead, we recommend setting it to a location with more disk space, such as /data/$USER/.singularity.\nYou can set this custom cache directory location in your ~/.bashrc or ~/.zshrc:\nexport SINGULARITY_CACHEDIR=/data/$USER/.singularity\nThis will take effect if you log out and log back in, or source your rc file. You can check the cache directory variable like so:\necho $SINGULARITY_CACHEDIR\n\n/data/sovacoolkl/.singularity\n\n(Your own username will appear instead of sovacoolkl.)",
+    "text": "Cache directory\nSingularity caches images in a directory set by the SINGULARITY_CACHEDIR environment variable. By default, this is set to $HOME/.singularity. However, there is limited space in user’s home directories. Instead, we recommend setting it to a location with more disk space, such as /data/$USER/.singularity.\nYou can set this custom cache directory location by pasting the following line in your ~/.bashrc or ~/.zshrc:\nexport SINGULARITY_CACHEDIR=/data/$USER/.singularity\nThis will take effect if you log out and log back in, or source your rc file. You can check the cache directory variable like so:\necho $SINGULARITY_CACHEDIR\n\n/data/$USER/.singularity\n\n(Your own username will appear instead of $USER.)",
     "crumbs": [
       "Home",
       "Containers",
