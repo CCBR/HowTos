@@ -1,0 +1,125 @@
+---
+title: Build docker containers interactively with Google Cloud Shell
+---
+
+As of this writing, Docker Desktop is not approved for use on NCI laptops.
+If you want to build and push docker containers using the docker CLI, 
+you can use the Google Cloud Shell: <https://console.cloud.google.com/>
+
+You can create an account with your `@nih.gov` email.
+Certain aspects of Google Cloud cost money, but the free tier offers more than
+enough usage for building containers with the Google Cloud Shell.
+
+![After logging into Google Cloud Console, click the "Active Cloud Shell" button near the top right corner.](img/cloud-console.png)
+
+![Cloud Shell has a Terminal to run commands.](img/cloud-shell-terminal.png)
+
+![Cloud Shell has an editor that's a lot like VS Code.](img/cloud-shell-editor.png)
+
+## Create a Dockerfile
+
+For this tutorial, we'll create a minimal Dockerfile with these contents:
+
+``` dockerfile
+FROM python:3.11
+
+RUN mkdir -p /data2/
+RUN echo 'hello world' > /data2/file.txt
+```
+
+### Upload
+
+If you already have a Dockerfile written, you can upload it to Cloud Shell.
+
+![In the file explorer tab, right-click and select "Upload".](img/editor-upload.png)
+
+### Write
+
+Create a new text file:
+
+![Click `File` > `New Text File` and write the contents of your Dockerfile.](img/file-new.png)
+
+Save it with the name "Dockerfile".
+
+![](img/dockerfile.png)
+
+## Build the container
+
+```sh
+docker build -t minimal:v1 -f ./Dockerfile .
+```
+
+- `-t, --tag` - Name and optional tag (format: "name:tag")
+- `-f, --file` - Name of the Dockerfile (default: "PATH/Dockerfile")
+
+Run `docker build --help` for more options.
+
+![The build completed successfully.](img/docker-build.png)
+
+## Test the container image
+
+Run the container interactively with the bash shell:
+
+```sh
+docker run -it minimal:v1 bash
+```
+
+Run any commands you wish inside the container to test that everything you need
+was installed correctly.
+
+```sh
+cat /data2/file.txt
+which python
+python --version
+```
+
+![This container should have python installed and should have the "hello world" file.](img/docker-run-bash.png)
+
+Close the container with the keyboard shortcut {{< kbd Control-D >}} or type `exit` and press enter.
+
+If the container doesn't have the software you expected, 
+something went wrong during the build process.
+Try editing the Dockerfile and re-building the container.
+
+## Push the container to dockerhub
+
+If your container was built successfully, you can push it to a container registry
+such as dockerhub so you can pull it for use on other platforms.
+
+### Log in to dockerhub
+
+```sh
+docker login
+```
+
+![Open your web browser and type in the confirmation code. This step goes very smoothly if you're already logged in to dockerhub in your web browser.](img/docker-login.png)
+
+If it worked, you'll see "Login Succeeded" in the Terminal.
+
+### Tag & push the container image
+
+Add a tag to the image with your username or the namespace on dockerhub (e.g.
+`nciccbr`) that you want to push the container to.
+
+Change `NAMESPACE` in the following command to your username or namespace.
+
+```sh
+docker image tag minimal:v1 NAMESPACE/minimal:v1
+```
+
+Push the container image to dockerhub:
+
+```sh
+docker push NAMESPACE/minimal:v1
+```
+
+![In these examples, the namespace is `kellysovacool` (my username)](img/docker-tag-push.png)
+
+![If the push succeeded, you'll see it in your list of repositories on dockerhub](img/dockerhub-repos.png)
+
+![On the repository page, you can see the list of tags that have been pushed and optionally add a description, category, overview, etc.](img/dockerhub-minimal.png)
+
+## Docker Docs
+
+View the Docker getting started tutorial for more detailed information:
+<https://docs.docker.com/get-started/introduction/build-and-push-first-image/>
