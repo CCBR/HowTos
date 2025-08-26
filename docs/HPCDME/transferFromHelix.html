@@ -8,7 +8,7 @@
 
 <meta name="author" content="Vishal Koparde">
 
-<title>transferfromhelix – CCBR How-Tos</title>
+<title>File Transfer from HELIX – CCBR How-Tos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4174,7 +4174,7 @@ vertical-align: -.125em;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/HPCDME/setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Background</span></a>
+ <span class="menu-text">HPCDME Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4239,7 +4239,7 @@ vertical-align: -.125em;
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">Rpackage</span></a>
+ <span class="menu-text">R Package</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -4256,19 +4256,19 @@ vertical-align: -.125em;
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/Rpackage/create-from-conda/0_setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R-package/create-from-conda/0_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/Rpackage/create-from-conda/1_build_pkg.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R-package/create-from-conda/1_build_pkg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Creating the package</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/Rpackage/create-from-conda/common_issues.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R-package/create-from-conda/common_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">common issues</span></a>
   </div>
 </li>
@@ -4321,14 +4321,11 @@ vertical-align: -.125em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#file-transfer-from-helix" id="toc-file-transfer-from-helix" class="nav-link active" data-scroll-target="#file-transfer-from-helix">File Transfer from HELIX</a>
-  <ul class="collapse">
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"></a><a name="Background" class="nav-link" data-scroll-target="undefined"></a>Background</li>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"></a><a name="Background" class="nav-link" data-scroll-target="undefined"></a>Background</li>
   <li><a href="#parkit" id="toc-parkit" class="nav-link" data-scroll-target="#parkit"></a><a name="parkit" class="nav-link" data-scroll-target="undefined"></a>parkit
   <ul class="collapse">
   <li><a href="#projark-usage" id="toc-projark-usage" class="nav-link" data-scroll-target="#projark-usage"></a><a name="projarkusage" class="nav-link" data-scroll-target="undefined"></a><code>projark</code> usage</li>
   <li><a href="#projark-testing" id="toc-projark-testing" class="nav-link" data-scroll-target="#projark-testing"></a><a name="projarktest" class="nav-link" data-scroll-target="undefined"></a><code>projark</code> testing</li>
-  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/HPCDME/transferFromHelix.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/HPCDME/transferFromHelix.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -4339,6 +4336,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/HPCDME/setup.html">HPCDME</a></li><li class="breadcrumb-item"><a href="../../docs/HPCDME/transferFromHelix.html">File Transfer from HELIX</a></li></ol></nav>
 <div class="quarto-title">
+<h1 class="title">File Transfer from HELIX</h1>
 </div>
 
 
@@ -4361,8 +4359,6 @@ vertical-align: -.125em;
 </header>
 
 
-<section id="file-transfer-from-helix" class="level1">
-<h1>File Transfer from HELIX</h1>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background"><a name="Background"></a>Background</h2>
 <p>Rawdata or Project folders from Helix can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.</p>
@@ -4528,7 +4524,6 @@ vertical-align: -.125em;
 </blockquote>
 
 
-</section>
 </section>
 </section>
 </section>
