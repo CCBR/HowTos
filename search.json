@@ -1126,7 +1126,7 @@
     "href": "docs/containers/build-docker-google-cloud.html#pull-any-public-container",
     "title": "Build docker containers interactively with Google Cloud Shell",
     "section": "Pull any public container",
-    "text": "Pull any public container\nYou can pull any public container from dockerhub (including the one you just pushed).\nHere is the base image that we use for building most other CCBR containers. You can see details about it on dockerhub:\n\n\n\n&lt;https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general&gt;\n\n\n\n\n\nCCBR base image overview with list of installed tools\n\n\nHere’s an example of pulling this container from the CCBR dockerhub account:\ndocker pull nciccbr/ccbr_ubuntu_22.04:v4\nThe namespace is nciccbr, the container name is ccbr_ubuntu_22.04, and the version tag is v4.\n\nRun the container interactively:\ndocker run -it nciccbr/ccbr_ubuntu_22.04:v4 bash",
+    "text": "Pull any public container\nYou can pull any public container from dockerhub (including the one you just pushed).\nHere’s an example of pulling a container from the CCBR dockerhub account:\ndocker pull nciccbr/ccbr_ubuntu_22.04:v4\nThe namespace is nciccbr, the container name is ccbr_ubuntu_22.04, and the version tag is v4.\n\nRun the container interactively:\ndocker run -it nciccbr/ccbr_ubuntu_22.04:v4 bash\nThis is the base image that we use for building most other CCBR containers.\n\n\n\nhttps://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general\n\n\n\n\n\nCCBR base image overview with list of installed tools",
     "crumbs": [
       "Home",
       "Containers",
