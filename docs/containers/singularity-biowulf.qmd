@@ -1,0 +1,58 @@
+---
+title: How to use containers with singularity on biowulf
+---
+
+Log in to biowulf and start an [interactive session](https://hpc.nih.gov/docs/userguide.html#int).
+
+```sh
+sinteractive
+```
+
+Load the singularity module
+```sh
+module load singularity
+```
+
+Pull the container image from dockerhub:
+
+```sh
+singularity pull docker://kellysovacool/minimal:v2
+```
+
+It will convert it to a SIF file and write it in your current directory.
+
+```sh
+file minimal_v2.sif
+```
+> minimal_v2.sif: a /usr/bin/env run-singularity script executable (binary data)
+
+Run the container in an interactive bash shell:
+```sh
+singularity shell docker://kellysovacool/minimal:v1 bash
+```
+
+Run any commands you wish to while inside the container.
+
+## Cache directory
+
+Singularity caches images in a directory set by the `SINGULARITY_CACHEDIR` environment variable.
+By default, this is set to `$HOME/.singularity`. 
+However, there is limited space in user's home directories.
+Instead, we recommend setting it to a location with more disk space, such as
+`/data/$USER/.singularity`.
+
+You can set this custom cache directory location in your `~/.bashrc` or `~/.zshrc`:
+
+```sh
+export SINGULARITY_CACHEDIR=/data/$USER/.singularity
+```
+
+This will take effect if you log out and log back in, or source your rc file.
+You can check the cache directory variable like so:
+
+```sh
+echo $SINGULARITY_CACHEDIR
+```
+> /data/sovacoolkl/.singularity
+
+(Your own username will appear instead of `sovacoolkl`.)
