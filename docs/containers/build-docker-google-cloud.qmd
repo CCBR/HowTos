@@ -123,7 +123,14 @@ docker push NAMESPACE/minimal:v1
 
 You can pull any public container from dockerhub (including the one you just pushed).
 
-Here's an example of pulling a container from the CCBR dockerhub account:
+Here is the base image that we use for building most other CCBR containers.
+You can see details about it on dockerhub:
+
+[![<https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general>](img/dockerhub-ubuntu-base.png)](https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general)
+
+[![CCBR base image overview with list of installed tools](img/dockerhub-ubuntu-base-overview.png)](https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general)
+
+Here's an example of pulling this container from the CCBR dockerhub account:
 
 ```sh
 docker pull nciccbr/ccbr_ubuntu_22.04:v4
@@ -139,12 +146,6 @@ Run the container interactively:
 ```sh
 docker run -it nciccbr/ccbr_ubuntu_22.04:v4 bash
 ```
-
-This is the base image that we use for building most other CCBR containers.
-
-![<https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general>](img/dockerhub-ubuntu-base.png)
-
-![CCBR base image overview with list of installed tools](img/dockerhub-ubuntu-base-overview.png)
 
 ## Docker Docs
 
