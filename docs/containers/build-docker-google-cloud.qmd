@@ -14,13 +14,13 @@ enough usage for building containers with the Google Cloud Shell.
 
 ![Cloud Shell has a Terminal to run commands.](img/cloud-shell-terminal.png)
 
-![Cloud Shell has an editor that's a lot like VS Code.](img/clous-shell-terminal.png)
+![Cloud Shell has an editor that's a lot like VS Code.](img/cloud-shell-editor.png)
 
-## Create a dockerfile
+## Create a Dockerfile
 
 For this tutorial, we'll create a minimal Dockerfile with these contents:
 
-```
+``` dockerfile
 FROM python:3.11
 
 RUN mkdir -p /data2/
@@ -49,7 +49,7 @@ Save it with the name "Dockerfile".
 docker build -t minimal:v1 -f ./Dockerfile .
 ```
 
-- `-t, --tag` - Name and optionally a tag (format: "name:tag")
+- `-t, --tag` - Name and optional tag (format: "name:tag")
 - `-f, --file` - Name of the Dockerfile (default: "PATH/Dockerfile")
 
 Run `docker build --help` for more options.
@@ -75,7 +75,7 @@ python --version
 
 ![This container should have python installed and should have the "hello world" file.](img/docker-run-bash.png)
 
-Close the container with {{{< kbd Ctrl-D >}}} or type `exit`.
+Close the container with the keyboard shortcut {{< kbd Control-D >}} or type `exit` and press enter.
 
 If the container doesn't have the software you expected, 
 something went wrong during the build process.
@@ -84,7 +84,7 @@ Try editing the Dockerfile and re-building the container.
 ## Push the container to dockerhub
 
 If your container was built successfully, you can push it to a container registry
-such as dockerhub so yourself and others can pull it for use on other platforms.
+such as dockerhub so you can pull it for use on other platforms.
 
 ### Log in to dockerhub
 
@@ -118,3 +118,8 @@ docker push NAMESPACE/minimal:v1
 ![If the push succeeded, you'll see it in your list of repositories on dockerhub](img/dockerhub-repos.png)
 
 ![On the repository page, you can see the list of tags that have been pushed and optionally add a description, category, overview, etc.](img/dockerhub-minimal.png)
+
+## Docker Docs
+
+View the Docker getting started tutorial for more detailed information:
+<https://docs.docker.com/get-started/introduction/build-and-push-first-image/>
