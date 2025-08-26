@@ -82,6 +82,10 @@ Code Club resources can be shared in the [CCBR HowTos repo](https://github.com/C
 - tutorial documents
 - links for further learning
 
+::: {.align-center}
+![](how-tos-website.png){width=80%}
+:::
+
 ::: footer
 <https://github.com/CCBR/HowTos>
 :::
