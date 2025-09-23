@@ -34,6 +34,6 @@ execute:
 
 format:
   fnl-html:
-    embed-resources: true
+    embed-resources: false
     code-fold: true
     toc: true
