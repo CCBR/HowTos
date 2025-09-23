@@ -65,3 +65,26 @@ echo $SINGULARITY_CACHEDIR
 > /data/$USER/.singularity
 
 (Your own username will appear instead of `$USER`.)
+
+## Package versions
+
+
+### R
+
+You can find out the versions of R packages installed in a container like so:
+
+```sh
+singularity exec docker://nciccbr/carlisle_r:v2 R -e "readr::write_tsv(tibble::as_tibble(installed.packages()), 'r-packages.tsv')"
+```
+
+This command runs R code in the container to write the installed packages to a TSV file called `r-packages.tsv`.
+
+### Python
+
+Run this command to find out the versions of Python packages installed in a container:
+
+```sh
+singularity exec docker://nciccbr/ccbr_ubuntu_22.04:v4 pip list > pip_list.txt
+```
+
+The packages & versions are written to `pip_list.txt`.
