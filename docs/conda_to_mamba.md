@@ -180,11 +180,9 @@ mamba config append  channels defaults
 mamba config set channel_priority strict
 ```
 
-::: {.callout-tip}
-To **avoid any accidental use of commercial channels**, see **Appendix B** for a `.condarc` that:
+This:
  - forces to be **conda-forge**, **bioconda** and **defaults** in that order
  - removes any other channels that may point to `anaconda.com`
-:::
 
 ---
 
