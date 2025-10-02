@@ -252,7 +252,9 @@ Usage:
   python3 fix_yaml.py input.yml -o output.yml
   conda env export --name myenv | python3 fix_yaml.py - -o myenv.yml
 """
-import sys, argparse, io
+import sys
+import argparse
+import io
 from collections import OrderedDict
 
 try:
