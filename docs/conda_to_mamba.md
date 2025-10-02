@@ -6,9 +6,10 @@ author: "[Vishal Koparde](https://github.com/kopardev)"
 
 # Migrating from Anaconda/Miniconda (**conda**) to **Miniforge** (**mamba**)
 
-> [!IMPORTANT]
-> This guide migrates your environments away from **Anaconda/Miniconda (conda)** to **Miniforge (mamba)**, using **conda-forge** only (non-commercial) and avoiding `anaconda.org`/`repo.anaconda.com`.  
-> Steps 1–3 use your existing `conda` to export environments. After uninstall (Step 4) you’ll install **Miniforge** (Step 5) and rebuild environments with **mamba** (Step 9).
+::: {.callout-important}
+This guide migrates your environments away from **Anaconda/Miniconda (conda)** to **Miniforge (mamba)**, using **conda-forge** only (non-commercial) and avoiding `anaconda.org`/`repo.anaconda.com`.  
+Steps 1–3 use your existing `conda` to export environments. After uninstall (Step 4) you’ll install **Miniforge** (Step 5) and rebuild environments with **mamba** (Step 9).
+:::
 
 ---
 
@@ -25,7 +26,7 @@ author: "[Vishal Koparde](https://github.com/kopardev)"
   - [7. Enforce strict channel policy](#7-enforce-strict-channel-policy)
   - [8. Verify channel configuration](#8-verify-channel-configuration)
   - [9. Rebuild old env with **mamba**](#9-rebuild-old-env-with-mamba)
-  - [Appendix A: `fix_yaml.py` (optional inline source)](#appendix-a-fix_yamlpy-optional-inline-source)
+  - [Appendix A: `fix_yaml.py`](#appendix-a-fix_yamlpy)
 
 
 ---
@@ -52,8 +53,9 @@ This script:
 - prepares the file for **mamba** environment creation.
 
 
-> [!NOTE]
-> Copy the script from [**Appendix A**](#appendix-a-fix_yamlpy-optional-inline-source) into `fix_yaml.py`.
+::: {.callout-important}
+Copy the script from [**Appendix A**](#appendix-a-fix_yamlpy-optional-inline-source) into `fix_yaml.py`.
+:::
 
 ---
 
@@ -65,17 +67,18 @@ Export a single environment named `xyz`:
 conda env export --name xyz | python3 fix_yaml.py - -o xyz.yml
 ```
 
-> [!NOTE] 
-> You can export **all** environments at once:
->```bash
->for env in $(conda env list | awk 'NR>2 && NF {print $1}'); do
->  conda env export --name "$env" | python3 fix_yaml.py - -o "${env}.yml"
->done
->```
+::: {.callout-note}
+You can export **all** environments at once:
+```bash
+for env in $(conda env list | awk 'NR>2 && NF {print $1}'); do
+  conda env export --name "$env" | python3 fix_yaml.py - -o "${env}.yml"
+done
+```
+:::
 
-> [!CAUTION]
-> If you have **path-only** environments (created from arbitrary folders), `conda env list` may show full paths instead of simple names. Consider exporting those individually to ensure correct `name:` in the YAML.
-
+::: {.callout-caution}
+If you have **path-only** environments (created from arbitrary folders), `conda env list` may show full paths instead of simple names. Consider exporting those individually to ensure correct `name:` in the YAML.
+:::
 
 ---
 
@@ -112,11 +115,12 @@ Files to check (depending on your shell): `~/.zshrc`, `~/.bashrc`, `~/.bash_prof
 
 Restart your terminal.
 
-> [!WARNING]
-> Make sure `conda` is no longer on your `PATH`:
-> ```bash
-> which conda || echo "conda not found (expected)"
-> ```
+::: {.callout-warning}
+Make sure `conda` is no longer on your `PATH`:
+```bash
+which conda || echo "conda not found (expected)"
+```
+:::
 
 ---
 
@@ -142,11 +146,13 @@ mamba --version
 mamba info | sed -n '1,60p'
 ```
 
-> [!NOTE]
-> Once **mamba** installation is completed then delete the install script.
-> ```bash
-> rm -f Miniforge-MacOSX-*.sh
-> ```
+::: {.callout-note}
+Once **mamba** installation is completed then delete the install script.
+```bash
+rm -f Miniforge-MacOSX-*.sh
+```
+:::
+
 ---
 
 ## 6. Clear cache
@@ -174,10 +180,11 @@ mamba config append  channels defaults
 mamba config set channel_priority strict
 ```
 
-> [!TIP]
-> To **avoid any accidental use of commercial channels**, see **Appendix B** for a `.condarc` that:
-> - forces to be **conda-forge**, **bioconda** and **defaults** in that order
-> - removes any other channels that may point to `anaconda.com`
+::: {.callout-tip}
+To **avoid any accidental use of commercial channels**, see **Appendix B** for a `.condarc` that:
+ - forces to be **conda-forge**, **bioconda** and **defaults** in that order
+ - removes any other channels that may point to `anaconda.com`
+:::
 
 ---
 
@@ -214,12 +221,13 @@ for y in *.yml *.yaml 2>/dev/null; do
 done
 ```
 
-> [!WARNING]
-> During solve, **you should NOT** see:
-> ```
-> warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
-> ```
-> If you do, revisit **Steps 7–8** to correct your channel configuration.
+::: {.callout-warning}
+During solve, **you should NOT** see:
+```
+warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+```
+If you do, revisit **Steps 7–8** to correct your channel configuration.
+:::
 
 Activate and test:
 
@@ -230,10 +238,11 @@ python -V
 
 ---
 
-## Appendix A: `fix_yaml.py` (optional inline source)
+## Appendix A: `fix_yaml.py`
 
-> [!NOTE]
-> This script reads an exported `conda env export` YAML from **stdin** (or a file), removes duplicates, deletes `prefix:`, forces appropriate channels, removes unwanted channels, preserves `pip:` sections, and writes the cleaned YAML to **stdout** (or `-o FILE`).
+::: {.callout-note}
+This script reads an exported `conda env export` YAML from **stdin** (or a file), removes duplicates, deletes `prefix:`, forces appropriate channels, removes unwanted channels, preserves `pip:` sections, and writes the cleaned YAML to **stdout** (or `-o FILE`).
+:::
 
 ```python
 #!/usr/bin/env python3
