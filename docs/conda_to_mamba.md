@@ -54,7 +54,7 @@ This script:
 
 
 ::: {.callout-important}
-Copy the script from [**Appendix A**](#appendix-a-fix_yamlpy) into `fix_yaml.py`.
+Copy the script from [**Appendix A**](#appendix-a-fix_yaml.py) into `fix_yaml.py`.
 :::
 
 ---
