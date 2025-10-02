@@ -70,7 +70,7 @@ conda env export --name xyz | python3 fix_yaml.py - -o xyz.yml
 ::: {.callout-note}
 You can export **all** environments at once:
 ```bash
-for env in $(conda env list | awk 'NR>2 && NF {print $1}'); do
+for env in $(conda env list | grep -v "^#" | awk 'NF>1 {print $1}'); do
   conda env export --name "$env" | python3 fix_yaml.py - -o "${env}.yml"
 done
 ```
