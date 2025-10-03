@@ -281,12 +281,14 @@ def dump_yaml(data):
 
         out, in_deps, seen, skip_prefix = [], False, set(), False
         for ln in lines:
+            if ln.startswith("name:"):
+                out.append(ln)
+                continue
             if ln.strip().startswith("prefix:"):
                 # drop
                 continue
             if ln.strip().startswith("channels:"):
-                # replace entire channels block with conda-forge only
-                out.append("channels:\n  - conda-forge\n")
+                out.append("channels:\n  - conda-forge\n  - bioconda\n  - defaults\n")
                 skip_prefix = True
                 continue
             if skip_prefix:
@@ -303,22 +305,25 @@ def dump_yaml(data):
                 continue
 
             if in_deps:
-                if ln and ln[0] in " \t":
-                    # dependency lines (including 'pip:' sublist)
-                    if ln.strip().startswith("- "):
-                        dep_item = ln.strip()[2:]
-                        # Dedup only top-level conda deps; leave 'pip:' subtree intact
-                        if dep_item != "pip:":
-                            if dep_item in seen:
-                                continue
-                            seen.add(dep_item)
-                    out.append(ln)
-                    continue
+                    # New rule: handle lines with two '='
+                if ln.count("=") >= 2:
+                    first = ln.find("=")
+                    second = ln.find("=", first + 1)
+                    if second == first + 1:
+                        out.append(ln)
+                        continue
+                    else:
+                        # case like 'pkg=1=py39_0' → keep only before 2nd '='
+                        parts = ln.split("=")
+                        newln = "=".join(parts[:2]) + "\n"
+                        out.append(newln)
+                        continue
                 else:
-                    in_deps = False
                     out.append(ln)
+                    if ln[0] != " " and ln.strip()[-1] == ":":
+                        in_deps = False
                     continue
-            out.append(ln)
+
         return "".join(out)
 
     # PyYAML path (preferred)
