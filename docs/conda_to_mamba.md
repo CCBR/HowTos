@@ -2,6 +2,7 @@
 title: Move from Conda to Mamba
 description: "Export Conda environments, uninstall conda, install mamba and rebuild new Mamba environments"
 author: "[Vishal Koparde](https://github.com/kopardev)"
+toc-location: right-body
 ---
 
 # Migrating from Anaconda/Miniconda (**conda**) to **Miniforge** (**mamba**)
@@ -10,26 +11,6 @@ author: "[Vishal Koparde](https://github.com/kopardev)"
 This guide migrates your environments away from **Anaconda/Miniconda (conda)** to **Miniforge (mamba)**, using **conda-forge** only (non-commercial) and avoiding `anaconda.org`/`repo.anaconda.com`.  
 Steps 1–3 use your existing `conda` to export environments. After uninstall (Step 4) you’ll install **Miniforge** (Step 5) and rebuild environments with **mamba** (Step 9).
 :::
-
----
-
-## Table of Contents
-
-- [Migrating from Anaconda/Miniconda (**conda**) to **Miniforge** (**mamba**)](#migrating-from-anacondaminiconda-conda-to-miniforge-mamba)
-  - [Table of Contents](#table-of-contents)
-  - [1. List the conda environments](#1-list-the-conda-environments)
-  - [2. Download the Python script to fix exported YAML](#2-download-the-python-script-to-fix-exported-yaml)
-  - [3. Create **mamba** compatible exported YAML files](#3-create-mamba-compatible-exported-yaml-files)
-  - [4. Uninstall conda (Anaconda/Miniconda)](#4-uninstall-conda-anacondaminiconda)
-  - [5. Install **mamba** (Miniforge)](#5-install-mamba-miniforge)
-  - [6. Clear cache](#6-clear-cache)
-  - [7. Enforce strict channel policy](#7-enforce-strict-channel-policy)
-  - [8. Verify channel configuration](#8-verify-channel-configuration)
-  - [9. Rebuild old env with **mamba**](#9-rebuild-old-env-with-mamba)
-  - [Appendix A: `fix_yaml.py`](#appendix-a-fix_yamlpy)
-
-
----
 
 ## 1. List the conda environments
 
@@ -40,7 +21,6 @@ conda env list
 # or (equivalent)
 conda info --envs
 ```
-
 
 ---
 
