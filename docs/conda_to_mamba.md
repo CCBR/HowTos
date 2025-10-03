@@ -2,6 +2,7 @@
 title: Move from Conda to Mamba
 description: "Export Conda environments, uninstall conda, install mamba and rebuild new Mamba environments"
 author: "[Vishal Koparde](https://github.com/kopardev)"
+toc-location: right-body
 ---
 
 # Migrating from Anaconda/Miniconda (**conda**) to **Miniforge** (**mamba**)
