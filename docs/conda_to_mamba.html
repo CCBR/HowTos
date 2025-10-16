@@ -624,12 +624,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
   <li><a href="#migrating-from-anacondaminiconda-conda-to-miniforge-mamba" id="toc-migrating-from-anacondaminiconda-conda-to-miniforge-mamba" class="nav-link active" data-scroll-target="#migrating-from-anacondaminiconda-conda-to-miniforge-mamba">Migrating from Anaconda/Miniconda (<strong>conda</strong>) to <strong>Miniforge</strong> (<strong>mamba</strong>)</a>
   <ul class="collapse">
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
   <li><a href="#list-the-conda-environments" id="toc-list-the-conda-environments" class="nav-link" data-scroll-target="#list-the-conda-environments">1. List the conda environments</a></li>
   <li><a href="#download-the-python-script-to-fix-exported-yaml" id="toc-download-the-python-script-to-fix-exported-yaml" class="nav-link" data-scroll-target="#download-the-python-script-to-fix-exported-yaml">2. Download the Python script to fix exported YAML</a></li>
   <li><a href="#create-mamba-compatible-exported-yaml-files" id="toc-create-mamba-compatible-exported-yaml-files" class="nav-link" data-scroll-target="#create-mamba-compatible-exported-yaml-files">3. Create <strong>mamba</strong> compatible exported YAML files</a></li>
@@ -677,7 +676,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-
+<nav id="TOC-body" role="doc-toc">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#migrating-from-anacondaminiconda-conda-to-miniforge-mamba" id="toc-migrating-from-anacondaminiconda-conda-to-miniforge-mamba">Migrating from Anaconda/Miniconda (<strong>conda</strong>) to <strong>Miniforge</strong> (<strong>mamba</strong>)</a>
+  <ul>
+  <li><a href="#list-the-conda-environments" id="toc-list-the-conda-environments">1. List the conda environments</a></li>
+  <li><a href="#download-the-python-script-to-fix-exported-yaml" id="toc-download-the-python-script-to-fix-exported-yaml">2. Download the Python script to fix exported YAML</a></li>
+  <li><a href="#create-mamba-compatible-exported-yaml-files" id="toc-create-mamba-compatible-exported-yaml-files">3. Create <strong>mamba</strong> compatible exported YAML files</a></li>
+  <li><a href="#uninstall-conda-anacondaminiconda" id="toc-uninstall-conda-anacondaminiconda">4. Uninstall conda (Anaconda/Miniconda)</a></li>
+  <li><a href="#install-mamba-miniforge" id="toc-install-mamba-miniforge">5. Install <strong>mamba</strong> (Miniforge)</a></li>
+  <li><a href="#clear-cache" id="toc-clear-cache">6. Clear cache</a></li>
+  <li><a href="#enforce-strict-channel-policy" id="toc-enforce-strict-channel-policy">7. Enforce strict channel policy</a></li>
+  <li><a href="#verify-channel-configuration" id="toc-verify-channel-configuration">8. Verify channel configuration</a></li>
+  <li><a href="#rebuild-old-env-with-mamba" id="toc-rebuild-old-env-with-mamba">9. Rebuild old env with <strong>mamba</strong></a></li>
+  <li><a href="#appendix-a-fix_yaml.py" id="toc-appendix-a-fix_yaml.py">Appendix A: <code>fix_yaml.py</code></a></li>
+  </ul></li>
+  </ul>
+</nav>
 <section id="migrating-from-anacondaminiconda-conda-to-miniforge-mamba" class="level1">
 <h1>Migrating from Anaconda/Miniconda (<strong>conda</strong>) to <strong>Miniforge</strong> (<strong>mamba</strong>)</h1>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -694,27 +711,6 @@ Important
 Steps 1–3 use your existing <code>conda</code> to export environments. After uninstall (Step 4) you’ll install <strong>Miniforge</strong> (Step 5) and rebuild environments with <strong>mamba</strong> (Step 9).</p>
 </div>
 </div>
-<hr>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="#migrating-from-anacondaminiconda-conda-to-miniforge-mamba">Migrating from Anaconda/Miniconda (<strong>conda</strong>) to <strong>Miniforge</strong> (<strong>mamba</strong>)</a>
-<ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#1-list-the-conda-environments">1. List the conda environments</a></li>
-<li><a href="#2-download-the-python-script-to-fix-exported-yaml">2. Download the Python script to fix exported YAML</a></li>
-<li><a href="#3-create-mamba-compatible-exported-yaml-files">3. Create <strong>mamba</strong> compatible exported YAML files</a></li>
-<li><a href="#4-uninstall-conda-anacondaminiconda">4. Uninstall conda (Anaconda/Miniconda)</a></li>
-<li><a href="#5-install-mamba-miniforge">5. Install <strong>mamba</strong> (Miniforge)</a></li>
-<li><a href="#6-clear-cache">6. Clear cache</a></li>
-<li><a href="#7-enforce-strict-channel-policy">7. Enforce strict channel policy</a></li>
-<li><a href="#8-verify-channel-configuration">8. Verify channel configuration</a></li>
-<li><a href="#9-rebuild-old-env-with-mamba">9. Rebuild old env with <strong>mamba</strong></a></li>
-<li><a href="#appendix-a-fix_yamlpy">Appendix A: <code>fix_yaml.py</code></a></li>
-</ul></li>
-</ul>
-<hr>
-</section>
 <section id="list-the-conda-environments" class="level2">
 <h2 class="anchored" data-anchor-id="list-the-conda-environments">1. List the conda environments</h2>
 <p>Use your current <strong>conda</strong> to list environments before migrating.</p>
