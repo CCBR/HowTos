@@ -26,7 +26,7 @@ or `bash`:
 ```
 
 We recommend setting `--root-prefix` to your data directory `/data/$USER` since
-more space is available than in your home direcotry `~/`.
+more space is available than in your home directory `~/`.
 
 ## Update your conda configuration
 
