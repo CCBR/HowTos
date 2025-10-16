@@ -30,7 +30,9 @@ more space is available than in your home direcotry `~/`.
 
 ## Update your conda configuration
 
+Copy and paste the following contents into your conda configuration file:
 `~/.condarc`
+
 ```
 channels:
   - conda-forge
@@ -46,6 +48,10 @@ denylist_channels:
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/r
 ```
+
+You can optionally add other configuration options as you see fit 
+(e.g. `auto_activate_base`), but it is important to at least have all of the
+content above.
 
 ## Verify mamba setup
 
@@ -78,7 +84,11 @@ mamba info
 
 (`$USER` will be filled in with your actual username on Biowulf.)
 
-New channels you create will be in `/data/$USER/mamba/envs/`, but you will also
+Note that the channel URLs point to https://conda.anaconda.org/conda-forge/ and
+https://conda.anaconda.org/bioconda/ (only **community-supported channels**),
+and no channels point to `https://repo.anaconda.com` (no commercial channels).
+
+New environments you create will be in `/data/$USER/mamba/envs/`, but you will also
 be able to activate any channel `/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/`
 
 ### Activate a CCBR environment
