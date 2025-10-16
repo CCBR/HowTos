@@ -8,7 +8,7 @@ toc-location: right-body
 # Migrating from Anaconda/Miniconda (**conda**) to **Miniforge** (**mamba**)
 
 ::: {.callout-important}
-This guide migrates your environments away from **Anaconda/Miniconda (conda)** to **Miniforge (mamba)**, using **conda-forge** only (non-commercial) and avoiding `anaconda.org`/`repo.anaconda.com`.  
+This guide migrates your environments away from **Anaconda/Miniconda (conda)** to **Miniforge (mamba)**, using **conda-forge** only (non-commercial) and avoiding `repo.anaconda.com`.  
 Steps 1–3 use your existing `conda` to export environments. After uninstall (Step 4) you’ll install **Miniforge** (Step 5) and rebuild environments with **mamba** (Step 9).
 :::
 
@@ -162,7 +162,7 @@ mamba config set channel_priority strict
 
 This:
  - forces to be **conda-forge**, **bioconda** and **defaults** in that order
- - removes any other channels that may point to `anaconda.com`
+ - removes any other channels that may point to `repo.anaconda.com`
 
 ---
 
@@ -178,7 +178,8 @@ mamba config list | sed -n '1,200p'
 
 What you want to **see**:
 - `channels` shows only `conda-forge`, `bioconda`, and `defaults` 
-- **Nothing** should reference `repo.anaconda.com` or `anaconda.org`.
+- **Nothing** should reference `repo.anaconda.com`.
+- `conda.anaconda.org/conda-forge` and `conda.anaconda.org/bioconda` are community-supported channels and are thus okay to use.
 
 
 ---
@@ -377,4 +378,4 @@ if __name__ == "__main__":
 ---
 
 
-**That’s it!** You’ve exported your old `conda` environments, removed Anaconda/Miniconda, installed **Miniforge**, enforced **conda-forge** only, and rebuilt your environments with **mamba**—without touching `anaconda.org`.
+**That’s it!** You’ve exported your old `conda` environments, removed Anaconda/Miniconda, installed **Miniforge**, enforced **conda-forge** only, and rebuilt your environments with **mamba**—without touching `repo.anaconda.com`.
