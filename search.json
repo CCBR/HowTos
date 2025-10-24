@@ -737,6 +737,27 @@
     "text": "MIT License\nCopyright (c) 2025 HowTos authors\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
   },
   {
+    "objectID": "CHANGELOG.html",
+    "href": "CHANGELOG.html",
+    "title": "CCBR How-Tos",
+    "section": "",
+    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nCode Club presentations (@kelly-sovacool)"
+  },
+  {
+    "objectID": "CHANGELOG.html#howtos-development-version",
+    "href": "CHANGELOG.html#howtos-development-version",
+    "title": "CCBR How-Tos",
+    "section": "",
+    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nCode Club presentations (@kelly-sovacool)"
+  },
+  {
+    "objectID": "CHANGELOG.html#howtos-0.1.0",
+    "href": "CHANGELOG.html#howtos-0.1.0",
+    "title": "CCBR How-Tos",
+    "section": "HowTos 0.1.0",
+    "text": "HowTos 0.1.0\n\nFirst draft of datashare on Helix doc by @escauley in https://github.com/CCBR/HowTos/pull/1\nFirst draft for Conda R package doc by @escauley in https://github.com/CCBR/HowTos/pull/2\nupdates by @kopardev in https://github.com/CCBR/HowTos/pull/3\nAdd checklist of required github helper files by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/7\nfeat: parkit how tos with HPCDME by @kopardev in https://github.com/CCBR/HowTos/pull/9\ndocs: clarify $USER in HPCDME properties by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/8\ndocs: Added info for setting Conda channels by @escauley in https://github.com/CCBR/HowTos/pull/13\nimprove HPCDME instructions by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/12\nchore(ci): address codeql alerts by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/15"
+  },
+  {
     "objectID": "contributors.html",
     "href": "contributors.html",
     "title": "Contributors",
@@ -748,7 +769,7 @@
     "href": "docs/snakemake.html",
     "title": "Snakemake",
     "section": "",
-    "text": "Step-by-step guide for setting up and learning to use Snakemake, with examples and use cases\n\nhttps://CCBR.github.io/snakemake_tutorial/",
+    "text": "Step-by-step guide for setting up and learning to use Snakemake, with examples and use cases\nhttps://CCBR.github.io/snakemake_tutorial/",
     "crumbs": [
       "Home",
       "Snakemake"
