@@ -1,3 +1,2 @@
 _extensions/ linguist-vendored
-_freeze/ linguist-vendored
-_freeze/ linguist-generated=true
+_freeze/ linguist-generated
