@@ -11,29 +11,41 @@ your own environments.
 ## Initialize your shell
 
 Initialize your shell with mamba. This will modify your shell's rc file (e.g.
-`~/.zshrc`/`~/.bashrc`) to allow you to use mamba.
+`~/.zshrc` or `~/.bashrc`) to allow you to use mamba.
 
-Specify your shell language with `--shell SHELL`. The below example is for `zsh`:
+Specify your shell language with `--shell SHELL`. 
+The below example is for `zsh`:
 
 ```sh
-/data/CCBR_Pipeliner/db/PipeDB/miniforge3/bin/mamba shell init --shell zsh --root-prefix=/data/$USER/mamba
+/data/CCBR_Pipeliner/db/PipeDB/miniforge3/bin/mamba shell init \
+  --shell zsh --root-prefix=/data/$USER/mamba
 ```
 
 or `bash`:
 
 ```sh
-/data/CCBR_Pipeliner/db/PipeDB/miniforge3/bin/mamba shell init --shell bash --root-prefix=/data/$USER/mamba
+/data/CCBR_Pipeliner/db/PipeDB/miniforge3/bin/mamba shell init \
+  --shell bash --root-prefix=/data/$USER/mamba
 ```
 
 We recommend setting `--root-prefix` to your data directory `/data/$USER` since
 more space is available than in your home directory `~/`.
+
+Source your shell's rc file to make these changes take effect.
+
+```sh
+source ~/.zshrc
+```
+```sh
+source ~/.bashrc
+```
 
 ## Update your conda configuration
 
 Copy and paste the following contents into your conda configuration file:
 `~/.condarc`
 
-```
+```YAML
 channels:
   - conda-forge
   - bioconda
@@ -55,10 +67,14 @@ content above.
 
 ## Verify mamba setup
 
+Let's make sure everything is working as expected.
+You should be able to activate shared CCBR environments, and also create new
+environments for your own personal use.
+
 ```sh
 mamba info
 ```
-```
+```text
        libmamba version : 2.1.1
           mamba version : 2.1.1
            curl version : libcurl/8.14.1 OpenSSL/3.5.1 zlib/1.3.1 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.64.0
@@ -88,22 +104,25 @@ Note that the channel URLs point to `https://conda.anaconda.org/`
 (only **community-supported channels**),
 and no channels point to `https://repo.anaconda.com` (commercial channels).
 
-New environments you create will be in `/data/$USER/mamba/envs/`, but you will also
-be able to activate any channel `/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/`
+New environments you create will be in `/data/$USER/mamba/envs/`, 
+but you will also be able to activate any environment listed in
+`/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/`
 
 ### Activate a CCBR environment
 
-```
+```sh
 mamba activate py3.11-8
 mamba deactivate
 ```
 
-### Create a new environment
+### Create a new environment for your own use
+
+The environment will be created in `/data/$USER/mamba/envs/mytestenv`.
 
 ```sh
 mamba create -n mytestenv python=3.13 r-base=4.5
 ```
-```
+```text
 conda-forge/linux-64                                        Using cache
 conda-forge/noarch                                          Using cache
 bioconda/linux-64                                           Using cache
@@ -120,12 +139,109 @@ Transaction
    - r-base=4.5
 ```
 
-The environment will be created in `/data/$USER/mamba/envs/mytestenv`.
-
 ### View environments
+
+You should see both your personal environments and the shared CCBR environments
+listed.
 
 ```sh
 mamba info --envs
 ```
 
-You should see both your personal environments and the shared CCBR environments.
+## Conclusion & Support
+
+If all of the above commands worked as expected,
+you're all set up to use mamba on biowulf! 🎉
+
+:::{.callout-tip}
+### Getting support
+
+If you have any questions about conda or mamba generally, please refer to the
+documentation: <https://mamba.readthedocs.io/en/latest/user_guide/mamba.html>
+
+If you have any questions or run into problems while using the CCBR mamba 
+installation on biowulf, please contact us at
+[CCBR_Pipeliner@mail.nih.gov](mailto:CCBR_Pipeliner@mail.nih.gov)
+:::
+
+## Optional: create a new shared CCBR environment
+
+If you are a member of the `CCBR_Pipeliner` group on biowulf, you can create new
+environments in the CCBR miniforge3 installation for others to use.
+
+:::{.callout-note}
+You can run the `groups` command on biowulf to see which groups you are a member
+of.
+
+```sh
+groups
+```
+```text
+CCBR CCBR_Pipeliner
+```
+
+If `CCBR_Pipeliner` is not listed,
+you will not be able to create a shared CCBR environment.
+:::
+
+
+Create your new environment using the CCBR miniforge3 directory for the prefix.
+The environment name is the directory name after `/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/`.
+For example, the following will create an environment called `test-$USER` 
+(`$USER` will be replaced by your actual username).
+
+```sh
+mamba create --prefix=/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-$USER
+  python=3.12
+```
+
+Change the permissions to ensure everyone can use the environment:
+```sh
+chmod -R a+rX /data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-$USER
+```
+
+The environment files should now be readable and executable by all:
+
+```sh
+ls -alh /vf/users/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-$USER
+```
+```text
+total 0
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 .
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ..
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 bin
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 compiler_compat
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 conda-meta
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 include
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 lib
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 man
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 share
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ssl
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 x86_64-conda-linux-gnu
+```
+
+Activate the new environment and make sure it works as expected:
+
+```sh
+mamba activate test-$USER
+which python
+python --version
+mamba deactivate
+```
+```text
+/vf/users/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-$USER/bin/python
+Python 3.12.12
+```
+
+That's it! Now anyone on biowulf can activate your environment.
+
+:::{.callout-note}
+## Clean up
+
+If you created an environment only for testing purposes, please delete it when
+you are finished so that the CCBR environments directory doesn't get cluttered.
+
+```sh
+mamba env remove -n test-$USER
+```
+:::
