@@ -156,10 +156,10 @@ you're all set up to use mamba on biowulf! 🎉
 :::{.callout-tip}
 ### Getting support
 
-If you have any questions about conda or mamba generally, please refer to the
-documentation: <https://mamba.readthedocs.io/en/latest/user_guide/mamba.html>
+If you have any questions about **conda or mamba** generally, please refer to
+the [mamba documentation](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html)
 
-If you have any questions or run into problems while using the CCBR mamba 
+If you have any questions or run into problems while using the **CCBR** mamba 
 installation on biowulf, please contact us at
 [CCBR_Pipeliner@mail.nih.gov](mailto:CCBR_Pipeliner@mail.nih.gov)
 :::
@@ -167,9 +167,9 @@ installation on biowulf, please contact us at
 ## Optional: create a new shared CCBR environment
 
 If you are a member of the `CCBR_Pipeliner` group on biowulf, you can create new
-environments in the CCBR miniforge3 installation for others to use.
+environments in the CCBR mamba installation for others to use.
 
-:::{.callout-note}
+:::{.callout-important}
 You can run the `groups` command on biowulf to see which groups you are a member
 of.
 
@@ -180,8 +180,8 @@ groups
 CCBR CCBR_Pipeliner
 ```
 
-If `CCBR_Pipeliner` is not listed,
-you will not be able to create a shared CCBR environment.
+**If `CCBR_Pipeliner` is not listed,
+you will not be able to create a shared CCBR environment.**
 :::
 
 
@@ -191,7 +191,7 @@ For example, the following will create an environment called `test-$USER`
 (`$USER` will be replaced by your actual username).
 
 ```sh
-mamba create --prefix=/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-$USER
+mamba create --prefix=/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-$USER \
   python=3.12
 ```
 
