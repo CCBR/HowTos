@@ -1,7 +1,7 @@
 ---
 title: "LucidChart"
 description: "Account management of Lucid Charts Documents"
-author: "[Ned Cauley](https://github.com/escauley)"
+author: "Vishal Koparde"
 ---
 
 Remember:
