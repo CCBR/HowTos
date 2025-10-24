@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ned Cauley">
+<meta name="author" content="Kelly Sovacool">
 
-<title>Zenodo – CCBR How-Tos</title>
+<title>Using the shared CCBR mamba installation on Biowulf – CCBR How-Tos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,31 +21,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../docs/conda-mamba/ccbr-mamba-biowulf.html" rel="next">
-<link href="../docs/snakemake.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8ed111f5c04c042f69398f182d5e0115.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6bc471e1775f176861ec795db68353b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d292715e8f8da2f561e717d4032bffbf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-63f7b746c88c852fb6bf793ac99edb48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../docs/conda-mamba/conda-to-mamba.html" rel="next">
+<link href="../../docs/zenodo.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8ed111f5c04c042f69398f182d5e0115.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6bc471e1775f176861ec795db68353b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d292715e8f8da2f561e717d4032bffbf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-63f7b746c88c852fb6bf793ac99edb48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -243,9 +278,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">CCBR How-Tos</span>
     </a>
   </div>
@@ -256,11 +291,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> 
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contributors.html"> 
+    <a class="nav-link" href="../../contributors.html"> 
 <span class="menu-text">Contributors</span></a>
   </li>  
 </ul>
@@ -282,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/zenodo.html">Zenodo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/conda-mamba/ccbr-mamba-biowulf.html">Conda Mamba</a></li><li class="breadcrumb-item"><a href="../../docs/conda-mamba/ccbr-mamba-biowulf.html">Using the shared CCBR mamba installation on Biowulf</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -293,53 +328,53 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
+      <a href="../../index.html" class="sidebar-logo-link">
       </a>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/datashare.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/datashare.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Datashare</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/lucidcharts.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/lucidcharts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">LucidChart</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/snakemake.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/snakemake.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Snakemake</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/zenodo.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/zenodo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Zenodo</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Conda Mamba</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/conda-mamba/ccbr-mamba-biowulf.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/conda-mamba/ccbr-mamba-biowulf.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Using the shared CCBR mamba installation on Biowulf</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/conda-mamba/conda-to-mamba.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/conda-mamba/conda-to-mamba.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Move from Conda to Mamba</span></a>
   </div>
 </li>
@@ -356,13 +391,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/containers/build-docker-google-cloud.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/containers/build-docker-google-cloud.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Build docker containers interactively with Google Cloud Shell</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/containers/singularity-biowulf.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/containers/singularity-biowulf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to use containers with singularity on biowulf</span></a>
   </div>
 </li>
@@ -379,7 +414,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/github-actions-demo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/github-actions-demo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Actions demo</span></a>
   </div>
 </li>
@@ -394,55 +429,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/guide/0_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/0_overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview of GitHub Topics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/guide/1_howto_setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/1_howto_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Setup: Preparing the Environment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/guide/2_howto_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/2_howto_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub HowTo: Basic Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/guide/3_basic_repo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/3_basic_repo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Basics: Repository</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/guide/4_basic_docs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/4_basic_docs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Basics: Documentation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/guide/5_basic_actions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/5_basic_actions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Basics: GitHub Actions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/guide/6_howto_precommit.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/6_howto_precommit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub HowTo: Pre-Commit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/guide/7_sop_projpipes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/7_sop_projpipes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Best Practices: Projects and Pipelines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/GitHub/guide/8_sop_techdev.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/8_sop_techdev.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Best Practices: TechDev projects</span></a>
   </div>
 </li>
@@ -461,19 +496,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/HPCDME/setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/HPCDME/setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HPCDME Setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/HPCDME/transfer.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/HPCDME/transfer.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">File Transfers from Biowulf</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/HPCDME/transferFromHelix.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/HPCDME/transferFromHelix.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">File Transfer from HELIX</span></a>
   </div>
 </li>
@@ -481,7 +516,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../docs/code-club/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../docs/code-club/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code Club</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -499,7 +534,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/code-club/2025-02-11_journal-club/slides.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/code-club/2025-02-11_journal-club/slides.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Improving bioinformatics software quality through teamwork</span></a>
   </div>
 </li>
@@ -516,7 +551,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/code-club/2025-08-26_establishing-code-club/slides.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/code-club/2025-08-26_establishing-code-club/slides.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Establishing a Community of Practice</span></a>
   </div>
 </li>
@@ -544,19 +579,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/R-package/create-from-conda/0_setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R-package/create-from-conda/0_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/R-package/create-from-conda/1_build_pkg.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R-package/create-from-conda/1_build_pkg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Creating the package</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/R-package/create-from-conda/common_issues.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R-package/create-from-conda/common_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">common issues</span></a>
   </div>
 </li>
@@ -575,25 +610,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/UCSC/0_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/UCSC/0_overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/UCSC/1_creating_inputs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/UCSC/1_creating_inputs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Generating Inputs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/UCSC/2_creating_track_info.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/UCSC/2_creating_track_info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Generating Track information</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/UCSC/3_creating_tracks.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/UCSC/3_creating_tracks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Generating New Tracks</span></a>
   </div>
 </li>
@@ -609,22 +644,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
-  <li><a href="#reference-link" id="toc-reference-link" class="nav-link active" data-scroll-target="#reference-link">Reference link</a></li>
-  <li><a href="#prepare-github-repository" id="toc-prepare-github-repository" class="nav-link" data-scroll-target="#prepare-github-repository">Prepare GitHub Repository</a></li>
-  <li><a href="#link-github-account-to-zenodo" id="toc-link-github-account-to-zenodo" class="nav-link" data-scroll-target="#link-github-account-to-zenodo">Link GitHub account to Zenodo</a></li>
-  <li><a href="#prepare-github-repo" id="toc-prepare-github-repo" class="nav-link" data-scroll-target="#prepare-github-repo">Prepare GitHub Repo</a></li>
-  <li><a href="#update-zenodo-information" id="toc-update-zenodo-information" class="nav-link" data-scroll-target="#update-zenodo-information">Update Zenodo Information</a></li>
-  <li><a href="#add-doi-citation-to-github" id="toc-add-doi-citation-to-github" class="nav-link" data-scroll-target="#add-doi-citation-to-github">Add DOI, citation to GitHub</a></li>
+  <li><a href="#initialize-your-shell" id="toc-initialize-your-shell" class="nav-link active" data-scroll-target="#initialize-your-shell">Initialize your shell</a></li>
+  <li><a href="#update-your-conda-configuration" id="toc-update-your-conda-configuration" class="nav-link" data-scroll-target="#update-your-conda-configuration">Update your conda configuration</a></li>
+  <li><a href="#verify-mamba-setup" id="toc-verify-mamba-setup" class="nav-link" data-scroll-target="#verify-mamba-setup">Verify mamba setup</a>
+  <ul class="collapse">
+  <li><a href="#activate-a-ccbr-environment" id="toc-activate-a-ccbr-environment" class="nav-link" data-scroll-target="#activate-a-ccbr-environment">Activate a CCBR environment</a></li>
+  <li><a href="#create-a-new-environment-for-your-own-use" id="toc-create-a-new-environment-for-your-own-use" class="nav-link" data-scroll-target="#create-a-new-environment-for-your-own-use">Create a new environment for your own use</a></li>
+  <li><a href="#view-environments" id="toc-view-environments" class="nav-link" data-scroll-target="#view-environments">View environments</a></li>
+  </ul></li>
+  <li><a href="#conclusion-support" id="toc-conclusion-support" class="nav-link" data-scroll-target="#conclusion-support">Conclusion &amp; Support</a></li>
+  <li><a href="#optional-create-a-new-shared-ccbr-environment" id="toc-optional-create-a-new-shared-ccbr-environment" class="nav-link" data-scroll-target="#optional-create-a-new-shared-ccbr-environment">Optional: create a new shared CCBR environment</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/zenodo.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/zenodo.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/conda-mamba/ccbr-mamba-biowulf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/conda-mamba/ccbr-mamba-biowulf.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/conda-mamba/ccbr-mamba-biowulf.html">Conda Mamba</a></li><li class="breadcrumb-item"><a href="../../docs/conda-mamba/ccbr-mamba-biowulf.html">Using the shared CCBR mamba installation on Biowulf</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Zenodo</h1>
+<h1 class="title">Using the shared CCBR mamba installation on Biowulf</h1>
 </div>
 
 
@@ -634,7 +673,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p><a href="https://github.com/escauley">Ned Cauley</a> </p>
+             <p>Kelly Sovacool </p>
           </div>
   </div>
     
@@ -647,69 +686,175 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Submit a pipeline to Zenodo in order to create a DOI for publication.</p>
-<section id="reference-link" class="level2">
-<h2 class="anchored" data-anchor-id="reference-link">Reference link</h2>
-<p>Use the link for full information, summarized below: https://www.youtube.com/watch?v=A9FGAU9S9Ow</p>
+<p>You can configure conda/mamba to use our shared CCBR installation of miniforge3 on Biowulf, which will allow you to access CCBR environments while also creating your own environments.</p>
+<section id="initialize-your-shell" class="level2">
+<h2 class="anchored" data-anchor-id="initialize-your-shell">Initialize your shell</h2>
+<p>Initialize your shell with mamba. This will modify your shell’s rc file (e.g. <code>~/.zshrc</code> or <code>~/.bashrc</code>) to allow you to use mamba.</p>
+<p>Specify your shell language with <code>--shell SHELL</code>. The below example is for <code>zsh</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/data/CCBR_Pipeliner/db/PipeDB/miniforge3/bin/mamba</span> shell init <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--shell</span> zsh <span class="at">--root-prefix</span><span class="op">=</span>/data/<span class="va">$USER</span>/mamba</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or <code>bash</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/data/CCBR_Pipeliner/db/PipeDB/miniforge3/bin/mamba</span> shell init <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--shell</span> bash <span class="at">--root-prefix</span><span class="op">=</span>/data/<span class="va">$USER</span>/mamba</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We recommend setting <code>--root-prefix</code> to your data directory <code>/data/$USER</code> since more space is available than in your home directory <code>~/</code>.</p>
+<p>Source your shell’s rc file to make these changes take effect.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.zshrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="prepare-github-repository" class="level2">
-<h2 class="anchored" data-anchor-id="prepare-github-repository">Prepare GitHub Repository</h2>
-<p>The GitHub repository should include the following:</p>
-<ol type="1">
-<li>README page</li>
-<li>Documentation page, such as mkdocs, with usage and contact information</li>
-<li>A citation <code>CITATION.cff</code>; <a href="https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff">Example here</a></li>
-<li>Tagged and versioned, stable repository</li>
-</ol>
+<section id="update-your-conda-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="update-your-conda-configuration">Update your conda configuration</h2>
+<p>Copy and paste the following contents into your conda configuration file: <code>~/.condarc</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">channels</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda-forge</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> bioconda</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">channel_priority</span><span class="kw">:</span><span class="at"> strict</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">show_channel_urls</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">envs_dirs</span><span class="kw">:</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> /data/$USER/mamba/envs/</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> /data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pkgs_dirs</span><span class="kw">:</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> /data/$USER/mamba/pkgs/</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">denylist_channels</span><span class="kw">:</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> https://repo.anaconda.com/pkgs/main</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> https://repo.anaconda.com/pkgs/r</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can optionally add other configuration options as you see fit (e.g.&nbsp;<code>auto_activate_base</code>), but it is important to at least have all of the content above.</p>
 </section>
-<section id="link-github-account-to-zenodo" class="level2">
-<h2 class="anchored" data-anchor-id="link-github-account-to-zenodo">Link GitHub account to Zenodo</h2>
-<ol type="1">
-<li><p>Go to <a href="https://zenodo.org/">Zenodo</a></p></li>
-<li><p>Select <code>username</code> in the top right &gt;&gt; <code>Profile</code>. Select `GitHub``</p></li>
-<li><p>Click <code>Sync Now</code> (top right) to update repos. NOTE: You may have to refresh the page</p></li>
-<li><p>Toggle the <code>On</code> button on the repo you wish to publish. This will move the pipeline to the <code>Enable Repositories</code> list.</p></li>
-</ol>
+<section id="verify-mamba-setup" class="level2">
+<h2 class="anchored" data-anchor-id="verify-mamba-setup">Verify mamba setup</h2>
+<p>Let’s make sure everything is working as expected. You should be able to activate shared CCBR environments, and also create new environments for your own personal use.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> info</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>       libmamba version : 2.1.1
+          mamba version : 2.1.1
+           curl version : libcurl/8.14.1 OpenSSL/3.5.1 zlib/1.3.1 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.64.0
+     libarchive version : libarchive 3.7.7 zlib/1.3.1 liblzma/5.8.1 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7
+       envs directories : /gpfs/gsfs12/users/$USER/mamba/envs
+                          /vf/users/CCBR_Pipeliner/db/PipeDB/miniforge3/envs
+          package cache : /gpfs/gsfs12/users/$USER/mamba/pkgs
+            environment : base (active)
+           env location : /gpfs/gsfs12/users/$USER/mamba
+      user config files : /home/$USER/.mambarc
+ populated config files : /home/$USER/.condarc
+       virtual packages : __unix=0=0
+                          __linux=4.18.0=0
+                          __glibc=2.28=0
+                          __archspec=1=x86_64_v4
+               channels : https://conda.anaconda.org/conda-forge/linux-64
+                          https://conda.anaconda.org/conda-forge/noarch
+                          https://conda.anaconda.org/bioconda/linux-64
+                          https://conda.anaconda.org/bioconda/noarch
+       base environment : /gpfs/gsfs12/users/$USER/mamba
+               platform : linux-64</code></pre>
+<p>(<code>$USER</code> will be filled in with your actual username on Biowulf.)</p>
+<p>Note that the channel URLs point to <code>https://conda.anaconda.org/</code> (only <strong>community-supported channels</strong>), and no channels point to <code>https://repo.anaconda.com</code> (commercial channels).</p>
+<p>New environments you create will be in <code>/data/$USER/mamba/envs/</code>, but you will also be able to activate any environment listed in <code>/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/</code></p>
+<section id="activate-a-ccbr-environment" class="level3">
+<h3 class="anchored" data-anchor-id="activate-a-ccbr-environment">Activate a CCBR environment</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> activate py3.11-8</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> deactivate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="prepare-github-repo" class="level2">
-<h2 class="anchored" data-anchor-id="prepare-github-repo">Prepare GitHub Repo</h2>
-<ol type="1">
-<li><p>Go to <a href="https://www.github.com">GitHub</a> and find the repository page.</p></li>
-<li><p>Select <code>Releases</code> &gt;&gt; <code>Draft a new release</code></p></li>
-<li><p>Create a tag, following naming semantics described <a href="https://ccbr.github.io/HowTos/GitHub/sop_projpipes/#release-tagged-nomenclature">here</a></p></li>
-<li><p>Describe the tag with the following: “Connecting pipeline to Zenodo”</p></li>
-</ol>
+<section id="create-a-new-environment-for-your-own-use" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-new-environment-for-your-own-use">Create a new environment for your own use</h3>
+<p>The environment will be created in <code>/data/$USER/mamba/envs/mytestenv</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-n</span> mytestenv python=3.13 r-base=4.5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>conda-forge/linux-64                                        Using cache
+conda-forge/noarch                                          Using cache
+bioconda/linux-64                                           Using cache
+bioconda/noarch                                             Using cache
+
+
+Transaction
+
+  Prefix: /gpfs/gsfs12/users/$USER/mamba/envs/mytestenv
+
+  Updating specs:
+
+   - python=3.13
+   - r-base=4.5</code></pre>
 </section>
-<section id="update-zenodo-information" class="level2">
-<h2 class="anchored" data-anchor-id="update-zenodo-information">Update Zenodo Information</h2>
-<ol type="1">
-<li><p>Go to <a href="https://zenodo.org/">Zenodo</a></p></li>
-<li><p>Select <code>My dashboard</code> &gt;&gt; <code>Edit</code></p></li>
-<li><p>Update the following information:</p>
-<ul>
-<li>Resource Type: Software</li>
-<li>Title: Full Pipeline Name (ShorthandName) (IE Mouse nEoanTigen pRedictOr (METRO)</li>
-<li>Creators: Add creators, including ORCID’s whenever possible</li>
-<li>Description: A short description of the main features of the pipeline</li>
-<li>Additional Description: If you use this software, please cite it as below.</li>
-<li>Keywords and subjects: Add several keywords related to the pipeline</li>
-<li>Version: add the version used in GitHub</li>
-<li>Publisher: Zenodo</li>
-<li>Related works: “Is original form of” “github website” URL</li>
-</ul></li>
-</ol>
+<section id="view-environments" class="level3">
+<h3 class="anchored" data-anchor-id="view-environments">View environments</h3>
+<p>You should see both your personal environments and the shared CCBR environments listed.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> info <span class="at">--envs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="add-doi-citation-to-github" class="level2">
-<h2 class="anchored" data-anchor-id="add-doi-citation-to-github">Add DOI, citation to GitHub</h2>
-<ol type="1">
-<li><p>Go to <a href="https://zenodo.org/">Zenodo</a></p></li>
-<li><p>Select <code>username</code> in the top right &gt;&gt; <code>Profile</code>. Select `GitHub``</p></li>
-<li><p>Click <code>Sync Now</code> (top right) to update repos. NOTE: You may have to refresh the page</p></li>
-<li><p>Copy the DOI for the repository</p></li>
-<li><p>Return to the GitHub repository and edit the <code>README</code> of the GitHub repo, adding the DOI link.</p></li>
-<li><p>Update the <code>CITATION.cff</code> as needed.</p></li>
-<li><p>Create a new tagged version.</p></li>
-</ol>
+</section>
+<section id="conclusion-support" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-support">Conclusion &amp; Support</h2>
+<p>If all of the above commands worked as expected, you’re all set up to use mamba on biowulf! 🎉</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Getting support
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have any questions about <strong>conda or mamba</strong> generally, please refer to the <a href="https://mamba.readthedocs.io/en/latest/user_guide/mamba.html">mamba documentation</a></p>
+<p>If you have any questions or run into problems while using the <strong>CCBR</strong> mamba installation on biowulf, please contact us at <a href="mailto:CCBR_Pipeliner@mail.nih.gov">CCBR_Pipeliner@mail.nih.gov</a></p>
+</div>
+</div>
+</section>
+<section id="optional-create-a-new-shared-ccbr-environment" class="level2">
+<h2 class="anchored" data-anchor-id="optional-create-a-new-shared-ccbr-environment">Optional: create a new shared CCBR environment</h2>
+<p>If you are a member of the <code>CCBR_Pipeliner</code> group on biowulf, you can create new environments in the CCBR mamba installation for others to use.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can run the <code>groups</code> command on biowulf to see which groups you are a member of.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">groups</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>CCBR CCBR_Pipeliner</code></pre>
+<p><strong>If <code>CCBR_Pipeliner</code> is not listed, you will not be able to create a shared CCBR environment.</strong></p>
+</div>
+</div>
+<p>Create your new environment using the CCBR miniforge3 directory for the prefix. The environment name is the directory name after <code>/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/</code>. For example, the following will create an environment called <code>test-$USER</code> (<code>$USER</code> will be replaced by your actual username).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">--prefix</span><span class="op">=</span>/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-<span class="va">$USER</span> <span class="dt">\</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  python=3.12</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Change the permissions to ensure everyone can use the environment:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> <span class="at">-R</span> a+rX /data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The environment files should now be readable and executable by all:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-alh</span> /vf/users/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>total 0
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 .
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ..
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 bin
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 compiler_compat
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 conda-meta
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 include
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 lib
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 man
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 share
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ssl
+drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 x86_64-conda-linux-gnu</code></pre>
+<p>Activate the new environment and make sure it works as expected:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> activate test-<span class="va">$USER</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> python</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">--version</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> deactivate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>/vf/users/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-$USER/bin/python
+Python 3.12.12</code></pre>
+<p>That’s it! Now anyone on biowulf can activate your environment.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Clean up
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you created an environment only for testing purposes, please delete it when you are finished so that the CCBR environments directory doesn’t get cluttered.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> env remove <span class="at">-n</span> test-<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 
 
 </section>
@@ -1130,13 +1275,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/snakemake.html" class="pagination-link" aria-label="Snakemake">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Snakemake</span>
+      <a href="../../docs/zenodo.html" class="pagination-link" aria-label="Zenodo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Zenodo</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/conda-mamba/ccbr-mamba-biowulf.html" class="pagination-link" aria-label="Using the shared CCBR mamba installation on Biowulf">
-        <span class="nav-page-text">Using the shared CCBR mamba installation on Biowulf</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../docs/conda-mamba/conda-to-mamba.html" class="pagination-link" aria-label="Move from Conda to Mamba">
+        <span class="nav-page-text">Move from Conda to Mamba</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1148,7 +1293,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/zenodo.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/zenodo.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/conda-mamba/ccbr-mamba-biowulf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/conda-mamba/ccbr-mamba-biowulf.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
