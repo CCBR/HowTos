@@ -1,7 +1,0 @@
----
-title: "Publishing Shiny Apps on POSIT Connect"
-format: html
-editor: visual
----
-
-## Publishing Shiny Apps on Posit Connect
