@@ -1,0 +1,63 @@
+---
+title: "Developing Shiny Apps"
+format: html
+editor: visual
+---
+
+## Posit Resources
+
+Posit has a free shiny tutorial for developing shiny apps in either R or Python available on their [shiny web page](https://shiny.posit.co/). The Posit tutorial will teach you the essentials of how shiny apps are developed and additional features that can be added. The shiny web page also contains additional information for creating more complex shiny apps, such as the the [gallery](https://shiny.posit.co/r/gallery/) which demo specific features.
+
+Posit also offers a cheatsheet for referencing aspects of Shiny development:
+
+[Shiny Cheatsheet PDF](shiny.pdf)
+
+## Example Shiny App
+
+There is an example Shiny app for CCBR members to use for learning and experimenting with an already functional shiny apps, or for use as a foundation for developing a new app.
+
+To set up the example shiny app for personal use, please use the following steps.
+
+#### Create a fork
+
+The example Shiny app can be used by forking the [CCBR shiny-example github repo](https://github.com/CCBR/shiny-example) using the "fork" option from the CCBR shiny-example repo.
+
+![Use the Fork option (red rectangle) from the CCBR shiny-example repo](fork_screenshot.png)\
+
+#### Clone the forked repo
+
+After the fork is created, clone the fork locally using the github CLI with the URL available in the code tab of the forked repo
+
+![How to find the URL to use for cloning the forked repo (red box)](clone_URL.png)
+
+The github CLI command will be:
+
+``` bash
+git clone https://github.com/$gh_username/shiny-example.git
+```
+
+Where \$gh_username will be replace with your github username.
+
+#### Start a new R project
+
+Create a new R project in R studio, either in the same folder as the cloned shiny-example repo or in a separate folder. If the project is created in a separate folder, move, copy all of the files from the cloned shiny-example repo folder into the project folder for easier access. Be sure to use renv for the new project to create a contained environment for the R libraries required for the shiny app.
+
+The shiny-example repo comes with a renv.lock file which can be used to install all of the libraries needed for the shiny example app. To use the renv.lock file, run the command in the R studio console:\
+
+``` r
+renv::restore()
+```
+
+If restore causes issues or is not preferred, the required libraries can also be installed individually. All required libraries are listed at the top of the app.R file and the sourced R script files (for shiny-example that's "R/PCA_plot_DSP.R" and "R/violin_boxplot.R").
+
+#### Run the shiny app locally
+
+To verify all R libraries and required files are set up correctly, the shine example app can be run locally using the "Run App" button in R studio. Depending on the selection in the drop down menu for the Run App button, the app will either generate in a browser or in the Viewer window within R studio.
+
+![The run app button used to run R shiny apps locally (red box)](run_app_button.png)
+
+![Example of the shiny app running locally in the Viewer window](app_running_example.png)
+
+#### Next steps
+
+After the example Shiny example app is set up, you can proceed with making changes to the app such as new features, expeiment with changing the pre-existing code of the example, etc. When you are run your app locally and are ready to try deploying the app, please proceed to the [Deployment documentation](2_Deploying.qmd).
