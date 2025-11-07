@@ -6,7 +6,7 @@ editor: visual
 
 ## Summary
 
-R Shiny apps can be deployed on NCI's POSIT connect server to enable sharing with NCI collaborators or external users. The process publishing shiny apps are described by CBIIT in [this article](https://service.cancer.gov/ncisp?id=nci_kb_article&sysparm_article=NCI-KB0015444).
+R Shiny apps can be deployed on NCI's POSIT connect server to enable sharing with NCI collaborators or external users. The process of publishing shiny apps is described by CBIIT in [this article](https://service.cancer.gov/ncisp?id=nci_kb_article&sysparm_article=NCI-KB0015444).
 
 From the CBIIT article:\
 \
@@ -27,6 +27,8 @@ See the [Development documentation](1_Development.qmd) page for further details.
 Shiny apps developed for NCI's POSIT Connect servers are typically deployed first on the internal development server: [appshare-dev.cancer.gov](appshare-dev.cancer.gov)
 
 See the [Deployment documentation](2_Deploying.qmd) page for further details on deploying a shiny apps to the internal development server.
+
+Note: Deploying and publishing a shiny app are sometimes used interchangeably, but for the sake of this documentation deployment is moving a shiny app from local development to the Posit Connect servers, whereas publishing is deployment of a fully tested and ready to share shiny app on either of the production servers.
 
 ## Final Publishing of Shiny Apps
 
