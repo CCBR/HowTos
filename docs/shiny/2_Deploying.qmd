@@ -1,0 +1,77 @@
+---
+title: "Deploying Shiny Apps"
+format: html
+editor: visual
+---
+
+### NCI Posit Connect Servers
+
+There are three separate Posit Connect servers available to NCI. Note: all require VPN to access.
+
+#### Internal Development Server
+
+-   [appshare-dev.cancer.gov](appshare-dev.cancer.gov)
+
+-   Used for development and testing
+
+-   Available during normal business hours
+
+#### Internal Production Server
+
+-   [posit-connect-prod.cancer.gov](posit-connect-prod.cancer.gov)
+
+-   Used for sharing within NCI
+
+-   Available 24/7
+
+#### External Production Server
+
+-   [appshare.cancer.gov](appshare.cancer.gov)
+
+-   Used for sharing outside of NCI
+
+-   Available 24/7
+
+This page will cover deployment to the internal development server, but the steps for deployment will be similar for the other servers, with caveats listed in the [Publishing documentation](3_Publishing.qmd).
+
+### Access to the servers
+
+To get access to the servers, contact George Zaki (george.zaki\@nih.gov).
+
+## Deploying an App to the Internal Dev Server
+
+To demonstrate shiny app deployment, we will show how to deploy the shiny example app to the internal dev server. Once the shiny example app has been cloned locally and tested successfully, we can set up and run deployment.
+
+### Add an Account for Publishing
+
+Select the Publish button to bring up the Publish to Server window. Select "Add new account" in the "Publish from account:" section.
+
+![Select the add new account button (red box)](Publish_from_account_window.png){width="500"}
+
+Next choose the "Posit Connect" option and in the next window enter the URL for the NCI Posit Connect dev server.
+
+![](Connect_account_options.png){width="500"}
+
+![](Posit_connect_enter_URL.png){width="500"}
+
+Upon clicking the "Next" button, a browser will open and redirect you to the Posit Connect Dev server. You will receive a prompt asking you to connect to R.
+
+![The connection prompt appearing on the Posit Connect dev server](Connect_to_R_prompt.png){width="500"}
+
+Choose "Connect" and then return to the Rstudio window. You will then have another prompt to finalize the connection. Choose "Connect Account".
+
+![](images/Connect_to_R_RStudio_prompt.png){width="500"}
+
+You will now have the Posit Connect dev server as an option when choosing the "Publish" button.
+
+#### Publish the example shiny app
+
+Now that your account is connected. Click the "Publish" button again, and you will now see that your connected account is listed. Rename your app and then choose "Publish".
+
+![](images/Deploying_example_app-01.png){width="500"}
+
+A log of the app building will begin in Rstudio, including installation of all libraries listed in the renv.lock file. When the app is built, a browser will be opened with your published shiny app on the Posit Connect dev server.
+
+![](images/Screenshot 2025-11-07 at 11.00.10 AM.png)
+
+You have now successfully deployed the example shiny app to the Posit Connect dev server!
