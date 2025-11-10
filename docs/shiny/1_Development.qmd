@@ -22,13 +22,13 @@ To set up the example shiny app for personal use, please use the following steps
 
 The example Shiny app can be used by forking the [CCBR shiny-example github repo](https://github.com/CCBR/shiny-example) using the "fork" option from the CCBR shiny-example repo.
 
-![Use the Fork option (red rectangle) from the CCBR shiny-example repo](fork_screenshot.png)\
+![Use the Fork option (red rectangle) from the CCBR shiny-example repo](images/fork_screenshot.png)\
 
 #### Clone the forked repo
 
 After the fork is created, clone the fork locally using the github CLI with the URL available in the code tab of the forked repo
 
-![How to find the URL to use for cloning the forked repo (red box)](clone_URL.png)
+![How to find the URL to use for cloning the forked repo (red box)](images/clone_URL.png)
 
 The github CLI command will be:
 
@@ -54,9 +54,9 @@ If restore causes issues or is not preferred, the required libraries can also be
 
 To verify all R libraries and required files are set up correctly, the shine example app can be run locally using the "Run App" button in R studio. Depending on the selection in the drop down menu for the Run App button, the app will either generate in a browser or in the Viewer window within R studio.
 
-![The run app button used to run R shiny apps locally (red box)](run_app_button.png)
+![The run app button used to run R shiny apps locally (red box)](images/run_app_button.png)
 
-![Example of the shiny app running locally in the Viewer window](app_running_example.png)
+![Example of the shiny app running locally in the Viewer window](images/app_running_example.png)
 
 #### Next steps
 
