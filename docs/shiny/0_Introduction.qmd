@@ -14,7 +14,9 @@ From the CBIIT article:\
 
 R Shiny web apps can be made available for internal use on NCI's on premises Posit Connect server (positconnect.cancer.gov) or made available for external users on NCI's externally-facing Posit Connect server (appshare.cancer.gov), located in NCI's Cloud One. (Reference 1)"
 
-This documentation will add further details and tips for CCBR members to develop and deploy shiny apps on the NCI POSIT connect server.\
+This documentation will add further details and tips for CCBR members to develop and deploy shiny apps on the NCI POSIT connect server.
+
+> Note: For this documentation, there is information on "deploying" an app and "publishing" an app. Deployment refers to sending the bundle of all code and environment dependencies which create the app to a server. Publishing refers to making the deployed app open to other collaborators outside of the main developers.
 
 ## Developing Shiny Apps
 
@@ -28,12 +30,12 @@ Shiny apps developed for NCI's POSIT Connect servers are typically deployed firs
 
 See the [Deployment documentation](2_Deploying.qmd) page for further details on deploying a shiny apps to the internal development server.
 
-Note: Deploying and publishing a shiny app are sometimes used interchangeably, but for the sake of this documentation deployment is moving a shiny app from local development to the Posit Connect servers, whereas publishing is deployment of a fully tested and ready to share shiny app on either of the production servers.
-
 ## Final Publishing of Shiny Apps
 
-After the shiny app has been tested and approved for publishing, it can then be published as an internal NCI facing app on the internal production server: [posit-connect-prod.cancer.gov](posit-connect-prod.cancer.gov)
+After the shiny app has been tested and approved for publishing, it can then be published in two ways.
 
-Or the app can be published on the externally facing production server: [appshare.cancer.gov](appshare.cancer.gov)
+If the app will be shared with collaborators within NCI, it can be published to the internal production server: [posit-connect-prod.cancer.gov](posit-connect-prod.cancer.gov)
 
-See the [Publishing documentation](3_Publishing.qmd) page for further details on publishing to either the internal or external servers.
+If the app will be shared with collabroators outside of NCI, it can be published on the externally facing production server: [appshare.cancer.gov](appshare.cancer.gov)
+
+See the [Publishing documentation](3_Publishing.qmd) page for further details on publishing to either the internal or external production servers.
