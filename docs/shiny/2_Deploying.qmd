@@ -44,7 +44,7 @@ To demonstrate shiny app deployment, we will show how to deploy the shiny exampl
 
 ### Add an Account for Publishing
 
-Select the Publish button to bring up the Publish to Server window. Select "Add new account" in the "Publish from account:" section.
+Select the "Publish" button to bring up the Publish to Server window. Select "Add new account" in the "Publish from account:" section.
 
 ![](images/Publish_from_account_window.png){width="500"}
 
@@ -75,3 +75,19 @@ A log of the app building will begin in Rstudio, including installation of all l
 ![](images/Deployed_App.png)
 
 You have now successfully deployed the example shiny app to the Posit Connect dev server!
+
+#### Republishing
+
+The options for publishing will look slightly different if an app has already been published and there is local memory of the deployed apps. For example, if you successfully deploy the shiny example app for the first time to the internal dev server, the "Publish" button will now say "Republish". A drop down for Replublish allows republishing to a specific location if the app was deployed to multiple destinations, as well as adding a new destination.\
+\
+![The "Republish" button (red box) and drop down options](images/Replublish_Drop_Down.png){width="750"}
+
+Choosing Republish or choosing a specific location gives a prompt specific to that location.
+
+![](images/Republish_Window.png){width="500"}
+
+While choosing "Other Destination..." from the drop down gives a prompt which allows adding new destinations.
+
+![](images/Republish_Other_Destination.png){width="500"}
+
+For details on deloying and publishing the app to the NCI production Posit Connect servers, proceed to the [Publishing documentation](3_Publishing.qmd).
