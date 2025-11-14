@@ -34,9 +34,21 @@ There are three separate Posit Connect servers available to NCI. Note: all requi
 
 This page will cover deployment to the internal development server, but the steps for deployment will be similar for the other servers, with caveats listed in the [Publishing documentation](3_Publishing.qmd).
 
+CBIIT offers an SOP for deployment as well, found in [this document](https://nih.sharepoint.com/:w:/s/NCI-CBIITScientificComputing/IQCUwdpewxeOT7HAWuyY9lOEAeCOXwVZJ0uPSZWBxAt4z1c?e=u6o2GW&ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2Ccauleyes%40nih.gov&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNTEwMTYxNjUxMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D).
+
 ### Access to the servers
 
-To get access to the servers, contact George Zaki (george.zaki\@nih.gov).
+To deploy a shiny app on a Posit connect server you will need publisher access. To get this access, contact George Zaki (george.zaki\@nih.gov) with a description of the app which includes:
+
+-   What data does the shiny app use?
+
+-   Where is the data stored?
+
+-   How will the data be manipulated by the app i.e. read, or read and write?
+
+-   What is an estimate of how much computational resources the app uses to run? For example, what features of the app take the longest to run and how ling does it take?
+
+Provide this information in the email to George Zaki when asking for permissions to the internal dev server.
 
 ## Deploying an App to the Internal Dev Server
 
@@ -90,4 +102,4 @@ While choosing "Other Destination..." from the drop down gives a prompt which al
 
 ![](images/Republish_Other_Destination.png){width="500"}
 
-For details on deloying and publishing the app to the NCI production Posit Connect servers, proceed to the [Publishing documentation](3_Publishing.qmd).
+For details on deploying and publishing the app to the NCI production Posit Connect servers, proceed to the [Publishing documentation](3_Publishing.qmd).
