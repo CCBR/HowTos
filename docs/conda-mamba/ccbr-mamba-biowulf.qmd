@@ -207,17 +207,17 @@ ls -alh /vf/users/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-$USER
 ```
 ```text
 total 0
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 .
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ..
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 bin
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 compiler_compat
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 conda-meta
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 include
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 lib
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 man
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 share
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ssl
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 x86_64-conda-linux-gnu
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 .
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ..
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 bin
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 compiler_compat
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 conda-meta
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 include
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 lib
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 man
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 share
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ssl
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 x86_64-conda-linux-gnu
 ```
 
 Activate the new environment and make sure it works as expected:
