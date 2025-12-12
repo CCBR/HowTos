@@ -39,6 +39,7 @@ The `type` must be one of the following options:
 - refactor: A code change that neither fixes a bug nor adds a feature
 - style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 - test: Adding missing tests or correcting existing tests
+- chore : Maintenance tasks that don't affect production code behavior
 
 ### Scope (OPTIONAL)
 The `scope` must be one of the following options:
