@@ -8,11 +8,31 @@ editor: visual
 
 R Shiny apps can be deployed on NCI's Posit connect servers to enable sharing with NCI or non-NCI collaborators. There are three servers available:
 
--   Development
+#### Development Server
 
--   Internal (NCI) Production
+-   [appshare-dev.cancer.gov](appshare-dev.cancer.gov)
 
--   External (non-NCI) Production
+-   Used for development and testing
+
+-   Available during normal business hours
+
+#### Internal Production Server
+
+-   [posit-connect-prod.cancer.gov](posit-connect-prod.cancer.gov)
+
+-   Used for sharing with NCI collaborators
+
+-   Available 24/7
+
+#### External Production Server
+
+-   [appshare.cancer.gov](appshare.cancer.gov)
+
+-   Used for sharing with non-NCI collaborators
+
+-   Available 24/7
+
+> Note: all servers require a VPN connection to access.
 
 A description of publishing shiny apps to the external production server for public access is described by CBIIT in [this article](https://service.cancer.gov/ncisp?id=nci_kb_article&sysparm_article=NCI-KB0015444). There are additional steps needed for publishing on any of the servers, and certain requirements for sharing an app publicly won't apply to publishing on the internal NCI servers. All of these details are described in the sections linked below.
 
