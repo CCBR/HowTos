@@ -660,17 +660,18 @@ touch .pre-commit.config</code></pre>
 <h3 class="anchored" data-anchor-id="type-required">Type (REQUIRED)</h3>
 <p>The <code>type</code> must be one of the following options:</p>
 <ul>
-<li>build: Changes that affect the build system or external dependencies</li>
-<li>ci: Changes to our CI configuration files and scripts</li>
-<li>docs: Documentation only changes</li>
 <li>feat: A new feature</li>
 <li>fix: A bug fix</li>
+<li>docs: Documentation only changes</li>
 <li>perf: A code change that improves performance</li>
-<li>refactor: A code change that neither fixes a bug nor adds a feature</li>
-<li>style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</li>
-<li>test: Adding missing tests or correcting existing tests</li>
-<li>chore : Maintenance tasks that don’t affect production code behavior</li>
+<li>style: Style changes that do not affect the meaning of the code (white-space, formatting, etc.)</li>
+<li>test: Adding tests or correcting existing tests</li>
+<li>ci: Changes to our CI configuration files and scripts</li>
+<li>build: Changes that affect the build system or external dependencies</li>
+<li>refactor: A code change that neither fixes a bug nor adds a feature, such as to improve code understandability</li>
+<li>chore: Maintenance tasks that don’t affect production code behavior (e.g.&nbsp;configuration files)</li>
 </ul>
+<p><code>feat</code>, <code>fix</code>, <code>docs</code>, and <code>perf</code> changes are user-facing changes because they affect users of the code, and should be included in the changelog. All other types are non user-facing changes and typically do not need to be included in the changelog.</p>
 </section>
 <section id="scope-optional" class="level3">
 <h3 class="anchored" data-anchor-id="scope-optional">Scope (OPTIONAL)</h3>
