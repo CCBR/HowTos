@@ -30,16 +30,19 @@ Commits must follow the format listed below, as designated by [Angular](https://
 ### Type (REQUIRED)
 The `type` must be one of the following options:
 
-- build: Changes that affect the build system or external dependencies
-- ci: Changes to our CI configuration files and scripts
-- docs: Documentation only changes
 - feat: A new feature
 - fix: A bug fix
+- docs: Documentation only changes
 - perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-- test: Adding missing tests or correcting existing tests
-- chore : Maintenance tasks that don't affect production code behavior
+- style: Style changes that do not affect the meaning of the code (white-space, formatting, etc.)
+- test: Adding tests or correcting existing tests
+- ci: Changes to our CI configuration files and scripts
+- build: Changes that affect the build system or external dependencies
+- refactor: A code change that neither fixes a bug nor adds a feature, such as to improve code understandability
+- chore: Maintenance tasks that don't affect production code behavior (e.g. configuration files)
+
+`feat`, `fix`, `docs`, and `perf` changes are user-facing changes because they affect users of the code, and should be included in the changelog.
+All other types are non user-facing changes and typically do not need to be included in the changelog.
 
 ### Scope (OPTIONAL)
 The `scope` must be one of the following options:
