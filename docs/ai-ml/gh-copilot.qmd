@@ -1,0 +1,76 @@
+---
+title: "GitHub CoPilot in VS Code"
+author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
+---
+
+## Why CoPilot?
+
+https://github.com/settings/copilot/features
+
+CoPilot is built to work seamlessly in your IDE. It is a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc.
+CoPilot makes suggestions based on the context of your entire project, rather than only a single prompt.
+
+## Setup
+
+### Request CoPilot access
+
+> request access to Copilot by going to https://github.com/settings/copilot and requesting access under "Get Copilot from an organization."
+>
+> - _[GitHub Docs](https://docs.github.com/en/copilot/get-started/what-is-github-copilot#getting-access-to-copilot)_
+
+### Set up CoPilot in VS Code
+
+[_VS Code Docs_](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
+
+1. Hover over the Copilot icon in the Status Bar and select Use AI Features.
+
+![](img/vscode-copilot-icon.png)
+
+2. Sign in to GitHub
+
+![](img/vscode-continue-github.png)
+
+3. Start using Copilot in VS Code!
+
+![](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
+
+The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension should now be installed.
+
+#### VS Code settings
+
+![](img/vscode-settings.png){fig-alt="VS Code settings interface showing GitHub Copilot configuration options under the Features section. Two checkboxes are visible and enabled: Auto Fix which automatically fixes diagnostics for edited files, and Current Editor Context which includes the name of the current active editor in the context for agent mode."}
+
+:::{.callout-tip}
+GitHub CoPilot also works well in Positron, an IDE created by Posit based on VS Code.
+:::
+
+## Demo: a simple python script
+
+### Open project in new window
+
+### Auto-complete
+
+how to toggle on & off
+
+### Inline chat
+
+{{< kbd >}}
+CMD + I
+
+### Chat in sidebar
+
+### Source Control: git GUI in VS Code
+
+Automatically suggest commit messages
+
+## Tips
+
+### Do
+
+- Always read the AI suggestion before accepting it
+- Write tests to make sure your code works the way you think it does
+- Periodically step back and reflect on what you're trying to accomplish
+
+### Don't
+
+- Blindly accept AI suggestions
