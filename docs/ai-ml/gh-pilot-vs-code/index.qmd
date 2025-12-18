@@ -50,18 +50,28 @@ GitHub CoPilot also works well in Positron, an IDE created by Posit based on VS 
 
 ### Auto-complete
 
+example: ask copilot to write a docstring
+
 how to toggle on & off
 
 ### Inline chat
+
+example: ask copilot to break out a complicated line of code into a separate function
 
 {{< kbd >}}
 CMD + I
 
 ### Chat in sidebar
 
+example: ask copilot to explain how a function works
+
 ### Source Control: git GUI in VS Code
 
-Automatically suggest commit messages
+Suggest commit messages
+
+![](img/source-ctrl-commit.png)
+
+![](img/source-ctrl-commit-msg.png)
 
 ## Tips
 
@@ -69,6 +79,7 @@ Automatically suggest commit messages
 
 - Always read the AI suggestion before accepting it
 - Write tests to make sure your code works the way you think it does
+- Use git and commit your changes often
 - Periodically step back and reflect on what you're trying to accomplish
 
 ### Don't

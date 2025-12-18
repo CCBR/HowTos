@@ -4,6 +4,8 @@
 This script processes Gene Transfer Format (GTF) files to identify protein-coding genes
 and extract their promoter regions around the Transcription Start Sites (TSS). The 
 output is generated in BED format for downstream analysis.
+You can then intersect these promoter regions with ATAC-seq peaks to identify
+genes with open chromatin in their promoters.
 
 Features:
 - Filters for protein-coding genes only
