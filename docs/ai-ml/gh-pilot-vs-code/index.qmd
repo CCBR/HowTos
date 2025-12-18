@@ -12,11 +12,20 @@ CoPilot makes suggestions based on the context of your entire project, rather th
 
 ## Setup
 
-### Request CoPilot access
+### Sign up for CoPilot
 
-> request access to Copilot by going to https://github.com/settings/copilot and requesting access under "Get Copilot from an organization."
->
-> - _[GitHub Docs](https://docs.github.com/en/copilot/get-started/what-is-github-copilot#getting-access-to-copilot)_
+:::{.callout-note}
+We cannot add more users to the NCI Enterprise premium CoPilot license at this time.
+However, you can still do a lot with the the free version of CoPilot!
+:::
+
+Enable CoPilot:
+
+<https://github.com/settings/copilot>
+
+![](img/gh-copilot-settings.png)
+
+> See more: _[GitHub Docs](https://docs.github.com/en/copilot/get-started/what-is-github-copilot#getting-access-to-copilot)_
 
 ### Set up CoPilot in VS Code
 
