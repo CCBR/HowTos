@@ -41,11 +41,11 @@ Enable CoPilot:
 
 3. Start using Copilot in VS Code!
 
-![](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
-
 The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension should now be installed.
 
 #### VS Code settings
+
+You can customize CoPilot settings in VS Code by going to **Settings** > **Extensions** > **GitHub Copilot** or by using the keyboard shortcut {{< kbd Cmd , >}} on Mac.
 
 ![](img/vscode-settings.png){fig-alt="VS Code settings interface showing GitHub Copilot configuration options under the Features section. Two checkboxes are visible and enabled: Auto Fix which automatically fixes diagnostics for edited files, and Current Editor Context which includes the name of the current active editor in the context for agent mode."}
 
@@ -57,22 +57,36 @@ GitHub CoPilot also works well in Positron, an IDE created by Posit based on VS 
 
 ### Open project in new window
 
-### Auto-complete
+![](img/open-vs-code.png)
 
-example: ask copilot to write a docstring
+Example project: given a GTF file, extract the gene transcription start sites and
+create a BED file of promoter regions.
 
-how to toggle on & off
+First, commit your existing code before you start using CoPilot.
+
+### Automatic inline suggestions
+
+![How to turn automatic inline suggestions on and off](img/inline-suggest-enabled.png)
+ <vscode://settings/editor.inlineSuggest.enabled>
+
+Example: ask copilot to write a docstring
+
 
 ### Inline chat
 
 example: ask copilot to break out a complicated line of code into a separate function
 
-{{< kbd >}}
-CMD + I
+{{< kbd Cmd I >}}
 
 ### Chat in sidebar
 
+![Open the sidebar](img/chat-sidebar.png)
+
+![Model selection](img/model-selection)
+
 example: ask copilot to explain how a function works
+
+example: ask copilot to explain the benefits of `yield` vs `return` in Python functions
 
 ### Source Control: git GUI in VS Code
 
@@ -82,15 +96,13 @@ Suggest commit messages
 
 ![](img/source-ctrl-commit-msg.png)
 
+### Writing unit tests
+
+Ask Copilot to suggest unit tests
+
 ## Tips
 
-### Do
-
-- Always read the AI suggestion before accepting it
+- Always read and **understand** the AI suggestion before accepting it
 - Write tests to make sure your code works the way you think it does
 - Use git and commit your changes often
 - Periodically step back and reflect on what you're trying to accomplish
-
-### Don't
-
-- Blindly accept AI suggestions
