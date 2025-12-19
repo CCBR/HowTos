@@ -5,17 +5,22 @@ author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
 
 ## Why CoPilot?
 
-https://github.com/settings/copilot/features
-
-CoPilot is built to work seamlessly in your IDE. It is a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc.
+CoPilot is built to work seamlessly in your IDE. 
+It is a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc.
 CoPilot makes suggestions based on the context of your entire project, rather than only a single prompt.
+
+With the web interface for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can get onerous quickly.
+
+GitHub CoPilot in your IDE removes friction and makes using LLMs for development tasks a breeze!
+
+[![](img/copilot-ide.png)](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
 
 ## Setup
 
 ### Sign up for CoPilot
 
 :::{.callout-note}
-We cannot add more users to the NCI Enterprise premium CoPilot license at this time.
+At this time, we cannot add more users to the NCI Enterprise premium CoPilot license.
 However, you can still do a lot with the the free version of CoPilot!
 :::
 
@@ -29,7 +34,7 @@ Enable CoPilot:
 
 ### Set up CoPilot in VS Code
 
-[_VS Code Docs_](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
+[_VS Code Docs_](https://code.visualstudio.com/docs/copilot/setup)
 
 1. Hover over the Copilot icon in the Status Bar and select Use AI Features.
 
@@ -74,7 +79,7 @@ Example: ask copilot to write a docstring
 
 ### Inline chat
 
-example: ask copilot to break out a complicated line of code into a separate function
+Example: ask copilot to break out a complicated line of code into a separate function
 
 {{< kbd Cmd I >}}
 
@@ -84,9 +89,9 @@ example: ask copilot to break out a complicated line of code into a separate fun
 
 ![Model selection](img/model-selection)
 
-example: ask copilot to explain how a function works
+Example: ask copilot to explain how a function works
 
-example: ask copilot to explain the benefits of `yield` vs `return` in Python functions
+Example: ask copilot to explain the benefits of `yield` vs `return` in Python functions
 
 ### Source Control: git GUI in VS Code
 
