@@ -6,19 +6,19 @@ editor: visual
 
 ### Accessing the Production Servers
 
-Similar to the dev server, to get access to the internal prod server contact the server admin George Zaki (george.zaki\@nih.gov). If you have not applied for access to the development server, see the information for applying for access on the [Deployment documentation](2_Deploying.qmd) page.
+Similar to the dev server, to get access to the internal prod server contact the server admin George Zaki. If you have not applied for access to the development server, see the information for applying for access on the [Publishing to Dev documentation](2_Publishing_Dev.qmd) page.
 
 ## Publishing to the Internal Production Server
 
-The NCI internal production Posit Connect server is useful for sharing deployed shiny apps with collaborators within NCI.
+The NCI internal production Posit Connect server is useful for sharing deployed Shiny apps with collaborators within NCI.
 
 The internal production server is accessible at the URL: [posit-connect-prod.cancer.gov](posit-connect-prod.cancer.gov)
 
-Once your app has been tested on the internal development server and is ready for sharing with a collaborator within NCI, confirm with George Zaki (george.zaki\@nih.gov) that the app can now be deployed and published on internal production.
+Once your app has been tested on the internal development server and is ready for sharing with a collaborator within NCI, confirm with George Zaki that the app can now be deployed and published on internal production.
 
-#### Deployment
+#### Publishing
 
-The steps for publishing to the internal production server will be the same as deployment to the internal development server, with a change to the URL and some additional steps for sharing.
+The steps for publishing to the internal production server will be the same as publishing to the internal development server, with a change to the URL and some additional steps for sharing.
 
 > Recap:
 >
@@ -29,13 +29,13 @@ The steps for publishing to the internal production server will be the same as d
 
 #### Sharing the App
 
-Once the shiny app has been deployed to the internal production server, we can choose how to share the app for final publishing. Sharing can be done by clicking the Cogwheel in the upper right and choosing the Access tab.
+Once the Shiny app has been deployed to the internal production server, we can choose how to share the app for final publishing. Sharing can be done by clicking the Cogwheel in the upper right and choosing the Access tab.
 
 ![Share an app through the Access tab (red box)](images/Sharing_Example.png)
 
 ## Publishing to the External Production Server
 
-The NCI external production Posit Connect server is useful for sharing deployed shiny apps with collaborators outside of NCI. A shiny app published on the external production server can be shared either privately with a select number of non-NCI collaborators, or made public for access by anyone.
+The NCI external production Posit Connect server is useful for sharing deployed Shiny apps with collaborators outside of NCI. A Shiny app published on the external production server can be shared either privately with a select number of non-NCI collaborators, or made public for access by anyone.
 
 Publishing on the external production server is a different process then the internal dev and prod servers in several ways that are detailed below.
 

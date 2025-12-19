@@ -89,3 +89,13 @@ While choosing "Other Destination..." from the drop down gives a prompt which al
 ![](images/Republish_Other_Destination.png){width="500"}
 
 For details on deploying and publishing the app to the NCI production Posit Connect servers, proceed to the [Publishing documentation](3_Publishing.qmd).
+
+## Additional Information for Publishing
+
+### Data Size Limits
+
+When a Shiny app is published, the data used in the app will account for the majority of the total size of the app. For any app with a total data size greater than 3 GB, contact George Zaki for further guidance. Data may need to be stored on the server or in a separate location and not included in the published Shiny app bundle.
+
+### R Environment
+
+Include a renv.lock file when publishing to control the exact versions of dependencies used for a Shiny app. For more information on updating a renv.lock file, please refer to the [renv documentation](https://rstudio.github.io/renv/articles/renv.html).
