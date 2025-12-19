@@ -1,12 +1,12 @@
 ---
-title: "Publishing Shiny Apps"
+title: "Publishing Shiny Apps to the Production Servers"
 format: html
 editor: visual
 ---
 
 ### Accessing the Production Servers
 
-Similar to the development server, to get access to the internal production server contact the server admin George Zaki (george.zaki\@nih.gov). If you have not applied for access to the development server, see the information for applying for access on the [Deployment documentation](2_Deploying.qmd) page.
+Similar to the dev server, to get access to the internal prod server contact the server admin George Zaki (george.zaki\@nih.gov). If you have not applied for access to the development server, see the information for applying for access on the [Deployment documentation](2_Deploying.qmd) page.
 
 ## Publishing to the Internal Production Server
 
@@ -29,7 +29,9 @@ The steps for publishing to the internal production server will be the same as d
 
 #### Sharing the App
 
-Once the shiny app has been deployed to the internal production server, we can choose how to share the app for final publishing.
+Once the shiny app has been deployed to the internal production server, we can choose how to share the app for final publishing. Sharing can be done by clicking the Cogwheel in the upper right and choosing the Access tab.
+
+![Share an app through the Access tab (red box)](images/Sharing_Example.png)
 
 ## Publishing to the External Production Server
 
@@ -38,7 +40,7 @@ The NCI external production Posit Connect server is useful for sharing deployed 
 Publishing on the external production server is a different process then the internal dev and prod servers in several ways that are detailed below.
 
 | Server | Publishing Permissions | Security Check | 508 Compliance |
-|-----------------------|------------|----------|-------------|
+|----|----|----|----|
 | Internal Production | Yes | No | No |
 | External Production (Private) | Yes | Yes | No |
 | External Production (Public) | Yes | Yes | Yes |
@@ -54,3 +56,5 @@ The security check is required for any Shiny apps published to the External Prod
 For a more specific explanation and check list, see the NCI article [Section 508 Conformance and Accessibility Checklist](https://service.cancer.gov/ncisp?id=nci_kb_article&sysparm_article=NCI-KB0014246). You will likely need to login using NIH credentials to see this web page.
 
 For 508 compliance tools to check an app, refer to the 508 compliance section in [this NCI article](https://service.cancer.gov/ncisp?id=nci_kb_article&sysparm_article=NCI-KB0015444).
+
+508 compliance will also be verified by George Zaki before the app can be published.
