@@ -2,6 +2,7 @@
 
 ```sh
 # download data
+# note: you will need to be on the VPN
 bash setup.sh
 
 # run the extraction script
