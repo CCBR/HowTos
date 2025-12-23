@@ -1,5 +1,5 @@
 ---
-title: "GitHub CoPilot in VS Code"
+title: "GitHub Copilot in VS Code"
 author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
 resources:
     - ./demo/extract_promoters.py
@@ -17,25 +17,25 @@ CCBR members can view the recording of this demo at the link below:
 
 :::
 
-## Why CoPilot?
+## Why GitHub Copilot?
 
-CoPilot is built to work seamlessly in your IDE.
-It is a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc.
+GitHub Copilot is built to work seamlessly in your IDE.
+It acts a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc.
 Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.
 
-With the web interface for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can get onerous quickly.
+With the web interfaces for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can quickly become cumbersome.
 
-GitHub CoPilot in your IDE removes friction and makes using LLMs for development tasks a breeze!
+GitHub Copilot in your IDE removes friction and makes using LLMs for development tasks a breeze!
 
 [![](img/copilot-ide.png)](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
 
 ## Setup
 
-### Sign up for CoPilot
+### Sign up for Copilot
 
 :::{.callout-note}
-At this time, we cannot add more users to the NCI Enterprise premium CoPilot license.
-However, you can still do a lot with the the free version of CoPilot!
+At this time, we cannot add more users to the NCI Enterprise premium Copilot license.
+However, you can still do a lot with the the free version of Copilot!
 :::
 
 Enable Copilot:
@@ -46,11 +46,11 @@ Enable Copilot:
 
 > See more: _[GitHub Docs](https://docs.github.com/en/copilot/get-started/what-is-github-copilot#getting-access-to-copilot)_
 
-### Set up CoPilot in VS Code
+### Set up Copilot in VS Code
 
 [_VS Code Docs_](https://code.visualstudio.com/docs/copilot/setup)
 
-1. Hover over the Copilot icon in the Status Bar and select Use AI Features.
+1. Hover over the Copilot icon in the Status Bar and select 'Use AI Features'.
 
 ![](img/vscode-copilot-icon.png)
 
@@ -64,12 +64,12 @@ The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=Gi
 
 #### VS Code settings
 
-You can customize CoPilot settings in VS Code by going to **Settings** > **Extensions** > **GitHub Copilot** or by using the keyboard shortcut {{< kbd Cmd >}}{{< kbd , >}} on Mac.
+You can customize Copilot settings in VS Code by going to **Settings** > **Extensions** > **GitHub Copilot** or by using the keyboard shortcut {{< kbd Cmd >}}{{< kbd , >}} on Mac.
 
 ![](img/vscode-settings.png){fig-alt="VS Code settings interface showing GitHub Copilot configuration options under the Features section. Two checkboxes are visible and enabled: Auto Fix which automatically fixes diagnostics for edited files, and Current Editor Context which includes the name of the current active editor in the context for agent mode."}
 
 :::{.callout-tip}
-GitHub CoPilot also works well in [Positron](https://positron.posit.co/),
+GitHub Copilot also works well in [Positron](https://positron.posit.co/),
 an IDE created by Posit based on VS Code.
 :::
 
@@ -80,10 +80,10 @@ create a BED file of promoter regions.
 
 Files:
 
-- [extract_promoters.py](./demo/extract_promoters.py) - Example Python script for demonstrating CoPilot
+- [extract_promoters.py](./demo/extract_promoters.py) - Example Python script for demonstrating Copilot
 - [setup.sh](./demo/setup.sh) - Download data files for testing the Python script
 
-Create a new directory called `extract-promoters`, download these files, and place them there.
+Create a new directory called `extract-promoters`, download these files, and place them in that directory.
 
 ### Open project in new window
 
@@ -94,7 +94,7 @@ Open the directory for your project with VS Code.
 :::{.callout-tip}
 ## Use git
 
-We recommend initializing git and making a commit with the existing code before you start using CoPilot.
+We recommend initializing git and making a commit with the existing code before you start using Copilot.
 
 ```sh
 pwd
