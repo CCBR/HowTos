@@ -674,9 +674,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#open-project-in-new-window" id="toc-open-project-in-new-window" class="nav-link" data-scroll-target="#open-project-in-new-window">Open project in new window</a></li>
   <li><a href="#automatic-inline-suggestions" id="toc-automatic-inline-suggestions" class="nav-link" data-scroll-target="#automatic-inline-suggestions">Automatic inline suggestions</a></li>
   <li><a href="#inline-chat" id="toc-inline-chat" class="nav-link" data-scroll-target="#inline-chat">Inline chat</a></li>
-  <li><a href="#chat-in-sidebar" id="toc-chat-in-sidebar" class="nav-link" data-scroll-target="#chat-in-sidebar">Chat in sidebar</a></li>
+  <li><a href="#chat-in-the-sidebar" id="toc-chat-in-the-sidebar" class="nav-link" data-scroll-target="#chat-in-the-sidebar">Chat in the sidebar</a></li>
   <li><a href="#source-control-git-gui-in-vs-code" id="toc-source-control-git-gui-in-vs-code" class="nav-link" data-scroll-target="#source-control-git-gui-in-vs-code">Source Control: git GUI in VS Code</a></li>
-  <li><a href="#writing-unit-tests" id="toc-writing-unit-tests" class="nav-link" data-scroll-target="#writing-unit-tests">Writing unit tests</a></li>
   </ul></li>
   <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
   </ul>
@@ -711,14 +710,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>CCBR members can view the recording of this demo:</p>
-<blockquote class="blockquote">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Recording
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>CCBR members can view the recording of this demo at the link below:</p>
 <p><a href="https://teams.microsoft.com/l/meetingrecap?driveId=b%21TFzec_Fen0CC3VBtt_DOLUi_rPnazLZHq7bJ65bJujOjWrRwPEO3S6dXSGGiG3vN&amp;driveItemId=01P644UUBDFREJK3SODBG32DSCX3NIAZDV&amp;sitePath=https%3A%2F%2Fnih.sharepoint.com%2Fsites%2FNCI-CCRBioinformaticsTechDev%2FShared%2520Documents%2FGeneral%2FRecordings%2FMonthly%2520TechDev%2520Meeting-20251219_120837-Meeting%2520Recording.mp4%3Fweb%3D1&amp;fileUrl=https%3A%2F%2Fnih.sharepoint.com%2Fsites%2FNCI-CCRBioinformaticsTechDev%2FShared%2520Documents%2FGeneral%2FRecordings%2FMonthly%2520TechDev%2520Meeting-20251219_120837-Meeting%2520Recording.mp4%3Fweb%3D1&amp;iCalUid=040000008200E00074C5B7101A82E00807E90C1356C2FC35937FD901000000000000000010000000ABE3C80E6915624FB5ACBA9D7210EB65&amp;masterICalUid=040000008200e00074c5b7101a82e0080000000056c2fc35937fd901000000000000000010000000abe3c80e6915624fb5acba9d7210eb65&amp;threadId=19%3AEq3jqAR95OHCUISNGsEiwWpVp02kj8U2a91MkiX-dXo1%40thread.tacv2&amp;organizerId=b6b931cf-bac3-44d6-9530-29b83b206532&amp;tenantId=14b77578-9773-42d5-8507-251ca2dc2b06&amp;callId=d5acd3cb-4d4c-49e6-aeb9-ef247240bee2&amp;threadType=space&amp;meetingType=Recurring&amp;channelType=Standard&amp;replyChainId=1683319821974&amp;subType=RecapSharingLink_RecapChiclet">CCBR TechDev meeting 2025-12-19</a></p>
-</blockquote>
 <div style="max-width: 1280px">
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 <iframe src="https://nih.sharepoint.com/sites/NCI-CCRBioinformaticsTechDev/_layouts/15/embed.aspx?UniqueId=95482c23-4e6e-4d18-bd0e-42beda806475&amp;embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&amp;referrer=StreamWebApp&amp;referrerScenario=EmbedDialog.Create" width="1280" height="720" frameborder="0" scrolling="no" allowfullscreen="" title="Monthly TechDev Meeting-20251219_120837-Meeting Recording.mp4" style="border:none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-width: 100%;">
 </iframe>
+</div>
+</div>
 </div>
 </div>
 <section id="why-copilot" class="level2">
@@ -769,7 +778,7 @@ Note
 <p>The <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat">GitHub Copilot Chat</a> extension should now be installed.</p>
 <section id="vs-code-settings" class="level4">
 <h4 class="anchored" data-anchor-id="vs-code-settings">VS Code settings</h4>
-<p>You can customize CoPilot settings in VS Code by going to <strong>Settings</strong> &gt; <strong>Extensions</strong> &gt; <strong>GitHub Copilot</strong> or by using the keyboard shortcut <kbd title="Cmd" aria-hidden="true">Cmd</kbd><span class="visually-hidden">Cmd</span> on Mac.</p>
+<p>You can customize CoPilot settings in VS Code by going to <strong>Settings</strong> &gt; <strong>Extensions</strong> &gt; <strong>GitHub Copilot</strong> or by using the keyboard shortcut <kbd title="Cmd" aria-hidden="true">Cmd</kbd><span class="visually-hidden">Cmd</span><kbd title="," aria-hidden="true">,</kbd><span class="visually-hidden">,</span> on Mac.</p>
 <p><img src="img/vscode-settings.png" class="img-fluid" alt="VS Code settings interface showing GitHub Copilot configuration options under the Features section. Two checkboxes are visible and enabled: Auto Fix which automatically fixes diagnostics for edited files, and Current Editor Context which includes the name of the current active editor in the context for agent mode."></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -781,7 +790,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>GitHub CoPilot also works well in Positron, an IDE created by Posit based on VS Code.</p>
+<p>GitHub CoPilot also works well in <a href="https://positron.posit.co/">Positron</a>, an IDE created by Posit based on VS Code.</p>
 </div>
 </div>
 </section>
@@ -795,61 +804,113 @@ Tip
 <li><a href="./demo/extract_promoters.py">extract_promoters.py</a> - Example Python script for demonstrating CoPilot</li>
 <li><a href="./demo/setup.sh">setup.sh</a> - Download data files for testing the Python script</li>
 </ul>
+<p>Create a new directory called <code>extract-promoters</code>, download these files, and place them there.</p>
 <section id="open-project-in-new-window" class="level3">
 <h3 class="anchored" data-anchor-id="open-project-in-new-window">Open project in new window</h3>
-<p>Create a new directory for your project and open it with VS Code.</p>
+<p>Open the directory for your project with VS Code.</p>
 <p><img src="img/open-vs-code.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Use git
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>We recommend initializing git and making a commit with the existing code before you start using CoPilot.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># /path/to/extract-promoters/</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add extract_promoters.py setup.sh</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">'Initial commit'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </section>
 <section id="automatic-inline-suggestions" class="level3">
 <h3 class="anchored" data-anchor-id="automatic-inline-suggestions">Automatic inline suggestions</h3>
-<p><img src="img/inline-suggest-enabled.png" class="img-fluid" alt="How to turn automatic inline suggestions on and off"> &lt;vscode://settings/editor.inlineSuggest.enabled&gt;</p>
-<p>Example: ask Copilot to write a docstring.</p>
+<p>Copilot will make suggestions automatically as you type. You can adjust this behavior in settings.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/inline-suggest-enabled.png" class="img-fluid figure-img"></p>
+<figcaption>How to turn automatic inline suggestions on and off</figcaption>
+</figure>
+</div>
+<p>&lt;vscode://settings/editor.inlineSuggest.enabled&gt;</p>
+<section id="example-automatic-docstring-suggestion" class="level4">
+<h4 class="anchored" data-anchor-id="example-automatic-docstring-suggestion">Example: automatic docstring suggestion</h4>
+<p>Place your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one. If needed, start typing <code>"""</code> and see if that triggers Copilot to suggest a docstring.</p>
+<p><img src="img/auto-suggest.png" class="img-fluid">{fig-alt=VS Code editor window showing GitHub Copilot automatically suggesting code as light gray text inline with the user’s typing.}</p>
+<p>You can press <kbd title="Tab" aria-hidden="true">Tab</kbd><span class="visually-hidden">Tab</span> to accept the suggestion, or <kbd title="Esc" aria-hidden="true">Esc</kbd><span class="visually-hidden">Esc</span> to reject it.</p>
+</section>
 </section>
 <section id="inline-chat" class="level3">
 <h3 class="anchored" data-anchor-id="inline-chat">Inline chat</h3>
-<p>Example: ask Copilot to break out a complicated line of code into a separate function.</p>
-<p><kbd title="Cmd" aria-hidden="true">Cmd</kbd><span class="visually-hidden">Cmd</span></p>
+<p>Press <kbd title="Cmd-I" aria-hidden="true">Cmd-I</kbd><span class="visually-hidden">Cmd-I</span> to open the inline chat and ask for modifications right where your cursor is.</p>
+<p><img src="img/chat-inline.png" class="img-fluid"></p>
+<p><img src="img/chat-inline-suggestion.png" class="img-fluid"></p>
+<p>You can click the checkmark to accept the suggested edit if it meets your expectations. You can always modify it after accepting it if there are minor corrections to make.</p>
 </section>
-<section id="chat-in-sidebar" class="level3">
-<h3 class="anchored" data-anchor-id="chat-in-sidebar">Chat in sidebar</h3>
+<section id="chat-in-the-sidebar" class="level3">
+<h3 class="anchored" data-anchor-id="chat-in-the-sidebar">Chat in the sidebar</h3>
+<p>Sometimes you may have more long-form questions, or perhaps you’d like to have a record of the prompts you’ve given to Copilot. The sidebar Chat is great for this!</p>
+<p>You can toggle the sidebar on and off with the sidebar button in the upper right corner of the VS Code window:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/chat-sidebar.png" class="img-fluid figure-img"></p>
+<p><img src="img/chat-sidebar.png" class="img-fluid figure-img" width="300"></p>
 <figcaption>Open the sidebar</figcaption>
 </figure>
 </div>
+<p>You can select which Large Language Model to use for your prompts:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/model-selection.png" class="img-fluid figure-img"></p>
+<p><img src="img/model-selection.png" class="img-fluid figure-img" width="300"></p>
 <figcaption>Model selection</figcaption>
 </figure>
 </div>
-<p>Example: ask Copilot to explain how a function works</p>
-<p>Example: ask Copilot to explain the benefits of <code>yield</code> vs <code>return</code> in Python functions</p>
+<section id="example-ask-copilot-to-explain-how-a-line-of-code-works." class="level4">
+<h4 class="anchored" data-anchor-id="example-ask-copilot-to-explain-how-a-line-of-code-works.">Example: ask Copilot to explain how a line of code works.</h4>
+<p>Highlight a complicated line of code and ask Copilot to explain how it works.</p>
+<p><img src="img/chat-explain-dict-compr.png" class="img-fluid"></p>
+</section>
+<section id="example-ask-copilot-to-break-out-a-complicated-line-of-code-into-a-separate-function." class="level4">
+<h4 class="anchored" data-anchor-id="example-ask-copilot-to-break-out-a-complicated-line-of-code-into-a-separate-function.">Example: ask Copilot to break out a complicated line of code into a separate function.</h4>
+<p><img src="img/chat-sidebar-func.png" class="img-fluid"></p>
+<p><img src="img/chat-sidebar-func-answer.png" class="img-fluid"></p>
+<p>If you are not in Agent mode, you will need to make the modifications yourself. But Copilot’s instructions make it very clear how to do so!</p>
+</section>
+<section id="example-ask-copilot-to-explain-the-benefits-of-yield-vs-return-in-python-functions" class="level4">
+<h4 class="anchored" data-anchor-id="example-ask-copilot-to-explain-the-benefits-of-yield-vs-return-in-python-functions">Example: ask Copilot to explain the benefits of <code>yield</code> vs <code>return</code> in Python functions</h4>
+<p><img src="img/chat-question-yield.png" class="img-fluid"></p>
+<p><img src="img/chat-explain-yield.png" class="img-fluid"></p>
+</section>
+<section id="example-writing-unit-tests" class="level4">
+<h4 class="anchored" data-anchor-id="example-writing-unit-tests">Example: Writing unit tests</h4>
+<p>Ask Copilot to suggest unit tests for the Python script.</p>
+<p><img src="img/chat-ask-tests.png" class="img-fluid"></p>
+<p>Copilot suggested a comprehensive suite of unit tests for the script.</p>
+<p><img src="img/chat-ask-tests-start.png" class="img-fluid"></p>
+<p>If you’re not sure where to place the tests, Copilot has a detailed suggestion:</p>
+<p><img src="img/chat-ask-tests-where.png" class="img-fluid"> <img src="img/chat-ask-tests-pytest.png" class="img-fluid"></p>
+<p>Be sure to read through the unit tests, understand what they’re testing and why, and consider if there are any gaps in test coverage that you will need to correct.</p>
+</section>
 </section>
 <section id="source-control-git-gui-in-vs-code" class="level3">
 <h3 class="anchored" data-anchor-id="source-control-git-gui-in-vs-code">Source Control: git GUI in VS Code</h3>
-<p>Suggest commit messages</p>
+<p>Copilot can even suggest commit messages for you! Using the Source Control extension, add your script to the git staging area and ask Copilot to suggest a commit message.</p>
 <p><img src="img/source-ctrl-commit.png" class="img-fluid"></p>
+<p>Click the sparkles ✨ icon on the right side of the commit message box to generate a commit message using Copilot.</p>
 <p><img src="img/source-ctrl-commit-msg.png" class="img-fluid"></p>
-</section>
-<section id="writing-unit-tests" class="level3">
-<h3 class="anchored" data-anchor-id="writing-unit-tests">Writing unit tests</h3>
-<p>Ask Copilot to suggest unit tests</p>
+<p>Read the commit message and make sure it accurately describes the changes you’ve made before you accept it.</p>
 </section>
 </section>
 <section id="tips" class="level2">
 <h2 class="anchored" data-anchor-id="tips">Tips</h2>
 <ul>
 <li>Always read and <strong>understand</strong> the AI suggestion before accepting it</li>
-<li>Write tests to make sure your code works the way you think it does</li>
 <li>Use git and commit your changes often</li>
+<li>Write tests to make sure your code works the way you think it does</li>
 <li>Periodically step back and reflect on what you’re trying to accomplish</li>
 </ul>
 
