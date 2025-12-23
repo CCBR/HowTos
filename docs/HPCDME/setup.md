@@ -126,8 +126,8 @@ java -version
 Add the CLUs to PATH by adding the following to `~/.bashrc` file
 
 ```bash
-# export environment variable HPC_DM_UTILS pointing to directory where 
-# HPC DME client utilities are, then source functions script in there 
+# export environment variable HPC_DM_UTILS pointing to directory where
+# HPC DME client utilities are, then source functions script in there
 export HPC_DM_UTILS=/data/$USER/HPC_DME_APIs/utils
 source $HPC_DM_UTILS/functions
 ```
@@ -136,7 +136,7 @@ Next, source it
 
 ```bash
 source ~/.bashrc
-``` 
+```
 
 #### Generate token
 

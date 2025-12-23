@@ -407,5 +407,3 @@ Keep both components up to date:
 | Test Commands        | `gh copilot suggest` / `?? "explain command"`           |
 
 ---
-
-

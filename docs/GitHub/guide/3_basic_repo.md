@@ -14,7 +14,7 @@ All CCBR developed pipelines, and techdev efforts should be created under [CCBR'
 > Note: The above templates are themselves under active development! As we continue building a multitude of analysis pipelines, we keep expanding on the list of "commonalities" between these analysis pipelines which need to be added to the template itself. Hence, templates are updated from time-to-time.
 
 ## Creating a new repository
-To create a new repository on Github using [gh cli](https://cli.github.com/), you can run the following command on [Biowulf](https://hpc.nih.gov) after you update the new repository name (`<ADD NEW REPO NAME>`) and the repository description (`<ADD REPO DESCRIPTION>`) commands below. 
+To create a new repository on Github using [gh cli](https://cli.github.com/), you can run the following command on [Biowulf](https://hpc.nih.gov) after you update the new repository name (`<ADD NEW REPO NAME>`) and the repository description (`<ADD REPO DESCRIPTION>`) commands below.
 
 Naming Nomenclature:
 - All Repositories: Do not remove the `CCBR/` leading the repository name, as this will correctly place the repository under the CCBR organization account.
@@ -60,7 +60,7 @@ If you start from one of the above templates, you'll have these files already.
 However, if you're updating an established repository, you may need to add some of these manually.
 
 - [`CHANGELOG.md`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CHANGELOG.md)
-    
+
     The changelog file should be at the top level of your repo. One exception is if your repo is an R package, it should be called [`NEWS.md`](https://r-pkgs.org/other-markdown.html#sec-news) instead. You can see an example changelog of a pipeline in active development [here](https://github.com/CCBR/CHAMPAGNE/blob/main/CHANGELOG.md).
 
 - [`VERSION`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/VERSION)
@@ -100,5 +100,5 @@ However, if you're updating an established repository, you may need to add some 
 
 - [GitHub Actions](https://ccbr.github.io/HowTos/GitHub/basic_actions/)
 
-    GitHub Actions are automated workflows that run on GitHub's servers to execute unit tests, render documentation, build docker containers, etc. 
+    GitHub Actions are automated workflows that run on GitHub's servers to execute unit tests, render documentation, build docker containers, etc.
     Most Actions need to be customized for each repo. Learn more about them [here](https://ccbr.github.io/HowTos/GitHub/basic_actions/).

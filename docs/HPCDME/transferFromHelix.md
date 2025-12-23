@@ -10,24 +10,24 @@ Rawdata or Project folders from Helix can be parked at a secure location after t
 ## <a name='parkit'></a>parkit
 
 [**parkit**](https://github.com/CCBR/parkit) is designed to assist analysts in archiving project data from the NIH's Helix/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:
-- create tarballs of their data (including `.filelist` and `.md5sum` files), 
-- generate metadata, 
-- create collections on HPC-DME, and 
-- deposit tar files into the system for long-term storage. 
+- create tarballs of their data (including `.filelist` and `.md5sum` files),
+- generate metadata,
+- create collections on HPC-DME, and
+- deposit tar files into the system for long-term storage.
 **parkit** also features comprehensive workflows that support both folder-based and tarball-based archiving. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.
 
 > ❗  **NOTE**: HPC DME API CLUs should already be setup as per [these](setup.md) instructions in order to use **parkit**
 
 > ❗  **NOTE**: `HPC_DM_UTILS` environment variable should be set to point to the `utils` folder under the `HPC_DME_APIs` repo setup. Please see [these](setup.md#edit-bashrc) instructions.
 
-> ❗  **NOTE**: If it has been a few months since you last used HPC_DME_APIs or parkit or projark, then please run the following commands before you start using `parkit` or `projark`: 
-> 
+> ❗  **NOTE**: If it has been a few months since you last used HPC_DME_APIs or parkit or projark, then please run the following commands before you start using `parkit` or `projark`:
+>
 > `cd $HPC_DM_UTILS`
-> 
-> `git pull` 
-> 
+>
+> `git pull`
+>
 > `source $HPC_DM_UTILS/functions`
-> 
+>
 > `dm_generate_token`
 
 [`projark`](https://github.com/CCBR/parkit) is the preferred **parkit** command to completely archive an entire folder as a tarball on HPCDME. SLURM is not available on Helix and it could take a few hours to upload large files. Hence, it is recommended to use "tmux" or "screen" command for `projark` to continue running even when you log out of Helix.
@@ -187,6 +187,3 @@ INFO: CLI_SUCCESS
 </details>
 
 > ⚠️ Reach out to [Vishal Koparde](mailto:vishal.koparde@nih.gov) in case you run into issues.
-
-
-

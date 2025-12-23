@@ -39,7 +39,7 @@ IFS=$'\n' read -d '' -r -a sample_list < $sample_list_input
 run_sample_tracks (){
     sample_id=$1
     dedup_id=$2
-    
+
     # sample name
     # eg siNC_H3K27Ac_1.dedup.bigwig
     complete_sample_id="${sample_id}.${dedup_id}"
@@ -94,11 +94,11 @@ run_comparison_tracks (){
     method_type=$2
     dedup_type=$3
     sample_id=$4
-    
+
     # sample name
     # eg siSmyd3_2m_Smyd3_0.25HCHO_500K_vs_siNC_2m_Smyd3_0.25HCHO_500K__no_dedup__norm.relaxed
     complete_sample_id="${sample_id}__${dedup_type}__${peak_type}"
-    
+
     # set link location
     link_loc="${track_dir}/bigbed/${complete_sample_id}_${method_type}_diffresults.bigbed"
 

@@ -54,7 +54,7 @@ The GitHub repository should include the following:
     - Keywords and subjects: Add several keywords related to the pipeline
     - Version: add the version used in GitHub
     - Publisher: Zenodo
-    - Related works: "Is original form of" "github website" URL 
+    - Related works: "Is original form of" "github website" URL
 
 ## Add DOI, citation to GitHub
 
@@ -70,4 +70,4 @@ The GitHub repository should include the following:
 
 6. Update the `CITATION.cff` as needed.
 
-7. Create a new tagged version. 
+7. Create a new tagged version.

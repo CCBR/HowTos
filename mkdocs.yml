@@ -69,7 +69,7 @@ nav:
   - Intro : index.md
   - GitHub:
     - Overview: GitHub/overview.md
-    - Set-Up: 
+    - Set-Up:
       - Preparing your environment: GitHub/howto_setup.md
       - Basic Commands: GitHub/howto_functions.md
     - Basics:
