@@ -493,7 +493,7 @@
     "href": "docs/containers/build-docker-google-cloud.html",
     "title": "Build docker containers interactively with Google Cloud Shell",
     "section": "",
-    "text": "CCBR members can view the recording of this tutorial:\nAs of this writing, Docker Desktop is not approved for use on NCI laptops. If you want to build and push docker containers using the docker CLI, you can use the Google Cloud Shell: https://console.cloud.google.com/\nYou can create an account with your @nih.gov email. Certain aspects of Google Cloud cost money, but the free tier offers more than enough usage for building containers with the Google Cloud Shell.",
+    "text": "TipRecording\n\n\n\nCCBR members can view the recording of this tutorial:\n\nCCBR Weekly Presentations 2025-08-26\nAs of this writing, Docker Desktop is not approved for use on NCI laptops. If you want to build and push docker containers using the docker CLI, you can use the Google Cloud Shell: https://console.cloud.google.com/\nYou can create an account with your @nih.gov email. Certain aspects of Google Cloud cost money, but the free tier offers more than enough usage for building containers with the Google Cloud Shell.",
     "crumbs": [
       "Home",
       "Containers",
@@ -725,61 +725,61 @@
   {
     "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html",
     "href": "docs/generative-AI/gh-pilot-vs-code/index.html",
-    "title": "GitHub CoPilot in VS Code",
+    "title": "GitHub Copilot in VS Code",
     "section": "",
     "text": "TipRecording\n\n\n\nCCBR members can view the recording of this demo at the link below:\nCCBR TechDev meeting 2025-12-19",
     "crumbs": [
       "Home",
       "Generative AI",
-      "GitHub CoPilot in VS Code"
+      "GitHub Copilot in VS Code"
     ]
   },
   {
-    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#why-copilot",
-    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#why-copilot",
-    "title": "GitHub CoPilot in VS Code",
-    "section": "Why CoPilot?",
-    "text": "Why CoPilot?\nCoPilot is built to work seamlessly in your IDE. It is a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc. Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.\nWith the web interface for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can get onerous quickly.\nGitHub CoPilot in your IDE removes friction and makes using LLMs for development tasks a breeze!",
+    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#why-github-copilot",
+    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#why-github-copilot",
+    "title": "GitHub Copilot in VS Code",
+    "section": "Why GitHub Copilot?",
+    "text": "Why GitHub Copilot?\nGitHub Copilot is built to work seamlessly in your IDE. It acts a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc. Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.\nWith the web interfaces for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can quickly become cumbersome.\nGitHub Copilot in your IDE removes friction and makes using LLMs for development tasks a breeze!",
     "crumbs": [
       "Home",
       "Generative AI",
-      "GitHub CoPilot in VS Code"
+      "GitHub Copilot in VS Code"
     ]
   },
   {
     "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#setup",
     "href": "docs/generative-AI/gh-pilot-vs-code/index.html#setup",
-    "title": "GitHub CoPilot in VS Code",
+    "title": "GitHub Copilot in VS Code",
     "section": "Setup",
-    "text": "Setup\n\nSign up for CoPilot\n\n\n\n\n\n\nNote\n\n\n\nAt this time, we cannot add more users to the NCI Enterprise premium CoPilot license. However, you can still do a lot with the the free version of CoPilot!\n\n\nEnable Copilot:\nhttps://github.com/settings/copilot\n\n\nSee more: GitHub Docs\n\n\n\nSet up CoPilot in VS Code\nVS Code Docs\n\nHover over the Copilot icon in the Status Bar and select Use AI Features.\n\n\n\nSign in to GitHub\n\n\n\nStart using Copilot in VS Code!\n\nThe GitHub Copilot Chat extension should now be installed.\n\nVS Code settings\nYou can customize CoPilot settings in VS Code by going to Settings &gt; Extensions &gt; GitHub Copilot or by using the keyboard shortcut CmdCmd,, on Mac.\n\n\n\n\n\n\n\nTip\n\n\n\nGitHub CoPilot also works well in Positron, an IDE created by Posit based on VS Code.",
+    "text": "Setup\n\nSign up for Copilot\n\n\n\n\n\n\nNote\n\n\n\nAt this time, we cannot add more users to the NCI Enterprise premium Copilot license. However, you can still do a lot with the the free version of Copilot!\n\n\nEnable Copilot:\nhttps://github.com/settings/copilot\n\n\nSee more: GitHub Docs\n\n\n\nSet up Copilot in VS Code\nVS Code Docs\n\nHover over the Copilot icon in the Status Bar and select ‘Use AI Features’.\n\n\n\nSign in to GitHub\n\n\n\nStart using Copilot in VS Code!\n\nThe GitHub Copilot Chat extension should now be installed.\n\nVS Code settings\nYou can customize Copilot settings in VS Code by going to Settings &gt; Extensions &gt; GitHub Copilot or by using the keyboard shortcut CmdCmd,, on Mac.\n\n\n\n\n\n\n\nTip\n\n\n\nGitHub Copilot also works well in Positron, an IDE created by Posit based on VS Code.",
     "crumbs": [
       "Home",
       "Generative AI",
-      "GitHub CoPilot in VS Code"
+      "GitHub Copilot in VS Code"
     ]
   },
   {
     "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#demo-a-simple-python-script",
     "href": "docs/generative-AI/gh-pilot-vs-code/index.html#demo-a-simple-python-script",
-    "title": "GitHub CoPilot in VS Code",
+    "title": "GitHub Copilot in VS Code",
     "section": "Demo: a simple python script",
-    "text": "Demo: a simple python script\nExample project: given a GTF file, extract the gene transcription start sites and create a BED file of promoter regions.\nFiles:\n\nextract_promoters.py - Example Python script for demonstrating CoPilot\nsetup.sh - Download data files for testing the Python script\n\nCreate a new directory called extract-promoters, download these files, and place them there.\n\nOpen project in new window\nOpen the directory for your project with VS Code.\n\n\n\n\n\n\n\nTipUse git\n\n\n\nWe recommend initializing git and making a commit with the existing code before you start using CoPilot.\npwd\n# /path/to/extract-promoters/\ngit init\ngit add extract_promoters.py setup.sh\ngit commit -m 'Initial commit'\n\n\n\n\nAutomatic inline suggestions\nCopilot will make suggestions automatically as you type. You can adjust this behavior in settings.\n\n\n\nHow to turn automatic inline suggestions on and off\n\n\n&lt;vscode://settings/editor.inlineSuggest.enabled&gt;\n\nExample: automatic docstring suggestion\nPlace your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one. If needed, start typing \"\"\" and see if that triggers Copilot to suggest a docstring.\n{fig-alt=VS Code editor window showing GitHub Copilot automatically suggesting code as light gray text inline with the user’s typing.}\nYou can press TabTab to accept the suggestion, or EscEsc to reject it.\n\n\n\nInline chat\nPress Cmd-ICmd-I to open the inline chat and ask for modifications right where your cursor is.\n\n\nYou can click the checkmark to accept the suggested edit if it meets your expectations. You can always modify it after accepting it if there are minor corrections to make.\n\n\nChat in the sidebar\nSometimes you may have more long-form questions, or perhaps you’d like to have a record of the prompts you’ve given to Copilot. The sidebar Chat is great for this!\nYou can toggle the sidebar on and off with the sidebar button in the upper right corner of the VS Code window:\n\n\n\nOpen the sidebar\n\n\nYou can select which Large Language Model to use for your prompts:\n\n\n\nModel selection\n\n\n\nExample: ask Copilot to explain how a line of code works.\nHighlight a complicated line of code and ask Copilot to explain how it works.\n\n\n\nExample: ask Copilot to break out a complicated line of code into a separate function.\n\n\nIf you are not in Agent mode, you will need to make the modifications yourself. But Copilot’s instructions make it very clear how to do so!\n\n\nExample: ask Copilot to explain the benefits of yield vs return in Python functions\n\n\n\n\nExample: Writing unit tests\nAsk Copilot to suggest unit tests for the Python script.\n\nCopilot suggested a comprehensive suite of unit tests for the script.\n\nIf you’re not sure where to place the tests, Copilot has a detailed suggestion:\n \nBe sure to read through the unit tests, understand what they’re testing and why, and consider if there are any gaps in test coverage that you will need to correct.\n\n\n\nSource Control: git GUI in VS Code\nCopilot can even suggest commit messages for you! Using the Source Control extension, add your script to the git staging area and ask Copilot to suggest a commit message.\n\nClick the sparkles ✨ icon on the right side of the commit message box to generate a commit message using Copilot.\n\nRead the commit message and make sure it accurately describes the changes you’ve made before you accept it.",
+    "text": "Demo: a simple python script\nExample project: given a GTF file, extract the gene transcription start sites and create a BED file of promoter regions.\nFiles:\n\nextract_promoters.py - Example Python script for demonstrating Copilot\nsetup.sh - Download data files for testing the Python script\n\nCreate a new directory called extract-promoters, download these files, and place them in that directory.\n\nOpen project in new window\nOpen the directory for your project with VS Code.\n\n\n\n\n\n\n\nTipUse git\n\n\n\nWe recommend initializing git and making a commit with the existing code before you start using Copilot.\npwd\n# /path/to/extract-promoters/\ngit init\ngit add extract_promoters.py setup.sh\ngit commit -m 'Initial commit'\n\n\n\n\nAutomatic inline suggestions\nCopilot will make suggestions automatically as you type. You can adjust this behavior in settings.\n\n\n\nHow to turn automatic inline suggestions on and off\n\n\n&lt;vscode://settings/editor.inlineSuggest.enabled&gt;\n\nExample: automatic docstring suggestion\nPlace your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one. If needed, start typing \"\"\" and see if that triggers Copilot to suggest a docstring.\n{fig-alt=VS Code editor window showing GitHub Copilot automatically suggesting code as light gray text inline with the user’s typing.}\nYou can press TabTab to accept the suggestion, or EscEsc to reject it.\n\n\n\nInline chat\nPress Cmd-ICmd-I to open the inline chat and ask for modifications right where your cursor is.\n\n\nYou can click the checkmark to accept the suggested edit if it meets your expectations. You can always modify it after accepting it if there are minor corrections to make.\n\n\nChat in the sidebar\nSometimes you may have more long-form questions, or perhaps you’d like to have a record of the prompts you’ve given to Copilot. The sidebar Chat is great for this!\nYou can toggle the sidebar on and off with the sidebar button in the upper right corner of the VS Code window:\n\n\n\nOpen the sidebar\n\n\nYou can select which Large Language Model to use for your prompts:\n\n\n\nModel selection\n\n\n\nExample: ask Copilot to explain how a line of code works.\nHighlight a complicated line of code and ask Copilot to explain how it works.\n\n\n\nExample: ask Copilot to break out a complicated line of code into a separate function.\n\n\nIf you are not in Agent mode, you will need to make the modifications yourself. But Copilot’s instructions make it very clear how to do so!\n\n\nExample: ask Copilot to explain the benefits of yield vs return in Python functions\n\n\n\n\nExample: Writing unit tests\nAsk Copilot to suggest unit tests for the Python script.\n\nCopilot suggested a comprehensive suite of unit tests for the script.\n\nIf you’re not sure where to place the tests, Copilot has a detailed suggestion:\n \nBe sure to read through the unit tests, understand what they’re testing and why, and consider if there are any gaps in test coverage that you will need to correct.\n\n\n\nSource Control: git GUI in VS Code\nCopilot can even suggest commit messages for you! Using the Source Control extension, add your script to the git staging area and ask Copilot to suggest a commit message.\n\nClick the sparkles ✨ icon on the right side of the commit message box to generate a commit message using Copilot.\n\nRead the commit message and make sure it accurately describes the changes you’ve made before you accept it.",
     "crumbs": [
       "Home",
       "Generative AI",
-      "GitHub CoPilot in VS Code"
+      "GitHub Copilot in VS Code"
     ]
   },
   {
     "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#tips",
     "href": "docs/generative-AI/gh-pilot-vs-code/index.html#tips",
-    "title": "GitHub CoPilot in VS Code",
+    "title": "GitHub Copilot in VS Code",
     "section": "Tips",
     "text": "Tips\n\nAlways read and understand the AI suggestion before accepting it\nUse git and commit your changes often\nWrite tests to make sure your code works the way you think it does\nPeriodically step back and reflect on what you’re trying to accomplish",
     "crumbs": [
       "Home",
       "Generative AI",
-      "GitHub CoPilot in VS Code"
+      "GitHub Copilot in VS Code"
     ]
   },
   {

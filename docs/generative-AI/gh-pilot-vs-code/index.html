@@ -8,7 +8,7 @@
 
 <meta name="author" content="Kelly Sovacool">
 
-<title>GitHub CoPilot in VS Code – CCBR How-Tos</title>
+<title>GitHub Copilot in VS Code – CCBR How-Tos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -317,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/generative-AI/copilot-cli.html">Generative AI</a></li><li class="breadcrumb-item"><a href="../../../docs/generative-AI/gh-pilot-vs-code/index.html">GitHub CoPilot in VS Code</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/generative-AI/copilot-cli.html">Generative AI</a></li><li class="breadcrumb-item"><a href="../../../docs/generative-AI/gh-pilot-vs-code/index.html">GitHub Copilot in VS Code</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -417,7 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/generative-AI/gh-pilot-vs-code/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">GitHub CoPilot in VS Code</span></a>
+ <span class="menu-text">GitHub Copilot in VS Code</span></a>
   </div>
 </li>
       </ul>
@@ -663,11 +663,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
-  <li><a href="#why-copilot" id="toc-why-copilot" class="nav-link active" data-scroll-target="#why-copilot">Why CoPilot?</a></li>
+  <li><a href="#why-github-copilot" id="toc-why-github-copilot" class="nav-link active" data-scroll-target="#why-github-copilot">Why GitHub Copilot?</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
   <ul class="collapse">
-  <li><a href="#sign-up-for-copilot" id="toc-sign-up-for-copilot" class="nav-link" data-scroll-target="#sign-up-for-copilot">Sign up for CoPilot</a></li>
-  <li><a href="#set-up-copilot-in-vs-code" id="toc-set-up-copilot-in-vs-code" class="nav-link" data-scroll-target="#set-up-copilot-in-vs-code">Set up CoPilot in VS Code</a></li>
+  <li><a href="#sign-up-for-copilot" id="toc-sign-up-for-copilot" class="nav-link" data-scroll-target="#sign-up-for-copilot">Sign up for Copilot</a></li>
+  <li><a href="#set-up-copilot-in-vs-code" id="toc-set-up-copilot-in-vs-code" class="nav-link" data-scroll-target="#set-up-copilot-in-vs-code">Set up Copilot in VS Code</a></li>
   </ul></li>
   <li><a href="#demo-a-simple-python-script" id="toc-demo-a-simple-python-script" class="nav-link" data-scroll-target="#demo-a-simple-python-script">Demo: a simple python script</a>
   <ul class="collapse">
@@ -685,9 +685,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/generative-AI/copilot-cli.html">Generative AI</a></li><li class="breadcrumb-item"><a href="../../../docs/generative-AI/gh-pilot-vs-code/index.html">GitHub CoPilot in VS Code</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/generative-AI/copilot-cli.html">Generative AI</a></li><li class="breadcrumb-item"><a href="../../../docs/generative-AI/gh-pilot-vs-code/index.html">GitHub Copilot in VS Code</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">GitHub CoPilot in VS Code</h1>
+<h1 class="title">GitHub Copilot in VS Code</h1>
 </div>
 
 
@@ -730,17 +730,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="why-copilot" class="level2">
-<h2 class="anchored" data-anchor-id="why-copilot">Why CoPilot?</h2>
-<p>CoPilot is built to work seamlessly in your IDE. It is a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc. Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.</p>
-<p>With the web interface for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy &amp; paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can get onerous quickly.</p>
-<p>GitHub CoPilot in your IDE removes friction and makes using LLMs for development tasks a breeze!</p>
+<section id="why-github-copilot" class="level2">
+<h2 class="anchored" data-anchor-id="why-github-copilot">Why GitHub Copilot?</h2>
+<p>GitHub Copilot is built to work seamlessly in your IDE. It acts a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc. Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.</p>
+<p>With the web interfaces for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy &amp; paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can quickly become cumbersome.</p>
+<p>GitHub Copilot in your IDE removes friction and makes using LLMs for development tasks a breeze!</p>
 <p><a href="https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions"><img src="img/copilot-ide.png" class="img-fluid"></a></p>
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <section id="sign-up-for-copilot" class="level3">
-<h3 class="anchored" data-anchor-id="sign-up-for-copilot">Sign up for CoPilot</h3>
+<h3 class="anchored" data-anchor-id="sign-up-for-copilot">Sign up for Copilot</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -751,7 +751,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At this time, we cannot add more users to the NCI Enterprise premium CoPilot license. However, you can still do a lot with the the free version of CoPilot!</p>
+<p>At this time, we cannot add more users to the NCI Enterprise premium Copilot license. However, you can still do a lot with the the free version of Copilot!</p>
 </div>
 </div>
 <p>Enable Copilot:</p>
@@ -762,10 +762,10 @@ Note
 </blockquote>
 </section>
 <section id="set-up-copilot-in-vs-code" class="level3">
-<h3 class="anchored" data-anchor-id="set-up-copilot-in-vs-code">Set up CoPilot in VS Code</h3>
+<h3 class="anchored" data-anchor-id="set-up-copilot-in-vs-code">Set up Copilot in VS Code</h3>
 <p><a href="https://code.visualstudio.com/docs/copilot/setup"><em>VS Code Docs</em></a></p>
 <ol type="1">
-<li>Hover over the Copilot icon in the Status Bar and select Use AI Features.</li>
+<li>Hover over the Copilot icon in the Status Bar and select ‘Use AI Features’.</li>
 </ol>
 <p><img src="img/vscode-copilot-icon.png" class="img-fluid"></p>
 <ol start="2" type="1">
@@ -778,7 +778,7 @@ Note
 <p>The <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat">GitHub Copilot Chat</a> extension should now be installed.</p>
 <section id="vs-code-settings" class="level4">
 <h4 class="anchored" data-anchor-id="vs-code-settings">VS Code settings</h4>
-<p>You can customize CoPilot settings in VS Code by going to <strong>Settings</strong> &gt; <strong>Extensions</strong> &gt; <strong>GitHub Copilot</strong> or by using the keyboard shortcut <kbd title="Cmd" aria-hidden="true">Cmd</kbd><span class="visually-hidden">Cmd</span><kbd title="," aria-hidden="true">,</kbd><span class="visually-hidden">,</span> on Mac.</p>
+<p>You can customize Copilot settings in VS Code by going to <strong>Settings</strong> &gt; <strong>Extensions</strong> &gt; <strong>GitHub Copilot</strong> or by using the keyboard shortcut <kbd title="Cmd" aria-hidden="true">Cmd</kbd><span class="visually-hidden">Cmd</span><kbd title="," aria-hidden="true">,</kbd><span class="visually-hidden">,</span> on Mac.</p>
 <p><img src="img/vscode-settings.png" class="img-fluid" alt="VS Code settings interface showing GitHub Copilot configuration options under the Features section. Two checkboxes are visible and enabled: Auto Fix which automatically fixes diagnostics for edited files, and Current Editor Context which includes the name of the current active editor in the context for agent mode."></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -790,7 +790,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>GitHub CoPilot also works well in <a href="https://positron.posit.co/">Positron</a>, an IDE created by Posit based on VS Code.</p>
+<p>GitHub Copilot also works well in <a href="https://positron.posit.co/">Positron</a>, an IDE created by Posit based on VS Code.</p>
 </div>
 </div>
 </section>
@@ -801,10 +801,10 @@ Tip
 <p>Example project: given a GTF file, extract the gene transcription start sites and create a BED file of promoter regions.</p>
 <p>Files:</p>
 <ul>
-<li><a href="./demo/extract_promoters.py">extract_promoters.py</a> - Example Python script for demonstrating CoPilot</li>
+<li><a href="./demo/extract_promoters.py">extract_promoters.py</a> - Example Python script for demonstrating Copilot</li>
 <li><a href="./demo/setup.sh">setup.sh</a> - Download data files for testing the Python script</li>
 </ul>
-<p>Create a new directory called <code>extract-promoters</code>, download these files, and place them there.</p>
+<p>Create a new directory called <code>extract-promoters</code>, download these files, and place them in that directory.</p>
 <section id="open-project-in-new-window" class="level3">
 <h3 class="anchored" data-anchor-id="open-project-in-new-window">Open project in new window</h3>
 <p>Open the directory for your project with VS Code.</p>
@@ -819,7 +819,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We recommend initializing git and making a commit with the existing code before you start using CoPilot.</p>
+<p>We recommend initializing git and making a commit with the existing code before you start using Copilot.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># /path/to/extract-promoters/</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
