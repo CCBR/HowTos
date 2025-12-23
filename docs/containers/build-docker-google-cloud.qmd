@@ -10,7 +10,7 @@ CCBR members can view the recording of this tutorial:
 > [CCBR Weekly Presentations 2025-08-26](https://nih-my.sharepoint.com/:v:/r/personal/kopardevn_nih_gov/Documents/Recordings/Bioinformatics%20Project,%20TechDev,%20and%20Journal%20Club%20Presentations%20(Tuesday%20Meeting)-20250826_103450-Meeting%20Recording.mp4?csf=1&web=1&e=OLAMpq&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
 As of this writing, Docker Desktop is not approved for use on NCI laptops.
-If you want to build and push docker containers using the docker CLI, 
+If you want to build and push docker containers using the docker CLI,
 you can use the Google Cloud Shell: <https://console.cloud.google.com/>
 
 You can create an account with your `@nih.gov` email.
@@ -84,7 +84,7 @@ python --version
 
 Close the container with the keyboard shortcut {{< kbd Control-D >}} or type `exit` and press enter.
 
-If the container doesn't have the software you expected, 
+If the container doesn't have the software you expected,
 something went wrong during the build process.
 Try editing the Dockerfile and re-building the container.
 

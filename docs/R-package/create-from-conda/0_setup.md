@@ -7,7 +7,7 @@ author: "[Ned Cauley](https://github.com/escauley)"
 
 ## Set up Conda Tools, installation (if needed)
 
-- You will first need to set up Conda in order to use the Conda tools for creating your Conda package. 
+- You will first need to set up Conda in order to use the Conda tools for creating your Conda package.
 
 - The documentation for getting started can be found [here](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html), including installation guidelines.
 
@@ -27,7 +27,7 @@ In a space shared with other users that may use Conda, your personal Conda cache
 touch ~/.condarc
 ```
 
-3) Open the new file `.condarc` and add the following sections: 
+3) Open the new file `.condarc` and add the following sections:
 
 - pkgs_dirs
 
@@ -37,7 +37,7 @@ touch ~/.condarc
 
 - channels
 
-In each section you will add the path to the directories you would like to use for each section. 
+In each section you will add the path to the directories you would like to use for each section.
 
 **Example:**
 
@@ -76,7 +76,7 @@ conda info
 
 
 
-To build a Conda package, 'channels' are needed to supply the dependencies that are specified in the DESCRIPTION and meta.yaml files (discussed below). These R packages in these channels are also Conda packages that have been previously built as a specific version of that package and given a 'build string', a unique indentifier for the build of that specific conda package. 
+To build a Conda package, 'channels' are needed to supply the dependencies that are specified in the DESCRIPTION and meta.yaml files (discussed below). These R packages in these channels are also Conda packages that have been previously built as a specific version of that package and given a 'build string', a unique indentifier for the build of that specific conda package.
 
 For channels to be available to you when you build your own conda package, you first need to add them. To add a Conda channel run:
 
@@ -104,7 +104,7 @@ https://r-pkgs.org/whole-game.html
 
 Before creating the release on github, please check for proper dependencies listed in the files NAMESPACE and DESCRIPTION.
 
-These files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be editted manually, while the NAMESPACE file should not be editted manually, but rather created automatically using the document() function. 
+These files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be editted manually, while the NAMESPACE file should not be editted manually, but rather created automatically using the document() function.
 
 The DESCRITPION file must also be correctly formatted. For more information, see:
 
@@ -120,7 +120,7 @@ https://r-pkgs.org/description.html
 To download the most recent release from the most recent tag on Github, activate Conda then use Conda skeleton like so:
 
 ```
-conda activate 
+conda activate
 
 conda skeleton cran $githubURL
 ```
@@ -152,7 +152,7 @@ Here is an example of the top of the "meta.yaml" file with the channels section 
 package:
   name: r-dspworkflow
   version: {{ version|replace("-", "_") }}
-  
+
 channels:
   - conda-forge
   - bioconda
@@ -210,7 +210,7 @@ Here is an example of the sections for specifying dependency versions from the "
     - r-rtsne =0.16=r41h37cf8d7_1
     - r-magrittr =2.0.3=r41h06615bd_1
     - r-rlang =1.1.0=r41h38f115c_0
-    
+
   run:
     - r-base =4.1.3=h2f963a2_5
     - bioconductor-biobase =2.54.0=r41hc0cfd56_2
@@ -237,7 +237,7 @@ Here is an example of the sections for specifying dependency versions from the "
     - r-rlang =1.1.0=r41h38f115c_0
 ```
 
-In the above example, each of the dependencies has been assigned a conda build string, so that when conda builds a conda package, it will only use that specific build of the dependency from the listed conda channels. The above example is very restrictive, the dependencies can also be listed in the "meta.yaml" file to be more open--it will choose a conda build string that fits in with the other resolved dependency build strings based on what is available in the channels. 
+In the above example, each of the dependencies has been assigned a conda build string, so that when conda builds a conda package, it will only use that specific build of the dependency from the listed conda channels. The above example is very restrictive, the dependencies can also be listed in the "meta.yaml" file to be more open--it will choose a conda build string that fits in with the other resolved dependency build strings based on what is available in the channels.
 
 Also note that the "host" section matches the "run" section.
 
@@ -277,7 +277,7 @@ Here is some examples of a more open setup for these dependencies:
 
 
 
-When the "meta.yaml" has been prepared, you can now build the Conda package. 
+When the "meta.yaml" has been prepared, you can now build the Conda package.
 
 To do so, run the command:
 
@@ -295,7 +295,7 @@ Replace $build_log_name.log with the name for the log file, such as the date, ti
 
 The log file will list how conda has built the package, including what dependencies version numbers and corresponding build strings were used to resolve the conda environment. These dependencies are what we specified in the "meta.yaml" file. The log file will be useful troubleshooting a failed build.
 
-Be aware, the build can take anywhere from several minutes to an hour to complete, depending on the size of the package and the number of dependencies. 
+Be aware, the build can take anywhere from several minutes to an hour to complete, depending on the size of the package and the number of dependencies.
 
 The conda package will be built as a tar.bz2 file.
 
@@ -332,7 +332,7 @@ Dependency B version 2.7
   - Dependency C version >= 0.7
 ```
 
-As you can see, the Conda build will not be able to resolve the environment because Dependency A verion 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version. 
+As you can see, the Conda build will not be able to resolve the environment because Dependency A verion 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.
 
 In this case, if we changed our package's DESCRIPTION and meta.yaml file to be:
 

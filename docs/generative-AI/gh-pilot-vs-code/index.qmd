@@ -14,7 +14,7 @@ CCBR members can view the recording of this demo:
 
 ## Why CoPilot?
 
-CoPilot is built to work seamlessly in your IDE. 
+CoPilot is built to work seamlessly in your IDE.
 It is a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc.
 Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.
 

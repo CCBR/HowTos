@@ -13,10 +13,10 @@ Rawdata or Project folders from Biowulf can be parked at a secure location after
 
 [**parkit**](https://github.com/CCBR/parkit) is designed to assist analysts in archiving project data from the NIH's Biowulf/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:
 
-- create tarballs of their data (including `.filelist` and `.md5sum` files), 
-- generate metadata, 
-- create collections on HPC-DME, and 
-- deposit tar files into the system for long-term storage. 
+- create tarballs of their data (including `.filelist` and `.md5sum` files),
+- generate metadata,
+- create collections on HPC-DME, and
+- deposit tar files into the system for long-term storage.
 
 **parkit** also features comprehensive workflows that support both folder-based and tarball-based archiving. These workflows are integrated with the SLURM job scheduler, enabling efficient execution of archival tasks on the Biowulf HPC cluster. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.
 
@@ -178,6 +178,3 @@ INFO: CLI_SUCCESS
 </details>
 
 > ⚠️ Reach out to [Vishal Koparde](mailto:vishal.koparde@nih.gov) in case you run into issues.
-
-
-

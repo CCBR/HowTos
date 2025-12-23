@@ -177,7 +177,7 @@ mamba config list | sed -n '1,200p'
 ```
 
 What you want to **see**:
-- `channels` shows only `conda-forge`, `bioconda`, and `defaults` 
+- `channels` shows only `conda-forge`, `bioconda`, and `defaults`
 - **Nothing** should reference `repo.anaconda.com`.
 - `conda.anaconda.org/conda-forge` and `conda.anaconda.org/bioconda` are community-supported channels and are thus okay to use.
 
