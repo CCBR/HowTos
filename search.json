@@ -657,6 +657,373 @@
     ]
   },
   {
+    "objectID": "docs/R-package/create-from-conda/common_issues.html",
+    "href": "docs/R-package/create-from-conda/common_issues.html",
+    "title": "common issues",
+    "section": "",
+    "text": "An important consideration for Conda builds is the list of dependencies, specified versions, and compatibility with each of the other dependencies.\nIf the meta.yaml and DESCRIPTION file specify specific package versions, Conda’s ability to resolve the Conda environment also becomes more limited.\nFor example, if the Conda package we are building has the following requirements:\nDependency A version == 1.0\nDependency B version &gt;= 2.5\nAnd the Dependencies located in our Conda channel have the following dependencies:\nDependency A version 1.0\n  - Dependency C version == 0.5\n\nDependency A version 1.2\n- Dependency C version &gt;= 0.7\n\nDependency B version 2.7\n  - Dependency C version &gt;= 0.7\nAs you can see, the Conda build will not be able to resolve the environment because Dependency A version 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.\nIn this case, if we changed our package’s DESCRIPTION and meta.yaml file to be:\nDependency A version &gt;= 1.0\nDependency B version &gt;= 2.5\nThe conda build will be able to resolve. This is a simplified version of a what are more often complex dependency structures, but it is an important concept in conda package building that will inevitably arise as a package’s dependencies become more specific.\nTo check on the versions of packages that are available in a Conda channel, use the command:\nconda search $dependency\nReplace $dependency with the name of package you would like to investigate. There are more optional commands for this function which can be found here\nTo check the dependencies of packages that exist in your Conda cache, go to the folder specified for your conda cache (that we specified earlier). In case you need to find that path you can use:\nconda info\nHere there will be a folder for each of the packages that has been used in a conda build (including the dependencies). In each folder is another folder called “info” and a file called “index.json” that lists information, such as depends for the package.\nHere is an example:\ncat /rstudio-files/ccbr-data/users/Ned/conda-cache/r-ggplot2-3.3.6-r41hc72bb7e_1/info/index.json\n\n{\n \"arch\": null,\n \"build\": \"r41hc72bb7e_1\",\n \"build_number\": 1,\n \"depends\": [\n   \"r-base &gt;=4.1,&lt;4.2.0a0\",\n   \"r-digest\",\n   \"r-glue\",\n   \"r-gtable &gt;=0.1.1\",\n   \"r-isoband\",\n   \"r-mass\",\n   \"r-mgcv\",\n   \"r-rlang &gt;=0.3.0\",\n   \"r-scales &gt;=0.5.0\",\n   \"r-tibble\",\n   \"r-withr &gt;=2.0.0\"\n ],\n \"license\": \"GPL-2.0-only\",\n \"license_family\": \"GPL2\",\n \"name\": \"r-ggplot2\",\n \"noarch\": \"generic\",\n \"platform\": null,\n \"subdir\": \"noarch\",\n \"timestamp\": 1665515494942,\n \"version\": \"3.3.6\"\n}\nIf you would like to specify an exact package to use in a conda channel for your conda build, specify the build string in your “meta.yaml” file. In the above example for ggplot version 3.3.6, the build string is listed in the folder name for package as well as in the index.json file for “build:”r41hc72bb7e_1”.",
+    "crumbs": [
+      "Home",
+      "R Package",
+      "Create from Conda",
+      "common issues"
+    ]
+  },
+  {
+    "objectID": "docs/R-package/create-from-conda/common_issues.html#package-dependency-issues",
+    "href": "docs/R-package/create-from-conda/common_issues.html#package-dependency-issues",
+    "title": "common issues",
+    "section": "",
+    "text": "An important consideration for Conda builds is the list of dependencies, specified versions, and compatibility with each of the other dependencies.\nIf the meta.yaml and DESCRIPTION file specify specific package versions, Conda’s ability to resolve the Conda environment also becomes more limited.\nFor example, if the Conda package we are building has the following requirements:\nDependency A version == 1.0\nDependency B version &gt;= 2.5\nAnd the Dependencies located in our Conda channel have the following dependencies:\nDependency A version 1.0\n  - Dependency C version == 0.5\n\nDependency A version 1.2\n- Dependency C version &gt;= 0.7\n\nDependency B version 2.7\n  - Dependency C version &gt;= 0.7\nAs you can see, the Conda build will not be able to resolve the environment because Dependency A version 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.\nIn this case, if we changed our package’s DESCRIPTION and meta.yaml file to be:\nDependency A version &gt;= 1.0\nDependency B version &gt;= 2.5\nThe conda build will be able to resolve. This is a simplified version of a what are more often complex dependency structures, but it is an important concept in conda package building that will inevitably arise as a package’s dependencies become more specific.\nTo check on the versions of packages that are available in a Conda channel, use the command:\nconda search $dependency\nReplace $dependency with the name of package you would like to investigate. There are more optional commands for this function which can be found here\nTo check the dependencies of packages that exist in your Conda cache, go to the folder specified for your conda cache (that we specified earlier). In case you need to find that path you can use:\nconda info\nHere there will be a folder for each of the packages that has been used in a conda build (including the dependencies). In each folder is another folder called “info” and a file called “index.json” that lists information, such as depends for the package.\nHere is an example:\ncat /rstudio-files/ccbr-data/users/Ned/conda-cache/r-ggplot2-3.3.6-r41hc72bb7e_1/info/index.json\n\n{\n \"arch\": null,\n \"build\": \"r41hc72bb7e_1\",\n \"build_number\": 1,\n \"depends\": [\n   \"r-base &gt;=4.1,&lt;4.2.0a0\",\n   \"r-digest\",\n   \"r-glue\",\n   \"r-gtable &gt;=0.1.1\",\n   \"r-isoband\",\n   \"r-mass\",\n   \"r-mgcv\",\n   \"r-rlang &gt;=0.3.0\",\n   \"r-scales &gt;=0.5.0\",\n   \"r-tibble\",\n   \"r-withr &gt;=2.0.0\"\n ],\n \"license\": \"GPL-2.0-only\",\n \"license_family\": \"GPL2\",\n \"name\": \"r-ggplot2\",\n \"noarch\": \"generic\",\n \"platform\": null,\n \"subdir\": \"noarch\",\n \"timestamp\": 1665515494942,\n \"version\": \"3.3.6\"\n}\nIf you would like to specify an exact package to use in a conda channel for your conda build, specify the build string in your “meta.yaml” file. In the above example for ggplot version 3.3.6, the build string is listed in the folder name for package as well as in the index.json file for “build:”r41hc72bb7e_1”.",
+    "crumbs": [
+      "Home",
+      "R Package",
+      "Create from Conda",
+      "common issues"
+    ]
+  },
+  {
+    "objectID": "docs/R-package/create-from-conda/1_build_pkg.html",
+    "href": "docs/R-package/create-from-conda/1_build_pkg.html",
+    "title": "Creating the package",
+    "section": "",
+    "text": "To create a package with Conda, you first need to make a new release and tag in the github repo of the R package you would like to create into a Conda Package.\nFor more information on best practices in R package creation, review this documentation.\nBefore creating the release on github, please check for proper dependencies listed in the files NAMESPACE and DESCRIPTION.\nThese files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be edited manually, while the NAMESPACE file should not be edited manually, but rather created automatically using the document() function.\nThe DESCRIPTION file must also be correctly formatted. For more information, see the following website.",
+    "crumbs": [
+      "Home",
+      "R Package",
+      "Create from Conda",
+      "Creating the package"
+    ]
+  },
+  {
+    "objectID": "docs/R-package/create-from-conda/1_build_pkg.html#overview",
+    "href": "docs/R-package/create-from-conda/1_build_pkg.html#overview",
+    "title": "Creating the package",
+    "section": "",
+    "text": "To create a package with Conda, you first need to make a new release and tag in the github repo of the R package you would like to create into a Conda Package.\nFor more information on best practices in R package creation, review this documentation.\nBefore creating the release on github, please check for proper dependencies listed in the files NAMESPACE and DESCRIPTION.\nThese files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be edited manually, while the NAMESPACE file should not be edited manually, but rather created automatically using the document() function.\nThe DESCRIPTION file must also be correctly formatted. For more information, see the following website.",
+    "crumbs": [
+      "Home",
+      "R Package",
+      "Create from Conda",
+      "Creating the package"
+    ]
+  },
+  {
+    "objectID": "docs/R-package/create-from-conda/1_build_pkg.html#download-the-r-package-release-from-github",
+    "href": "docs/R-package/create-from-conda/1_build_pkg.html#download-the-r-package-release-from-github",
+    "title": "Creating the package",
+    "section": "Download the R package release from Github",
+    "text": "Download the R package release from Github\nTo download the most recent release from the most recent tag on Github, activate Conda then use Conda skeleton to pull the correct URL. In the example below, replace $githubURL with the URL to your R package’s github repo.\nconda activate \n\nconda skeleton cran $githubURL\nA folder is then created for the downloaded release. Ror example running the following:\nconda skeleton cran https://github.com/NIDAP-Community/DSPWorkflow\nCreates the folder\nr-dspworkflow\nWithin this newly created folder is a file named meta.yaml. You will need to edit this file to include the channels and edit any information on the the package version number or dependency version numbers.\nHere is an example of the top of the meta.yaml file with the channels section added:\n{% set version = '0.9.5.2' %}\n\n{% set posix = 'm2-' if win else '' %}\n{% set native = 'm2w64-' if win else '' %}\n\npackage:\n  name: r-dspworkflow\n  version: {{ version|replace(\"-\", \"_\") }}\n  \nchannels:\n  - conda-forge\n  - bioconda\n  - default\n  - file://rstudio-files/RH/ccbr-projects/Conda_package_tutorial/local_channel/channel\n\nsource:\n\n  git_url: https://github.com/NIDAP-Community/DSPWorkflow\n  git_tag: 0.9.5\n\nbuild:\n  merge_build_host: True  # [win]\n  # If this is a new build for the same version, increment the build number.\n  number: 0\n  # no skip\n\n  # This is required to make R link correctly on Linux.\n  rpaths:\n    - lib/R/lib/\n    - lib/\n\n    # Suggests: testthat (== 3.1.4)\nrequirements:\n  build:\n    - {{ posix }}filesystem        # [win]\n    - {{ posix }}git\n    - {{ posix }}zip               # [win]\nHere is an example of the sections for specifying dependency versions from the meta.yaml file:\n  host:\n    - r-base =4.1.3=h2f963a2_5\n    - bioconductor-biobase =2.54.0=r41hc0cfd56_2\n    - bioconductor-biocgenerics =0.40.0=r41hdfd78af_0\n    - bioconductor-geomxtools =3.1.1=r41hdfd78af_0\n    - bioconductor-nanostringnctools =1.2.0\n    - bioconductor-spatialdecon =1.4.3\n    - bioconductor-complexheatmap =2.10.0=r41hdfd78af_0\n    - r-cowplot =1.1.1=r41hc72bb7e_1\n    - r-dplyr =1.0.9=r41h7525677_0\n    - r-ggforce =0.3.4=r41h7525677_0\n    - r-ggplot2 =3.3.6=r41hc72bb7e_1\n    - r-gridextra =2.3=r41hc72bb7e_1004\n    - r-gtable =0.3.0=r41hc72bb7e_3\n    - r-knitr =1.40=r41hc72bb7e_1\n    - r-patchwork =1.1.2=r41hc72bb7e_1\n    - r-reshape2 =1.4.4=r41h7525677_2\n    - r-scales =1.2.1=r41hc72bb7e_1\n    - r-tibble =3.1.8=r41h06615bd_1\n    - r-tidyr =1.2.1=r41h7525677_1\n    - r-umap =0.2.9.0=r41h7525677_1\n    - r-rtsne =0.16=r41h37cf8d7_1\n    - r-magrittr =2.0.3=r41h06615bd_1\n    - r-rlang =1.1.0=r41h38f115c_0\n    \n  run:\n    - r-base =4.1.3=h2f963a2_5\n    - bioconductor-biobase =2.54.0=r41hc0cfd56_2\n    - bioconductor-biocgenerics =0.40.0=r41hdfd78af_0\n    - bioconductor-geomxtools =3.1.1=r41hdfd78af_0\n    - bioconductor-nanostringnctools =1.2.0\n    - bioconductor-spatialdecon =1.4.3\n    - bioconductor-complexheatmap =2.10.0=r41hdfd78af_0\n    - r-cowplot =1.1.1=r41hc72bb7e_1\n    - r-dplyr =1.0.9=r41h7525677_0\n    - r-ggforce =0.3.4=r41h7525677_0\n    - r-ggplot2 =3.3.6=r41hc72bb7e_1\n    - r-gridextra =2.3=r41hc72bb7e_1004\n    - r-gtable =0.3.0=r41hc72bb7e_3\n    - r-knitr =1.40=r41hc72bb7e_1\n    - r-patchwork =1.1.2=r41hc72bb7e_1\n    - r-reshape2 =1.4.4=r41h7525677_2\n    - r-scales =1.2.1=r41hc72bb7e_1\n    - r-tibble =3.1.8=r41h06615bd_1\n    - r-tidyr =1.2.1=r41h7525677_1\n    - r-umap =0.2.9.0=r41h7525677_1\n    - r-rtsne =0.16=r41h37cf8d7_1\n    - r-magrittr =2.0.3=r41h06615bd_1\n    - r-rlang =1.1.0=r41h38f115c_0\nIn the above example, each of the dependencies has been assigned a conda build string, so that when conda builds a conda package, it will only use that specific build of the dependency from the listed conda channels. The above example is very restrictive, the dependencies can also be listed in the “meta.yaml” file to be more open–it will choose a conda build string that fits in with the other resolved dependency build strings based on what is available in the channels.\nAlso note that the “host” section matches the “run” section.\nHere is some examples of a more open setup for these dependencies:\n  host:\n    - r-base &gt;=4.1.3\n    - bioconductor-biobase &gt;=2.54.0\n    - bioconductor-biocgenerics &gt;=0.40.0\n    - bioconductor-geomxtools &gt;=3.1.1\n    - bioconductor-nanostringnctools &gt;=1.2.0\n    - bioconductor-spatialdecon =1.4.3\n    - bioconductor-complexheatmap &gt;=2.10.0\n    - r-cowplot &gt;=1.1.1\n    - r-dplyr &gt;=1.0.9\n    - r-ggforce &gt;=0.3.4\n    - r-ggplot2 &gt;=3.3.6\n    - r-gridextra &gt;=2.3\n    - r-gtable &gt;=0.3.0\n    - r-knitr &gt;=1.40\n    - r-patchwork &gt;=1.1.2\n    - r-reshape2 &gt;=1.4.4\n    - r-scales &gt;=1.2.1\n    - r-tibble &gt;=3.1.8\n    - r-tidyr &gt;=1.2.1\n    - r-umap &gt;=0.2.9.0\n    - r-rtsne &gt;=0.16\n    - r-magrittr &gt;=2.0.3\n    - r-rlang &gt;=1.1.0",
+    "crumbs": [
+      "Home",
+      "R Package",
+      "Create from Conda",
+      "Creating the package"
+    ]
+  },
+  {
+    "objectID": "docs/R-package/create-from-conda/1_build_pkg.html#build-the-conda-package",
+    "href": "docs/R-package/create-from-conda/1_build_pkg.html#build-the-conda-package",
+    "title": "Creating the package",
+    "section": "Build the Conda package",
+    "text": "Build the Conda package\nWhen the meta.yaml has been prepared, you can now build the Conda package. To do so, run the command, replacing\n\n$r-package with the name of the R package folder that was created after running conda skeleton (the folder where the meta.yaml is located).\n$build_log_name.log with the name for the log file, such as the date, time, and initials.\n\nconda-build $r-package 2&gt;&1|tee $build_log_name.log\nExample\nconda-build r-dspworkflow 2&gt;&1|tee 05_12_23_330_nc.log\n\nThe log file will list how conda has built the package, including what dependencies version numbers and corresponding build strings were used to resolve the conda environment. These dependencies are what we specified in the “meta.yaml” file. The log file will be useful troubleshooting a failed build.\nBe aware, the build can take anywhere from several minutes to an hour to complete, depending on the size of the package and the number of dependencies.\nThe conda package will be built as a tar.bz2 file.",
+    "crumbs": [
+      "Home",
+      "R Package",
+      "Create from Conda",
+      "Creating the package"
+    ]
+  },
+  {
+    "objectID": "docs/UCSC/3_creating_tracks.html",
+    "href": "docs/UCSC/3_creating_tracks.html",
+    "title": "Generating New Tracks",
+    "section": "",
+    "text": "Generating New Tracks\nBiowulf/Helix hosts its own instance of the UCSC Genome Browser which is behind the NIH firewall.\n\nLogin to VPN\nLogin to the UCSC Browser website\nSelect “My Data &gt; Custom Tracks”\nSelect “Add Custom Tracks”\nPaste the track data generated in Creating Track Info into the text box\nSelect “Submit”\nReview the track information. The column “Error” should be empty. If there is an error then a hyperlink will display “Show” although this often does not contain helpful error information.\nAfter troubleshooting any errors select “Go”\nUse the features at the bottom of the page to alter views and/or add additional track information\nSelect “My Data &gt; My Sessions”\nUnder “Save current settings as named session:” enter a descriptive name of the session\nSelect “Submit”\nThis will move the descriptive name entered into the “session name” list\nSelect the descriptve name, view your track information as saved\nCopy the hyperlink for this session and share as needed\n\n\n\nEditing a Previous Tracks\n\nLogin to VPN\nLogin to the UCSC Browser website\nSelect “My Data &gt; My Sessions”\nSelect the descriptve name of the session you’d like to edit\nEdit the tracks as needed:\n\nIf wanting to remove or add tracks, then select “My Data &gt; Custom Tracks”; follow steps 5-8 above.\nIf wanting to edit the view of the tracks, follow step 9 above.\n\nSelect “My Data &gt; My Sessions”\nUnder “Save current settings as named session:” enter a new descriptive name OR the previous name of the session if you’d like to overwrite it\nSelect “Submit”\nThis will move the descriptive name entered into the “session name” list\nSelect the descriptve name, view your track information as saved\nCopy the hyperlink for this session and share as needed\n\n\nTIP: Unindexed file formats like bed and gtf take significantly longer to load in the genome Browser and it is recommended to convert them to indexed formats like bigBed and bigWig prior to adding them to your session.",
+    "crumbs": [
+      "Home",
+      "UCSC",
+      "Generating New Tracks"
+    ]
+  },
+  {
+    "objectID": "docs/UCSC/0_overview.html",
+    "href": "docs/UCSC/0_overview.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Overview\nThe UCSC Genome Browser allows for visualization of genomic data in an interactive and shareable format. User’s must create accounts with their NIH credentials, and have an active Biowulf account to create the tracks. In addition users have to be connect to VPN in order to view and create the tracks. Once bigwig files are generated and stored in a shared data location, genomic tracks can be edited, and permanent links created, accessible for collaborators to view.",
+    "crumbs": [
+      "Home",
+      "UCSC",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "docs/HPCDME/setup.html",
+    "href": "docs/HPCDME/setup.html",
+    "title": "HPCDME Setup",
+    "section": "",
+    "text": "Background\nHPC_DME_APIs provides command line utilities or CLUs to interface with HPCDME. This document describes some of the initial setup steps to get the CLUs working on Biowulf.\n\n\nSetup steps:\n\nClone repo:\nThe repo can be cloned at a location accessible to you:\ncd /data/$USER/\ngit clone https://github.com/CBIIT/HPC_DME_APIs.git\n\n\nCreate dirs, log files needed for HPCMDE\nmkdir -p /data/$USER/HPCDMELOG/tmp\ntouch /data/$USER/HPCDMELOG/tmp/hpc-cli.log\n\n\nCopy properties template\nhpcdme.properties is the file that all CLUs look into for various parameters like authentication password, file size limits, number of CPUs, etc. Make a copy of the template provided and prepare it for customization.\ncd /data/$USER/HPC_DME_APIs/utils\ncp hpcdme.properties-sample hpcdme.properties\n\n\nCustomize properties file\nSome of the parameters in this file have become obsolete over the course of time and are commmented out. Change paths and default values, as needed.\nNOTES\n\nReplace $USER with your actual username in the properties file. Bash variables will not be interpolated.\nLeave hpc.ssl.keystore.password=changeit as-is. changeit is not a variable but the actual password for our team.\nBe sure to set the proxy server URL as below (hpc.server.proxy.url=10.1.200.75) when running on biowulf/helix.\n\n#HPC DME Server URL\n#Production server settings\nhpc.server.url=https://hpcdmeapi.nci.nih.gov:8080\nhpc.ssl.keystore.path=hpc-client/keystore/keystore-prod.jks\n#hpc.ssl.keystore.password=hpcdmncif\nhpc.ssl.keystore.password=changeit\n\n#UAT server settings\n#hpc.server.url=https://fr-s-hpcdm-uat-p.ncifcrf.gov:7738/hpc-server\n#hpc.ssl.keystore.path=hpc-client/keystore/keystore-uat.jks\n#hpc.ssl.keystore.password=hpc-server-store-pwd\n\n#Proxy Settings\nhpc.server.proxy.url=10.1.200.75\nhpc.server.proxy.port=3128\n\nhpc.user=$USER\n\n#Globus settings\n#default globus endpoint to be used in registration and download\nhpc.globus.user=$USER\nhpc.default.globus.endpoint=ea6c8fd6-4810-11e8-8ee3-0a6d4e044368\n\n#Log files directory\nhpc.error-log.dir=/data/$USER/HPCDMELOG/tmp\n\n###HPC CLI Logging START####\n#ERROR, WARN, INFO, DEBUG\nhpc.log.level=ERROR\nhpc.log.file=/data/$USER/HPCDMELOG/tmp/hpc-cli.log\n###HPC CLI Logging END####\n\n#############################################################################\n# Please use caution changing following properties. They don't change usually\n#############################################################################\n#hpc.collection.service=collection\n#hpc.dataobject.service=dataObject\n#Log files directory\n#hpc.error-log.dir=.\n\n#Number of thread to run data file import from a CSV file\nhpc.job.thread.count=1\n\nupload.buffer.size=10000000\n\n#Retry count and backoff period for registerFromFilePath (Fixed backoff)\nhpc.retry.max.attempts=3\n#hpc.retry.backoff.period=5000\n\n#Multi-part upload thread pool, threshold and part size configuration\n#hpc.multipart.threadpoolsize=10\n#hpc.multipart.threshold=1074790400\n#hpc.multipart.chunksize=1073741824\n\n#globus.nexus.url=nexus.api.globusonline.org\n#globus.url=www.globusonline.org\n\n#HPC DME Login token file location\nhpc.login.token=tokens/hpcdme-auth.txt\n\n#Globus Login token file location\n#hpc.globus.login.token=tokens/globus-auth.txt\n#validate.md5.checksum=false\n\n# JAR version\n#hpc.jar.version=hpc-cli-1.4.0.jar\n\nNOTE: The current java version used is:\njava -version\nopenjdk version \"1.8.0_181\"\nOpenJDK Runtime Environment (build 1.8.0_181-b13)\nOpenJDK 64-Bit Server VM (build 25.181-b13, mixed mode)\n\n\n\nEdit ~/.bashrc\nAdd the CLUs to PATH by adding the following to ~/.bashrc file\n# export environment variable HPC_DM_UTILS pointing to directory where \n# HPC DME client utilities are, then source functions script in there \nexport HPC_DM_UTILS=/data/$USER/HPC_DME_APIs/utils\nsource $HPC_DM_UTILS/functions\nNext, source it\nsource ~/.bashrc\n\n\nGenerate token\nNow, you are all set to generate a token. This prevents from re-entering your password everytime.\ndm_generate_token\nIf the token generation takes longer than 45 seconds, check the connection:\nping hpcdmeapi.nci.nih.gov\nIf the connection responds, try to export the following proxy, and then re-run the dm_generate_tokens command:\nexport https_proxy=http://dtn01-e0:3128\nDone! You are now all set to use CLUs.\n\n\n\nReferences and Links\n\nHPC_DME_APIs repo\nUser guides\nWiki pages\nYuri Dinh",
+    "crumbs": [
+      "Home",
+      "HPCDME",
+      "HPCDME Setup"
+    ]
+  },
+  {
+    "objectID": "docs/HPCDME/transferFromHelix.html",
+    "href": "docs/HPCDME/transferFromHelix.html",
+    "title": "File Transfer from HELIX",
+    "section": "",
+    "text": "Rawdata or Project folders from Helix can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.",
+    "crumbs": [
+      "Home",
+      "HPCDME",
+      "File Transfer from HELIX"
+    ]
+  },
+  {
+    "objectID": "docs/HPCDME/transferFromHelix.html#background",
+    "href": "docs/HPCDME/transferFromHelix.html#background",
+    "title": "File Transfer from HELIX",
+    "section": "",
+    "text": "Rawdata or Project folders from Helix can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.",
+    "crumbs": [
+      "Home",
+      "HPCDME",
+      "File Transfer from HELIX"
+    ]
+  },
+  {
+    "objectID": "docs/HPCDME/transferFromHelix.html#parkit",
+    "href": "docs/HPCDME/transferFromHelix.html#parkit",
+    "title": "File Transfer from HELIX",
+    "section": "parkit",
+    "text": "parkit\nparkit is designed to assist analysts in archiving project data from the NIH’s Helix/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically: - create tarballs of their data (including .filelist and .md5sum files), - generate metadata, - create collections on HPC-DME, and - deposit tar files into the system for long-term storage. parkit also features comprehensive workflows that support both folder-based and tarball-based archiving. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.\n\n❗ NOTE: HPC DME API CLUs should already be setup as per these instructions in order to use parkit\n\n\n❗ NOTE: HPC_DM_UTILS environment variable should be set to point to the utils folder under the HPC_DME_APIs repo setup. Please see these instructions.\n\n\n❗ NOTE: If it has been a few months since you last used HPC_DME_APIs or parkit or projark, then please run the following commands before you start using parkit or projark:\ncd $HPC_DM_UTILS\ngit pull\nsource $HPC_DM_UTILS/functions\ndm_generate_token\n\nprojark is the preferred parkit command to completely archive an entire folder as a tarball on HPCDME. SLURM is not available on Helix and it could take a few hours to upload large files. Hence, it is recommended to use “tmux” or “screen” command for projark to continue running even when you log out of Helix.\n\n❗ NOTE: Run the following commands inside a screen or tmux session.\n\n\nprojark usage\n\nload conda env\n# source conda\n. \"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh\"\n# activate parkit or parkit_dev environment\nconda activate parkit\n# check version of parkit\nparkit --version\nprojark --version\n\n\nExpected sample output\n\nv2.1.2\nprojark is using the following parkit version:\nv2.1.2\n\n\n\nprojark help\nprojark --help\n\n\nExpected sample output\n\nusage: projark [-h] --folder FOLDER --projectnumber PROJECTNUMBER\n               [--executor EXECUTOR] [--rawdata] [--cleanup]\n\nWrapper for folder2hpcdme for quick CCBR project archiving!\n\noptions:\n  -h, --help            show this help message and exit\n  --folder FOLDER       Input folder path to archive\n  --projectnumber PROJECTNUMBER\n                        CCBR project number.. destination will be\n                        /CCBR_Archive/GRIDFTP/Project_CCBR-&lt;projectnumber&gt;\n  --executor EXECUTOR   slurm or local\n  --rawdata             If tarball is rawdata and needs to go under folder\n                        Rawdata\n  --cleanup             post transfer step to delete local files\n\n\n\n\nprojark testing\n\nget dummy data\n# make a tmp folder\nmkdir -p /data/$USER/parkit_tmp\n# copy dummy project folder into the tmp folder\ncp -r /data/CCBR/projects/CCBR-12345 /data/$USER/parkit_tmp/CCBR-12345-$USER\n# check if HPC_DM_UTILS has been set\necho $HPC_DM_UTILS\n\n\nrun projark\nprojark --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --projectnumber 12345-$USER --executor local\n\n❗ NOTE: --executor slurm will not work on Helix\n\n\n\nExpected sample output\n\nSOURCE_CONDA_CMD is set to: . \"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh\"\nHPC_DM_UTILS is set to: /data/kopardevn/GitRepos/HPC_DME_APIs/utils\nparkit_folder2hpcdme --folder \"/data/$USER/parkit_tmp/CCBR-12345-$USER\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\" --projecttitle \"CCBR-12345-kopardevn\" --projectdesc \"CCBR-12345-kopardevn\" --executor \"local\" --hpcdmutilspath /data/kopardevn/GitRepos/HPC_DME_APIs/utils --makereadme\n################ Running createtar #############################\nparkit createtar --folder \"/data/$USER/parkit_tmp/CCBR-12345-$USER\"\ntar cvf /data/$USER/parkit_tmp/CCBR-12345-$USER.tar /data/$USER/parkit_tmp/CCBR-12345-$USER &gt; /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.md5 file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.md5 file was created!\n################################################################\n############ Running createemptycollection ######################\nparkit createemptycollection --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\" --projectdesc \"CCBR-12345-kopardevn\" --projecttitle \"CCBR-12345-kopardevn\"\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\ncat /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json && rm -f /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Rawdata\ncat /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json && rm -f /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json\n################################################################\n########### Running createmetadata ##############################\nparkit createmetadata --tarball \"/data/$USER/parkit_tmp/CCBR-12345-$USER.tar\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\"\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json file was created!\n################################################################\n############# Running deposittar ###############################\nparkit deposittar --tarball \"/data/$USER/parkit_tmp/CCBR-12345-$USER.tar\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\"\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar.filelist /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject_multipart /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar /data/$USER/parkit_tmp/CCBR-12345-$USER.tar\n################################################################\n\n\n❗ NOTE: add --rawdata when folder contains raw fastqs\n\n\n\nverify transfer\nTransfer can be verified by logging into HPC DME web interface.\n\n\n\nalt text\n\n\n\n\ncleanup\nDelete unwanted collection from HPC DME.\n# load java\nmodule load java\n# load dm_ commands\nsource $HPC_DM_UTILS/functions\n# delete collection recursively\ndm_delete_collection -r /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER\n\n\nExpected sample output\n\nReading properties from /data/kopardevn/GitRepos/HPC_DME_APIs/utils/hpcdme.properties\nWARNING: You have requested recursive delete of the collection. This will delete all files and sub-collections within it recursively. Are you sure you want to proceed? (Y/N):\nY\nWould you like to see the list of files to delete ?\nN\nThe collection /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn and all files and sub-collections within it will be recursively deleted. Proceed with deletion ? (Y/N):\nY\nExecuting: https://hpcdmeapi.nci.nih.gov:8080/collection\nWrote results into /data/kopardevn/HPCDMELOG/tmp/getCollections_Records20241010.txt\nCmd process Completed\nOct 10, 2024 4:43:09 PM org.springframework.shell.core.AbstractShell handleExecutionResult\nINFO: CLI_SUCCESS\n\n\n⚠️ Reach out to Vishal Koparde in case you run into issues.",
+    "crumbs": [
+      "Home",
+      "HPCDME",
+      "File Transfer from HELIX"
+    ]
+  },
+  {
+    "objectID": "contributions.html",
+    "href": "contributions.html",
+    "title": "CCBR How-Tos",
+    "section": "",
+    "text": "The following individuals were the main contributors to these HowTo manuals:\n\nGitHub: Samantha Sevilla & Vishal Koparde\nTechDev: Samantha Sevilla\nHPCDME: Vishal Koparde\nUSCS Tracks: Samantha Sevilla\nRpackage: Ned Cauley\nOther How To’s: Ned Cauley\nTutorials: Samantha Sevilla"
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "MIT License",
+    "section": "",
+    "text": "MIT License\nCopyright (c) 2025 HowTos authors\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+  },
+  {
+    "objectID": "CHANGELOG.html",
+    "href": "CHANGELOG.html",
+    "title": "CCBR How-Tos",
+    "section": "",
+    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nCode Club presentations (@kelly-sovacool)"
+  },
+  {
+    "objectID": "CHANGELOG.html#howtos-development-version",
+    "href": "CHANGELOG.html#howtos-development-version",
+    "title": "CCBR How-Tos",
+    "section": "",
+    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nCode Club presentations (@kelly-sovacool)"
+  },
+  {
+    "objectID": "CHANGELOG.html#howtos-0.1.0",
+    "href": "CHANGELOG.html#howtos-0.1.0",
+    "title": "CCBR How-Tos",
+    "section": "HowTos 0.1.0",
+    "text": "HowTos 0.1.0\n\nFirst draft of datashare on Helix doc by @escauley in https://github.com/CCBR/HowTos/pull/1\nFirst draft for Conda R package doc by @escauley in https://github.com/CCBR/HowTos/pull/2\nupdates by @kopardev in https://github.com/CCBR/HowTos/pull/3\nAdd checklist of required github helper files by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/7\nfeat: parkit how tos with HPCDME by @kopardev in https://github.com/CCBR/HowTos/pull/9\ndocs: clarify $USER in HPCDME properties by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/8\ndocs: Added info for setting Conda channels by @escauley in https://github.com/CCBR/HowTos/pull/13\nimprove HPCDME instructions by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/12\nchore(ci): address codeql alerts by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/15"
+  },
+  {
+    "objectID": "contributors.html",
+    "href": "contributors.html",
+    "title": "Contributors",
+    "section": "",
+    "text": "Samantha\n\n\n\n\n\n\n\nVishal Koparde, PhD\n\n\n\n\n\n\n\nKelly Sovacool, PhD\n\n\n\n\n\n\n\nNed Cauley\n\n\n\n\n\nView the contributors graph on GitHub for more details."
+  },
+  {
+    "objectID": "docs/snakemake.html",
+    "href": "docs/snakemake.html",
+    "title": "Snakemake",
+    "section": "",
+    "text": "Step-by-step guide for setting up and learning to use Snakemake, with examples and use cases\nhttps://CCBR.github.io/snakemake_tutorial/",
+    "crumbs": [
+      "Home",
+      "Snakemake"
+    ]
+  },
+  {
+    "objectID": "docs/HPCDME/transfer.html",
+    "href": "docs/HPCDME/transfer.html",
+    "title": "File Transfers from Biowulf",
+    "section": "",
+    "text": "🛑 STOP: dm_register_dataobject_multipart does not work via SLURM. Hence, file transfers are NOT working when initiated from BIOWULF. We recommend transferring files from Helix.",
+    "crumbs": [
+      "Home",
+      "HPCDME",
+      "File Transfers from Biowulf"
+    ]
+  },
+  {
+    "objectID": "docs/HPCDME/transfer.html#background",
+    "href": "docs/HPCDME/transfer.html#background",
+    "title": "File Transfers from Biowulf",
+    "section": "Background",
+    "text": "Background\nRawdata or Project folders from Biowulf can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.",
+    "crumbs": [
+      "Home",
+      "HPCDME",
+      "File Transfers from Biowulf"
+    ]
+  },
+  {
+    "objectID": "docs/HPCDME/transfer.html#parkit",
+    "href": "docs/HPCDME/transfer.html#parkit",
+    "title": "File Transfers from Biowulf",
+    "section": "parkit",
+    "text": "parkit\nparkit is designed to assist analysts in archiving project data from the NIH’s Biowulf/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:\n\ncreate tarballs of their data (including .filelist and .md5sum files),\ngenerate metadata,\ncreate collections on HPC-DME, and\ndeposit tar files into the system for long-term storage.\n\nparkit also features comprehensive workflows that support both folder-based and tarball-based archiving. These workflows are integrated with the SLURM job scheduler, enabling efficient execution of archival tasks on the Biowulf HPC cluster. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.\n\n❗ NOTE: HPC DME API CLUs should already be setup as per these instructions in order to use parkit\n\n\n❗ NOTE: HPC_DM_UTILS environment variable should be set to point to the utils folder under the HPC_DME_APIs repo setup. Please see these instructions.\n\nprojark is the preferred parkit command to completely archive an entire folder as a tarball on HPCDME using SLURM.\n\nprojark usage\n\nload conda env\n# source conda\n. \"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh\"\n# activate parkit or parkit_dev environment\nconda activate parkit\n# check version of parkit\nparkit --version\nprojark --version\n\n\nExpected sample output\n\nv2.0.2-dev\nprojark is using the following parkit version:\nv2.0.2-dev\n\n\n\nprojark help\nprojark --help\n\n\nExpected sample output\n\nusage: projark [-h] --folder FOLDER --projectnumber PROJECTNUMBER\n               [--executor EXECUTOR] [--rawdata] [--cleanup]\n\nWrapper for folder2hpcdme for quick CCBR project archiving!\n\noptions:\n  -h, --help            show this help message and exit\n  --folder FOLDER       Input folder path to archive\n  --projectnumber PROJECTNUMBER\n                        CCBR project number.. destination will be\n                        /CCBR_Archive/GRIDFTP/Project_CCBR-&lt;projectnumber&gt;\n  --executor EXECUTOR   slurm or local\n  --rawdata             If tarball is rawdata and needs to go under folder\n                        Rawdata\n  --cleanup             post transfer step to delete local files\n\n\n\n\nprojark testing\n\nget dummy data\n# make a tmp folder\nmkdir -p /data/$USER/parkit_tmp\n# copy dummy project folder into the tmp folder\ncp -r /data/CCBR/projects/CCBR-12345 /data/$USER/parkit_tmp/CCBR-12345-$USER\n# check if HPC_DM_UTILS has been set\necho $HPC_DM_UTILS\n\n\nrun projark\nprojark --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --projectnumber 12345-$USER --executor local\n\n\nExpected sample output\n\nSOURCE_CONDA_CMD is set to: . \"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh\"\nHPC_DM_UTILS is set to: /data/kopardevn/GitRepos/HPC_DME_APIs/utils\nparkit_folder2hpcdme --folder \"/data/$USER/parkit_tmp/CCBR-12345-$USER\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\" --projecttitle \"CCBR-12345-kopardevn\" --projectdesc \"CCBR-12345-kopardevn\" --executor \"local\" --hpcdmutilspath /data/kopardevn/GitRepos/HPC_DME_APIs/utils --makereadme\n################ Running createtar #############################\nparkit createtar --folder \"/data/$USER/parkit_tmp/CCBR-12345-$USER\"\ntar cvf /data/$USER/parkit_tmp/CCBR-12345-$USER.tar /data/$USER/parkit_tmp/CCBR-12345-$USER &gt; /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.md5 file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.md5 file was created!\n################################################################\n############ Running createemptycollection ######################\nparkit createemptycollection --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\" --projectdesc \"CCBR-12345-kopardevn\" --projecttitle \"CCBR-12345-kopardevn\"\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\ncat /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json && rm -f /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Rawdata\ncat /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json && rm -f /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json\n################################################################\n########### Running createmetadata ##############################\nparkit createmetadata --tarball \"/data/$USER/parkit_tmp/CCBR-12345-$USER.tar\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\"\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json file was created!\n################################################################\n############# Running deposittar ###############################\nparkit deposittar --tarball \"/data/$USER/parkit_tmp/CCBR-12345-$USER.tar\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\"\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar.filelist /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject_multipart /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar /data/$USER/parkit_tmp/CCBR-12345-$USER.tar\n################################################################\n\n\n❗ NOTE: remove --executor local from the command when running on real data (not test data) to submit jobs through SLURM\n\n\n❗ NOTE: add --rawdata when folder contains raw fastqs\n\n\n\nverify transfer\nTransfer can be verified by logging into HPC DME web interface.\n\n\n\nalt text\n\n\n\n\ncleanup\nDelete unwanted collection from HPC DME.\n# load java\nmodule load java\n# load dm_ commands\nsource $HPC_DM_UTILS/functions\n# delete collection recursively\ndm_delete_collection -r /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER\n\n\nExpected sample output\n\nReading properties from /data/kopardevn/GitRepos/HPC_DME_APIs/utils/hpcdme.properties\nWARNING: You have requested recursive delete of the collection. This will delete all files and sub-collections within it recursively. Are you sure you want to proceed? (Y/N):\nY\nWould you like to see the list of files to delete ?\nN\nThe collection /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn and all files and sub-collections within it will be recursively deleted. Proceed with deletion ? (Y/N):\nY\nExecuting: https://hpcdmeapi.nci.nih.gov:8080/collection\nWrote results into /data/kopardevn/HPCDMELOG/tmp/getCollections_Records20241010.txt\nCmd process Completed\nOct 10, 2024 4:43:09 PM org.springframework.shell.core.AbstractShell handleExecutionResult\nINFO: CLI_SUCCESS\n\n\n⚠️ Reach out to Vishal Koparde in case you run into issues.",
+    "crumbs": [
+      "Home",
+      "HPCDME",
+      "File Transfers from Biowulf"
+    ]
+  },
+  {
+    "objectID": "docs/datashare.html",
+    "href": "docs/datashare.html",
+    "title": "Datashare",
+    "section": "",
+    "text": "Host data on Helix or Biowulf, that is publicly accessible through a URL",
+    "crumbs": [
+      "Home",
+      "Datashare"
+    ]
+  },
+  {
+    "objectID": "docs/datashare.html#setup",
+    "href": "docs/datashare.html#setup",
+    "title": "Datashare",
+    "section": "Setup",
+    "text": "Setup\n\nAccess Login\n# Helix\nssh -Y username@helix.nih.gov\n\n# Biowulf\nssh -Y username@biowulf.nih.gov\nCreate a new dir (tutorial) in the datashare path:\ncd /data/CCBR/datashare/\nmkdir tutorial",
+    "crumbs": [
+      "Home",
+      "Datashare"
+    ]
+  },
+  {
+    "objectID": "docs/datashare.html#processing",
+    "href": "docs/datashare.html#processing",
+    "title": "Datashare",
+    "section": "Processing",
+    "text": "Processing\n\nMake a directory in the datashare folder\nNOTE: For all steps below, an example is shown for Helix, but the same process is applicable for Biowulf, after changing the helix.nih.gov to biowulf.nih.gov\nNow you can transfer your data to the new directory. One method is to use scp to copy data from your local machine to Helix.\nHere is an example of using scp to copy the file file.txt from a local directory to Helix.\nscp /data/$USER/file.txt username@helix.nih.gov:/data/CCBR/datashare/tutorial/\nTo copy multiple directories recursively, you can also include the -r command with scp and from the top level directory:\nscp -r /data/$USER/ username@helix.nih.gov:/data/CCBR/datashare/tutorial/\n\n\nCreate public permissions for data\nWhen the data has been successully copied, we need to open the permissions.\nNOTE: This will give open access to anyone with the link. Ensure this is appropriate for the data type\n# cd to the shared dir\ncd /data/CCBR/datashare/\n\n# run CHMOD, twice\nchmod -R 777 tutorial\nchmod -R 777 tutorial/*\n\n# run SETFACL\nsetfacl -m u:webcpu:r-x tutorial/*",
+    "crumbs": [
+      "Home",
+      "Datashare"
+    ]
+  },
+  {
+    "objectID": "docs/datashare.html#public-access",
+    "href": "docs/datashare.html#public-access",
+    "title": "Datashare",
+    "section": "Public Access",
+    "text": "Public Access\nNOTE: You must be logged into HPC in order to access these files from a web browser.\nFiles will be available for access through a browser, via tools like wget and UCSC genome track browser via the following format:\nhttp://hpc.nih.gov/~CCBR/tutorial/file.txt\nFor more information and a tutorial for creating UCSC tracks, visit the CCBR HowTo Page.",
+    "crumbs": [
+      "Home",
+      "Datashare"
+    ]
+  },
+  {
+    "objectID": "docs/UCSC/2_creating_track_info.html",
+    "href": "docs/UCSC/2_creating_track_info.html",
+    "title": "Generating Track information",
+    "section": "",
+    "text": "It’s recommended to create a text file of all sample track information to ease in editing and submission to the UCSC browser website. A single line of code is needed for each sample which will provide the track location, sample name, description of the sample, whether to autoscale the samples, max height of the samples, view limits, and color. An example is provided below.\ntrack type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225\nUsers may find it helpful to create a single script which would create this text file for all samples. An example of this is listed below, which assumes that input files were generated using the CARLISLE pipeline. It can be edited to adapt to other output files, as needed.\nGenerally, each “track” line should have at least the following key value pairs: - name : label for the track - description : defines the center lable displayed - type : BAM, BED, bigBed, bigWig, etc. - bigDataUrl : URL of the data file - for other options see here\n\n\n\n\nsamples_list.txt: a single column text file with sampleID’s\ntrack_dir: path to the linked files\ntrack_output: path to output file\npeak_list: all peak types to be included\nmethod_list: what method to be included\ndedupe_list: type of duplication to be included\n\n# input arguments\nsample_list_input=/\"path/to/samples.txt\"\ntrack_dir=\"/path/to/shared/dir/\"\ntrack_output=\"/path/to/output/file/tracks.txt\npeak_list=(\"norm.relaxed.bed\" \"narrowPeak\" \"broadGo_peaks.bed\" \"narrowGo_peaks.bed\")\nmethod_list=(\"fragmentsbased\")\ndedup_list=(\"dedup\")\n\n# read sample file\nIFS=$'\\n' read -d '' -r -a sample_list &lt; $sample_list_input\n\nrun_sample_tracks (){\n    sample_id=$1\n    dedup_id=$2\n    \n    # sample name\n    # eg siNC_H3K27Ac_1.dedup.bigwig\n    complete_sample_id=\"${sample_id}.${dedup_id}\"\n\n    # set link location\n    link_loc=\"${track_dir}/bigwig/${complete_sample_id}.bigwig\"\n\n    # echo track info\n    echo \"track type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225\" &gt;&gt; $track_output\n}\n\n# iterate through samples\n# at the sample level only DEDUP matters\nfor sample_id in ${sample_list[@]}; do\n    for dedup_id in ${dedup_list[@]}; do\n        run_sample_tracks $sample_id $dedup_id\n    done\ndone",
+    "crumbs": [
+      "Home",
+      "UCSC",
+      "Generating Track information"
+    ]
+  },
+  {
+    "objectID": "docs/UCSC/2_creating_track_info.html#single-samples",
+    "href": "docs/UCSC/2_creating_track_info.html#single-samples",
+    "title": "Generating Track information",
+    "section": "",
+    "text": "It’s recommended to create a text file of all sample track information to ease in editing and submission to the UCSC browser website. A single line of code is needed for each sample which will provide the track location, sample name, description of the sample, whether to autoscale the samples, max height of the samples, view limits, and color. An example is provided below.\ntrack type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225\nUsers may find it helpful to create a single script which would create this text file for all samples. An example of this is listed below, which assumes that input files were generated using the CARLISLE pipeline. It can be edited to adapt to other output files, as needed.\nGenerally, each “track” line should have at least the following key value pairs: - name : label for the track - description : defines the center lable displayed - type : BAM, BED, bigBed, bigWig, etc. - bigDataUrl : URL of the data file - for other options see here",
+    "crumbs": [
+      "Home",
+      "UCSC",
+      "Generating Track information"
+    ]
+  },
+  {
+    "objectID": "docs/UCSC/2_creating_track_info.html#inputs",
+    "href": "docs/UCSC/2_creating_track_info.html#inputs",
+    "title": "Generating Track information",
+    "section": "",
+    "text": "samples_list.txt: a single column text file with sampleID’s\ntrack_dir: path to the linked files\ntrack_output: path to output file\npeak_list: all peak types to be included\nmethod_list: what method to be included\ndedupe_list: type of duplication to be included\n\n# input arguments\nsample_list_input=/\"path/to/samples.txt\"\ntrack_dir=\"/path/to/shared/dir/\"\ntrack_output=\"/path/to/output/file/tracks.txt\npeak_list=(\"norm.relaxed.bed\" \"narrowPeak\" \"broadGo_peaks.bed\" \"narrowGo_peaks.bed\")\nmethod_list=(\"fragmentsbased\")\ndedup_list=(\"dedup\")\n\n# read sample file\nIFS=$'\\n' read -d '' -r -a sample_list &lt; $sample_list_input\n\nrun_sample_tracks (){\n    sample_id=$1\n    dedup_id=$2\n    \n    # sample name\n    # eg siNC_H3K27Ac_1.dedup.bigwig\n    complete_sample_id=\"${sample_id}.${dedup_id}\"\n\n    # set link location\n    link_loc=\"${track_dir}/bigwig/${complete_sample_id}.bigwig\"\n\n    # echo track info\n    echo \"track type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225\" &gt;&gt; $track_output\n}\n\n# iterate through samples\n# at the sample level only DEDUP matters\nfor sample_id in ${sample_list[@]}; do\n    for dedup_id in ${dedup_list[@]}; do\n        run_sample_tracks $sample_id $dedup_id\n    done\ndone",
+    "crumbs": [
+      "Home",
+      "UCSC",
+      "Generating Track information"
+    ]
+  },
+  {
+    "objectID": "docs/UCSC/2_creating_track_info.html#inputs-1",
+    "href": "docs/UCSC/2_creating_track_info.html#inputs-1",
+    "title": "Generating Track information",
+    "section": "Inputs",
+    "text": "Inputs\n\nsamples_list.txt: a single column text file with sampleID’s\ntrack_dir: path to the linked files\ntrack_output: path to output file\npeak_list: all peak types to be included\nmethod_list: what method to be included\ndedupe_list: type of duplication to be included\n\n# input arguments\nsample_list_input=/\"path/to/samples.txt\"\ntrack_dir=\"/path/to/shared/dir/\"\ntrack_output=\"/path/to/output/file/tracks.txt\npeak_list=(\"norm.relaxed.bed\" \"narrowPeak\" \"broadGo_peaks.bed\" \"narrowGo_peaks.bed\")\nmethod_list=(\"fragmentsbased\")\ndedup_list=(\"dedup\")\n\n# read sample file\nIFS=$'\\n' read -d '' -r -a deg_list &lt; $deg_list_input\n\nrun_comparison_tracks (){\n    peak_type=$1\n    method_type=$2\n    dedup_type=$3\n    sample_id=$4\n    \n    # sample name\n    # eg siSmyd3_2m_Smyd3_0.25HCHO_500K_vs_siNC_2m_Smyd3_0.25HCHO_500K__no_dedup__norm.relaxed\n    complete_sample_id=\"${sample_id}__${dedup_type}__${peak_type}\"\n    \n    # set link location\n    link_loc=\"${track_dir}/bigbed/${complete_sample_id}_${method_type}_diffresults.bigbed\"\n\n    # echo track info\n    echo \"track name=${sample_id}_${peak_type} bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigbed/${complete_sample_id}_fragmentsbased_diffresults.bigbed type=bigBed itemRgb=On\" &gt;&gt; $track_info\n}\n\n# iterate through samples / peaks / methods / dedup\nfor sample_id in ${deg_list[@]}; do\n    for peak_id in ${peak_list[@]}; do\n        for method_id in ${method_list[@]}; do\n            for dedup_id in ${dedup_list[@]}; do\n                run_comparison_tracks $peak_id $method_id $dedup_id $sample_id\n            done\n        done\n    done\ndone",
+    "crumbs": [
+      "Home",
+      "UCSC",
+      "Generating Track information"
+    ]
+  },
+  {
+    "objectID": "docs/UCSC/1_creating_inputs.html",
+    "href": "docs/UCSC/1_creating_inputs.html",
+    "title": "CCBR How-Tos",
+    "section": "",
+    "text": "In order to use the genomic broswer features, sample files must be created.\n\n\nFor individual samples, where peak density is to be observed, bigwig formatted files must be generated. If using the CCBR pipelines these are automatically generated as outputs of the pipeline (WORKDIR/results/bigwig). In many cases, scaling or normalization of bigwig is required to visualize multiple samples in comparison with each other. See various deeptools options for details/ideas. If not using CCBR pipelines, example code is provided below for the file generation.\nmodue load ucsc\n        \nfragments_bed=\"/path/to/sample1.fragments.bed\"\nbw=\"/path/to/sample1.bigwig\"\ngenome_len=\"numeric_genome_length\"\nbg=\"/path/to/sample1.bedgraph\"\nbw=\"/path/to/sample2.bigwig\"\n\n# if using a spike-in scale, the scaling factor should be applied\n# while not required, it is recommended for CUT&RUN experiements\nspikein_scale=\"spike_in_value\"\n\n# create bed file\nbedtools genomecov -bg -scale $spikein_scale -i $fragments_bed -g $genome_len &gt; $bg\n\n# create bigwig file\nbedGraphToBigWig $bg $genome_len $bw\n\n\n\nFor contrasts, where peak differences are to be observed, bigbed formatted files must be generated. If using the CCBR/CARLISLE pipeline these are automatically generated as outputs of the pipeline (WORKDIR/results/peaks/contrasts/contrast_id/). If not using this pipeline, example code is provided below for the file generation.\nmodule load ucsc\n\nbed=\"/path/to/sample1_vs_sample2_fragmentsbased_diffresults.bed\"\nbigbed=\"/path/to/output/sample1_vs_sample2_fragmentsbased_diffresults.bigbed\"\ngenome_len=\"numeric_genome_length\"\n\n# create bigbed file\nbedToBigBed -type=bed9 $bed $genome_len $bigbed",
+    "crumbs": [
+      "Home",
+      "UCSC",
+      "Generating Inputs"
+    ]
+  },
+  {
+    "objectID": "docs/UCSC/1_creating_inputs.html#generating-inputs",
+    "href": "docs/UCSC/1_creating_inputs.html#generating-inputs",
+    "title": "CCBR How-Tos",
+    "section": "",
+    "text": "In order to use the genomic broswer features, sample files must be created.\n\n\nFor individual samples, where peak density is to be observed, bigwig formatted files must be generated. If using the CCBR pipelines these are automatically generated as outputs of the pipeline (WORKDIR/results/bigwig). In many cases, scaling or normalization of bigwig is required to visualize multiple samples in comparison with each other. See various deeptools options for details/ideas. If not using CCBR pipelines, example code is provided below for the file generation.\nmodue load ucsc\n        \nfragments_bed=\"/path/to/sample1.fragments.bed\"\nbw=\"/path/to/sample1.bigwig\"\ngenome_len=\"numeric_genome_length\"\nbg=\"/path/to/sample1.bedgraph\"\nbw=\"/path/to/sample2.bigwig\"\n\n# if using a spike-in scale, the scaling factor should be applied\n# while not required, it is recommended for CUT&RUN experiements\nspikein_scale=\"spike_in_value\"\n\n# create bed file\nbedtools genomecov -bg -scale $spikein_scale -i $fragments_bed -g $genome_len &gt; $bg\n\n# create bigwig file\nbedGraphToBigWig $bg $genome_len $bw\n\n\n\nFor contrasts, where peak differences are to be observed, bigbed formatted files must be generated. If using the CCBR/CARLISLE pipeline these are automatically generated as outputs of the pipeline (WORKDIR/results/peaks/contrasts/contrast_id/). If not using this pipeline, example code is provided below for the file generation.\nmodule load ucsc\n\nbed=\"/path/to/sample1_vs_sample2_fragmentsbased_diffresults.bed\"\nbigbed=\"/path/to/output/sample1_vs_sample2_fragmentsbased_diffresults.bigbed\"\ngenome_len=\"numeric_genome_length\"\n\n# create bigbed file\nbedToBigBed -type=bed9 $bed $genome_len $bigbed",
+    "crumbs": [
+      "Home",
+      "UCSC",
+      "Generating Inputs"
+    ]
+  },
+  {
+    "objectID": "docs/UCSC/1_creating_inputs.html#sharing-data",
+    "href": "docs/UCSC/1_creating_inputs.html#sharing-data",
+    "title": "CCBR How-Tos",
+    "section": "Sharing data",
+    "text": "Sharing data\nFor all sample types, data must be stored on a shared directory. It is recommended that symlnks be created from the source location to this shared directory to ensure that minial disc space is being used. Example code for creating symlinks is provided below.\n\nsingle sample\n# single sample\n## set source file location\nsource_loc=\"/WORKDIR/results/bigwig/sample1.bigwig \"\n\n## set destination link location\nlink_loc=\"/SHAREDDIR/bigwig/sample1.bigwig\"\n\n## create hard links\nln $source_loc $link_loc\n\n\ncontrast sample\n# contrast\n## set source file location\nsource_loc=\"WORKDIR/results/peaks/contrasts/sample1_vs_sample2/sample1_vs_sample2_fragmentsbased_diffresults.bigbed \"\n\n## set destination link location\nlink_loc=\"/SHAREDDIR/bigbed/sample1_vs_sample2.bigbed\"\n\n## create hard links\nln $source_loc $link_loc\nOnce the links have been generated, the data folder must be open to read and write access.\n## set destination link location\nlink_loc=\"/SHAREDDIR/bigbed/\"\n\n# open dir\nchmod -R a+rX $link_loc",
+    "crumbs": [
+      "Home",
+      "UCSC",
+      "Generating Inputs"
+    ]
+  },
+  {
     "objectID": "docs/R-package/create-from-conda/0_setup.html",
     "href": "docs/R-package/create-from-conda/0_setup.html",
     "title": "setup",
@@ -735,370 +1102,63 @@
     ]
   },
   {
-    "objectID": "docs/UCSC/1_creating_inputs.html",
-    "href": "docs/UCSC/1_creating_inputs.html",
-    "title": "CCBR How-Tos",
+    "objectID": "docs/ai-ml/gh-pilot-vs-code/index.html",
+    "href": "docs/ai-ml/gh-pilot-vs-code/index.html",
+    "title": "GitHub CoPilot in VS Code",
     "section": "",
-    "text": "In order to use the genomic broswer features, sample files must be created.\n\n\nFor individual samples, where peak density is to be observed, bigwig formatted files must be generated. If using the CCBR pipelines these are automatically generated as outputs of the pipeline (WORKDIR/results/bigwig). In many cases, scaling or normalization of bigwig is required to visualize multiple samples in comparison with each other. See various deeptools options for details/ideas. If not using CCBR pipelines, example code is provided below for the file generation.\nmodue load ucsc\n        \nfragments_bed=\"/path/to/sample1.fragments.bed\"\nbw=\"/path/to/sample1.bigwig\"\ngenome_len=\"numeric_genome_length\"\nbg=\"/path/to/sample1.bedgraph\"\nbw=\"/path/to/sample2.bigwig\"\n\n# if using a spike-in scale, the scaling factor should be applied\n# while not required, it is recommended for CUT&RUN experiements\nspikein_scale=\"spike_in_value\"\n\n# create bed file\nbedtools genomecov -bg -scale $spikein_scale -i $fragments_bed -g $genome_len &gt; $bg\n\n# create bigwig file\nbedGraphToBigWig $bg $genome_len $bw\n\n\n\nFor contrasts, where peak differences are to be observed, bigbed formatted files must be generated. If using the CCBR/CARLISLE pipeline these are automatically generated as outputs of the pipeline (WORKDIR/results/peaks/contrasts/contrast_id/). If not using this pipeline, example code is provided below for the file generation.\nmodule load ucsc\n\nbed=\"/path/to/sample1_vs_sample2_fragmentsbased_diffresults.bed\"\nbigbed=\"/path/to/output/sample1_vs_sample2_fragmentsbased_diffresults.bigbed\"\ngenome_len=\"numeric_genome_length\"\n\n# create bigbed file\nbedToBigBed -type=bed9 $bed $genome_len $bigbed",
+    "text": "CCBR members can view the recording of this demo:",
     "crumbs": [
       "Home",
-      "UCSC",
-      "Generating Inputs"
+      "Ai Ml",
+      "GitHub CoPilot in VS Code"
     ]
   },
   {
-    "objectID": "docs/UCSC/1_creating_inputs.html#generating-inputs",
-    "href": "docs/UCSC/1_creating_inputs.html#generating-inputs",
-    "title": "CCBR How-Tos",
-    "section": "",
-    "text": "In order to use the genomic broswer features, sample files must be created.\n\n\nFor individual samples, where peak density is to be observed, bigwig formatted files must be generated. If using the CCBR pipelines these are automatically generated as outputs of the pipeline (WORKDIR/results/bigwig). In many cases, scaling or normalization of bigwig is required to visualize multiple samples in comparison with each other. See various deeptools options for details/ideas. If not using CCBR pipelines, example code is provided below for the file generation.\nmodue load ucsc\n        \nfragments_bed=\"/path/to/sample1.fragments.bed\"\nbw=\"/path/to/sample1.bigwig\"\ngenome_len=\"numeric_genome_length\"\nbg=\"/path/to/sample1.bedgraph\"\nbw=\"/path/to/sample2.bigwig\"\n\n# if using a spike-in scale, the scaling factor should be applied\n# while not required, it is recommended for CUT&RUN experiements\nspikein_scale=\"spike_in_value\"\n\n# create bed file\nbedtools genomecov -bg -scale $spikein_scale -i $fragments_bed -g $genome_len &gt; $bg\n\n# create bigwig file\nbedGraphToBigWig $bg $genome_len $bw\n\n\n\nFor contrasts, where peak differences are to be observed, bigbed formatted files must be generated. If using the CCBR/CARLISLE pipeline these are automatically generated as outputs of the pipeline (WORKDIR/results/peaks/contrasts/contrast_id/). If not using this pipeline, example code is provided below for the file generation.\nmodule load ucsc\n\nbed=\"/path/to/sample1_vs_sample2_fragmentsbased_diffresults.bed\"\nbigbed=\"/path/to/output/sample1_vs_sample2_fragmentsbased_diffresults.bigbed\"\ngenome_len=\"numeric_genome_length\"\n\n# create bigbed file\nbedToBigBed -type=bed9 $bed $genome_len $bigbed",
+    "objectID": "docs/ai-ml/gh-pilot-vs-code/index.html#why-copilot",
+    "href": "docs/ai-ml/gh-pilot-vs-code/index.html#why-copilot",
+    "title": "GitHub CoPilot in VS Code",
+    "section": "Why CoPilot?",
+    "text": "Why CoPilot?\nCoPilot is built to work seamlessly in your IDE. It is a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc. Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.\nWith the web interface for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can get onerous quickly.\nGitHub CoPilot in your IDE removes friction and makes using LLMs for development tasks a breeze!",
     "crumbs": [
       "Home",
-      "UCSC",
-      "Generating Inputs"
+      "Ai Ml",
+      "GitHub CoPilot in VS Code"
     ]
   },
   {
-    "objectID": "docs/UCSC/1_creating_inputs.html#sharing-data",
-    "href": "docs/UCSC/1_creating_inputs.html#sharing-data",
-    "title": "CCBR How-Tos",
-    "section": "Sharing data",
-    "text": "Sharing data\nFor all sample types, data must be stored on a shared directory. It is recommended that symlnks be created from the source location to this shared directory to ensure that minial disc space is being used. Example code for creating symlinks is provided below.\n\nsingle sample\n# single sample\n## set source file location\nsource_loc=\"/WORKDIR/results/bigwig/sample1.bigwig \"\n\n## set destination link location\nlink_loc=\"/SHAREDDIR/bigwig/sample1.bigwig\"\n\n## create hard links\nln $source_loc $link_loc\n\n\ncontrast sample\n# contrast\n## set source file location\nsource_loc=\"WORKDIR/results/peaks/contrasts/sample1_vs_sample2/sample1_vs_sample2_fragmentsbased_diffresults.bigbed \"\n\n## set destination link location\nlink_loc=\"/SHAREDDIR/bigbed/sample1_vs_sample2.bigbed\"\n\n## create hard links\nln $source_loc $link_loc\nOnce the links have been generated, the data folder must be open to read and write access.\n## set destination link location\nlink_loc=\"/SHAREDDIR/bigbed/\"\n\n# open dir\nchmod -R a+rX $link_loc",
-    "crumbs": [
-      "Home",
-      "UCSC",
-      "Generating Inputs"
-    ]
-  },
-  {
-    "objectID": "docs/UCSC/2_creating_track_info.html",
-    "href": "docs/UCSC/2_creating_track_info.html",
-    "title": "Generating Track information",
-    "section": "",
-    "text": "It’s recommended to create a text file of all sample track information to ease in editing and submission to the UCSC browser website. A single line of code is needed for each sample which will provide the track location, sample name, description of the sample, whether to autoscale the samples, max height of the samples, view limits, and color. An example is provided below.\ntrack type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225\nUsers may find it helpful to create a single script which would create this text file for all samples. An example of this is listed below, which assumes that input files were generated using the CARLISLE pipeline. It can be edited to adapt to other output files, as needed.\nGenerally, each “track” line should have at least the following key value pairs: - name : label for the track - description : defines the center lable displayed - type : BAM, BED, bigBed, bigWig, etc. - bigDataUrl : URL of the data file - for other options see here\n\n\n\n\nsamples_list.txt: a single column text file with sampleID’s\ntrack_dir: path to the linked files\ntrack_output: path to output file\npeak_list: all peak types to be included\nmethod_list: what method to be included\ndedupe_list: type of duplication to be included\n\n# input arguments\nsample_list_input=/\"path/to/samples.txt\"\ntrack_dir=\"/path/to/shared/dir/\"\ntrack_output=\"/path/to/output/file/tracks.txt\npeak_list=(\"norm.relaxed.bed\" \"narrowPeak\" \"broadGo_peaks.bed\" \"narrowGo_peaks.bed\")\nmethod_list=(\"fragmentsbased\")\ndedup_list=(\"dedup\")\n\n# read sample file\nIFS=$'\\n' read -d '' -r -a sample_list &lt; $sample_list_input\n\nrun_sample_tracks (){\n    sample_id=$1\n    dedup_id=$2\n    \n    # sample name\n    # eg siNC_H3K27Ac_1.dedup.bigwig\n    complete_sample_id=\"${sample_id}.${dedup_id}\"\n\n    # set link location\n    link_loc=\"${track_dir}/bigwig/${complete_sample_id}.bigwig\"\n\n    # echo track info\n    echo \"track type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225\" &gt;&gt; $track_output\n}\n\n# iterate through samples\n# at the sample level only DEDUP matters\nfor sample_id in ${sample_list[@]}; do\n    for dedup_id in ${dedup_list[@]}; do\n        run_sample_tracks $sample_id $dedup_id\n    done\ndone",
-    "crumbs": [
-      "Home",
-      "UCSC",
-      "Generating Track information"
-    ]
-  },
-  {
-    "objectID": "docs/UCSC/2_creating_track_info.html#single-samples",
-    "href": "docs/UCSC/2_creating_track_info.html#single-samples",
-    "title": "Generating Track information",
-    "section": "",
-    "text": "It’s recommended to create a text file of all sample track information to ease in editing and submission to the UCSC browser website. A single line of code is needed for each sample which will provide the track location, sample name, description of the sample, whether to autoscale the samples, max height of the samples, view limits, and color. An example is provided below.\ntrack type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225\nUsers may find it helpful to create a single script which would create this text file for all samples. An example of this is listed below, which assumes that input files were generated using the CARLISLE pipeline. It can be edited to adapt to other output files, as needed.\nGenerally, each “track” line should have at least the following key value pairs: - name : label for the track - description : defines the center lable displayed - type : BAM, BED, bigBed, bigWig, etc. - bigDataUrl : URL of the data file - for other options see here",
-    "crumbs": [
-      "Home",
-      "UCSC",
-      "Generating Track information"
-    ]
-  },
-  {
-    "objectID": "docs/UCSC/2_creating_track_info.html#inputs",
-    "href": "docs/UCSC/2_creating_track_info.html#inputs",
-    "title": "Generating Track information",
-    "section": "",
-    "text": "samples_list.txt: a single column text file with sampleID’s\ntrack_dir: path to the linked files\ntrack_output: path to output file\npeak_list: all peak types to be included\nmethod_list: what method to be included\ndedupe_list: type of duplication to be included\n\n# input arguments\nsample_list_input=/\"path/to/samples.txt\"\ntrack_dir=\"/path/to/shared/dir/\"\ntrack_output=\"/path/to/output/file/tracks.txt\npeak_list=(\"norm.relaxed.bed\" \"narrowPeak\" \"broadGo_peaks.bed\" \"narrowGo_peaks.bed\")\nmethod_list=(\"fragmentsbased\")\ndedup_list=(\"dedup\")\n\n# read sample file\nIFS=$'\\n' read -d '' -r -a sample_list &lt; $sample_list_input\n\nrun_sample_tracks (){\n    sample_id=$1\n    dedup_id=$2\n    \n    # sample name\n    # eg siNC_H3K27Ac_1.dedup.bigwig\n    complete_sample_id=\"${sample_id}.${dedup_id}\"\n\n    # set link location\n    link_loc=\"${track_dir}/bigwig/${complete_sample_id}.bigwig\"\n\n    # echo track info\n    echo \"track type=bigWig bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigwig/${complete_sample_id}.bigwig name=${sample_id} description=${sample_id} visibility=full autoScale=off maxHeightPixels=128:30:1 viewLimits=1:120 color=65,105,225\" &gt;&gt; $track_output\n}\n\n# iterate through samples\n# at the sample level only DEDUP matters\nfor sample_id in ${sample_list[@]}; do\n    for dedup_id in ${dedup_list[@]}; do\n        run_sample_tracks $sample_id $dedup_id\n    done\ndone",
-    "crumbs": [
-      "Home",
-      "UCSC",
-      "Generating Track information"
-    ]
-  },
-  {
-    "objectID": "docs/UCSC/2_creating_track_info.html#inputs-1",
-    "href": "docs/UCSC/2_creating_track_info.html#inputs-1",
-    "title": "Generating Track information",
-    "section": "Inputs",
-    "text": "Inputs\n\nsamples_list.txt: a single column text file with sampleID’s\ntrack_dir: path to the linked files\ntrack_output: path to output file\npeak_list: all peak types to be included\nmethod_list: what method to be included\ndedupe_list: type of duplication to be included\n\n# input arguments\nsample_list_input=/\"path/to/samples.txt\"\ntrack_dir=\"/path/to/shared/dir/\"\ntrack_output=\"/path/to/output/file/tracks.txt\npeak_list=(\"norm.relaxed.bed\" \"narrowPeak\" \"broadGo_peaks.bed\" \"narrowGo_peaks.bed\")\nmethod_list=(\"fragmentsbased\")\ndedup_list=(\"dedup\")\n\n# read sample file\nIFS=$'\\n' read -d '' -r -a deg_list &lt; $deg_list_input\n\nrun_comparison_tracks (){\n    peak_type=$1\n    method_type=$2\n    dedup_type=$3\n    sample_id=$4\n    \n    # sample name\n    # eg siSmyd3_2m_Smyd3_0.25HCHO_500K_vs_siNC_2m_Smyd3_0.25HCHO_500K__no_dedup__norm.relaxed\n    complete_sample_id=\"${sample_id}__${dedup_type}__${peak_type}\"\n    \n    # set link location\n    link_loc=\"${track_dir}/bigbed/${complete_sample_id}_${method_type}_diffresults.bigbed\"\n\n    # echo track info\n    echo \"track name=${sample_id}_${peak_type} bigDataUrl=https://hpc.nih.gov/~CCBR/ccbr1155/${dir_loc}/bigbed/${complete_sample_id}_fragmentsbased_diffresults.bigbed type=bigBed itemRgb=On\" &gt;&gt; $track_info\n}\n\n# iterate through samples / peaks / methods / dedup\nfor sample_id in ${deg_list[@]}; do\n    for peak_id in ${peak_list[@]}; do\n        for method_id in ${method_list[@]}; do\n            for dedup_id in ${dedup_list[@]}; do\n                run_comparison_tracks $peak_id $method_id $dedup_id $sample_id\n            done\n        done\n    done\ndone",
-    "crumbs": [
-      "Home",
-      "UCSC",
-      "Generating Track information"
-    ]
-  },
-  {
-    "objectID": "docs/datashare.html",
-    "href": "docs/datashare.html",
-    "title": "Datashare",
-    "section": "",
-    "text": "Host data on Helix or Biowulf, that is publicly accessible through a URL",
-    "crumbs": [
-      "Home",
-      "Datashare"
-    ]
-  },
-  {
-    "objectID": "docs/datashare.html#setup",
-    "href": "docs/datashare.html#setup",
-    "title": "Datashare",
+    "objectID": "docs/ai-ml/gh-pilot-vs-code/index.html#setup",
+    "href": "docs/ai-ml/gh-pilot-vs-code/index.html#setup",
+    "title": "GitHub CoPilot in VS Code",
     "section": "Setup",
-    "text": "Setup\n\nAccess Login\n# Helix\nssh -Y username@helix.nih.gov\n\n# Biowulf\nssh -Y username@biowulf.nih.gov\nCreate a new dir (tutorial) in the datashare path:\ncd /data/CCBR/datashare/\nmkdir tutorial",
+    "text": "Setup\n\nSign up for CoPilot\n\n\n\n\n\n\nNote\n\n\n\nAt this time, we cannot add more users to the NCI Enterprise premium CoPilot license. However, you can still do a lot with the the free version of CoPilot!\n\n\nEnable Copilot:\nhttps://github.com/settings/copilot\n\n\nSee more: GitHub Docs\n\n\n\nSet up CoPilot in VS Code\nVS Code Docs\n\nHover over the Copilot icon in the Status Bar and select Use AI Features.\n\n\n\nSign in to GitHub\n\n\n\nStart using Copilot in VS Code!\n\nThe GitHub Copilot Chat extension should now be installed.\n\nVS Code settings\nYou can customize CoPilot settings in VS Code by going to Settings &gt; Extensions &gt; GitHub Copilot or by using the keyboard shortcut CmdCmd on Mac.\n\n\n\n\n\n\n\nTip\n\n\n\nGitHub CoPilot also works well in Positron, an IDE created by Posit based on VS Code.",
     "crumbs": [
       "Home",
-      "Datashare"
+      "Ai Ml",
+      "GitHub CoPilot in VS Code"
     ]
   },
   {
-    "objectID": "docs/datashare.html#processing",
-    "href": "docs/datashare.html#processing",
-    "title": "Datashare",
-    "section": "Processing",
-    "text": "Processing\n\nMake a directory in the datashare folder\nNOTE: For all steps below, an example is shown for Helix, but the same process is applicable for Biowulf, after changing the helix.nih.gov to biowulf.nih.gov\nNow you can transfer your data to the new directory. One method is to use scp to copy data from your local machine to Helix.\nHere is an example of using scp to copy the file file.txt from a local directory to Helix.\nscp /data/$USER/file.txt username@helix.nih.gov:/data/CCBR/datashare/tutorial/\nTo copy multiple directories recursively, you can also include the -r command with scp and from the top level directory:\nscp -r /data/$USER/ username@helix.nih.gov:/data/CCBR/datashare/tutorial/\n\n\nCreate public permissions for data\nWhen the data has been successully copied, we need to open the permissions.\nNOTE: This will give open access to anyone with the link. Ensure this is appropriate for the data type\n# cd to the shared dir\ncd /data/CCBR/datashare/\n\n# run CHMOD, twice\nchmod -R 777 tutorial\nchmod -R 777 tutorial/*\n\n# run SETFACL\nsetfacl -m u:webcpu:r-x tutorial/*",
+    "objectID": "docs/ai-ml/gh-pilot-vs-code/index.html#demo-a-simple-python-script",
+    "href": "docs/ai-ml/gh-pilot-vs-code/index.html#demo-a-simple-python-script",
+    "title": "GitHub CoPilot in VS Code",
+    "section": "Demo: a simple python script",
+    "text": "Demo: a simple python script\nExample project: given a GTF file, extract the gene transcription start sites and create a BED file of promoter regions.\nFiles:\n\nextract_promoters.py - Example Python script for demonstrating CoPilot\nsetup.sh - Download data files for testing the Python script\n\n\nOpen project in new window\nCreate a new directory for your project and open it with VS Code.\n\nWe recommend initializing git and making a commit with the existing code before you start using CoPilot.\npwd\n# /path/to/extract-promoters/\ngit init\ngit add extract_promoters.py setup.sh\ngit commit -m 'Initial commit'\n\n\nAutomatic inline suggestions\n &lt;vscode://settings/editor.inlineSuggest.enabled&gt;\nExample: ask Copilot to write a docstring.\n\n\nInline chat\nExample: ask Copilot to break out a complicated line of code into a separate function.\nCmdCmd\n\n\nChat in sidebar\n\n\n\nOpen the sidebar\n\n\n\n\n\nModel selection\n\n\nExample: ask Copilot to explain how a function works\nExample: ask Copilot to explain the benefits of yield vs return in Python functions\n\n\nSource Control: git GUI in VS Code\nSuggest commit messages\n\n\n\n\nWriting unit tests\nAsk Copilot to suggest unit tests",
     "crumbs": [
       "Home",
-      "Datashare"
+      "Ai Ml",
+      "GitHub CoPilot in VS Code"
     ]
   },
   {
-    "objectID": "docs/datashare.html#public-access",
-    "href": "docs/datashare.html#public-access",
-    "title": "Datashare",
-    "section": "Public Access",
-    "text": "Public Access\nNOTE: You must be logged into HPC in order to access these files from a web browser.\nFiles will be available for access through a browser, via tools like wget and UCSC genome track browser via the following format:\nhttp://hpc.nih.gov/~CCBR/tutorial/file.txt\nFor more information and a tutorial for creating UCSC tracks, visit the CCBR HowTo Page.",
+    "objectID": "docs/ai-ml/gh-pilot-vs-code/index.html#tips",
+    "href": "docs/ai-ml/gh-pilot-vs-code/index.html#tips",
+    "title": "GitHub CoPilot in VS Code",
+    "section": "Tips",
+    "text": "Tips\n\nAlways read and understand the AI suggestion before accepting it\nWrite tests to make sure your code works the way you think it does\nUse git and commit your changes often\nPeriodically step back and reflect on what you’re trying to accomplish",
     "crumbs": [
       "Home",
-      "Datashare"
-    ]
-  },
-  {
-    "objectID": "docs/HPCDME/transfer.html",
-    "href": "docs/HPCDME/transfer.html",
-    "title": "File Transfers from Biowulf",
-    "section": "",
-    "text": "🛑 STOP: dm_register_dataobject_multipart does not work via SLURM. Hence, file transfers are NOT working when initiated from BIOWULF. We recommend transferring files from Helix.",
-    "crumbs": [
-      "Home",
-      "HPCDME",
-      "File Transfers from Biowulf"
-    ]
-  },
-  {
-    "objectID": "docs/HPCDME/transfer.html#background",
-    "href": "docs/HPCDME/transfer.html#background",
-    "title": "File Transfers from Biowulf",
-    "section": "Background",
-    "text": "Background\nRawdata or Project folders from Biowulf can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.",
-    "crumbs": [
-      "Home",
-      "HPCDME",
-      "File Transfers from Biowulf"
-    ]
-  },
-  {
-    "objectID": "docs/HPCDME/transfer.html#parkit",
-    "href": "docs/HPCDME/transfer.html#parkit",
-    "title": "File Transfers from Biowulf",
-    "section": "parkit",
-    "text": "parkit\nparkit is designed to assist analysts in archiving project data from the NIH’s Biowulf/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:\n\ncreate tarballs of their data (including .filelist and .md5sum files),\ngenerate metadata,\ncreate collections on HPC-DME, and\ndeposit tar files into the system for long-term storage.\n\nparkit also features comprehensive workflows that support both folder-based and tarball-based archiving. These workflows are integrated with the SLURM job scheduler, enabling efficient execution of archival tasks on the Biowulf HPC cluster. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.\n\n❗ NOTE: HPC DME API CLUs should already be setup as per these instructions in order to use parkit\n\n\n❗ NOTE: HPC_DM_UTILS environment variable should be set to point to the utils folder under the HPC_DME_APIs repo setup. Please see these instructions.\n\nprojark is the preferred parkit command to completely archive an entire folder as a tarball on HPCDME using SLURM.\n\nprojark usage\n\nload conda env\n# source conda\n. \"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh\"\n# activate parkit or parkit_dev environment\nconda activate parkit\n# check version of parkit\nparkit --version\nprojark --version\n\n\nExpected sample output\n\nv2.0.2-dev\nprojark is using the following parkit version:\nv2.0.2-dev\n\n\n\nprojark help\nprojark --help\n\n\nExpected sample output\n\nusage: projark [-h] --folder FOLDER --projectnumber PROJECTNUMBER\n               [--executor EXECUTOR] [--rawdata] [--cleanup]\n\nWrapper for folder2hpcdme for quick CCBR project archiving!\n\noptions:\n  -h, --help            show this help message and exit\n  --folder FOLDER       Input folder path to archive\n  --projectnumber PROJECTNUMBER\n                        CCBR project number.. destination will be\n                        /CCBR_Archive/GRIDFTP/Project_CCBR-&lt;projectnumber&gt;\n  --executor EXECUTOR   slurm or local\n  --rawdata             If tarball is rawdata and needs to go under folder\n                        Rawdata\n  --cleanup             post transfer step to delete local files\n\n\n\n\nprojark testing\n\nget dummy data\n# make a tmp folder\nmkdir -p /data/$USER/parkit_tmp\n# copy dummy project folder into the tmp folder\ncp -r /data/CCBR/projects/CCBR-12345 /data/$USER/parkit_tmp/CCBR-12345-$USER\n# check if HPC_DM_UTILS has been set\necho $HPC_DM_UTILS\n\n\nrun projark\nprojark --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --projectnumber 12345-$USER --executor local\n\n\nExpected sample output\n\nSOURCE_CONDA_CMD is set to: . \"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh\"\nHPC_DM_UTILS is set to: /data/kopardevn/GitRepos/HPC_DME_APIs/utils\nparkit_folder2hpcdme --folder \"/data/$USER/parkit_tmp/CCBR-12345-$USER\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\" --projecttitle \"CCBR-12345-kopardevn\" --projectdesc \"CCBR-12345-kopardevn\" --executor \"local\" --hpcdmutilspath /data/kopardevn/GitRepos/HPC_DME_APIs/utils --makereadme\n################ Running createtar #############################\nparkit createtar --folder \"/data/$USER/parkit_tmp/CCBR-12345-$USER\"\ntar cvf /data/$USER/parkit_tmp/CCBR-12345-$USER.tar /data/$USER/parkit_tmp/CCBR-12345-$USER &gt; /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.md5 file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.md5 file was created!\n################################################################\n############ Running createemptycollection ######################\nparkit createemptycollection --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\" --projectdesc \"CCBR-12345-kopardevn\" --projecttitle \"CCBR-12345-kopardevn\"\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\ncat /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json && rm -f /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Rawdata\ncat /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json && rm -f /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json\n################################################################\n########### Running createmetadata ##############################\nparkit createmetadata --tarball \"/data/$USER/parkit_tmp/CCBR-12345-$USER.tar\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\"\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json file was created!\n################################################################\n############# Running deposittar ###############################\nparkit deposittar --tarball \"/data/$USER/parkit_tmp/CCBR-12345-$USER.tar\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\"\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar.filelist /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject_multipart /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar /data/$USER/parkit_tmp/CCBR-12345-$USER.tar\n################################################################\n\n\n❗ NOTE: remove --executor local from the command when running on real data (not test data) to submit jobs through SLURM\n\n\n❗ NOTE: add --rawdata when folder contains raw fastqs\n\n\n\nverify transfer\nTransfer can be verified by logging into HPC DME web interface.\n\n\n\nalt text\n\n\n\n\ncleanup\nDelete unwanted collection from HPC DME.\n# load java\nmodule load java\n# load dm_ commands\nsource $HPC_DM_UTILS/functions\n# delete collection recursively\ndm_delete_collection -r /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER\n\n\nExpected sample output\n\nReading properties from /data/kopardevn/GitRepos/HPC_DME_APIs/utils/hpcdme.properties\nWARNING: You have requested recursive delete of the collection. This will delete all files and sub-collections within it recursively. Are you sure you want to proceed? (Y/N):\nY\nWould you like to see the list of files to delete ?\nN\nThe collection /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn and all files and sub-collections within it will be recursively deleted. Proceed with deletion ? (Y/N):\nY\nExecuting: https://hpcdmeapi.nci.nih.gov:8080/collection\nWrote results into /data/kopardevn/HPCDMELOG/tmp/getCollections_Records20241010.txt\nCmd process Completed\nOct 10, 2024 4:43:09 PM org.springframework.shell.core.AbstractShell handleExecutionResult\nINFO: CLI_SUCCESS\n\n\n⚠️ Reach out to Vishal Koparde in case you run into issues.",
-    "crumbs": [
-      "Home",
-      "HPCDME",
-      "File Transfers from Biowulf"
-    ]
-  },
-  {
-    "objectID": "docs/snakemake.html",
-    "href": "docs/snakemake.html",
-    "title": "Snakemake",
-    "section": "",
-    "text": "Step-by-step guide for setting up and learning to use Snakemake, with examples and use cases\nhttps://CCBR.github.io/snakemake_tutorial/",
-    "crumbs": [
-      "Home",
-      "Snakemake"
-    ]
-  },
-  {
-    "objectID": "contributors.html",
-    "href": "contributors.html",
-    "title": "Contributors",
-    "section": "",
-    "text": "Samantha\n\n\n\n\n\n\n\nVishal Koparde, PhD\n\n\n\n\n\n\n\nKelly Sovacool, PhD\n\n\n\n\n\n\n\nNed Cauley\n\n\n\n\n\nView the contributors graph on GitHub for more details."
-  },
-  {
-    "objectID": "CHANGELOG.html",
-    "href": "CHANGELOG.html",
-    "title": "CCBR How-Tos",
-    "section": "",
-    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nCode Club presentations (@kelly-sovacool)"
-  },
-  {
-    "objectID": "CHANGELOG.html#howtos-development-version",
-    "href": "CHANGELOG.html#howtos-development-version",
-    "title": "CCBR How-Tos",
-    "section": "",
-    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nCode Club presentations (@kelly-sovacool)"
-  },
-  {
-    "objectID": "CHANGELOG.html#howtos-0.1.0",
-    "href": "CHANGELOG.html#howtos-0.1.0",
-    "title": "CCBR How-Tos",
-    "section": "HowTos 0.1.0",
-    "text": "HowTos 0.1.0\n\nFirst draft of datashare on Helix doc by @escauley in https://github.com/CCBR/HowTos/pull/1\nFirst draft for Conda R package doc by @escauley in https://github.com/CCBR/HowTos/pull/2\nupdates by @kopardev in https://github.com/CCBR/HowTos/pull/3\nAdd checklist of required github helper files by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/7\nfeat: parkit how tos with HPCDME by @kopardev in https://github.com/CCBR/HowTos/pull/9\ndocs: clarify $USER in HPCDME properties by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/8\ndocs: Added info for setting Conda channels by @escauley in https://github.com/CCBR/HowTos/pull/13\nimprove HPCDME instructions by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/12\nchore(ci): address codeql alerts by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/15"
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "MIT License",
-    "section": "",
-    "text": "MIT License\nCopyright (c) 2025 HowTos authors\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
-  },
-  {
-    "objectID": "contributions.html",
-    "href": "contributions.html",
-    "title": "CCBR How-Tos",
-    "section": "",
-    "text": "The following individuals were the main contributors to these HowTo manuals:\n\nGitHub: Samantha Sevilla & Vishal Koparde\nTechDev: Samantha Sevilla\nHPCDME: Vishal Koparde\nUSCS Tracks: Samantha Sevilla\nRpackage: Ned Cauley\nOther How To’s: Ned Cauley\nTutorials: Samantha Sevilla"
-  },
-  {
-    "objectID": "docs/HPCDME/transferFromHelix.html",
-    "href": "docs/HPCDME/transferFromHelix.html",
-    "title": "File Transfer from HELIX",
-    "section": "",
-    "text": "Rawdata or Project folders from Helix can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.",
-    "crumbs": [
-      "Home",
-      "HPCDME",
-      "File Transfer from HELIX"
-    ]
-  },
-  {
-    "objectID": "docs/HPCDME/transferFromHelix.html#background",
-    "href": "docs/HPCDME/transferFromHelix.html#background",
-    "title": "File Transfer from HELIX",
-    "section": "",
-    "text": "Rawdata or Project folders from Helix can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.",
-    "crumbs": [
-      "Home",
-      "HPCDME",
-      "File Transfer from HELIX"
-    ]
-  },
-  {
-    "objectID": "docs/HPCDME/transferFromHelix.html#parkit",
-    "href": "docs/HPCDME/transferFromHelix.html#parkit",
-    "title": "File Transfer from HELIX",
-    "section": "parkit",
-    "text": "parkit\nparkit is designed to assist analysts in archiving project data from the NIH’s Helix/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically: - create tarballs of their data (including .filelist and .md5sum files), - generate metadata, - create collections on HPC-DME, and - deposit tar files into the system for long-term storage. parkit also features comprehensive workflows that support both folder-based and tarball-based archiving. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.\n\n❗ NOTE: HPC DME API CLUs should already be setup as per these instructions in order to use parkit\n\n\n❗ NOTE: HPC_DM_UTILS environment variable should be set to point to the utils folder under the HPC_DME_APIs repo setup. Please see these instructions.\n\n\n❗ NOTE: If it has been a few months since you last used HPC_DME_APIs or parkit or projark, then please run the following commands before you start using parkit or projark:\ncd $HPC_DM_UTILS\ngit pull\nsource $HPC_DM_UTILS/functions\ndm_generate_token\n\nprojark is the preferred parkit command to completely archive an entire folder as a tarball on HPCDME. SLURM is not available on Helix and it could take a few hours to upload large files. Hence, it is recommended to use “tmux” or “screen” command for projark to continue running even when you log out of Helix.\n\n❗ NOTE: Run the following commands inside a screen or tmux session.\n\n\nprojark usage\n\nload conda env\n# source conda\n. \"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh\"\n# activate parkit or parkit_dev environment\nconda activate parkit\n# check version of parkit\nparkit --version\nprojark --version\n\n\nExpected sample output\n\nv2.1.2\nprojark is using the following parkit version:\nv2.1.2\n\n\n\nprojark help\nprojark --help\n\n\nExpected sample output\n\nusage: projark [-h] --folder FOLDER --projectnumber PROJECTNUMBER\n               [--executor EXECUTOR] [--rawdata] [--cleanup]\n\nWrapper for folder2hpcdme for quick CCBR project archiving!\n\noptions:\n  -h, --help            show this help message and exit\n  --folder FOLDER       Input folder path to archive\n  --projectnumber PROJECTNUMBER\n                        CCBR project number.. destination will be\n                        /CCBR_Archive/GRIDFTP/Project_CCBR-&lt;projectnumber&gt;\n  --executor EXECUTOR   slurm or local\n  --rawdata             If tarball is rawdata and needs to go under folder\n                        Rawdata\n  --cleanup             post transfer step to delete local files\n\n\n\n\nprojark testing\n\nget dummy data\n# make a tmp folder\nmkdir -p /data/$USER/parkit_tmp\n# copy dummy project folder into the tmp folder\ncp -r /data/CCBR/projects/CCBR-12345 /data/$USER/parkit_tmp/CCBR-12345-$USER\n# check if HPC_DM_UTILS has been set\necho $HPC_DM_UTILS\n\n\nrun projark\nprojark --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --projectnumber 12345-$USER --executor local\n\n❗ NOTE: --executor slurm will not work on Helix\n\n\n\nExpected sample output\n\nSOURCE_CONDA_CMD is set to: . \"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh\"\nHPC_DM_UTILS is set to: /data/kopardevn/GitRepos/HPC_DME_APIs/utils\nparkit_folder2hpcdme --folder \"/data/$USER/parkit_tmp/CCBR-12345-$USER\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\" --projecttitle \"CCBR-12345-kopardevn\" --projectdesc \"CCBR-12345-kopardevn\" --executor \"local\" --hpcdmutilspath /data/kopardevn/GitRepos/HPC_DME_APIs/utils --makereadme\n################ Running createtar #############################\nparkit createtar --folder \"/data/$USER/parkit_tmp/CCBR-12345-$USER\"\ntar cvf /data/$USER/parkit_tmp/CCBR-12345-$USER.tar /data/$USER/parkit_tmp/CCBR-12345-$USER &gt; /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.md5 file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.md5 file was created!\n################################################################\n############ Running createemptycollection ######################\nparkit createemptycollection --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\" --projectdesc \"CCBR-12345-kopardevn\" --projecttitle \"CCBR-12345-kopardevn\"\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\ncat /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json && rm -f /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_collection /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Rawdata\ncat /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json && rm -f /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json\n################################################################\n########### Running createmetadata ##############################\nparkit createmetadata --tarball \"/data/$USER/parkit_tmp/CCBR-12345-$USER.tar\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\"\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json file was created!\ncreatemetadata: /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json file was created!\n################################################################\n############# Running deposittar ###############################\nparkit deposittar --tarball \"/data/$USER/parkit_tmp/CCBR-12345-$USER.tar\" --dest \"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn\"\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar.filelist /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.filelist\nmodule load java/11.0.21 && source $HPC_DM_UTILS/functions && dm_register_dataobject_multipart /data/$USER/parkit_tmp/CCBR-12345-$USER.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar /data/$USER/parkit_tmp/CCBR-12345-$USER.tar\n################################################################\n\n\n❗ NOTE: add --rawdata when folder contains raw fastqs\n\n\n\nverify transfer\nTransfer can be verified by logging into HPC DME web interface.\n\n\n\nalt text\n\n\n\n\ncleanup\nDelete unwanted collection from HPC DME.\n# load java\nmodule load java\n# load dm_ commands\nsource $HPC_DM_UTILS/functions\n# delete collection recursively\ndm_delete_collection -r /CCBR_Archive/GRIDFTP/Project_CCBR-12345-$USER\n\n\nExpected sample output\n\nReading properties from /data/kopardevn/GitRepos/HPC_DME_APIs/utils/hpcdme.properties\nWARNING: You have requested recursive delete of the collection. This will delete all files and sub-collections within it recursively. Are you sure you want to proceed? (Y/N):\nY\nWould you like to see the list of files to delete ?\nN\nThe collection /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn and all files and sub-collections within it will be recursively deleted. Proceed with deletion ? (Y/N):\nY\nExecuting: https://hpcdmeapi.nci.nih.gov:8080/collection\nWrote results into /data/kopardevn/HPCDMELOG/tmp/getCollections_Records20241010.txt\nCmd process Completed\nOct 10, 2024 4:43:09 PM org.springframework.shell.core.AbstractShell handleExecutionResult\nINFO: CLI_SUCCESS\n\n\n⚠️ Reach out to Vishal Koparde in case you run into issues.",
-    "crumbs": [
-      "Home",
-      "HPCDME",
-      "File Transfer from HELIX"
-    ]
-  },
-  {
-    "objectID": "docs/HPCDME/setup.html",
-    "href": "docs/HPCDME/setup.html",
-    "title": "HPCDME Setup",
-    "section": "",
-    "text": "Background\nHPC_DME_APIs provides command line utilities or CLUs to interface with HPCDME. This document describes some of the initial setup steps to get the CLUs working on Biowulf.\n\n\nSetup steps:\n\nClone repo:\nThe repo can be cloned at a location accessible to you:\ncd /data/$USER/\ngit clone https://github.com/CBIIT/HPC_DME_APIs.git\n\n\nCreate dirs, log files needed for HPCMDE\nmkdir -p /data/$USER/HPCDMELOG/tmp\ntouch /data/$USER/HPCDMELOG/tmp/hpc-cli.log\n\n\nCopy properties template\nhpcdme.properties is the file that all CLUs look into for various parameters like authentication password, file size limits, number of CPUs, etc. Make a copy of the template provided and prepare it for customization.\ncd /data/$USER/HPC_DME_APIs/utils\ncp hpcdme.properties-sample hpcdme.properties\n\n\nCustomize properties file\nSome of the parameters in this file have become obsolete over the course of time and are commmented out. Change paths and default values, as needed.\nNOTES\n\nReplace $USER with your actual username in the properties file. Bash variables will not be interpolated.\nLeave hpc.ssl.keystore.password=changeit as-is. changeit is not a variable but the actual password for our team.\nBe sure to set the proxy server URL as below (hpc.server.proxy.url=10.1.200.75) when running on biowulf/helix.\n\n#HPC DME Server URL\n#Production server settings\nhpc.server.url=https://hpcdmeapi.nci.nih.gov:8080\nhpc.ssl.keystore.path=hpc-client/keystore/keystore-prod.jks\n#hpc.ssl.keystore.password=hpcdmncif\nhpc.ssl.keystore.password=changeit\n\n#UAT server settings\n#hpc.server.url=https://fr-s-hpcdm-uat-p.ncifcrf.gov:7738/hpc-server\n#hpc.ssl.keystore.path=hpc-client/keystore/keystore-uat.jks\n#hpc.ssl.keystore.password=hpc-server-store-pwd\n\n#Proxy Settings\nhpc.server.proxy.url=10.1.200.75\nhpc.server.proxy.port=3128\n\nhpc.user=$USER\n\n#Globus settings\n#default globus endpoint to be used in registration and download\nhpc.globus.user=$USER\nhpc.default.globus.endpoint=ea6c8fd6-4810-11e8-8ee3-0a6d4e044368\n\n#Log files directory\nhpc.error-log.dir=/data/$USER/HPCDMELOG/tmp\n\n###HPC CLI Logging START####\n#ERROR, WARN, INFO, DEBUG\nhpc.log.level=ERROR\nhpc.log.file=/data/$USER/HPCDMELOG/tmp/hpc-cli.log\n###HPC CLI Logging END####\n\n#############################################################################\n# Please use caution changing following properties. They don't change usually\n#############################################################################\n#hpc.collection.service=collection\n#hpc.dataobject.service=dataObject\n#Log files directory\n#hpc.error-log.dir=.\n\n#Number of thread to run data file import from a CSV file\nhpc.job.thread.count=1\n\nupload.buffer.size=10000000\n\n#Retry count and backoff period for registerFromFilePath (Fixed backoff)\nhpc.retry.max.attempts=3\n#hpc.retry.backoff.period=5000\n\n#Multi-part upload thread pool, threshold and part size configuration\n#hpc.multipart.threadpoolsize=10\n#hpc.multipart.threshold=1074790400\n#hpc.multipart.chunksize=1073741824\n\n#globus.nexus.url=nexus.api.globusonline.org\n#globus.url=www.globusonline.org\n\n#HPC DME Login token file location\nhpc.login.token=tokens/hpcdme-auth.txt\n\n#Globus Login token file location\n#hpc.globus.login.token=tokens/globus-auth.txt\n#validate.md5.checksum=false\n\n# JAR version\n#hpc.jar.version=hpc-cli-1.4.0.jar\n\nNOTE: The current java version used is:\njava -version\nopenjdk version \"1.8.0_181\"\nOpenJDK Runtime Environment (build 1.8.0_181-b13)\nOpenJDK 64-Bit Server VM (build 25.181-b13, mixed mode)\n\n\n\nEdit ~/.bashrc\nAdd the CLUs to PATH by adding the following to ~/.bashrc file\n# export environment variable HPC_DM_UTILS pointing to directory where \n# HPC DME client utilities are, then source functions script in there \nexport HPC_DM_UTILS=/data/$USER/HPC_DME_APIs/utils\nsource $HPC_DM_UTILS/functions\nNext, source it\nsource ~/.bashrc\n\n\nGenerate token\nNow, you are all set to generate a token. This prevents from re-entering your password everytime.\ndm_generate_token\nIf the token generation takes longer than 45 seconds, check the connection:\nping hpcdmeapi.nci.nih.gov\nIf the connection responds, try to export the following proxy, and then re-run the dm_generate_tokens command:\nexport https_proxy=http://dtn01-e0:3128\nDone! You are now all set to use CLUs.\n\n\n\nReferences and Links\n\nHPC_DME_APIs repo\nUser guides\nWiki pages\nYuri Dinh",
-    "crumbs": [
-      "Home",
-      "HPCDME",
-      "HPCDME Setup"
-    ]
-  },
-  {
-    "objectID": "docs/UCSC/0_overview.html",
-    "href": "docs/UCSC/0_overview.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Overview\nThe UCSC Genome Browser allows for visualization of genomic data in an interactive and shareable format. User’s must create accounts with their NIH credentials, and have an active Biowulf account to create the tracks. In addition users have to be connect to VPN in order to view and create the tracks. Once bigwig files are generated and stored in a shared data location, genomic tracks can be edited, and permanent links created, accessible for collaborators to view.",
-    "crumbs": [
-      "Home",
-      "UCSC",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "docs/UCSC/3_creating_tracks.html",
-    "href": "docs/UCSC/3_creating_tracks.html",
-    "title": "Generating New Tracks",
-    "section": "",
-    "text": "Generating New Tracks\nBiowulf/Helix hosts its own instance of the UCSC Genome Browser which is behind the NIH firewall.\n\nLogin to VPN\nLogin to the UCSC Browser website\nSelect “My Data &gt; Custom Tracks”\nSelect “Add Custom Tracks”\nPaste the track data generated in Creating Track Info into the text box\nSelect “Submit”\nReview the track information. The column “Error” should be empty. If there is an error then a hyperlink will display “Show” although this often does not contain helpful error information.\nAfter troubleshooting any errors select “Go”\nUse the features at the bottom of the page to alter views and/or add additional track information\nSelect “My Data &gt; My Sessions”\nUnder “Save current settings as named session:” enter a descriptive name of the session\nSelect “Submit”\nThis will move the descriptive name entered into the “session name” list\nSelect the descriptve name, view your track information as saved\nCopy the hyperlink for this session and share as needed\n\n\n\nEditing a Previous Tracks\n\nLogin to VPN\nLogin to the UCSC Browser website\nSelect “My Data &gt; My Sessions”\nSelect the descriptve name of the session you’d like to edit\nEdit the tracks as needed:\n\nIf wanting to remove or add tracks, then select “My Data &gt; Custom Tracks”; follow steps 5-8 above.\nIf wanting to edit the view of the tracks, follow step 9 above.\n\nSelect “My Data &gt; My Sessions”\nUnder “Save current settings as named session:” enter a new descriptive name OR the previous name of the session if you’d like to overwrite it\nSelect “Submit”\nThis will move the descriptive name entered into the “session name” list\nSelect the descriptve name, view your track information as saved\nCopy the hyperlink for this session and share as needed\n\n\nTIP: Unindexed file formats like bed and gtf take significantly longer to load in the genome Browser and it is recommended to convert them to indexed formats like bigBed and bigWig prior to adding them to your session.",
-    "crumbs": [
-      "Home",
-      "UCSC",
-      "Generating New Tracks"
-    ]
-  },
-  {
-    "objectID": "docs/R-package/create-from-conda/1_build_pkg.html",
-    "href": "docs/R-package/create-from-conda/1_build_pkg.html",
-    "title": "Creating the package",
-    "section": "",
-    "text": "To create a package with Conda, you first need to make a new release and tag in the github repo of the R package you would like to create into a Conda Package.\nFor more information on best practices in R package creation, review this documentation.\nBefore creating the release on github, please check for proper dependencies listed in the files NAMESPACE and DESCRIPTION.\nThese files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be edited manually, while the NAMESPACE file should not be edited manually, but rather created automatically using the document() function.\nThe DESCRIPTION file must also be correctly formatted. For more information, see the following website.",
-    "crumbs": [
-      "Home",
-      "R Package",
-      "Create from Conda",
-      "Creating the package"
-    ]
-  },
-  {
-    "objectID": "docs/R-package/create-from-conda/1_build_pkg.html#overview",
-    "href": "docs/R-package/create-from-conda/1_build_pkg.html#overview",
-    "title": "Creating the package",
-    "section": "",
-    "text": "To create a package with Conda, you first need to make a new release and tag in the github repo of the R package you would like to create into a Conda Package.\nFor more information on best practices in R package creation, review this documentation.\nBefore creating the release on github, please check for proper dependencies listed in the files NAMESPACE and DESCRIPTION.\nThese files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be edited manually, while the NAMESPACE file should not be edited manually, but rather created automatically using the document() function.\nThe DESCRIPTION file must also be correctly formatted. For more information, see the following website.",
-    "crumbs": [
-      "Home",
-      "R Package",
-      "Create from Conda",
-      "Creating the package"
-    ]
-  },
-  {
-    "objectID": "docs/R-package/create-from-conda/1_build_pkg.html#download-the-r-package-release-from-github",
-    "href": "docs/R-package/create-from-conda/1_build_pkg.html#download-the-r-package-release-from-github",
-    "title": "Creating the package",
-    "section": "Download the R package release from Github",
-    "text": "Download the R package release from Github\nTo download the most recent release from the most recent tag on Github, activate Conda then use Conda skeleton to pull the correct URL. In the example below, replace $githubURL with the URL to your R package’s github repo.\nconda activate \n\nconda skeleton cran $githubURL\nA folder is then created for the downloaded release. Ror example running the following:\nconda skeleton cran https://github.com/NIDAP-Community/DSPWorkflow\nCreates the folder\nr-dspworkflow\nWithin this newly created folder is a file named meta.yaml. You will need to edit this file to include the channels and edit any information on the the package version number or dependency version numbers.\nHere is an example of the top of the meta.yaml file with the channels section added:\n{% set version = '0.9.5.2' %}\n\n{% set posix = 'm2-' if win else '' %}\n{% set native = 'm2w64-' if win else '' %}\n\npackage:\n  name: r-dspworkflow\n  version: {{ version|replace(\"-\", \"_\") }}\n  \nchannels:\n  - conda-forge\n  - bioconda\n  - default\n  - file://rstudio-files/RH/ccbr-projects/Conda_package_tutorial/local_channel/channel\n\nsource:\n\n  git_url: https://github.com/NIDAP-Community/DSPWorkflow\n  git_tag: 0.9.5\n\nbuild:\n  merge_build_host: True  # [win]\n  # If this is a new build for the same version, increment the build number.\n  number: 0\n  # no skip\n\n  # This is required to make R link correctly on Linux.\n  rpaths:\n    - lib/R/lib/\n    - lib/\n\n    # Suggests: testthat (== 3.1.4)\nrequirements:\n  build:\n    - {{ posix }}filesystem        # [win]\n    - {{ posix }}git\n    - {{ posix }}zip               # [win]\nHere is an example of the sections for specifying dependency versions from the meta.yaml file:\n  host:\n    - r-base =4.1.3=h2f963a2_5\n    - bioconductor-biobase =2.54.0=r41hc0cfd56_2\n    - bioconductor-biocgenerics =0.40.0=r41hdfd78af_0\n    - bioconductor-geomxtools =3.1.1=r41hdfd78af_0\n    - bioconductor-nanostringnctools =1.2.0\n    - bioconductor-spatialdecon =1.4.3\n    - bioconductor-complexheatmap =2.10.0=r41hdfd78af_0\n    - r-cowplot =1.1.1=r41hc72bb7e_1\n    - r-dplyr =1.0.9=r41h7525677_0\n    - r-ggforce =0.3.4=r41h7525677_0\n    - r-ggplot2 =3.3.6=r41hc72bb7e_1\n    - r-gridextra =2.3=r41hc72bb7e_1004\n    - r-gtable =0.3.0=r41hc72bb7e_3\n    - r-knitr =1.40=r41hc72bb7e_1\n    - r-patchwork =1.1.2=r41hc72bb7e_1\n    - r-reshape2 =1.4.4=r41h7525677_2\n    - r-scales =1.2.1=r41hc72bb7e_1\n    - r-tibble =3.1.8=r41h06615bd_1\n    - r-tidyr =1.2.1=r41h7525677_1\n    - r-umap =0.2.9.0=r41h7525677_1\n    - r-rtsne =0.16=r41h37cf8d7_1\n    - r-magrittr =2.0.3=r41h06615bd_1\n    - r-rlang =1.1.0=r41h38f115c_0\n    \n  run:\n    - r-base =4.1.3=h2f963a2_5\n    - bioconductor-biobase =2.54.0=r41hc0cfd56_2\n    - bioconductor-biocgenerics =0.40.0=r41hdfd78af_0\n    - bioconductor-geomxtools =3.1.1=r41hdfd78af_0\n    - bioconductor-nanostringnctools =1.2.0\n    - bioconductor-spatialdecon =1.4.3\n    - bioconductor-complexheatmap =2.10.0=r41hdfd78af_0\n    - r-cowplot =1.1.1=r41hc72bb7e_1\n    - r-dplyr =1.0.9=r41h7525677_0\n    - r-ggforce =0.3.4=r41h7525677_0\n    - r-ggplot2 =3.3.6=r41hc72bb7e_1\n    - r-gridextra =2.3=r41hc72bb7e_1004\n    - r-gtable =0.3.0=r41hc72bb7e_3\n    - r-knitr =1.40=r41hc72bb7e_1\n    - r-patchwork =1.1.2=r41hc72bb7e_1\n    - r-reshape2 =1.4.4=r41h7525677_2\n    - r-scales =1.2.1=r41hc72bb7e_1\n    - r-tibble =3.1.8=r41h06615bd_1\n    - r-tidyr =1.2.1=r41h7525677_1\n    - r-umap =0.2.9.0=r41h7525677_1\n    - r-rtsne =0.16=r41h37cf8d7_1\n    - r-magrittr =2.0.3=r41h06615bd_1\n    - r-rlang =1.1.0=r41h38f115c_0\nIn the above example, each of the dependencies has been assigned a conda build string, so that when conda builds a conda package, it will only use that specific build of the dependency from the listed conda channels. The above example is very restrictive, the dependencies can also be listed in the “meta.yaml” file to be more open–it will choose a conda build string that fits in with the other resolved dependency build strings based on what is available in the channels.\nAlso note that the “host” section matches the “run” section.\nHere is some examples of a more open setup for these dependencies:\n  host:\n    - r-base &gt;=4.1.3\n    - bioconductor-biobase &gt;=2.54.0\n    - bioconductor-biocgenerics &gt;=0.40.0\n    - bioconductor-geomxtools &gt;=3.1.1\n    - bioconductor-nanostringnctools &gt;=1.2.0\n    - bioconductor-spatialdecon =1.4.3\n    - bioconductor-complexheatmap &gt;=2.10.0\n    - r-cowplot &gt;=1.1.1\n    - r-dplyr &gt;=1.0.9\n    - r-ggforce &gt;=0.3.4\n    - r-ggplot2 &gt;=3.3.6\n    - r-gridextra &gt;=2.3\n    - r-gtable &gt;=0.3.0\n    - r-knitr &gt;=1.40\n    - r-patchwork &gt;=1.1.2\n    - r-reshape2 &gt;=1.4.4\n    - r-scales &gt;=1.2.1\n    - r-tibble &gt;=3.1.8\n    - r-tidyr &gt;=1.2.1\n    - r-umap &gt;=0.2.9.0\n    - r-rtsne &gt;=0.16\n    - r-magrittr &gt;=2.0.3\n    - r-rlang &gt;=1.1.0",
-    "crumbs": [
-      "Home",
-      "R Package",
-      "Create from Conda",
-      "Creating the package"
-    ]
-  },
-  {
-    "objectID": "docs/R-package/create-from-conda/1_build_pkg.html#build-the-conda-package",
-    "href": "docs/R-package/create-from-conda/1_build_pkg.html#build-the-conda-package",
-    "title": "Creating the package",
-    "section": "Build the Conda package",
-    "text": "Build the Conda package\nWhen the meta.yaml has been prepared, you can now build the Conda package. To do so, run the command, replacing\n\n$r-package with the name of the R package folder that was created after running conda skeleton (the folder where the meta.yaml is located).\n$build_log_name.log with the name for the log file, such as the date, time, and initials.\n\nconda-build $r-package 2&gt;&1|tee $build_log_name.log\nExample\nconda-build r-dspworkflow 2&gt;&1|tee 05_12_23_330_nc.log\n\nThe log file will list how conda has built the package, including what dependencies version numbers and corresponding build strings were used to resolve the conda environment. These dependencies are what we specified in the “meta.yaml” file. The log file will be useful troubleshooting a failed build.\nBe aware, the build can take anywhere from several minutes to an hour to complete, depending on the size of the package and the number of dependencies.\nThe conda package will be built as a tar.bz2 file.",
-    "crumbs": [
-      "Home",
-      "R Package",
-      "Create from Conda",
-      "Creating the package"
-    ]
-  },
-  {
-    "objectID": "docs/R-package/create-from-conda/common_issues.html",
-    "href": "docs/R-package/create-from-conda/common_issues.html",
-    "title": "common issues",
-    "section": "",
-    "text": "An important consideration for Conda builds is the list of dependencies, specified versions, and compatibility with each of the other dependencies.\nIf the meta.yaml and DESCRIPTION file specify specific package versions, Conda’s ability to resolve the Conda environment also becomes more limited.\nFor example, if the Conda package we are building has the following requirements:\nDependency A version == 1.0\nDependency B version &gt;= 2.5\nAnd the Dependencies located in our Conda channel have the following dependencies:\nDependency A version 1.0\n  - Dependency C version == 0.5\n\nDependency A version 1.2\n- Dependency C version &gt;= 0.7\n\nDependency B version 2.7\n  - Dependency C version &gt;= 0.7\nAs you can see, the Conda build will not be able to resolve the environment because Dependency A version 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.\nIn this case, if we changed our package’s DESCRIPTION and meta.yaml file to be:\nDependency A version &gt;= 1.0\nDependency B version &gt;= 2.5\nThe conda build will be able to resolve. This is a simplified version of a what are more often complex dependency structures, but it is an important concept in conda package building that will inevitably arise as a package’s dependencies become more specific.\nTo check on the versions of packages that are available in a Conda channel, use the command:\nconda search $dependency\nReplace $dependency with the name of package you would like to investigate. There are more optional commands for this function which can be found here\nTo check the dependencies of packages that exist in your Conda cache, go to the folder specified for your conda cache (that we specified earlier). In case you need to find that path you can use:\nconda info\nHere there will be a folder for each of the packages that has been used in a conda build (including the dependencies). In each folder is another folder called “info” and a file called “index.json” that lists information, such as depends for the package.\nHere is an example:\ncat /rstudio-files/ccbr-data/users/Ned/conda-cache/r-ggplot2-3.3.6-r41hc72bb7e_1/info/index.json\n\n{\n \"arch\": null,\n \"build\": \"r41hc72bb7e_1\",\n \"build_number\": 1,\n \"depends\": [\n   \"r-base &gt;=4.1,&lt;4.2.0a0\",\n   \"r-digest\",\n   \"r-glue\",\n   \"r-gtable &gt;=0.1.1\",\n   \"r-isoband\",\n   \"r-mass\",\n   \"r-mgcv\",\n   \"r-rlang &gt;=0.3.0\",\n   \"r-scales &gt;=0.5.0\",\n   \"r-tibble\",\n   \"r-withr &gt;=2.0.0\"\n ],\n \"license\": \"GPL-2.0-only\",\n \"license_family\": \"GPL2\",\n \"name\": \"r-ggplot2\",\n \"noarch\": \"generic\",\n \"platform\": null,\n \"subdir\": \"noarch\",\n \"timestamp\": 1665515494942,\n \"version\": \"3.3.6\"\n}\nIf you would like to specify an exact package to use in a conda channel for your conda build, specify the build string in your “meta.yaml” file. In the above example for ggplot version 3.3.6, the build string is listed in the folder name for package as well as in the index.json file for “build:”r41hc72bb7e_1”.",
-    "crumbs": [
-      "Home",
-      "R Package",
-      "Create from Conda",
-      "common issues"
-    ]
-  },
-  {
-    "objectID": "docs/R-package/create-from-conda/common_issues.html#package-dependency-issues",
-    "href": "docs/R-package/create-from-conda/common_issues.html#package-dependency-issues",
-    "title": "common issues",
-    "section": "",
-    "text": "An important consideration for Conda builds is the list of dependencies, specified versions, and compatibility with each of the other dependencies.\nIf the meta.yaml and DESCRIPTION file specify specific package versions, Conda’s ability to resolve the Conda environment also becomes more limited.\nFor example, if the Conda package we are building has the following requirements:\nDependency A version == 1.0\nDependency B version &gt;= 2.5\nAnd the Dependencies located in our Conda channel have the following dependencies:\nDependency A version 1.0\n  - Dependency C version == 0.5\n\nDependency A version 1.2\n- Dependency C version &gt;= 0.7\n\nDependency B version 2.7\n  - Dependency C version &gt;= 0.7\nAs you can see, the Conda build will not be able to resolve the environment because Dependency A version 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.\nIn this case, if we changed our package’s DESCRIPTION and meta.yaml file to be:\nDependency A version &gt;= 1.0\nDependency B version &gt;= 2.5\nThe conda build will be able to resolve. This is a simplified version of a what are more often complex dependency structures, but it is an important concept in conda package building that will inevitably arise as a package’s dependencies become more specific.\nTo check on the versions of packages that are available in a Conda channel, use the command:\nconda search $dependency\nReplace $dependency with the name of package you would like to investigate. There are more optional commands for this function which can be found here\nTo check the dependencies of packages that exist in your Conda cache, go to the folder specified for your conda cache (that we specified earlier). In case you need to find that path you can use:\nconda info\nHere there will be a folder for each of the packages that has been used in a conda build (including the dependencies). In each folder is another folder called “info” and a file called “index.json” that lists information, such as depends for the package.\nHere is an example:\ncat /rstudio-files/ccbr-data/users/Ned/conda-cache/r-ggplot2-3.3.6-r41hc72bb7e_1/info/index.json\n\n{\n \"arch\": null,\n \"build\": \"r41hc72bb7e_1\",\n \"build_number\": 1,\n \"depends\": [\n   \"r-base &gt;=4.1,&lt;4.2.0a0\",\n   \"r-digest\",\n   \"r-glue\",\n   \"r-gtable &gt;=0.1.1\",\n   \"r-isoband\",\n   \"r-mass\",\n   \"r-mgcv\",\n   \"r-rlang &gt;=0.3.0\",\n   \"r-scales &gt;=0.5.0\",\n   \"r-tibble\",\n   \"r-withr &gt;=2.0.0\"\n ],\n \"license\": \"GPL-2.0-only\",\n \"license_family\": \"GPL2\",\n \"name\": \"r-ggplot2\",\n \"noarch\": \"generic\",\n \"platform\": null,\n \"subdir\": \"noarch\",\n \"timestamp\": 1665515494942,\n \"version\": \"3.3.6\"\n}\nIf you would like to specify an exact package to use in a conda channel for your conda build, specify the build string in your “meta.yaml” file. In the above example for ggplot version 3.3.6, the build string is listed in the folder name for package as well as in the index.json file for “build:”r41hc72bb7e_1”.",
-    "crumbs": [
-      "Home",
-      "R Package",
-      "Create from Conda",
-      "common issues"
+      "Ai Ml",
+      "GitHub CoPilot in VS Code"
     ]
   },
   {
@@ -1106,7 +1166,7 @@
     "href": "docs/containers/build-docker-google-cloud.html",
     "title": "Build docker containers interactively with Google Cloud Shell",
     "section": "",
-    "text": "As of this writing, Docker Desktop is not approved for use on NCI laptops. If you want to build and push docker containers using the docker CLI, you can use the Google Cloud Shell: https://console.cloud.google.com/\nYou can create an account with your @nih.gov email. Certain aspects of Google Cloud cost money, but the free tier offers more than enough usage for building containers with the Google Cloud Shell.",
+    "text": "CCBR members can view the recording of this tutorial:\nAs of this writing, Docker Desktop is not approved for use on NCI laptops. If you want to build and push docker containers using the docker CLI, you can use the Google Cloud Shell: https://console.cloud.google.com/\nYou can create an account with your @nih.gov email. Certain aspects of Google Cloud cost money, but the free tier offers more than enough usage for building containers with the Google Cloud Shell.",
     "crumbs": [
       "Home",
       "Containers",
