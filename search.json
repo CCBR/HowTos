@@ -794,14 +794,14 @@
     "href": "CHANGELOG.html",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nCode Club presentations (@kelly-sovacool)\nGenerative AI:\n\nGitHub CoPilot CLI (#45, @kopardev)\nGitHub Copilot in VS Code (#47, @kelly-sovacool)\n\n\n\n\n\n\nStandardized documentation structure and navigation\nMinor content and formatting updates across guides"
+    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nResources from Code Club presentations (@kelly-sovacool)\nGenerative AI:\n\nGitHub Copilot CLI (#45, @kopardev)\nGitHub Copilot in VS Code (#47, @kelly-sovacool)\n\n\n\n\n\n\nStandardized documentation structure and navigation\nMinor content and formatting updates across guides"
   },
   {
     "objectID": "CHANGELOG.html#howtos-development-version",
     "href": "CHANGELOG.html#howtos-development-version",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nCode Club presentations (@kelly-sovacool)\nGenerative AI:\n\nGitHub CoPilot CLI (#45, @kopardev)\nGitHub Copilot in VS Code (#47, @kelly-sovacool)\n\n\n\n\n\n\nStandardized documentation structure and navigation\nMinor content and formatting updates across guides"
+    "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nResources from Code Club presentations (@kelly-sovacool)\nGenerative AI:\n\nGitHub Copilot CLI (#45, @kopardev)\nGitHub Copilot in VS Code (#47, @kelly-sovacool)\n\n\n\n\n\n\nStandardized documentation structure and navigation\nMinor content and formatting updates across guides"
   },
   {
     "objectID": "CHANGELOG.html#howtos-0.1.0",
@@ -820,133 +820,133 @@
   {
     "objectID": "docs/generative-AI/copilot-cli.html",
     "href": "docs/generative-AI/copilot-cli.html",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "",
     "text": "Installing GitHub Copilot CLI (Laptop Setup Only)\n  \n  🧩 Prerequisites\n  🧱 Step 1. Create and Activate a Unified Environment\n  \n  Verify Installation\n  \n  🔑 Step 2. Authenticate GitHub CLI\n  ⚙️ Step 3. Install Copilot CLI as a GitHub Extension\n  🧠 Step 4. Install Standalone Copilot CLI (via npm)\n  🔑 Step 5. Authenticate Standalone Copilot CLI\n  🧰 Step 6. Enable Shell Aliases (??, gh?, git?)\n  🧪 Step 7. Verify Dual-Mode Copilot Operation\n  \n  Example 1 — Explain a Command\n  Example 2 — Generate a Bash Script\n  Example 3 — Git Workflow Help\n  Example 4 — Commit information\n  Example 5 - GitHub Issues in terminal\n  \n  🧰 Step 8. Maintenance and Upgrades\n  🧾 Summary Table",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#prerequisites",
     "href": "docs/generative-AI/copilot-cli.html#prerequisites",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "🧩 Prerequisites",
     "text": "🧩 Prerequisites\nBefore proceeding, ensure you have the following:\n\n✅ A GitHub account with Copilot CLI access (available via your GitHub Enterprise account)\n✅ Mamba or Conda installed locally\n✅ A terminal configured for bash or zsh\n✅ Internet connectivity (Copilot CLI requires an active connection to GitHub servers)",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#step-1.-create-and-activate-a-unified-environment",
     "href": "docs/generative-AI/copilot-cli.html#step-1.-create-and-activate-a-unified-environment",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "🧱 Step 1. Create and Activate a Unified Environment",
     "text": "🧱 Step 1. Create and Activate a Unified Environment\nWe’ll create a single environment to house both the GitHub CLI (gh) and the Node.js-based Copilot CLI. Using one environment avoids path conflicts and keeps both tools version-synced. You may also use an existing mamba environment on your laptop … remember to activate it first.\nmamba create -n ghcopilot -c conda-forge gh nodejs -y\nmamba activate ghcopilot\n\nVerify Installation\ngh --version\nnode --version\nnpm --version\nExpected output (approximate):\ngh version 2.63.0 (2025-03-15)\nnode v20.11.0\nnpm 10.2.5\n\n🧠 Tip: Using Node.js ≥ 18 ensures ES2022 compatibility and smoother npm package builds.",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#step-2.-authenticate-github-cli",
     "href": "docs/generative-AI/copilot-cli.html#step-2.-authenticate-github-cli",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "🔑 Step 2. Authenticate GitHub CLI",
     "text": "🔑 Step 2. Authenticate GitHub CLI\nAuthenticate GitHub CLI to your personal or enterprise account:\ngh auth login\nWhen prompted:\n\nChoose GitHub.com\nSelect HTTPS as the protocol\nOpt to Authenticate Git with your GitHub credentials\nChoose Login with a web browser and follow the browser flow … you may be given a code in the terminal which you should be copy-pasting in the browser\n\nConfirm authentication:\ngh auth status\nExpected output example:\n✓ Logged in to github.com as &lt;your_GH_handle&gt; (GitHub Enterprise)\n✓ Git operations authenticated for github.com\n...",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#step-3.-install-copilot-cli-as-a-github-extension",
     "href": "docs/generative-AI/copilot-cli.html#step-3.-install-copilot-cli-as-a-github-extension",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "⚙️ Step 3. Install Copilot CLI as a GitHub Extension",
-    "text": "⚙️ Step 3. Install Copilot CLI as a GitHub Extension\nThe GitHub CLI supports extensions that integrate seamlessly. Copilot CLI is one such extension.\ngh extension install github/gh-copilot\nCheck the installation:\ngh extension list\nYou should see:\ngithub/gh-copilot  latest  Copilot for gh CLI\nNow, test the basic commands:\ngh copilot --help\nYour AI command line copilot.\n\nUsage:\n  copilot [command]\n\nExamples:\n\n$ gh copilot suggest \"Install git\"\n$ gh copilot explain \"traceroute github.com\"\n\n\nAvailable Commands:\n  alias       Generate shell-specific aliases for convenience\n  config      Configure options\n  explain     Explain a command\n  suggest     Suggest a command\n\nFlags:\n  -h, --help              help for copilot\n      --hostname string   The GitHub host to use for authentication\n  -v, --version           version for copilot\n\nUse \"copilot [command] --help\" for more information about a command.\nTake a test drive:\ngh copilot suggest \"a bash script to compress all .fastq.gz files\"\n\nWelcome to GitHub Copilot in the CLI!\nversion 1.1.1 (2025-06-17)\n\nI'm powered by AI, so surprises and mistakes are possible. Make sure to verify any generated code or suggestions, and share feedback so that we can learn and improve. For more information, see https://gh.io/gh-copilot-transparency\n\n? What kind of command can I help you with?\n&gt; generic shell command\n\nSuggestion:\n\n  for file in *.fastq.gz; do\n      gzip \"$file\"\n  done\n\n? Select an option  [Use arrows to move, type to filter]\n&gt; Copy command to clipboard\n  Explain command\n  Execute command\n  Revise command\n  Rate response\n  Exit\ngh copilot suggest \"a command to list all files changed in the last 10 hours\"\n\nWelcome to GitHub Copilot in the CLI!\nversion 1.1.1 (2025-06-17)\n\nI'm powered by AI, so surprises and mistakes are possible. Make sure to verify any generated code or suggestions, and share feedback so that we can learn and improve. For more information, see https://gh.io/gh-copilot-transparency\n\n? What kind of command can I help you with?\n&gt; generic shell command\n\nSuggestion:\n\n  find . -type f -mmin -600\n\n? Select an option  [Use arrows to move, type to filter]\n&gt; Copy command to clipboard\n  Explain command\n  Execute command\n  Revise command\n  Rate response\n  Exit",
+    "text": "⚙️ Step 3. Install Copilot CLI as a GitHub Extension\nThe GitHub CLI supports extensions that integrate seamlessly. Copilot CLI is one such extension.\ngh extension install github/gh-copilot\nCheck the installation:\ngh extension list\nYou should see:\ngithub/gh-copilot  latest  Copilot for gh CLI\nNow, test the basic commands:\ngh copilot --help\nYour AI command line Copilot.\n\nUsage:\n  copilot [command]\n\nExamples:\n\n$ gh copilot suggest \"Install git\"\n$ gh copilot explain \"traceroute github.com\"\n\n\nAvailable Commands:\n  alias       Generate shell-specific aliases for convenience\n  config      Configure options\n  explain     Explain a command\n  suggest     Suggest a command\n\nFlags:\n  -h, --help              help for copilot\n      --hostname string   The GitHub host to use for authentication\n  -v, --version           version for copilot\n\nUse \"copilot [command] --help\" for more information about a command.\nTake a test drive:\ngh copilot suggest \"a bash script to compress all .fastq.gz files\"\n\nWelcome to GitHub Copilot in the CLI!\nversion 1.1.1 (2025-06-17)\n\nI'm powered by AI, so surprises and mistakes are possible. Make sure to verify any generated code or suggestions, and share feedback so that we can learn and improve. For more information, see https://gh.io/gh-copilot-transparency\n\n? What kind of command can I help you with?\n&gt; generic shell command\n\nSuggestion:\n\n  for file in *.fastq.gz; do\n      gzip \"$file\"\n  done\n\n? Select an option  [Use arrows to move, type to filter]\n&gt; Copy command to clipboard\n  Explain command\n  Execute command\n  Revise command\n  Rate response\n  Exit\ngh copilot suggest \"a command to list all files changed in the last 10 hours\"\n\nWelcome to GitHub Copilot in the CLI!\nversion 1.1.1 (2025-06-17)\n\nI'm powered by AI, so surprises and mistakes are possible. Make sure to verify any generated code or suggestions, and share feedback so that we can learn and improve. For more information, see https://gh.io/gh-copilot-transparency\n\n? What kind of command can I help you with?\n&gt; generic shell command\n\nSuggestion:\n\n  find . -type f -mmin -600\n\n? Select an option  [Use arrows to move, type to filter]\n&gt; Copy command to clipboard\n  Explain command\n  Execute command\n  Revise command\n  Rate response\n  Exit",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#step-4.-install-standalone-copilot-cli-via-npm",
     "href": "docs/generative-AI/copilot-cli.html#step-4.-install-standalone-copilot-cli-via-npm",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "🧠 Step 4. Install Standalone Copilot CLI (via npm)",
     "text": "🧠 Step 4. Install Standalone Copilot CLI (via npm)\nWhile the gh extension is GitHub-integrated, the standalone Copilot CLI offers a lightweight, shell-native interface. It provides convenient commands such as ??, gh?, and git?, which allow you to quickly generate shell commands, GitHub CLI commands, or git commands based on natural language prompts. This makes it easier to automate tasks, discover command-line workflows, and boost productivity directly from your terminal without leaving your development environment.\nInstall it inside the same environment:\nnpm install -g @githubnext/github-copilot-cli\nCheck installation path and version:\nwhich github-copilot-cli\ngithub-copilot-cli --version\nExpected output should be something like this:\n~/mambaforge/envs/ghcopilot/bin/github-copilot-cli\nGitHub Copilot CLI version 1.0.8",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#step-5.-authenticate-standalone-copilot-cli",
     "href": "docs/generative-AI/copilot-cli.html#step-5.-authenticate-standalone-copilot-cli",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "🔑 Step 5. Authenticate Standalone Copilot CLI",
     "text": "🔑 Step 5. Authenticate Standalone Copilot CLI\nLogin to associate your CLI instance with your GitHub account:\ngithub-copilot-cli auth login\nThis launches a browser window to complete authentication. Again, copy-paste the code in browser.\nConfirm login status:\ngithub-copilot-cli auth status\nExpected output:\n✓ Authenticated as &lt;your_github_handle&gt;\n...",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#step-6.-enable-shell-aliases-gh-git",
     "href": "docs/generative-AI/copilot-cli.html#step-6.-enable-shell-aliases-gh-git",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "🧰 Step 6. Enable Shell Aliases (??, gh?, git?)",
     "text": "🧰 Step 6. Enable Shell Aliases (??, gh?, git?)\nTo enable shortcut-style commands, append the following to your shell configuration file (~/.bashrc or ~/.zshrc):\neval \"$(github-copilot-cli alias -- \"$0\")\"\nReload your shell:\nsource ~/.zshrc\nVerify alias activation:\nalias | grep copilot\nYou should see entries such as:\nalias ??='github-copilot-cli what-the-shell'\nalias gh?='github-copilot-cli git-assist'\nalias git?='github-copilot-cli explain'",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#step-7.-verify-dual-mode-copilot-operation",
     "href": "docs/generative-AI/copilot-cli.html#step-7.-verify-dual-mode-copilot-operation",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "🧪 Step 7. Verify Dual-Mode Copilot Operation",
     "text": "🧪 Step 7. Verify Dual-Mode Copilot Operation\nNow, test both integrations:\n\nExample 1 — Explain a Command\n?? \"explain this: find . -type f -name '*.fq.gz' | xargs du -sh\"\n\n ──────────────────── Command ────────────────────\n\nThis command finds all files in the current directory and its subdirectories with the extension '.fq.gz' and then calculates and\ndisplays the disk usage (size) of each of those files in a human-readable format.\n\n ────────────────── Explanation ──────────────────\n\n○ find . -name \"*.fq.gz\" is used to list files.\n  ◆ . specifies that we start the search in the current directory.\n  ◆ -name \"*.fq.gz\" stipulates that we search for files ending in .fq.gz.\n○ | xargs du -h means we pass that list of files to xargs which constructs and executes a command using those files as arguments.\n  ◆ du is used to calculate disk usage (size) of files.\n  ◆ -h specifies that we want the sizes in a human-readable format (e.g., KB, MB, GB).\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel\n\n\nExample 2 — Generate a Bash Script\n?? \"bash script to count unique reads in all fastq files\"\n\n ──────────────────── Command ────────────────────\n\nfor file in *.fastq; do\n  awk 'NR % 4 == 2' $file | sort | uniq | wc -l;\ndone\n\n ────────────────── Explanation ──────────────────\n\n○ The for loop iterates over a list of items and executes\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel\n\n\nExample 3 — Git Workflow Help\ngit? \"how to undo the last commit but keep changes\"\n\n ──────────────────── Command ────────────────────\n\ngit reset --soft HEAD~1\n\n ────────────────── Explanation ──────────────────\n\n○ git reset resets the current branch to a previous commit.\n  ◆ --soft means that we keep any changes made to the files in the working directory.\n  ◆ HEAD~1 specifies that we reset to the commit one before the current one.\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel\n\n\nExample 4 — Commit information\ngit? when was the last commit made\n\n ──────────────────── Command ────────────────────\n\ngit log -1 --pretty=format:\"%ad\" --date=iso\n\n ────────────────── Explanation ──────────────────\n\n○ git log is used to show the commit history.\n  ◆ -1 specifies that we only want to see the latest commit.\n  ◆ --pretty=format:\"%ad\" specifies that we want to format the output to only show the author date of the commit.\n  ◆ --date=iso specifies that we want the date to be in ISO format.\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel\n\n\nExample 5 - GitHub Issues in terminal\ngh? list all the issues\n\n ──────────────────── Command ────────────────────\n\ngh issue list -L 10000\n\n ────────────────── Explanation ──────────────────\n\n○ gh issue list lists all issues in the current GitHub repository.\n  ◆ -L 10000 specifies that we want to list up to 10,000 issues.\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#step-8.-maintenance-and-upgrades",
     "href": "docs/generative-AI/copilot-cli.html#step-8.-maintenance-and-upgrades",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "🧰 Step 8. Maintenance and Upgrades",
     "text": "🧰 Step 8. Maintenance and Upgrades\nKeep both components up to date:\n\n\n\n\n\n\n\nAction\nCommand\n\n\n\n\nUpdate gh-copilot\ngh extension upgrade github/gh-copilot\n\n\nRemove gh-copilot\ngh extension remove github/gh-copilot\n\n\nUpdate npm CLI\nnpm update -g @githubnext/github-copilot-cli\n\n\nRemove npm CLI\nnpm uninstall -g @githubnext/github-copilot-cli",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html#summary-table",
     "href": "docs/generative-AI/copilot-cli.html#summary-table",
-    "title": "CoPilot CLI",
+    "title": "GitHub Copilot CLI",
     "section": "🧾 Summary Table",
     "text": "🧾 Summary Table\n\n\n\n\n\n\n\nTask\nCommand\n\n\n\n\nCreate Environment\nmamba create -n ghcopilot -c conda-forge gh nodejs -y\n\n\nActivate Environment\nmamba activate ghcopilot\n\n\nInstall gh Extension\ngh extension install github/gh-copilot\n\n\nInstall npm CLI\nnpm install -g @githubnext/github-copilot-cli\n\n\nAuthenticate\ngh auth login / github-copilot-cli auth login\n\n\nEnable Aliases\neval \"$(github-copilot-cli alias -- \"$0\")\"\n\n\nTest Commands\ngh copilot suggest / ?? \"explain command\"",
     "crumbs": [
       "Home",
       "Generative AI",
-      "CoPilot CLI"
+      "GitHub Copilot CLI"
     ]
   },
   {
