@@ -783,18 +783,11 @@
     ]
   },
   {
-    "objectID": "contributions.html",
-    "href": "contributions.html",
-    "title": "CCBR How-Tos",
+    "objectID": "contributors.html",
+    "href": "contributors.html",
+    "title": "Contributors",
     "section": "",
-    "text": "The following individuals were the main contributors to these HowTo manuals:\n\nGitHub: Samantha Sevilla & Vishal Koparde\nTechDev: Samantha Sevilla\nHPCDME: Vishal Koparde\nUSCS Tracks: Samantha Sevilla\nRpackage: Ned Cauley\nOther How To’s: Ned Cauley\nTutorials: Samantha Sevilla"
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "MIT License",
-    "section": "",
-    "text": "MIT License\nCopyright (c) 2025 HowTos authors\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+    "text": "Samantha\n\n\n\n\n\n\n\nVishal Koparde, PhD\n\n\n\n\n\n\n\nKelly Sovacool, PhD\n\n\n\n\n\n\n\nNed Cauley\n\n\n\n\n\nView the contributors graph on GitHub for more details."
   },
   {
     "objectID": "CHANGELOG.html",
@@ -818,11 +811,11 @@
     "text": "HowTos 0.1.0\n\nFirst draft of datashare on Helix doc by @escauley in https://github.com/CCBR/HowTos/pull/1\nFirst draft for Conda R package doc by @escauley in https://github.com/CCBR/HowTos/pull/2\nupdates by @kopardev in https://github.com/CCBR/HowTos/pull/3\nAdd checklist of required github helper files by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/7\nfeat: parkit how tos with HPCDME by @kopardev in https://github.com/CCBR/HowTos/pull/9\ndocs: clarify $USER in HPCDME properties by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/8\ndocs: Added info for setting Conda channels by @escauley in https://github.com/CCBR/HowTos/pull/13\nimprove HPCDME instructions by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/12\nchore(ci): address codeql alerts by @kelly-sovacool in https://github.com/CCBR/HowTos/pull/15"
   },
   {
-    "objectID": "contributors.html",
-    "href": "contributors.html",
-    "title": "Contributors",
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "MIT License",
     "section": "",
-    "text": "Samantha\n\n\n\n\n\n\n\nVishal Koparde, PhD\n\n\n\n\n\n\n\nKelly Sovacool, PhD\n\n\n\n\n\n\n\nNed Cauley\n\n\n\n\n\nView the contributors graph on GitHub for more details."
+    "text": "MIT License\nCopyright (c) 2025 HowTos authors\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
   },
   {
     "objectID": "docs/generative-AI/copilot-cli.html",
