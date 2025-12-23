@@ -797,8 +797,8 @@
     "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nResources from Code Club presentations (@kelly-sovacool)\nGenerative AI:\n\nGitHub Copilot CLI (#45, @kopardev)\nGitHub Copilot in VS Code (#47, @kelly-sovacool)\n\n\n\n\n\n\nStandardized documentation structure and navigation\nMinor content and formatting updates across guides"
   },
   {
-    "objectID": "CHANGELOG.html#howtos-development-version",
-    "href": "CHANGELOG.html#howtos-development-version",
+    "objectID": "CHANGELOG.html#howtos-1.0.0",
+    "href": "CHANGELOG.html#howtos-1.0.0",
     "title": "CCBR How-Tos",
     "section": "",
     "text": "The website is now rendered with Quarto (#24, @kelly-sovacool)\n\n\n\nLucidChart (#16, #22, @kopardev)\nConda/mamba\n\nConda to mamba migration guide (#37, #38, #39, @kopardev)\nHow to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)\n\nDocker & Singularity\n\nHow to build containers interactively with Google Cloud Shell (@kelly-sovacool)\nHow to use containers with Singularity on Biowulf (@kelly-sovacool)\n\nGitHub Actions demo (@kelly-sovacool)\nResources from Code Club presentations (@kelly-sovacool)\nGenerative AI:\n\nGitHub Copilot CLI (#45, @kopardev)\nGitHub Copilot in VS Code (#47, @kelly-sovacool)\n\n\n\n\n\n\nStandardized documentation structure and navigation\nMinor content and formatting updates across guides"
