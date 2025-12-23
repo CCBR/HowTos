@@ -12,7 +12,7 @@ The website is now rendered with Quarto (#24, @kelly-sovacool)
     - How to build containers interactively with Google Cloud Shell (@kelly-sovacool)
     - How to use containers with Singularity on Biowulf (@kelly-sovacool)
 - GitHub Actions demo (@kelly-sovacool)
-- Code Club presentations (@kelly-sovacool)
+- Resources from Code Club presentations (@kelly-sovacool)
 - Generative AI:
   - GitHub Copilot CLI (#45, @kopardev)
   - GitHub Copilot in VS Code (#47, @kelly-sovacool)
