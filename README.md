@@ -2,6 +2,7 @@
 
 [![docs](https://github.com/CCBR/HowTos/actions/workflows/docs-quarto.yml/badge.svg)](https://ccbr.github.io/HowTos/)
 [![CodeQL](https://github.com/CCBR/HowTos/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/CCBR/HowTos/actions/workflows/github-code-scanning/codeql)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18038599.svg)](https://doi.org/10.5281/zenodo.18038599)
 
 This page is designed to share knowledge between analysts within [CCBR](https://bioinformatics.ccr.cancer.gov/ccbr/).
 You'll find how-to guides, best practices, and tutorials on the website:
