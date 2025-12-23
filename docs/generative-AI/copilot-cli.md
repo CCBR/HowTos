@@ -5,6 +5,14 @@ author: "[Vishal Koparde](https://github.com/kopardev)"
 toc-location: right-body
 ---
 
+:::{.callout-important}
+
+The Copilot CLI has had major changes since this guide was created.
+We plan to update this guide to reflect the latest changes, but
+in the meantime, please see this issue for more details:
+<https://github.com/CCBR/HowTos/issues/46>
+
+:::
 
 # Installing GitHub Copilot CLI (Laptop Setup Only)
 
