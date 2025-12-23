@@ -69,7 +69,8 @@ You can customize CoPilot settings in VS Code by going to **Settings** > **Exten
 ![](img/vscode-settings.png){fig-alt="VS Code settings interface showing GitHub Copilot configuration options under the Features section. Two checkboxes are visible and enabled: Auto Fix which automatically fixes diagnostics for edited files, and Current Editor Context which includes the name of the current active editor in the context for agent mode."}
 
 :::{.callout-tip}
-GitHub CoPilot also works well in Positron, an IDE created by Posit based on VS Code.
+GitHub CoPilot also works well in [Positron](https://positron.posit.co/),
+an IDE created by Posit based on VS Code.
 :::
 
 ## Demo: a simple python script
@@ -114,9 +115,12 @@ You can adjust this behavior in settings.
 
 <vscode://settings/editor.inlineSuggest.enabled>
 
-#### Example: place your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one.
+#### Example: automatic docstring suggestion
 
-![](img/auto-suggest.png)
+Place your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one.
+If needed, start typing `"""` and see if that triggers Copilot to suggest a docstring.
+
+![](img/auto-suggest.png){fig-alt=VS Code editor window showing GitHub Copilot automatically suggesting code as light gray text inline with the user's typing.}
 
 You can press {{< kbd Tab >}} to accept the suggestion, or {{< kbd Esc >}} to reject it.
 
@@ -131,20 +135,20 @@ Press {{< kbd Cmd-I >}} to open the inline chat and ask for modifications right 
 You can click the checkmark to accept the suggested edit if it meets your expectations.
 You can always modify it after accepting it if there are minor corrections to make.
 
-### Chat in sidebar
+### Chat in the sidebar
 
 Sometimes you may have more long-form questions, or perhaps you'd like to have a
 record of the prompts you've given to Copilot. The sidebar Chat is great for this!
 
 You can toggle the sidebar on and off with the sidebar button in the upper right corner of the VS Code window:
 
-![Open the sidebar](img/chat-sidebar.png)
+![Open the sidebar](img/chat-sidebar.png){width=300px}
 
 You can select which Large Language Model to use for your prompts:
 
-![Model selection](img/model-selection)
+![Model selection](img/model-selection){width=300px}
 
-#### Example: ask Copilot to explain how a line of code works
+#### Example: ask Copilot to explain how a line of code works.
 
 Highlight a complicated line of code and ask Copilot to explain how it works.
 
@@ -190,6 +194,9 @@ Using the Source Control extension, add your script to the git staging area and
 ask Copilot to suggest a commit message.
 
 ![](img/source-ctrl-commit.png)
+
+Click the sparkles ✨ icon on the right side of the commit message box to generate
+a commit message using Copilot.
 
 ![](img/source-ctrl-commit-msg.png)
 
