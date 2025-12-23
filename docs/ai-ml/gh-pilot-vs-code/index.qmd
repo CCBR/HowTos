@@ -1,13 +1,16 @@
 ---
 title: "GitHub CoPilot in VS Code"
 author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
+resources:
+    - ./demo/extract_promoters.py
+    - ./demo/setup.sh
 ---
 
 ## Why CoPilot?
 
 CoPilot is built to work seamlessly in your IDE. 
 It is a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc.
-CoPilot makes suggestions based on the context of your entire project, rather than only a single prompt.
+Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.
 
 With the web interface for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can get onerous quickly.
 
@@ -24,7 +27,7 @@ At this time, we cannot add more users to the NCI Enterprise premium CoPilot lic
 However, you can still do a lot with the the free version of CoPilot!
 :::
 
-Enable CoPilot:
+Enable Copilot:
 
 <https://github.com/settings/copilot>
 
@@ -60,26 +63,40 @@ GitHub CoPilot also works well in Positron, an IDE created by Posit based on VS 
 
 ## Demo: a simple python script
 
-### Open project in new window
-
-![](img/open-vs-code.png)
-
 Example project: given a GTF file, extract the gene transcription start sites and
 create a BED file of promoter regions.
 
-First, commit your existing code before you start using CoPilot.
+Files:
+
+- [extract_promoters.py](./demo/extract_promoters.py) - Example Python script for demonstrating CoPilot
+- [setup.sh](./demo/setup.sh) - Download data files for testing the Python script
+
+### Open project in new window
+
+Create a new directory for your project and open it with VS Code.
+
+![](img/open-vs-code.png)
+
+We recommend initializing git and making a commit with the existing code before you start using CoPilot.
+
+```sh
+pwd
+# /path/to/extract-promoters/
+git init
+git add extract_promoters.py setup.sh
+git commit -m 'Initial commit'
+```
 
 ### Automatic inline suggestions
 
 ![How to turn automatic inline suggestions on and off](img/inline-suggest-enabled.png)
  <vscode://settings/editor.inlineSuggest.enabled>
 
-Example: ask copilot to write a docstring
-
+Example: ask Copilot to write a docstring.
 
 ### Inline chat
 
-Example: ask copilot to break out a complicated line of code into a separate function
+Example: ask Copilot to break out a complicated line of code into a separate function.
 
 {{< kbd Cmd I >}}
 
@@ -89,9 +106,9 @@ Example: ask copilot to break out a complicated line of code into a separate fun
 
 ![Model selection](img/model-selection)
 
-Example: ask copilot to explain how a function works
+Example: ask Copilot to explain how a function works
 
-Example: ask copilot to explain the benefits of `yield` vs `return` in Python functions
+Example: ask Copilot to explain the benefits of `yield` vs `return` in Python functions
 
 ### Source Control: git GUI in VS Code
 
