@@ -44,9 +44,9 @@
     }
   ],
   "codeRepository": "https://github.com/CCBR/HowTos",
-  "datePublished": "2025-10-24",
+  "datePublished": "2025-12-22",
   "license": "https://spdx.org/licenses/MIT",
   "name": "How-To Guides for the CCR Collaborative Bioinformatics Resource",
   "url": "https://ccbr.github.io/HowTos/",
-  "version": "v0.1.0"
+  "version": "v1.0.0"
 }

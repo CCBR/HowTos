@@ -1,4 +1,4 @@
-## HowTos development version
+## HowTos 1.0.0
 
 The website is now rendered with Quarto (#24, @kelly-sovacool)
 
