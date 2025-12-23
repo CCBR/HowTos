@@ -96,15 +96,25 @@ git commit -m 'Initial commit'
 ### Automatic inline suggestions
 
 ![How to turn automatic inline suggestions on and off](img/inline-suggest-enabled.png)
- <vscode://settings/editor.inlineSuggest.enabled>
 
-Example: ask Copilot to write a docstring.
+<vscode://settings/editor.inlineSuggest.enabled>
+
+Example: place your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one.
+
+![](img/auto-suggest.png)
+
+You can press {{< kbd Tab >}} to accept the suggestion, or {{< kbd Esc >}} to reject it.
 
 ### Inline chat
 
-Example: ask Copilot to break out a complicated line of code into a separate function.
+Press {{< kbd Cmd-I >}} to open the inline chat and ask for modifications right where your cursor is.
 
-{{< kbd Cmd I >}}
+![](img/chat-inline.png)
+
+You can click the checkmark to accept the suggested edit if it meets your expectations.
+You can always modify it after accepting it if there are minor corrections to make.
+
+![](img/chat-inline-suggestion.png)
 
 ### Chat in sidebar
 
@@ -112,13 +122,31 @@ Example: ask Copilot to break out a complicated line of code into a separate fun
 
 ![Model selection](img/model-selection)
 
-Example: ask Copilot to explain how a function works
+#### Example: ask Copilot to explain how a line of code works
 
-Example: ask Copilot to explain the benefits of `yield` vs `return` in Python functions
+Highlight a complicated line of code and ask Copilot to explain how it works.
+
+![](img/chat-explain-dict-compr.png)
+
+#### Example: ask Copilot to break out a complicated line of code into a separate function.
+
+![](img/chat-sidebar-func.png)
+
+![](img/chat-sidebar-func-answer.png)
+
+If you are not in Agent mode, you will need to make the modifications yourself.
+But Copilot's instructions make it very clear how to do so!
+
+#### Example: ask Copilot to explain the benefits of `yield` vs `return` in Python functions
+
+![](img/chat-question-yield.png)
+
+![](img/chat-explain-yield.png)
 
 ### Source Control: git GUI in VS Code
 
-Suggest commit messages
+Using the Source Control extension, add your script to the git staging area and
+ask Copilot to suggest a commit message.
 
 ![](img/source-ctrl-commit.png)
 
@@ -128,9 +156,23 @@ Suggest commit messages
 
 Ask Copilot to suggest unit tests
 
+![](img/chat-ask-tests.png)
+
+Copilot suggested a comprehensive suite of unit tests for the script.
+
+![](img/chat-ask-tests-start.png)
+
+If you're not sure where to place the tests, Copilot has a detailed suggestion:
+
+![](img/chat-ask-tests-where.png)
+![](img/chat-ask-tests-pytest.png)
+
+Be sure to read through the unit tests, understand what they're testing and why,
+and consider if there are any gaps in test coverage.
+
 ## Tips
 
 - Always read and **understand** the AI suggestion before accepting it
-- Write tests to make sure your code works the way you think it does
 - Use git and commit your changes often
+- Write tests to make sure your code works the way you think it does
 - Periodically step back and reflect on what you're trying to accomplish
