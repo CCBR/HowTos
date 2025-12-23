@@ -652,7 +652,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="individual-sample-files">Individual sample files</h3>
 <p>For individual samples, where peak density is to be observed, bigwig formatted files must be generated. If using the CCBR pipelines these are automatically generated as outputs of the pipeline (<code>WORKDIR/results/bigwig</code>). In many cases, scaling or normalization of bigwig is required to visualize multiple samples in comparison with each other. See various <a href="https://deeptools.readthedocs.io/en/develop/content/tools/bamCompare.html?highlight=normalizeUsing#read-coverage-normalization-options">deeptools</a> options for details/ideas. If not using CCBR pipelines, example code is provided below for the file generation.</p>
 <pre><code>modue load ucsc
-        
+
 fragments_bed="/path/to/sample1.fragments.bed"
 bw="/path/to/sample1.bigwig"
 genome_len="numeric_genome_length"

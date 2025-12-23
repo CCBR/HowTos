@@ -754,7 +754,7 @@ channels:
 <section id="download-the-r-package-release-from-github" class="level3">
 <h3 class="anchored" data-anchor-id="download-the-r-package-release-from-github">Download the R package release from Github</h3>
 <p>To download the most recent release from the most recent tag on Github, activate Conda then use Conda skeleton like so:</p>
-<pre><code>conda activate 
+<pre><code>conda activate
 
 conda skeleton cran $githubURL</code></pre>
 <p>Replace $githubURL with the URL to your R package’s github repo.</p>
@@ -772,7 +772,7 @@ conda skeleton cran $githubURL</code></pre>
 package:
   name: r-dspworkflow
   version: {{ version|replace("-", "_") }}
-  
+
 channels:
   - conda-forge
   - bioconda
@@ -826,7 +826,7 @@ requirements:
     - r-rtsne =0.16=r41h37cf8d7_1
     - r-magrittr =2.0.3=r41h06615bd_1
     - r-rlang =1.1.0=r41h38f115c_0
-    
+
   run:
     - r-base =4.1.3=h2f963a2_5
     - bioconductor-biobase =2.54.0=r41hc0cfd56_2

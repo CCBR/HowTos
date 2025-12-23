@@ -64,15 +64,14 @@ def main():
     parser.add_argument("--out", required=True, help="Path to output BED file")
     args = parser.parse_args()
 
-    # Open GTF file 
+    # Open GTF file
     # TODO: handle gzipped gtf files
     with open(args.gtf, "r") as gtf_file:
-
         with open(args.out, "w") as bed_file:
             # Extract protein-coding genes and write promoter regions
             for chrom, tss, strand, gene_name, gene_id in extract_genes(gtf_file):
                 # TODO: Only include standard chromosomes
-                
+
                 # Calculate promoter region based on strand
                 if strand == "+":
                     # For positive strand: TSS - 2000 to TSS + 200
