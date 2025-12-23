@@ -14,7 +14,7 @@ The website is now rendered with Quarto (#24, @kelly-sovacool)
 - GitHub Actions demo (@kelly-sovacool)
 - Code Club presentations (@kelly-sovacool)
 - Generative AI:
-  - GitHub CoPilot CLI (#45, @kopardev)
+  - GitHub Copilot CLI (#45, @kopardev)
   - GitHub Copilot in VS Code (#47, @kelly-sovacool)
 
 ### Improvements

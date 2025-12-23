@@ -1,13 +1,13 @@
 ---
-title: CoPilot CLI
-description: "How to install and use GitHub CoPilot CLI"
+title: GitHub Copilot CLI
+description: "How to install and use GitHub Copilot CLI"
 author: "[Vishal Koparde](https://github.com/kopardev)"
 toc-location: right-body
 ---
 
 :::{.callout-important}
 
-The Copilot CLI has had major changes since this guide was created.
+The GitHub Copilot CLI has had major changes since this guide was created.
 We plan to update this guide to reflect the latest changes, but
 in the meantime, please see this issue for more details:
 <https://github.com/CCBR/HowTos/issues/46>
@@ -118,7 +118,7 @@ Now, test the basic commands:
 
 ```bash
 gh copilot --help
-Your AI command line copilot.
+Your AI command line Copilot.
 
 Usage:
   copilot [command]
