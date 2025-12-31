@@ -13,6 +13,7 @@ The website is now rendered with Quarto (#24, @kelly-sovacool)
     - How to use containers with Singularity on Biowulf (@kelly-sovacool)
 - GitHub Actions demo (@kelly-sovacool)
 - Code Club presentations (@kelly-sovacool)
+- Publishing Shiny apps to NCI's Posit Connect servers (@escauley)
 
 ## HowTos 0.1.0
 
