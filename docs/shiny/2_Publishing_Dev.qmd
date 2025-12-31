@@ -99,3 +99,7 @@ When a Shiny app is published, the data used in the app will account for the maj
 ### R Environment
 
 Include a renv.lock file when publishing to control the exact versions of dependencies used for a Shiny app. For more information on updating a renv.lock file, please refer to the [renv documentation](https://rstudio.github.io/renv/articles/renv.html).
+
+### rsconnect R Package
+
+An alternative method to publish a Shiny app from the command line is the rsconnect R package. Additional information can be found on the [rsconnect doc page](https://rstudio.github.io/rsconnect/index.html).
