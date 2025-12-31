@@ -14,7 +14,7 @@ R Shiny apps can be deployed on NCI's Posit connect servers to enable sharing wi
 
 -   Used for development and testing
 
--   Available during normal business hours, located on-premises
+-   Available from 7 am - 7 pm, located on NCI's Cloud One
 
 -   Sometimes is unavailable during working hours for patches
 
@@ -43,6 +43,8 @@ A description of the NCI Posit Connect servers from the CBIIT article:\
 "R Shiny apps are interactive web applications built using the Shiny framework in R. They allow users to create graphical user interfaces (GUIs) for their R code, enabling others to interact with data and analyses without needing to install R or write code themselves."
 
 This documentation will add further details and tips for CCBR members to develop and publish Shiny apps on the NCI POSIT connect servers.
+
+> Note: A number of different tools can be published on POSIT Connect servers. The list of those tools and further information can be found on the [POSIT Connect User Guide](https://appshare-dev.cancer.gov/__docs__/user/)
 
 ## Developing Shiny Apps
 
