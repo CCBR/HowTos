@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-This page will cover publishing to the development (dev) server, but the steps for publishing will be similar for the internal production server, with caveats listed in the [Publishing to Production documentation](3_PublishingPProd.qmd).
+This page will cover publishing to the development (dev) server, but the steps for publishing will be similar for the internal production server, with caveats listed in the [Publishing to Production documentation](3_Publishing_Prod.qmd).
 
 CBIIT offers an SOP for publishing as well, found in [this document](https://nih.sharepoint.com/:w:/s/NCI-CBIITScientificComputing/IQCUwdpewxeOT7HAWuyY9lOEAeCOXwVZJ0uPSZWBxAt4z1c?e=u6o2GW&ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2Ccauleyes%40nih.gov&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNTEwMTYxNjUxMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D).
 
