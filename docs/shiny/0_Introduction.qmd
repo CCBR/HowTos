@@ -10,27 +10,20 @@ R Shiny apps can be deployed on NCI's Posit connect servers to enable sharing wi
 #### Development Server
 
 - [appshare-dev.cancer.gov](appshare-dev.cancer.gov)
-
 - Used for development and testing
-
 - Available from 7 am - 7 pm, located on NCI's Cloud One
-
 - Sometimes is unavailable during working hours for patches
 
 #### Internal Production Server
 
 - [posit-connect-prod.cancer.gov](posit-connect-prod.cancer.gov)
-
 - Used for sharing with NCI collaborators
-
 - Available 24/7, located on-premises
 
 #### External Production Server
 
 - [appshare.cancer.gov](appshare.cancer.gov)
-
 - Used for sharing with non-NCI collaborators
-
 - Available 24/7, located on NCI's Cloud One
 
 > Note: all servers require a VPN connection to access.
