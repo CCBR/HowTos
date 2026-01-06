@@ -4,8 +4,8 @@ subtitle: "CCBR Code Club"
 date: 2025-08-26
 date-format: MMM DD, YYYY
 mainfont: Roboto
-format: 
-  fnl-revealjs: 
+format:
+  fnl-revealjs:
     logo: /_extensions/fnl/fnl-logo-light.png
     embed-resources: true
 ---

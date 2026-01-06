@@ -4,8 +4,8 @@ subtitle: "CCBR Journal Club"
 date: 2025-02-11
 date-format: MMM DD, YYYY
 mainfont: Roboto
-format: 
-  fnl-revealjs: 
+format:
+  fnl-revealjs:
     logo: /_extensions/fnl/fnl-logo-light.png
     embed-resources: true
 ---

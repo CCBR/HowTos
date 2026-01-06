@@ -45,7 +45,7 @@ You can exit the container by typing `exit` and pressing enter.
 ## Cache directory
 
 Singularity caches images in a directory set by the `SINGULARITY_CACHEDIR` environment variable.
-By default, this is set to `$HOME/.singularity`. 
+By default, this is set to `$HOME/.singularity`.
 However, there is limited space in user's home directories.
 Instead, we recommend setting it to a location with more disk space, such as
 `/data/$USER/.singularity`.

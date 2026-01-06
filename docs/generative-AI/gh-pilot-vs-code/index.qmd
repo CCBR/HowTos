@@ -1,0 +1,211 @@
+---
+title: "GitHub Copilot in VS Code"
+author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
+resources:
+    - ./demo/extract_promoters.py
+    - ./demo/setup.sh
+---
+
+::: {.callout-tip}
+## Recording
+
+CCBR members can view the recording of this demo at the link below:
+
+[CCBR TechDev meeting 2025-12-19](https://teams.microsoft.com/l/meetingrecap?driveId=b%21TFzec_Fen0CC3VBtt_DOLUi_rPnazLZHq7bJ65bJujOjWrRwPEO3S6dXSGGiG3vN&driveItemId=01P644UUBDFREJK3SODBG32DSCX3NIAZDV&sitePath=https%3A%2F%2Fnih.sharepoint.com%2Fsites%2FNCI-CCRBioinformaticsTechDev%2FShared%2520Documents%2FGeneral%2FRecordings%2FMonthly%2520TechDev%2520Meeting-20251219_120837-Meeting%2520Recording.mp4%3Fweb%3D1&fileUrl=https%3A%2F%2Fnih.sharepoint.com%2Fsites%2FNCI-CCRBioinformaticsTechDev%2FShared%2520Documents%2FGeneral%2FRecordings%2FMonthly%2520TechDev%2520Meeting-20251219_120837-Meeting%2520Recording.mp4%3Fweb%3D1&iCalUid=040000008200E00074C5B7101A82E00807E90C1356C2FC35937FD901000000000000000010000000ABE3C80E6915624FB5ACBA9D7210EB65&masterICalUid=040000008200e00074c5b7101a82e0080000000056c2fc35937fd901000000000000000010000000abe3c80e6915624fb5acba9d7210eb65&threadId=19%3AEq3jqAR95OHCUISNGsEiwWpVp02kj8U2a91MkiX-dXo1%40thread.tacv2&organizerId=b6b931cf-bac3-44d6-9530-29b83b206532&tenantId=14b77578-9773-42d5-8507-251ca2dc2b06&callId=d5acd3cb-4d4c-49e6-aeb9-ef247240bee2&threadType=space&meetingType=Recurring&channelType=Standard&replyChainId=1683319821974&subType=RecapSharingLink_RecapChiclet)
+
+<div style="max-width: 1280px"><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"><iframe src="https://nih.sharepoint.com/sites/NCI-CCRBioinformaticsTechDev/_layouts/15/embed.aspx?UniqueId=95482c23-4e6e-4d18-bd0e-42beda806475&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="1280" height="720" frameborder="0" scrolling="no" allowfullscreen title="Monthly TechDev Meeting-20251219_120837-Meeting Recording.mp4" style="border:none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-width: 100%;"></iframe></div></div>
+
+:::
+
+## Why GitHub Copilot?
+
+GitHub Copilot is built to work seamlessly in your IDE.
+It acts a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc.
+Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.
+
+With the web interfaces for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can quickly become cumbersome.
+
+GitHub Copilot in your IDE removes friction and makes using LLMs for development tasks a breeze!
+
+[![](img/copilot-ide.png)](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
+
+## Setup
+
+### Sign up for Copilot
+
+:::{.callout-note}
+At this time, we cannot add more users to the NCI Enterprise premium Copilot license.
+However, you can still do a lot with the the free version of Copilot!
+:::
+
+Enable Copilot:
+
+<https://github.com/settings/copilot>
+
+![](img/gh-copilot-settings.png)
+
+> See more: _[GitHub Docs](https://docs.github.com/en/copilot/get-started/what-is-github-copilot#getting-access-to-copilot)_
+
+### Set up Copilot in VS Code
+
+[_VS Code Docs_](https://code.visualstudio.com/docs/copilot/setup)
+
+1. Hover over the Copilot icon in the Status Bar and select 'Use AI Features'.
+
+![](img/vscode-copilot-icon.png)
+
+2. Sign in to GitHub
+
+![](img/vscode-continue-github.png)
+
+3. Start using Copilot in VS Code!
+
+The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension should now be installed.
+
+#### VS Code settings
+
+You can customize Copilot settings in VS Code by going to **Settings** > **Extensions** > **GitHub Copilot** or by using the keyboard shortcut {{< kbd Cmd >}}{{< kbd , >}} on Mac.
+
+![](img/vscode-settings.png){fig-alt="VS Code settings interface showing GitHub Copilot configuration options under the Features section. Two checkboxes are visible and enabled: Auto Fix which automatically fixes diagnostics for edited files, and Current Editor Context which includes the name of the current active editor in the context for agent mode."}
+
+:::{.callout-tip}
+GitHub Copilot also works well in [Positron](https://positron.posit.co/),
+an IDE created by Posit based on VS Code.
+:::
+
+## Demo: a simple python script
+
+Example project: given a GTF file, extract the gene transcription start sites and
+create a BED file of promoter regions.
+
+Files:
+
+- [extract_promoters.py](./demo/extract_promoters.py) - Example Python script for demonstrating Copilot
+- [setup.sh](./demo/setup.sh) - Download data files for testing the Python script
+
+Create a new directory called `extract-promoters`, download these files, and place them in that directory.
+
+### Open project in new window
+
+Open the directory for your project with VS Code.
+
+![](img/open-vs-code.png)
+
+:::{.callout-tip}
+## Use git
+
+We recommend initializing git and making a commit with the existing code before you start using Copilot.
+
+```sh
+pwd
+# /path/to/extract-promoters/
+git init
+git add extract_promoters.py setup.sh
+git commit -m 'Initial commit'
+```
+
+:::
+
+### Automatic inline suggestions
+
+Copilot will make suggestions automatically as you type.
+You can adjust this behavior in settings.
+
+![How to turn automatic inline suggestions on and off](img/inline-suggest-enabled.png)
+
+<vscode://settings/editor.inlineSuggest.enabled>
+
+#### Example: automatic docstring suggestion
+
+Place your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one.
+If needed, start typing `"""` and see if that triggers Copilot to suggest a docstring.
+
+![](img/auto-suggest.png){fig-alt=VS Code editor window showing GitHub Copilot automatically suggesting code as light gray text inline with the user's typing.}
+
+You can press {{< kbd Tab >}} to accept the suggestion, or {{< kbd Esc >}} to reject it.
+
+### Inline chat
+
+Press {{< kbd Cmd-I >}} to open the inline chat and ask for modifications right where your cursor is.
+
+![](img/chat-inline.png)
+
+![](img/chat-inline-suggestion.png)
+
+You can click the checkmark to accept the suggested edit if it meets your expectations.
+You can always modify it after accepting it if there are minor corrections to make.
+
+### Chat in the sidebar
+
+Sometimes you may have more long-form questions, or perhaps you'd like to have a
+record of the prompts you've given to Copilot. The sidebar Chat is great for this!
+
+You can toggle the sidebar on and off with the sidebar button in the upper right corner of the VS Code window:
+
+![Open the sidebar](img/chat-sidebar.png){width=300px}
+
+You can select which Large Language Model to use for your prompts:
+
+![Model selection](img/model-selection){width=300px}
+
+#### Example: ask Copilot to explain how a line of code works.
+
+Highlight a complicated line of code and ask Copilot to explain how it works.
+
+![](img/chat-explain-dict-compr.png)
+
+#### Example: ask Copilot to break out a complicated line of code into a separate function.
+
+![](img/chat-sidebar-func.png)
+
+![](img/chat-sidebar-func-answer.png)
+
+If you are not in Agent mode, you will need to make the modifications yourself.
+But Copilot's instructions make it very clear how to do so!
+
+#### Example: ask Copilot to explain the benefits of `yield` vs `return` in Python functions
+
+![](img/chat-question-yield.png)
+
+![](img/chat-explain-yield.png)
+
+#### Example: Writing unit tests
+
+Ask Copilot to suggest unit tests for the Python script.
+
+![](img/chat-ask-tests.png)
+
+Copilot suggested a comprehensive suite of unit tests for the script.
+
+![](img/chat-ask-tests-start.png)
+
+If you're not sure where to place the tests, Copilot has a detailed suggestion:
+
+![](img/chat-ask-tests-where.png)
+![](img/chat-ask-tests-pytest.png)
+
+Be sure to read through the unit tests, understand what they're testing and why,
+and consider if there are any gaps in test coverage that you will need to correct.
+
+### Source Control: git GUI in VS Code
+
+Copilot can even suggest commit messages for you!
+Using the Source Control extension, add your script to the git staging area and
+ask Copilot to suggest a commit message.
+
+![](img/source-ctrl-commit.png)
+
+Click the sparkles ✨ icon on the right side of the commit message box to generate
+a commit message using Copilot.
+
+![](img/source-ctrl-commit-msg.png)
+
+Read the commit message and make sure it accurately describes the changes you've
+made before you accept it.
+
+## Tips
+
+- Always read and **understand** the AI suggestion before accepting it
+- Use git and commit your changes often
+- Write tests to make sure your code works the way you think it does
+- Periodically step back and reflect on what you're trying to accomplish

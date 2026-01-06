@@ -31,9 +31,9 @@ mkdir tutorial
 
 **NOTE: For all steps below, an example is shown for Helix, but the same process is applicable for Biowulf, after changing the `helix.nih.gov` to `biowulf.nih.gov`**
 
-Now you can transfer your data to the new directory. One method is to use `scp` to copy data from your local machine to Helix. 
+Now you can transfer your data to the new directory. One method is to use `scp` to copy data from your local machine to Helix.
 
-Here is an example of using `scp` to copy the file `file.txt` from a local directory to Helix. 
+Here is an example of using `scp` to copy the file `file.txt` from a local directory to Helix.
 
 ```
 scp /data/$USER/file.txt username@helix.nih.gov:/data/CCBR/datashare/tutorial/
@@ -47,7 +47,7 @@ scp -r /data/$USER/ username@helix.nih.gov:/data/CCBR/datashare/tutorial/
 
 ### Create public permissions for data
 
-When the data has been successully copied, we need to open the permissions. 
+When the data has been successully copied, we need to open the permissions.
 
 **NOTE: This will give open access to anyone with the link. Ensure this is appropriate for the data type**
 

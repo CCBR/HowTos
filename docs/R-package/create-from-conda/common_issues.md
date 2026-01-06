@@ -29,7 +29,7 @@ Dependency B version 2.7
   - Dependency C version >= 0.7
 ```
 
-As you can see, the Conda build will not be able to resolve the environment because Dependency A version 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version. 
+As you can see, the Conda build will not be able to resolve the environment because Dependency A version 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.
 
 In this case, if we changed our package's `DESCRIPTION` and `meta.yaml ` file to be:
 

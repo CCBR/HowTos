@@ -12,7 +12,7 @@
 - All pipelines should provide users with documentation for usage, test data, expected outputs, and troubleshooting information. [Mkdocs](https://www.mkdocs.org/) is the recommended tool to perform this action, however, other tools may be utilized. The template's ([NextFlow](https://github.com/CCBR/CCBR_NextflowTemplate), [Snakemake](https://github.com/CCBR/CCBR_SnakemakeTemplate)) were written for mkdocs, and provide basic yaml markdown files provided for this use. They should be edited according to the pipelines function and user needs. Examples of the requirements for each page are provided in the templates.
 
     1. Background
-        - Information on who the pipeline was developed for, and a statement if it's only been tested on Biowulf. 
+        - Information on who the pipeline was developed for, and a statement if it's only been tested on Biowulf.
         - Also include a workflow image to summarize the pipeline.
     2. Getting Started
         - This should set the stage for all of the pipeline requirements. This should include the following pages:
@@ -59,10 +59,10 @@
 
 #### Branch Overview
 
-- All repositories should include a minimum of two branches at any time: 
-    - main ( or master ) 
+- All repositories should include a minimum of two branches at any time:
+    - main ( or master )
     - dev
-- Additional branches should be created as needed. These would include feature branches, developed using individual, feature specific addition and hotfix branches, developed using individual, bug specific fixes. 
+- Additional branches should be created as needed. These would include feature branches, developed using individual, feature specific addition and hotfix branches, developed using individual, bug specific fixes.
 - Utilization of these branches should follow the documentation below.
 
 #### Strategy Outline
@@ -86,7 +86,7 @@ ref:https://nvie.com/posts/a-successful-git-branching-model/
 4. Hotfix (named unique_hotfix_name)
     - branches arise from a bug that has been discovered and must be resolved; it enables developers to keep working on their own changes on the develop branch while the bug is being fixed
     - recommended usage of `git flow hotfix start unique_hotfix_name`
-    - no merges into this branch are expected 
+    - no merges into this branch are expected
 
 > 💡 **Note**  
 > While the `git flow feature start` command is recommended for feature branch creation, the `git flow feature finish` command is not. Using the `finish` command will automatically merge the `feature` branch into the `dev` branch without any testing and regardless of any divergence that may have occurred during feature development.
@@ -112,9 +112,9 @@ ref:https://nvie.com/posts/a-successful-git-branching-model/
 
 - The following rules should be applies when determining the version release:
 
-    - X is major; non-backward compatible (dependent on the amount of changes; from dev) 
-    - Y is minor; backwards compatible (dependent on the amount of changes; from dev) 
-    - Z is patches; backwards compatible (bugs; hot fixes) 
+    - X is major; non-backward compatible (dependent on the amount of changes; from dev)
+    - Y is minor; backwards compatible (dependent on the amount of changes; from dev)
+    - Z is patches; backwards compatible (bugs; hot fixes)
 
 - Other notes:
 
@@ -130,7 +130,7 @@ The following information is meant to outline test_data requirements for all pip
 #### Requirements
 
 1. Location of data
-    - Test data sets should be stored within a `.test` directory, as found in all templates. 
+    - Test data sets should be stored within a `.test` directory, as found in all templates.
 2. Documentation
     - Review information on the [documentation](basic_docs.md) page, which will provide basic information on test data used within the project/pipeline.
     - A README file should be created under the `.test` directory, to include the following information:
@@ -141,8 +141,8 @@ The following information is meant to outline test_data requirements for all pip
         - The source of the files
         - Link to scripts used in created the partial test data
 3. Choosing a test data set
-    - At a minimum three test sets are recommended to be available:         
-        1) Should include sub-sampled inputs, to test the pipelines functionality, and to be used as the tutorial `test set`. 
-        2) Should include full-sample inputs, of high quality, to test the robustness of the pipelines resources 
+    - At a minimum three test sets are recommended to be available:  
+        1) Should include sub-sampled inputs, to test the pipelines functionality, and to be used as the tutorial `test set`.
+        2) Should include full-sample inputs, of high quality, to test the robustness of the pipelines resources
         3) Should include full-sample inputs, of expected project-level quality, to test the robustness of the pipelines error handling
     - Test data should come from a CCBR project or a publicly available source. Care should be taken when choosing test data sets, to ensure that the robustness of the pipeline will be tested, as well as the ability of the pipeline to handle both high and low quality data. Multiple test sets may need to be created to meet these goals. On BIOWULF, these test data files can be stored under `/data/CCBR_Pipeliner/testdata` for easy access by all users of the pipeline(s).

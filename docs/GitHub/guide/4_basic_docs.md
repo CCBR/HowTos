@@ -1,5 +1,5 @@
 # GitHub Basics: Documentation
-GitHub [Pages](https://pages.github.com/) is quick and easy way to build static websites for your GitHub repositories. Essentially, you write pages in [Markdown](https://www.markdownguide.org/) which are then rendered to HTML and hosted on GitHub, free of cost! 
+GitHub [Pages](https://pages.github.com/) is quick and easy way to build static websites for your GitHub repositories. Essentially, you write pages in [Markdown](https://www.markdownguide.org/) which are then rendered to HTML and hosted on GitHub, free of cost!
 
 CCBR has used GitHub pages to provide extensive, legible and organized documentation for our pipelines. Examples are included below:
 
@@ -38,7 +38,7 @@ Generally, for GitHub repos with GitHub pages:
 
 ## Create website
 
-The following steps can be followed to build your first website 
+The following steps can be followed to build your first website
 
 ## Add `mkdocs.yaml`
 
@@ -77,7 +77,7 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.indexes
-    - toc.integrate 
+    - toc.integrate
   palette:
     - scheme: default
       primary: indigo
@@ -226,4 +226,3 @@ Now if you point your web browser to the URL from `gh-deploy` command (IE https:
 2. On the top right select the `gear` icon next to `About`
 3. Under `Website`, select `Use your GitHub Pages website`.
 4. Select `Save Changes`
-

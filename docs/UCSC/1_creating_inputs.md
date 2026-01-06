@@ -5,7 +5,7 @@ In order to use the genomic broswer features, sample files must be created.
 For individual samples, where peak density is to be observed, bigwig formatted files must be generated. If using the CCBR pipelines these are automatically generated as outputs of the pipeline (`WORKDIR/results/bigwig`). In many cases, scaling or normalization of bigwig is required to visualize multiple samples in comparison with each other. See various [deeptools](https://deeptools.readthedocs.io/en/develop/content/tools/bamCompare.html?highlight=normalizeUsing#read-coverage-normalization-options) options for details/ideas. If not using CCBR pipelines, example code is provided below for the file generation.
 ```
 modue load ucsc
-        
+
 fragments_bed="/path/to/sample1.fragments.bed"
 bw="/path/to/sample1.bigwig"
 genome_len="numeric_genome_length"
@@ -65,7 +65,7 @@ link_loc="/SHAREDDIR/bigbed/sample1_vs_sample2.bigbed"
 ln $source_loc $link_loc
 ```
 
-Once the links have been generated, the data folder must be open to read and write access. 
+Once the links have been generated, the data folder must be open to read and write access.
 ```
 ## set destination link location
 link_loc="/SHAREDDIR/bigbed/"
