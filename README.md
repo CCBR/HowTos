@@ -12,7 +12,7 @@ If you come across a **bug**, would like to **suggest an improvement**,
 or have an **idea** for a new how-to guide,
 please [**open an issue**](https://github.com/CCBR/HowTos/issues).
 
-This page was created through the [contributions](https://ccbr.github.io/HowTos/contributors/)
+This page was created through the [contributions](https://ccbr.github.io/HowTos/contributors)
 of several members within [CCBR](https://bioinformatics.ccr.cancer.gov/ccbr/).
 If you would like to contribute, please reach out to
 [Vishal Koparde](https://teams.microsoft.com/l/chat/0/0?users=vishal.koparde@nih.gov).
