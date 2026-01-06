@@ -1,7 +1,6 @@
 ---
 title: "Developing Shiny Apps"
 format: html
-editor: visual
 ---
 
 ## Posit Resources

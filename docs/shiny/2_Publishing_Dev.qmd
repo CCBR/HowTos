@@ -1,10 +1,9 @@
 ---
 title: "Publishing Shiny Apps to the Development Server"
 format: html
-editor: visual
 ---
 
-This page will cover publishing to the development (dev) server, but the steps for publishing will be similar for the internal production server, with caveats listed in the [Publishing to Production documentation](3_Publishing_Prod.qmd).
+This page will cover publishing to the development (dev) server, but the steps for publishing will be similar for the internal production server, with caveats listed in the [Publishing to Production documentation](./3_Publishing_Prod.qmd).
 
 CBIIT offers an SOP for publishing as well, found in [this document](https://nih.sharepoint.com/:w:/s/NCI-CBIITScientificComputing/IQCUwdpewxeOT7HAWuyY9lOEAeCOXwVZJ0uPSZWBxAt4z1c?e=u6o2GW&ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2Ccauleyes%40nih.gov&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNTEwMTYxNjUxMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D).
 
@@ -88,7 +87,7 @@ While choosing "Other Destination..." from the drop down gives a prompt which al
 
 ![](images/Republish_Other_Destination.png){width="500"}
 
-For details on deploying and publishing the app to the NCI production Posit Connect servers, proceed to the [Publishing documentation](3_Publishing.qmd).
+For details on deploying and publishing the app to the NCI production Posit Connect servers, proceed to the [Publishing documentation](3_Publishing_Prod.qmd).
 
 ## Additional Information for Publishing
 

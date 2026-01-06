@@ -1,12 +1,11 @@
 ---
 title: "Publishing Shiny Apps to the Production Servers"
 format: html
-editor: visual
 ---
 
 ### Accessing the Production Servers
 
-Similar to the dev server, to get access to the internal prod server contact the server admin George Zaki. If you have not applied for access to the development server, see the information for applying for access on the [Publishing to Dev documentation](2_Publishing_Dev.qmd) page.
+Similar to the dev server, to get access to the internal prod server contact the server admin George Zaki. If you have not applied for access to the development server, see the information for applying for access on the [Publishing to Dev documentation](./2_Publishing_Dev.qmd) page.
 
 ## Publishing to the Internal Production Server
 
@@ -22,10 +21,10 @@ The steps for publishing to the internal production server will be the same as p
 
 > Recap:
 >
-> -   When the app is tested and ready for deployment, choose the "Publish" button in R studio. Consult the [Deployment documentation](2_Deploying.qmd) for more information.
->     -   If the app has previously been deployed see the "Republish" section
-> -   Add a new destination and use the URL for the internal production server
-> -   Follow the prompts for connecting R to the server, one prompt on the server and a following prompt in R studio
+> - When the app is tested and ready for deployment, choose the "Publish" button in R studio. Consult the [Deployment documentation](./2_Deploying.qmd) for more information.
+>   - If the app has previously been deployed see the "Republish" section
+> - Add a new destination and use the URL for the internal production server
+> - Follow the prompts for connecting R to the server, one prompt on the server and a following prompt in R studio
 
 #### Sharing the App
 
@@ -40,10 +39,10 @@ The NCI external production Posit Connect server is useful for sharing deployed 
 Publishing on the external production server is a different process then the internal dev and prod servers in several ways that are detailed below.
 
 | Server | Publishing Permissions | Security Check | 508 Compliance |
-|----|----|----|----|
-| Internal Production | Yes | No | No |
-| External Production (Private) | Yes | Yes | No |
-| External Production (Public) | Yes | Yes | Yes |
+|--------|------------------------|----------------|----------------|
+| Internal Production           | Yes | No  | No  |
+| External Production (Private) | Yes | Yes | No  |
+| External Production (Public)  | Yes | Yes | Yes |
 
 #### Security Check
 
