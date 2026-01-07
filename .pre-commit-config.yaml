@@ -23,10 +23,10 @@ repos:
       - id: trailing-whitespace
   # spell check
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.4
+    rev: v2.4.1
     hooks:
       - id: codespell
-        args: ["--ignore-words-list=entrace"]
+        args: ["-I ./.github/codespell-ignore"]
   # R formatting
   - repo: https://github.com/lorenzwalthert/precommit
     rev: v0.1.3
