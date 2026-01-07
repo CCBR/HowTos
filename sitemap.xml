@@ -2,150 +2,150 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ccbr.github.io/HowTos/index.html</loc>
-    <lastmod>2026-01-07T16:56:03.411Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.266Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/code-club/2025-02-11_journal-club/slides.html</loc>
-    <lastmod>2026-01-07T16:56:03.341Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.196Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/code-club/index.html</loc>
-    <lastmod>2026-01-07T16:56:03.342Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.197Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/conda-mamba/conda-to-mamba.html</loc>
-    <lastmod>2026-01-07T16:56:03.343Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.198Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/6_howto_precommit.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/5_basic_actions.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/4_basic_docs.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/0_overview.html</loc>
-    <lastmod>2026-01-07T16:56:03.307Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/github-actions-demo.html</loc>
-    <lastmod>2026-01-07T16:56:03.307Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/containers/build-docker-google-cloud.html</loc>
-    <lastmod>2026-01-07T16:56:03.343Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.198Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/R-package/create-from-conda/common_issues.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.164Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/R-package/create-from-conda/1_build_pkg.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.164Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/UCSC/3_creating_tracks.html</loc>
-    <lastmod>2026-01-07T16:56:03.309Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.164Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/UCSC/0_overview.html</loc>
-    <lastmod>2026-01-07T16:56:03.309Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.164Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/HPCDME/setup.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/HPCDME/transferFromHelix.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/generative-AI/gh-pilot-vs-code/index.html</loc>
-    <lastmod>2026-01-07T16:56:03.405Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.260Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/contributors.html</loc>
-    <lastmod>2026-01-07T16:56:03.307Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.162Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/CHANGELOG.html</loc>
-    <lastmod>2026-01-07T16:56:03.282Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.137Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/LICENSE.html</loc>
-    <lastmod>2026-01-07T16:56:03.282Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.137Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/generative-AI/copilot-cli.html</loc>
-    <lastmod>2026-01-07T16:56:03.363Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.218Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/snakemake.html</loc>
-    <lastmod>2026-01-07T16:56:03.411Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.266Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/HPCDME/transfer.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/datashare.html</loc>
-    <lastmod>2026-01-07T16:56:03.363Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.218Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/UCSC/2_creating_track_info.html</loc>
-    <lastmod>2026-01-07T16:56:03.309Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.164Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/UCSC/1_creating_inputs.html</loc>
-    <lastmod>2026-01-07T16:56:03.309Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.164Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/R-package/create-from-conda/0_setup.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.164Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/containers/singularity-biowulf.html</loc>
-    <lastmod>2026-01-07T16:56:03.363Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.218Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/zenodo.html</loc>
-    <lastmod>2026-01-07T16:56:03.411Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.266Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/7_sop_projpipes.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/1_howto_setup.html</loc>
-    <lastmod>2026-01-07T16:56:03.307Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/8_sop_techdev.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/3_basic_repo.html</loc>
-    <lastmod>2026-01-07T16:56:03.308Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/2_howto_functions.html</loc>
-    <lastmod>2026-01-07T16:56:03.307Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.163Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/conda-mamba/ccbr-mamba-biowulf.html</loc>
-    <lastmod>2026-01-07T16:56:03.342Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.198Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/code-club/2025-08-26_establishing-code-club/slides.html</loc>
-    <lastmod>2026-01-07T16:56:03.342Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.197Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/lucidcharts.html</loc>
-    <lastmod>2026-01-07T16:56:03.411Z</lastmod>
+    <lastmod>2026-01-07T17:04:46.266Z</lastmod>
   </url>
 </urlset>
