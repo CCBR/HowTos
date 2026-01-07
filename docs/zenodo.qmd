@@ -1,0 +1,83 @@
+---
+title: "Zenodo"
+author: "[Ned Cauley](https://github.com/escauley) & [Kelly Sovacool](https://github.com/kelly-sovacool)"
+---
+
+Submit a pipeline to Zenodo in order to create a DOI for publication.
+
+## Reference link
+
+Use the link for full information, summarized below: <https://www.youtube.com/watch?v=A9FGAU9S9Ow>
+
+## Prepare GitHub Repository
+
+The GitHub repository must be **public** and should include the following:
+
+- README file
+- Documentation pages, such as via mkdocs, quarto, or pkgdown, with usage and contact information
+- A citation `CITATION.cff` file; [Example here](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff)
+- Tagged and versioned, stable repository
+
+## Link GitHub account to Zenodo
+
+1. Go to [Zenodo](https://zenodo.org/)
+1. Select `username` in the top right >> `Profile`. Select `GitHub``
+1. Click `Sync Now` (top right) to update repos. NOTE: You may have to refresh the page
+1. Toggle the `On` button on the repo you wish to publish. This will move the pipeline to the `Enable Repositories` list.
+
+## Prepare GitHub Repo
+
+1. Go to [GitHub](https://www.github.com) and find the repository page.
+1. Select `Releases` >> `Draft a new release`
+1. Create a tag, following [semantic versioning guidelines](https://semver.org/).
+1. Fill out the Release notes from the `CHANGELOG.md` or `NEWS.md` file.
+1. Publish the release.
+
+Zenodo will then automatically create a new record with a DOI for the release.
+
+## Submit your Zenodo record to the CCBR community
+
+Navigate to your repo's new record in Zenodo.
+You can find your Zenodo records at <https://zenodo.org/me/uploads>.
+Click on your new record and scroll down to the `Communities` section toward the bottom of the page,
+click the gear icon, then click `Submit to community` and search for "CCBR".
+
+![](/docs/images/zenodo-submit-community.png)
+
+![](/docs/images/zenodo-community-ccbr.png)
+
+Once your record is accepted by an admin, it will appear on the [CCBR community page](https://zenodo.org/communities/ccbr).
+
+![](/docs/images/zenodo-community-ccbr-page.png)
+
+## Update Zenodo metadata
+
+If you created a [`CITATION.cff`]((https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff)) file, Zenodo will use it to fill out the metadata.
+Otherwise, you will need to edit the metadata in Zenodo manually.
+
+Navigate to the record in Zenodo and click `Manage record` > `edit`.
+Update any metadata information as needed such as the title, author names and ORCIDs, etc.
+
+## Add DOI, citation to GitHub
+
+1. Go to the record on Zenodo
+1. Copy the all-versions DOI.
+1. Return to the GitHub repository and edit the `README` of the GitHub repo, adding the DOI as a badge.
+1. Update the `CITATION.cff` with the new DOI:
+
+    ```
+    identifiers:
+      - description: "Archived snapshots of all versions"
+        type: doi
+        value: ALL_VERSIONS_DOI
+    ```
+
+    (replace `ALL_VERSIONS_DOI` with the actual DOI from Zenodo)
+1. Add a line to your repo's changelog or news file under the development header to announce the new DOI:
+    ```
+    This repo is now archived in Zenodo with a DOI: ALL_VERSIONS_DOI
+    ```
+
+## Getting Help
+
+If you run into problems or have any questions, please reach out to [Kelly Sovacool](mailto:kelly.sovacool@nih.gov).
