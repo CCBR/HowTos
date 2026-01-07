@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ned Cauley">
+<meta name="author" content="Ned Cauley &amp; Kelly Sovacool">
 
 <title>Zenodo – CCBR How-Tos</title>
 <style>
@@ -630,10 +630,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#prepare-github-repository" id="toc-prepare-github-repository" class="nav-link" data-scroll-target="#prepare-github-repository">Prepare GitHub Repository</a></li>
   <li><a href="#link-github-account-to-zenodo" id="toc-link-github-account-to-zenodo" class="nav-link" data-scroll-target="#link-github-account-to-zenodo">Link GitHub account to Zenodo</a></li>
   <li><a href="#prepare-github-repo" id="toc-prepare-github-repo" class="nav-link" data-scroll-target="#prepare-github-repo">Prepare GitHub Repo</a></li>
-  <li><a href="#update-zenodo-information" id="toc-update-zenodo-information" class="nav-link" data-scroll-target="#update-zenodo-information">Update Zenodo Information</a></li>
+  <li><a href="#submit-your-zenodo-record-to-the-ccbr-community" id="toc-submit-your-zenodo-record-to-the-ccbr-community" class="nav-link" data-scroll-target="#submit-your-zenodo-record-to-the-ccbr-community">Submit your Zenodo record to the CCBR community</a></li>
+  <li><a href="#update-zenodo-metadata" id="toc-update-zenodo-metadata" class="nav-link" data-scroll-target="#update-zenodo-metadata">Update Zenodo metadata</a></li>
   <li><a href="#add-doi-citation-to-github" id="toc-add-doi-citation-to-github" class="nav-link" data-scroll-target="#add-doi-citation-to-github">Add DOI, citation to GitHub</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/zenodo.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/zenodo.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/zenodo.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/zenodo.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -651,7 +653,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p><a href="https://github.com/escauley">Ned Cauley</a> </p>
+             <p><a href="https://github.com/escauley">Ned Cauley</a> &amp; <a href="https://github.com/kelly-sovacool">Kelly Sovacool</a> </p>
           </div>
   </div>
     
@@ -667,66 +669,69 @@ ul.task-list li input[type="checkbox"] {
 <p>Submit a pipeline to Zenodo in order to create a DOI for publication.</p>
 <section id="reference-link" class="level2">
 <h2 class="anchored" data-anchor-id="reference-link">Reference link</h2>
-<p>Use the link for full information, summarized below: https://www.youtube.com/watch?v=A9FGAU9S9Ow</p>
+<p>Use the link for full information, summarized below: <a href="https://www.youtube.com/watch?v=A9FGAU9S9Ow" class="uri">https://www.youtube.com/watch?v=A9FGAU9S9Ow</a></p>
 </section>
 <section id="prepare-github-repository" class="level2">
 <h2 class="anchored" data-anchor-id="prepare-github-repository">Prepare GitHub Repository</h2>
-<p>The GitHub repository should include the following:</p>
-<ol type="1">
-<li>README page</li>
-<li>Documentation page, such as mkdocs, with usage and contact information</li>
-<li>A citation <code>CITATION.cff</code>; <a href="https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff">Example here</a></li>
+<p>The GitHub repository must be <strong>public</strong> and should include the following:</p>
+<ul>
+<li>README file</li>
+<li>Documentation pages, such as via mkdocs, quarto, or pkgdown, with usage and contact information</li>
+<li>A citation <code>CITATION.cff</code> file; <a href="https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff">Example here</a></li>
 <li>Tagged and versioned, stable repository</li>
-</ol>
+</ul>
 </section>
 <section id="link-github-account-to-zenodo" class="level2">
 <h2 class="anchored" data-anchor-id="link-github-account-to-zenodo">Link GitHub account to Zenodo</h2>
 <ol type="1">
-<li><p>Go to <a href="https://zenodo.org/">Zenodo</a></p></li>
-<li><p>Select <code>username</code> in the top right &gt;&gt; <code>Profile</code>. Select `GitHub``</p></li>
-<li><p>Click <code>Sync Now</code> (top right) to update repos. NOTE: You may have to refresh the page</p></li>
-<li><p>Toggle the <code>On</code> button on the repo you wish to publish. This will move the pipeline to the <code>Enable Repositories</code> list.</p></li>
+<li>Go to <a href="https://zenodo.org/">Zenodo</a></li>
+<li>Select <code>username</code> in the top right &gt;&gt; <code>Profile</code>. Select `GitHub``</li>
+<li>Click <code>Sync Now</code> (top right) to update repos. NOTE: You may have to refresh the page</li>
+<li>Toggle the <code>On</code> button on the repo you wish to publish. This will move the pipeline to the <code>Enable Repositories</code> list.</li>
 </ol>
 </section>
 <section id="prepare-github-repo" class="level2">
 <h2 class="anchored" data-anchor-id="prepare-github-repo">Prepare GitHub Repo</h2>
 <ol type="1">
-<li><p>Go to <a href="https://www.github.com">GitHub</a> and find the repository page.</p></li>
-<li><p>Select <code>Releases</code> &gt;&gt; <code>Draft a new release</code></p></li>
-<li><p>Create a tag, following naming semantics described <a href="https://ccbr.github.io/HowTos/GitHub/sop_projpipes/#release-tagged-nomenclature">here</a></p></li>
-<li><p>Describe the tag with the following: “Connecting pipeline to Zenodo”</p></li>
+<li>Go to <a href="https://www.github.com">GitHub</a> and find the repository page.</li>
+<li>Select <code>Releases</code> &gt;&gt; <code>Draft a new release</code></li>
+<li>Create a tag, following <a href="https://semver.org/">semantic versioning guidelines</a>.</li>
+<li>Fill out the Release notes from the <code>CHANGELOG.md</code> or <code>NEWS.md</code> file.</li>
+<li>Publish the release.</li>
 </ol>
+<p>Zenodo will then automatically create a new record with a DOI for the release.</p>
 </section>
-<section id="update-zenodo-information" class="level2">
-<h2 class="anchored" data-anchor-id="update-zenodo-information">Update Zenodo Information</h2>
-<ol type="1">
-<li><p>Go to <a href="https://zenodo.org/">Zenodo</a></p></li>
-<li><p>Select <code>My dashboard</code> &gt;&gt; <code>Edit</code></p></li>
-<li><p>Update the following information:</p>
-<ul>
-<li>Resource Type: Software</li>
-<li>Title: Full Pipeline Name (ShorthandName) (IE Mouse nEoanTigen pRedictOr (METRO)</li>
-<li>Creators: Add creators, including ORCID’s whenever possible</li>
-<li>Description: A short description of the main features of the pipeline</li>
-<li>Additional Description: If you use this software, please cite it as below.</li>
-<li>Keywords and subjects: Add several keywords related to the pipeline</li>
-<li>Version: add the version used in GitHub</li>
-<li>Publisher: Zenodo</li>
-<li>Related works: “Is original form of” “github website” URL</li>
-</ul></li>
-</ol>
+<section id="submit-your-zenodo-record-to-the-ccbr-community" class="level2">
+<h2 class="anchored" data-anchor-id="submit-your-zenodo-record-to-the-ccbr-community">Submit your Zenodo record to the CCBR community</h2>
+<p>Navigate to your repo’s new record in Zenodo. You can find your Zenodo records at <a href="https://zenodo.org/me/uploads" class="uri">https://zenodo.org/me/uploads</a>. Click on your new record and scroll down to the <code>Communities</code> section toward the bottom of the page, click the gear icon, then click <code>Submit to community</code> and search for “CCBR”.</p>
+<p><img src="../docs/images/zenodo-submit-community.png" class="img-fluid"></p>
+<p><img src="../docs/images/zenodo-community-ccbr.png" class="img-fluid"></p>
+<p>Once your record is accepted by an admin, it will appear on the <a href="https://zenodo.org/communities/ccbr">CCBR community page</a>.</p>
+<p><img src="../docs/images/zenodo-community-ccbr-page.png" class="img-fluid"></p>
+</section>
+<section id="update-zenodo-metadata" class="level2">
+<h2 class="anchored" data-anchor-id="update-zenodo-metadata">Update Zenodo metadata</h2>
+<p>If you created a <a href="(https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff)"><code>CITATION.cff</code></a> file, Zenodo will use it to fill out the metadata. Otherwise, you will need to edit the metadata in Zenodo manually.</p>
+<p>Navigate to the record in Zenodo and click <code>Manage record</code> &gt; <code>edit</code>. Update any metadata information as needed such as the title, author names and ORCIDs, etc.</p>
 </section>
 <section id="add-doi-citation-to-github" class="level2">
 <h2 class="anchored" data-anchor-id="add-doi-citation-to-github">Add DOI, citation to GitHub</h2>
 <ol type="1">
-<li><p>Go to <a href="https://zenodo.org/">Zenodo</a></p></li>
-<li><p>Select <code>username</code> in the top right &gt;&gt; <code>Profile</code>. Select `GitHub``</p></li>
-<li><p>Click <code>Sync Now</code> (top right) to update repos. NOTE: You may have to refresh the page</p></li>
-<li><p>Copy the DOI for the repository</p></li>
-<li><p>Return to the GitHub repository and edit the <code>README</code> of the GitHub repo, adding the DOI link.</p></li>
-<li><p>Update the <code>CITATION.cff</code> as needed.</p></li>
-<li><p>Create a new tagged version.</p></li>
+<li><p>Go to the record on Zenodo</p></li>
+<li><p>Copy the all-versions DOI.</p></li>
+<li><p>Return to the GitHub repository and edit the <code>README</code> of the GitHub repo, adding the DOI as a badge.</p></li>
+<li><p>Update the <code>CITATION.cff</code> with the new DOI:</p>
+<pre><code>identifiers:
+  - description: "Archived snapshots of all versions"
+    type: doi
+    value: ALL_VERSIONS_DOI</code></pre>
+<p>(replace <code>ALL_VERSIONS_DOI</code> with the actual DOI from Zenodo)</p></li>
+<li><p>Add a line to your repo’s changelog or news file under the development header to announce the new DOI: <code>This repo is now archived in Zenodo with a DOI: ALL_VERSIONS_DOI</code></p></li>
 </ol>
+</section>
+<section id="getting-help" class="level2">
+<h2 class="anchored" data-anchor-id="getting-help">Getting Help</h2>
+<p>If you run into problems or have any questions, please reach out to <a href="mailto:kelly.sovacool@nih.gov">Kelly Sovacool</a>.</p>
 
 
 </section>
@@ -1165,7 +1170,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/zenodo.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/zenodo.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/zenodo.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/zenodo.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
