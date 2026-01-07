@@ -52,7 +52,7 @@ Once your record is accepted by an admin, it will appear on the [CCBR community 
 
 ## Update Zenodo metadata
 
-If you created a [`CITATION.cff`]((https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff)) file, Zenodo will use it to fill out the metadata.
+If you created a [`CITATION.cff`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff) file, Zenodo will use it to fill out the metadata.
 Otherwise, you will need to edit the metadata in Zenodo manually.
 
 Navigate to the record in Zenodo and click `Manage record` > `edit`.
