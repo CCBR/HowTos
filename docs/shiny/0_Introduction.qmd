@@ -1,5 +1,6 @@
 ---
 title: "Publishing Shiny Apps on NCI's POSIT Connect Servers"
+author: "[Ned Cauley](https://github.com/escauley)"
 format: html
 ---
 
