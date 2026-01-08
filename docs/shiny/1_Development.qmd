@@ -21,7 +21,7 @@ To set up the example Shiny app for personal use, please use the following steps
 
 The first step is to fork the [CCBR shiny-example github repo](https://github.com/CCBR/shiny-example) using the "fork" option from the CCBR shiny-example repo.
 
-![Use the Fork option (red rectangle) from the CCBR shiny-example repo](images/fork_screenshot.png)\
+![Use the Fork option (red rectangle) from the CCBR shiny-example repo](images/fork_screenshot.png)
 
 #### Clone the forked repo
 
