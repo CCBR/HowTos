@@ -22,7 +22,7 @@ The steps for publishing to the internal production server will be the same as p
 
 > Recap:
 >
-> -   When the app is tested and ready for deployment, choose the "Publish" button in R studio. Consult the [Deployment documentation](2_Deploying.qmd) for more information.
+> -   When the app is tested and ready for deployment, choose the "Publish" button in R studio. Consult the [Publishing to Dev documentation](2_Publishing_Dev.qmd) for more information.
 >     -   If the app has previously been deployed see the "Republish" section
 > -   Add a new destination and use the URL for the internal production server
 > -   Follow the prompts for connecting R to the server, one prompt on the server and a following prompt in R studio
