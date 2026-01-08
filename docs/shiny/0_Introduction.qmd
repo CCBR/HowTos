@@ -1,0 +1,62 @@
+---
+title: "Publishing Shiny Apps on NCI's POSIT Connect Servers"
+author: "[Ned Cauley](https://github.com/escauley)"
+format: html
+---
+
+## Summary
+
+R Shiny apps can be deployed on NCI's Posit connect servers to enable sharing with NCI or non-NCI collaborators. There are three servers available:
+
+#### Development Server
+
+- [appshare-dev.cancer.gov](appshare-dev.cancer.gov)
+- Used for development and testing
+- Available from 7 am - 7 pm, located on NCI's Cloud One
+- Sometimes is unavailable during working hours for patches
+
+#### Internal Production Server
+
+- [posit-connect-prod.cancer.gov](posit-connect-prod.cancer.gov)
+- Used for sharing with NCI collaborators
+- Available 24/7, located on-premises
+
+#### External Production Server
+
+- [appshare.cancer.gov](appshare.cancer.gov)
+- Used for sharing with non-NCI collaborators
+- Available 24/7, located on NCI's Cloud One
+
+> Note: all servers require a VPN connection to access.
+
+A description of publishing Shiny apps to the external production server for public access is described by CBIIT in [this article](https://service.cancer.gov/ncisp?id=nci_kb_article&sysparm_article=NCI-KB0015444). There are additional steps needed for publishing on any of the servers and certain requirements for sharing an app publicly won't apply to publishing on the internal NCI servers. All of these details are described in the sections linked below.
+
+A description of the NCI Posit Connect servers from the CBIIT article:
+
+> "R Shiny apps are interactive web applications built using the Shiny framework in R. They allow users to create graphical user interfaces (GUIs) for their R code, enabling others to interact with data and analyses without needing to install R or write code themselves."
+
+This documentation will add further details and tips for CCBR members to develop and publish Shiny apps on the NCI POSIT connect servers.
+
+:::{.callout-note}
+## Note
+
+A number of different tools can be published on POSIT Connect servers. The list of those tools and further information can be found on the [POSIT Connect User Guide](https://appshare-dev.cancer.gov/__docs__/user/)
+:::
+
+## Developing Shiny Apps
+
+CCBR's [Shiny Example](https://github.com/CCBR/shiny-example) repo can be used to explore a pre-made Shiny app and as a skeleton for experimentation or development of other Shiny apps.
+
+Further information can be found on the [Development documentation](1_Development.qmd) page.
+
+## Publishing to the Development (Dev) Server
+
+Shiny apps developed for NCI's POSIT Connect servers are first published first on the dev server: [appshare-dev.cancer.gov](appshare-dev.cancer.gov)
+
+Further information can be found on the [Publishing to Dev documentation](2_Publishing_Dev.qmd) page.
+
+## Publishing to the Production (Prod) Servers
+
+After a Shiny app has been tested and approved it can be published to the production servers. If the app will be shared with collaborators within NCI, it will be published to the internal production server. If the app will be shared with collaborators outside of NCI, it will be published to the externally facing production server.
+
+Further information can be found on the [Publishing to Prod documentation](3_Publishing_Prod.qmd) page.

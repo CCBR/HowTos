@@ -1,0 +1,99 @@
+---
+title: "Publishing Shiny Apps to the Development Server"
+format: html
+---
+
+This page will cover publishing to the development (dev) server, but the steps for publishing will be similar for the internal production server, with caveats listed in the [Publishing to Production documentation](./3_Publishing_Prod.qmd).
+
+CBIIT offers an SOP for publishing as well, found in [this document](https://nih.sharepoint.com/:w:/s/NCI-CBIITScientificComputing/IQCUwdpewxeOT7HAWuyY9lOEAeCOXwVZJ0uPSZWBxAt4z1c?e=u6o2GW&ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2Ccauleyes%40nih.gov&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNTEwMTYxNjUxMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D).
+
+### Access to the servers
+
+To publish a shiny app on the dev server, you will need publisher access. To get this access, contact George Zaki (<mailto:george.zaki@nih.gov>) with a description of the app which includes:
+
+- What data does the shiny app use and how large is the data?
+- Where is the data stored?
+- How will the data be manipulated by the app i.e. read, or read and write?
+- What is an estimate of how much computational resources the app uses to run? For example, what features of the app take the longest to run and how long does it take when run locally?
+
+Provide this information in the email to George Zaki when asking for publishing access to the dev server.
+
+As part of receiving access to the dev server, review the following demos of NCI's posit connect servers:\
+\
+[RStudio Connect Refresher demo-20210930_150214-Meeting Recording.mp4](https://nih-my.sharepoint.com/:v:/r/personal/zakigf_nih_gov/Documents/Recordings/RStudio%20Connect%20Refresher%20demo-20210930_150214-Meeting%20Recording.mp4?csf=1&web=1&e=k6UV5j&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&isSPOFile=1&xsdata=MDV8MDJ8fDdhOWZmOWRmYTExMjQzZDI2M2U1MDhkZTIyZjgzNjZlfDE0Yjc3NTc4OTc3MzQyZDU4NTA3MjUxY2EyZGMyYjA2fDB8MHw2Mzg5ODY2NDY1OTM2MjcxMDl8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pZeU5UTmpPV0V4TFRZME5HWXRORGd3TVMwNE16VXdMVEl3Tm1Fek1XVm1ObUZtTjE4M05EUmhOVE0yTmkwMVl6VmlMVFE1WTJZdFlUVTJOeTAyTldGaU1UWXdZak0xT1dOQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMk16QTJOemcxT0RJek9BPT18M2ZhYTNiMWFjODRhNDkwMTYzZTUwOGRlMjJmODM2NmV8MDhmNTExNmE3YTc4NDljZmE3OWEyMTZiZTljMTY5MGY%3D&sdata=NWhPRWNtR3AxQ01zdXRaTXcrbnQwQkszT1FhTk9MV0ZIV1NIK2FmenJPQT0%3D&ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2Ccauleyes%40nih.gov "https://nih-my.sharepoint.com/:v:/r/personal/zakigf_nih_gov/documents/recordings/rstudio%20connect%20refresher%20demo-20210930_150214-meeting%20recording.mp4?csf=1&web=1&e=k6uv5j&nav=eyjyzwzlcnjhbeluzm8ionsicmvmzxjyywxbchaioijtdhjlyw1xzwjbchailcjyzwzlcnjhbfzpzxcioijtagfyzurpywxvzy1maw5riiwicmvmzxjyywxbchbqbgf0zm9ybsi6ildlyiisinjlzmvycmfstw9kzsi6inzpzxcifx0%3d&isspofile=1&xsdata=mdv8mdj8fddhowzmowrmytexmjqzzdi2m2u1mdhkztiyzjgznjzlfde0yjc3ntc4otc3mzqyzdu4nta3mjuxy2eyzgmyyja2fdb8mhw2mzg5ody2ndy1otm2mjcxmdl8vw5rbm93bnxwr1zoylhovfpxtjfjbwwwzvzobgnuwnbzmly4zxlkrfftstzjbfjswvcxelgwrlvvrk5sy25acfkyvmzvmujqveu5r0lpd2lwauk2swpbdu1dnhdnref3swl3avvdstzjbgrwympneulpd2lrvtrpt2lkugrhagxjaulzswxkvulqb3hnwda9fdf8tdjob1lyunpmeku1t2pzeu5utmppv0v4tfrzme5hwxrorgd3tvmwne16vxdmvel3tm1fek1xvm1obuzttje4m05eumhove0ytmkwmvl6vmlmvfe1wtjzdfluvtjoetaytldgau1uwxdzak0xt1doqwrxnxhmbwrpykm1emnhrmpawe12yldwemmyrm5awe12tvrjmk16qtjoemcxt0rjek9bpt18m2zhytnimwfjodrhndkwmtyzztuwogrlmjjmodm2nmv8mdhmntexnme3ytc4ndljzme3oweymtziztljmty5mgy%3d&sdata=nwhprwntr3axq01zdxratxcrbnqwqkszt1fhtk9mv0ziv1nik2fmenjpqt0%3d&ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2ccauleyes%40nih.gov")
+
+- \~45 minute demo plus \~15 min audience questions
+- Content: Publishing to a Posit Connect Server, overview of an example shiny app, overview of settings for app share settings
+
+[RStudio Connect Refresher Demo 2-20211021_150326-Meeting Recording.mp4](https://nih-my.sharepoint.com/:v:/r/personal/zakigf_nih_gov/Documents/Recordings/RStudio%20Connect%20Refresher%20Demo%202-20211021_150326-Meeting%20Recording.mp4?csf=1&web=1&e=KOeBL7&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&isSPOFile=1&xsdata=MDV8MDJ8fDMzODdjZmY0N2IxZTQzMjdmOTViMDhkZTIyZjgzZDg3fDE0Yjc3NTc4OTc3MzQyZDU4NTA3MjUxY2EyZGMyYjA2fDB8MHw2Mzg5ODY2NDY3MTI3NDQyODN8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pZeU5UTmpPV0V4TFRZME5HWXRORGd3TVMwNE16VXdMVEl3Tm1Fek1XVm1ObUZtTjE4M05EUmhOVE0yTmkwMVl6VmlMVFE1WTJZdFlUVTJOeTAyTldGaU1UWXdZak0xT1dOQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMk16QTJOemczTURZNE9BPT18ODcwM2NmOTdlOTdkNDc0MWY5NWIwOGRlMjJmODNkODd8ZDQ1ODQ3ZGJhN2MxNDRhOWIxMzE2NmRiNTdmY2UyYWE%3D&sdata=bEdKcjNjeVprVTREL1FHNnA3U3cvUEQ4MnRYTmtWdjd6Z1hJajdmc2FZYz0%3D&ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2Ccauleyes%40nih.gov "https://nih-my.sharepoint.com/:v:/r/personal/zakigf_nih_gov/documents/recordings/rstudio%20connect%20refresher%20demo%202-20211021_150326-meeting%20recording.mp4?csf=1&web=1&e=koebl7&nav=eyjyzwzlcnjhbeluzm8ionsicmvmzxjyywxbchaioijtdhjlyw1xzwjbchailcjyzwzlcnjhbfzpzxcioijtagfyzurpywxvzy1maw5riiwicmvmzxjyywxbchbqbgf0zm9ybsi6ildlyiisinjlzmvycmfstw9kzsi6inzpzxcifx0%3d&isspofile=1&xsdata=mdv8mdj8fdmzoddjzmy0n2ixztqzmjdmotvimdhkztiyzjgzzdg3fde0yjc3ntc4otc3mzqyzdu4nta3mjuxy2eyzgmyyja2fdb8mhw2mzg5ody2ndy3mti3ndqyodn8vw5rbm93bnxwr1zoylhovfpxtjfjbwwwzvzobgnuwnbzmly4zxlkrfftstzjbfjswvcxelgwrlvvrk5sy25acfkyvmzvmujqveu5r0lpd2lwauk2swpbdu1dnhdnref3swl3avvdstzjbgrwympneulpd2lrvtrpt2lkugrhagxjaulzswxkvulqb3hnwda9fdf8tdjob1lyunpmeku1t2pzeu5utmppv0v4tfrzme5hwxrorgd3tvmwne16vxdmvel3tm1fek1xvm1obuzttje4m05eumhove0ytmkwmvl6vmlmvfe1wtjzdfluvtjoetaytldgau1uwxdzak0xt1doqwrxnxhmbwrpykm1emnhrmpawe12yldwemmyrm5awe12tvrjmk16qtjoemczturzne9bpt18odcwm2nmotdlotdkndc0mwy5nwiwogrlmjjmodnkodd8zdq1odq3zgjhn2mxndrhowixmze2nmrintdmy2uyywe%3d&sdata=bedkcjnjevprvtrel1fhnna3u3cvueq4mnrytmtwdjd6z1hjajdmc2fzyz0%3d&ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2ccauleyes%40nih.gov")
+
+- \~30 minute demo
+- Content: Jupyter Notebook on Rstudio Workbench, Plumber API with Rstudio Workbench
+
+## Publishing an App to the Dev Server
+
+Once the shiny example app has been cloned and run locally.
+
+### Add an Account for Publishing
+
+Select the "Publish" button to bring up the Publish to Server window. Select "Add new account" in the "Publish from account:" section.
+
+![](images/Publish_from_account_window.png){width="500"}
+
+Next choose the "Posit Connect" option and in the next window enter the URL for the NCI Posit Connect dev server.
+
+![](images/Connect_account_options.png){width="500"}
+
+![](images/Posit_connect_enter_URL.png){width="500"}
+
+Upon clicking the "Next" button, a browser will open and redirect you to the Posit Connect Dev server. You will receive a prompt asking you to connect to R.
+
+![](images/Connect_to_R_prompt.png){width="600"}
+
+Choose "Connect" and then return to the Rstudio window. You will then have another prompt to finalize the connection. Choose "Connect Account".
+
+![](images/Connect_to_R_RStudio_prompt.png){width="500"}
+
+You will now have the Posit Connect dev server as an option when choosing the "Publish" button.
+
+#### Publish the example shiny app
+
+Now that your account is connected. Click the "Publish" button again, and you will now see that your connected account is listed. Rename your app and then choose "Publish".
+
+![](images/Deploying_example_app.png){width="500"}
+
+A log of the app building will begin in Rstudio, including installation of all libraries listed in the renv.lock file. When the app is built, a browser will be opened with your published shiny app on the Posit Connect dev server.
+
+![](images/Deployed_App.png)
+
+You have now successfully deployed the example shiny app to the Posit Connect dev server!
+
+#### Republishing
+
+The options for publishing will look slightly different if an app has already been published and there is local memory of the deployed apps. For example, if you successfully deploy the shiny example app for the first time to the internal dev server, the "Publish" button will now say "Republish". A drop down for Replublish allows republishing to a specific location if the app was deployed to multiple destinations, as well as adding a new destination.
+
+![The "Republish" button (red box) and drop down options](images/Replublish_Drop_Down.png){width="750"}
+
+Choosing Republish or choosing a specific location gives a prompt specific to that location.
+
+![](images/Republish_Window.png){width="500"}
+
+While choosing "Other Destination..." from the drop down gives a prompt which allows adding new destinations.
+
+![](images/Republish_Other_Destination.png){width="500"}
+
+For details on deploying and publishing the app to the NCI production Posit Connect servers, proceed to the [Publishing documentation](3_Publishing_Prod.qmd).
+
+## Additional Information for Publishing
+
+### Data Size Limits
+
+When a Shiny app is published, the data used in the app will account for the majority of the total size of the app. For any app with a total data size greater than 3 GB, contact George Zaki for further guidance. Data may need to be stored on the server or in a separate location and not included in the published Shiny app bundle.
+
+### R Environment
+
+Include a `renv.lock` file when publishing to control the exact versions of dependencies used for a Shiny app. For more information on updating a `renv.lock` file, please refer to the [renv documentation](https://rstudio.github.io/renv/articles/renv.html).
+
+### rsconnect R Package
+
+An alternative method to publish a Shiny app from the command line is the rsconnect R package. Additional information can be found on the [rsconnect doc page](https://rstudio.github.io/rsconnect/index.html).
