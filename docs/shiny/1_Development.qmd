@@ -39,7 +39,7 @@ Be sure to replace `$gh_username` with your actual github username.
 
 Create a new R project in R studio, either in the same folder as the cloned example Shiny app repo or in a separate folder. Be sure to use renv for the new project to create a contained environment for the R libraries required for the shiny app. The renv.lock file will contain all R libraries installed in the env and is needed for deployment to the Posit Connect servers. If the project is created in a separate folder, the path of all files referenced in the example app will need to be changed to reflect the new folder destination.
 
-The shiny-example repo comes with a renv.lock file which can be used to install all of the libraries needed for the shiny example app. To use the renv.lock file, run the command in the R studio console:\
+The shiny-example repo comes with a `renv.lock` file which can be used to install all of the libraries needed for the shiny example app. To use the `renv.lock` file, run the command in the RStudio console:
 
 ``` r
 renv::restore()
