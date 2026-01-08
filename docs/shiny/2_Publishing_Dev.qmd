@@ -9,7 +9,7 @@ CBIIT offers an SOP for publishing as well, found in [this document](https://nih
 
 ### Access to the servers
 
-To publish a shiny app on the dev server, you will need publisher access. To get this access, contact George Zaki (george.zaki\@nih.gov) with a description of the app which includes:
+To publish a shiny app on the dev server, you will need publisher access. To get this access, contact George Zaki (<mailto:george.zaki@nih.gov>) with a description of the app which includes:
 
 - What data does the shiny app use and how large is the data?
 - Where is the data stored?
