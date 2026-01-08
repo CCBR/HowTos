@@ -36,7 +36,11 @@ A description of the NCI Posit Connect servers from the CBIIT article:
 
 This documentation will add further details and tips for CCBR members to develop and publish Shiny apps on the NCI POSIT connect servers.
 
-> Note: A number of different tools can be published on POSIT Connect servers. The list of those tools and further information can be found on the [POSIT Connect User Guide](https://appshare-dev.cancer.gov/__docs__/user/)
+:::{.callout-note}
+## Note
+
+A number of different tools can be published on POSIT Connect servers. The list of those tools and further information can be found on the [POSIT Connect User Guide](https://appshare-dev.cancer.gov/__docs__/user/)
+:::
 
 ## Developing Shiny Apps
 
