@@ -35,7 +35,7 @@ The github CLI command will be:
 git clone https://github.com/$gh_username/shiny-example.git
 ```
 
-Where \$gh_username will replace with your github username.
+Be sure to replace `$gh_username` with your actual github username.
 
 #### Start a new R project
 
