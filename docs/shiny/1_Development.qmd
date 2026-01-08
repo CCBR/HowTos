@@ -1,7 +1,6 @@
 ---
 title: "Developing Shiny Apps"
 format: html
-editor: visual
 ---
 
 ## Posit Resources
@@ -48,7 +47,7 @@ The shiny-example repo comes with a renv.lock file which can be used to install 
 renv::restore()
 ```
 
-If the restore function causes issues or is not preferred, the required libraries can also be installed individually. All required libraries are listed at the top of the app.R file and the sourced R script files (for shiny-example that's "R/PCA_plot_DSP.R" and "R/violin_boxplot.R").
+If the restore function causes issues or is not preferred, the required libraries can also be installed individually. All required libraries are listed at the top of the `app.R` file and the sourced R script files (for `shiny-example` the R script files are `R/PCA_plot_DSP.R` and `R/violin_boxplot.R`).
 
 #### Run the Shiny app locally
 

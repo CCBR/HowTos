@@ -13,7 +13,7 @@ your own environments.
 Initialize your shell with mamba. This will modify your shell's rc file (e.g.
 `~/.zshrc` or `~/.bashrc`) to allow you to use mamba.
 
-Specify your shell language with `--shell SHELL`. 
+Specify your shell language with `--shell SHELL`.
 The below example is for `zsh`:
 
 ```sh
@@ -61,7 +61,7 @@ denylist_channels:
   - https://repo.anaconda.com/pkgs/r
 ```
 
-You can optionally add other configuration options as you see fit 
+You can optionally add other configuration options as you see fit
 (e.g. `auto_activate_base`), but it is important to at least have all of the
 content above.
 
@@ -104,7 +104,7 @@ Note that the channel URLs point to `https://conda.anaconda.org/`
 (only **community-supported channels**),
 and no channels point to `https://repo.anaconda.com` (commercial channels).
 
-New environments you create will be in `/data/$USER/mamba/envs/`, 
+New environments you create will be in `/data/$USER/mamba/envs/`,
 but you will also be able to activate any environment listed in
 `/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/`
 
@@ -159,7 +159,7 @@ you're all set up to use mamba on biowulf! 🎉
 If you have any questions about **conda or mamba** generally, please refer to
 the [mamba documentation](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html)
 
-If you have any questions or run into problems while using the **CCBR** mamba 
+If you have any questions or run into problems while using the **CCBR** mamba
 installation on biowulf, please contact us at
 [CCBR_Pipeliner@mail.nih.gov](mailto:CCBR_Pipeliner@mail.nih.gov)
 :::
@@ -187,7 +187,7 @@ you will not be able to create a shared CCBR environment.**
 
 Create your new environment using the CCBR miniforge3 directory for the prefix.
 The environment name is the directory name after `/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/`.
-For example, the following will create an environment called `test-$USER` 
+For example, the following will create an environment called `test-$USER`
 (`$USER` will be replaced by your actual username).
 
 ```sh
@@ -207,17 +207,17 @@ ls -alh /vf/users/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/test-$USER
 ```
 ```text
 total 0
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 .
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ..
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 bin
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 compiler_compat
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 conda-meta
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 include
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 lib
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 man
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 share
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ssl
-drwxrwsr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 x86_64-conda-linux-gnu
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 .
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ..
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 bin
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 compiler_compat
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:22 conda-meta
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 include
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 lib
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 man
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 share
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 ssl
+drwxr-sr-x 2 $USER CCBR_Pipeliner 4.0K Oct 24 12:21 x86_64-conda-linux-gnu
 ```
 
 Activate the new environment and make sure it works as expected:

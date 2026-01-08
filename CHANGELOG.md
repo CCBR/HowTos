@@ -1,5 +1,10 @@
 ## HowTos development version
 
+- Publishing Shiny apps to NCI's Posit Connect servers (#53, @escauley)
+- Update the Zenodo guide with current CCBR practices (#55, @kelly-sovacool)
+
+## HowTos 1.0.0
+
 The website is now rendered with Quarto (#24, @kelly-sovacool)
 
 ### New guides
@@ -12,8 +17,15 @@ The website is now rendered with Quarto (#24, @kelly-sovacool)
     - How to build containers interactively with Google Cloud Shell (@kelly-sovacool)
     - How to use containers with Singularity on Biowulf (@kelly-sovacool)
 - GitHub Actions demo (@kelly-sovacool)
-- Code Club presentations (@kelly-sovacool)
-- Publishing Shiny apps to NCI's Posit Connect servers (@escauley)
+- Resources from Code Club presentations (@kelly-sovacool)
+- Generative AI:
+  - GitHub Copilot CLI (#45, @kopardev)
+  - GitHub Copilot in VS Code (#47, @kelly-sovacool)
+
+### Improvements
+
+- Standardized documentation structure and navigation
+- Minor content and formatting updates across guides
 
 ## HowTos 0.1.0
 

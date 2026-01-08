@@ -1,0 +1,67 @@
+name: auto-format
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+env:
+  GH_TOKEN: ${{ github.token }}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  auto-format:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+      - uses: actions/checkout@v4
+        if: github.event_name == 'pull_request'
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - uses: actions/checkout@v4
+        if: github.event_name != 'pull_request'
+        with:
+          fetch-depth: 0
+
+      - name: git config
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - uses: actions/setup-python@v4
+      - uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-r-dependencies@v2
+
+      - uses: citation-file-format/cffconvert-github-action@2.0.0
+        if: ${{ hashFiles('CITATION.cff') != ''}}
+        with:
+          args: "--format codemeta --outfile codemeta.json"
+
+      - name: pre-commit
+        uses: pre-commit/action@v3.0.1
+        continue-on-error: true
+
+      - name: Format R code - air
+        uses: rstudio/shiny-workflows/format-r-code@v1
+
+      - name: Format Python code - black
+        uses: psf/black@stable
+        with:
+          options: "--verbose"
+
+      - name: commit & push
+        run: |
+          git add .
+          git commit -m "ci: 🤖 auto-format" || echo "nothing to commit"
+          git push || echo "nothing to push"

@@ -3,7 +3,7 @@ title: "Creating the package"
 author: "[Ned Cauley](https://github.com/escauley)"
 ---
 
-## Overview 
+## Overview
 
 To create a package with Conda, you first need to make a new release and tag in the github repo of the R package you would like to create into a Conda Package.
 
@@ -11,7 +11,7 @@ For more information on best practices in R package creation, review this [docum
 
 Before creating the release on github, please check for proper dependencies listed in the files `NAMESPACE` and `DESCRIPTION`.
 
-These files should have the same list of dependencies, and the version numbers for dependencies can be specified in the `DESCRIPTION` file. The `DESCRIPTION` file must be edited manually, while the NAMESPACE file should not be edited manually, but rather created automatically using the document() function. 
+These files should have the same list of dependencies, and the version numbers for dependencies can be specified in the `DESCRIPTION` file. The `DESCRIPTION` file must be edited manually, while the NAMESPACE file should not be edited manually, but rather created automatically using the document() function.
 
 The `DESCRIPTION` file must also be correctly formatted. For more information, see the following [website](https://r-pkgs.org/description.html).
 
@@ -20,7 +20,7 @@ The `DESCRIPTION` file must also be correctly formatted. For more information, s
 To download the most recent release from the most recent tag on Github, activate Conda then use Conda `skeleton` to pull the correct URL. In the example below, replace `$githubURL` with the URL to your R package's github repo.
 
 ```
-conda activate 
+conda activate
 
 conda skeleton cran $githubURL
 ```
@@ -50,7 +50,7 @@ Here is an example of the top of the `meta.yaml` file with the channels section 
 package:
   name: r-dspworkflow
   version: {{ version|replace("-", "_") }}
-  
+
 channels:
   - conda-forge
   - bioconda
@@ -108,7 +108,7 @@ Here is an example of the sections for specifying dependency versions from the `
     - r-rtsne =0.16=r41h37cf8d7_1
     - r-magrittr =2.0.3=r41h06615bd_1
     - r-rlang =1.1.0=r41h38f115c_0
-    
+
   run:
     - r-base =4.1.3=h2f963a2_5
     - bioconductor-biobase =2.54.0=r41hc0cfd56_2
@@ -135,7 +135,7 @@ Here is an example of the sections for specifying dependency versions from the `
     - r-rlang =1.1.0=r41h38f115c_0
 ```
 
-In the above example, each of the dependencies has been assigned a conda build string, so that when conda builds a conda package, it will only use that specific build of the dependency from the listed conda channels. The above example is very restrictive, the dependencies can also be listed in the "meta.yaml" file to be more open--it will choose a conda build string that fits in with the other resolved dependency build strings based on what is available in the channels. 
+In the above example, each of the dependencies has been assigned a conda build string, so that when conda builds a conda package, it will only use that specific build of the dependency from the listed conda channels. The above example is very restrictive, the dependencies can also be listed in the "meta.yaml" file to be more open--it will choose a conda build string that fits in with the other resolved dependency build strings based on what is available in the channels.
 
 Also note that the "host" section matches the "run" section.
 
@@ -170,7 +170,7 @@ Here is some examples of a more open setup for these dependencies:
 
 ## Build the Conda package
 
-When the `meta.yaml` has been prepared, you can now build the Conda package. To do so, run the command, replacing 
+When the `meta.yaml` has been prepared, you can now build the Conda package. To do so, run the command, replacing
 
 - `$r-package` with the name of the R package folder that was created after running conda skeleton (the folder where the meta.yaml is located).
 - `$build_log_name.log` with the name for the log file, such as the date, time, and initials.
@@ -179,7 +179,7 @@ When the `meta.yaml` has been prepared, you can now build the Conda package. To 
 conda-build $r-package 2>&1|tee $build_log_name.log
 ```
 
-**Example** 
+**Example**
 ```
 conda-build r-dspworkflow 2>&1|tee 05_12_23_330_nc.log
 
@@ -187,6 +187,6 @@ conda-build r-dspworkflow 2>&1|tee 05_12_23_330_nc.log
 
 The log file will list how conda has built the package, including what dependencies version numbers and corresponding build strings were used to resolve the conda environment. These dependencies are what we specified in the "meta.yaml" file. The log file will be useful troubleshooting a failed build.
 
-Be aware, the build can take anywhere from several minutes to an hour to complete, depending on the size of the package and the number of dependencies. 
+Be aware, the build can take anywhere from several minutes to an hour to complete, depending on the size of the package and the number of dependencies.
 
 The conda package will be built as a tar.bz2 file.
