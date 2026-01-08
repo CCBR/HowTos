@@ -7,9 +7,7 @@ format: html
 
 Posit has a free Shiny tutorial for developing shiny apps in either R or Python available on their [shiny web page](https://shiny.posit.co/). The Posit tutorial will teach you the essentials of how Shiny apps are developed and how to add additional features. The Shiny web page also contains additional information for creating more complex Shiny apps, such as the the [gallery](https://shiny.posit.co/r/gallery/) which demo specific features.
 
-Posit offers a "cheatsheet" for referencing aspects of Shiny development:
-
-[Shiny Cheatsheet PDF](shiny.pdf)
+Posit offers a "cheatsheet" for referencing aspects of Shiny development: [Download the Shiny Cheatsheet PDF](shiny.pdf)
 
 ## Example Shiny App
 
