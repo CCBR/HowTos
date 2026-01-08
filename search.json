@@ -766,6 +766,78 @@
     ]
   },
   {
+    "objectID": "docs/shiny/1_Development.html",
+    "href": "docs/shiny/1_Development.html",
+    "title": "Developing Shiny Apps",
+    "section": "",
+    "text": "Posit has a free Shiny tutorial for developing shiny apps in either R or Python available on their shiny web page. The Posit tutorial will teach you the essentials of how Shiny apps are developed and how to add additional features. The Shiny web page also contains additional information for creating more complex Shiny apps, such as the the gallery which demo specific features.\nPosit offers a “cheatsheet” for referencing aspects of Shiny development: Download the Shiny Cheatsheet PDF",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Developing Shiny Apps"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/1_Development.html#posit-resources",
+    "href": "docs/shiny/1_Development.html#posit-resources",
+    "title": "Developing Shiny Apps",
+    "section": "",
+    "text": "Posit has a free Shiny tutorial for developing shiny apps in either R or Python available on their shiny web page. The Posit tutorial will teach you the essentials of how Shiny apps are developed and how to add additional features. The Shiny web page also contains additional information for creating more complex Shiny apps, such as the the gallery which demo specific features.\nPosit offers a “cheatsheet” for referencing aspects of Shiny development: Download the Shiny Cheatsheet PDF",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Developing Shiny Apps"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/1_Development.html#example-shiny-app",
+    "href": "docs/shiny/1_Development.html#example-shiny-app",
+    "title": "Developing Shiny Apps",
+    "section": "Example Shiny App",
+    "text": "Example Shiny App\nThere is an example Shiny app for CCBR members to use for learning and experimenting with an already functional app, or for use as a foundation for developing a new app.\nTo set up the example Shiny app for personal use, please use the following steps.\n\nCreate a fork\nThe first step is to fork the CCBR shiny-example github repo using the “fork” option from the CCBR shiny-example repo.\n\n\n\nUse the Fork option (red rectangle) from the CCBR shiny-example repo\n\n\n\n\nClone the forked repo\nAfter the fork is created, clone the fork locally using the github CLI with the URL available in the code tab of the forked repo.\n\n\n\nHow to find the URL to use for cloning the forked repo (red box)\n\n\nThe github CLI command will be:\ngit clone https://github.com/$gh_username/shiny-example.git\nBe sure to replace $gh_username with your actual github username.\n\n\nStart a new R project\nCreate a new R project in R studio, either in the same folder as the cloned example Shiny app repo or in a separate folder. Be sure to use renv for the new project to create a contained environment for the R libraries required for the shiny app. The renv.lock file will contain all R libraries installed in the env and is needed for deployment to the Posit Connect servers. If the project is created in a separate folder, the path of all files referenced in the example app will need to be changed to reflect the new folder destination.\nThe shiny-example repo comes with a renv.lock file which can be used to install all of the libraries needed for the shiny example app. To use the renv.lock file, run the command in the RStudio console:\nrenv::restore()\nIf the restore function causes issues or is not preferred, the required libraries can also be installed individually. All required libraries are listed at the top of the app.R file and the sourced R script files (for shiny-example the R script files are R/PCA_plot_DSP.R and R/violin_boxplot.R).\n\n\nRun the Shiny app locally\nTo verify all R libraries and required files are set up correctly, the example Shiny app can be run locally using the “Run App” button in R studio. Depending on the selection in the drop down menu for the Run App button, the app will either generate in a browser or in the Viewer window within R studio.\n\n\n\nThe run app button used to run R shiny apps locally (red box)\n\n\n\n\n\nExample of the shiny app running locally in the Viewer window\n\n\n\n\nNext steps\nAfter the example Shiny app is set up, you can proceed with making changes to the app such as new features, experiment with changing the pre-existing code of the example, etc. When you are ready to try publishing the app, please proceed to the Publishing to Dev documentation.",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Developing Shiny Apps"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/2_Publishing_Dev.html",
+    "href": "docs/shiny/2_Publishing_Dev.html",
+    "title": "Publishing Shiny Apps to the Development Server",
+    "section": "",
+    "text": "This page will cover publishing to the development (dev) server, but the steps for publishing will be similar for the internal production server, with caveats listed in the Publishing to Production documentation.\nCBIIT offers an SOP for publishing as well, found in this document.",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps to the Development Server"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/2_Publishing_Dev.html#publishing-an-app-to-the-dev-server",
+    "href": "docs/shiny/2_Publishing_Dev.html#publishing-an-app-to-the-dev-server",
+    "title": "Publishing Shiny Apps to the Development Server",
+    "section": "Publishing an App to the Dev Server",
+    "text": "Publishing an App to the Dev Server\nOnce the shiny example app has been cloned and run locally.\n\nAdd an Account for Publishing\nSelect the “Publish” button to bring up the Publish to Server window. Select “Add new account” in the “Publish from account:” section.\n\nNext choose the “Posit Connect” option and in the next window enter the URL for the NCI Posit Connect dev server.\n\n\nUpon clicking the “Next” button, a browser will open and redirect you to the Posit Connect Dev server. You will receive a prompt asking you to connect to R.\n\nChoose “Connect” and then return to the Rstudio window. You will then have another prompt to finalize the connection. Choose “Connect Account”.\n\nYou will now have the Posit Connect dev server as an option when choosing the “Publish” button.\n\nPublish the example shiny app\nNow that your account is connected. Click the “Publish” button again, and you will now see that your connected account is listed. Rename your app and then choose “Publish”.\n\nA log of the app building will begin in Rstudio, including installation of all libraries listed in the renv.lock file. When the app is built, a browser will be opened with your published shiny app on the Posit Connect dev server.\n\nYou have now successfully deployed the example shiny app to the Posit Connect dev server!\n\n\nRepublishing\nThe options for publishing will look slightly different if an app has already been published and there is local memory of the deployed apps. For example, if you successfully deploy the shiny example app for the first time to the internal dev server, the “Publish” button will now say “Republish”. A drop down for Replublish allows republishing to a specific location if the app was deployed to multiple destinations, as well as adding a new destination.\n\n\n\nThe “Republish” button (red box) and drop down options\n\n\nChoosing Republish or choosing a specific location gives a prompt specific to that location.\n\nWhile choosing “Other Destination…” from the drop down gives a prompt which allows adding new destinations.\n\nFor details on deploying and publishing the app to the NCI production Posit Connect servers, proceed to the Publishing documentation.",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps to the Development Server"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/2_Publishing_Dev.html#additional-information-for-publishing",
+    "href": "docs/shiny/2_Publishing_Dev.html#additional-information-for-publishing",
+    "title": "Publishing Shiny Apps to the Development Server",
+    "section": "Additional Information for Publishing",
+    "text": "Additional Information for Publishing\n\nData Size Limits\nWhen a Shiny app is published, the data used in the app will account for the majority of the total size of the app. For any app with a total data size greater than 3 GB, contact George Zaki for further guidance. Data may need to be stored on the server or in a separate location and not included in the published Shiny app bundle.\n\n\nR Environment\nInclude a renv.lock file when publishing to control the exact versions of dependencies used for a Shiny app. For more information on updating a renv.lock file, please refer to the renv documentation.\n\n\nrsconnect R Package\nAn alternative method to publish a Shiny app from the command line is the rsconnect R package. Additional information can be found on the rsconnect doc page.",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps to the Development Server"
+    ]
+  },
+  {
     "objectID": "docs/UCSC/3_creating_tracks.html",
     "href": "docs/UCSC/3_creating_tracks.html",
     "title": "Generating New Tracks",
@@ -909,14 +981,14 @@
     "href": "CHANGELOG.html",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "Update the Zenodo guide with current CCBR practices (#55, @kelly-sovacool)"
+    "text": "Publishing Shiny apps to NCI’s Posit Connect servers (#53, @escauley)\nUpdate the Zenodo guide with current CCBR practices (#55, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-development-version",
     "href": "CHANGELOG.html#howtos-development-version",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "Update the Zenodo guide with current CCBR practices (#55, @kelly-sovacool)"
+    "text": "Publishing Shiny apps to NCI’s Posit Connect servers (#53, @escauley)\nUpdate the Zenodo guide with current CCBR practices (#55, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-1.0.0",
@@ -1244,6 +1316,102 @@
       "Home",
       "UCSC",
       "Generating Inputs"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/0_Introduction.html",
+    "href": "docs/shiny/0_Introduction.html",
+    "title": "Publishing Shiny Apps on NCI’s POSIT Connect Servers",
+    "section": "",
+    "text": "R Shiny apps can be deployed on NCI’s Posit connect servers to enable sharing with NCI or non-NCI collaborators. There are three servers available:\n\n\n\nappshare-dev.cancer.gov\nUsed for development and testing\nAvailable from 7 am - 7 pm, located on NCI’s Cloud One\nSometimes is unavailable during working hours for patches\n\n\n\n\n\nposit-connect-prod.cancer.gov\nUsed for sharing with NCI collaborators\nAvailable 24/7, located on-premises\n\n\n\n\n\nappshare.cancer.gov\nUsed for sharing with non-NCI collaborators\nAvailable 24/7, located on NCI’s Cloud One\n\n\nNote: all servers require a VPN connection to access.\n\nA description of publishing Shiny apps to the external production server for public access is described by CBIIT in this article. There are additional steps needed for publishing on any of the servers and certain requirements for sharing an app publicly won’t apply to publishing on the internal NCI servers. All of these details are described in the sections linked below.\nA description of the NCI Posit Connect servers from the CBIIT article:\n\n“R Shiny apps are interactive web applications built using the Shiny framework in R. They allow users to create graphical user interfaces (GUIs) for their R code, enabling others to interact with data and analyses without needing to install R or write code themselves.”\n\nThis documentation will add further details and tips for CCBR members to develop and publish Shiny apps on the NCI POSIT connect servers.\n\n\n\n\n\n\nNoteNote\n\n\n\nA number of different tools can be published on POSIT Connect servers. The list of those tools and further information can be found on the POSIT Connect User Guide",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps on NCI's POSIT Connect Servers"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/0_Introduction.html#summary",
+    "href": "docs/shiny/0_Introduction.html#summary",
+    "title": "Publishing Shiny Apps on NCI’s POSIT Connect Servers",
+    "section": "",
+    "text": "R Shiny apps can be deployed on NCI’s Posit connect servers to enable sharing with NCI or non-NCI collaborators. There are three servers available:\n\n\n\nappshare-dev.cancer.gov\nUsed for development and testing\nAvailable from 7 am - 7 pm, located on NCI’s Cloud One\nSometimes is unavailable during working hours for patches\n\n\n\n\n\nposit-connect-prod.cancer.gov\nUsed for sharing with NCI collaborators\nAvailable 24/7, located on-premises\n\n\n\n\n\nappshare.cancer.gov\nUsed for sharing with non-NCI collaborators\nAvailable 24/7, located on NCI’s Cloud One\n\n\nNote: all servers require a VPN connection to access.\n\nA description of publishing Shiny apps to the external production server for public access is described by CBIIT in this article. There are additional steps needed for publishing on any of the servers and certain requirements for sharing an app publicly won’t apply to publishing on the internal NCI servers. All of these details are described in the sections linked below.\nA description of the NCI Posit Connect servers from the CBIIT article:\n\n“R Shiny apps are interactive web applications built using the Shiny framework in R. They allow users to create graphical user interfaces (GUIs) for their R code, enabling others to interact with data and analyses without needing to install R or write code themselves.”\n\nThis documentation will add further details and tips for CCBR members to develop and publish Shiny apps on the NCI POSIT connect servers.\n\n\n\n\n\n\nNoteNote\n\n\n\nA number of different tools can be published on POSIT Connect servers. The list of those tools and further information can be found on the POSIT Connect User Guide",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps on NCI's POSIT Connect Servers"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/0_Introduction.html#developing-shiny-apps",
+    "href": "docs/shiny/0_Introduction.html#developing-shiny-apps",
+    "title": "Publishing Shiny Apps on NCI’s POSIT Connect Servers",
+    "section": "Developing Shiny Apps",
+    "text": "Developing Shiny Apps\nCCBR’s Shiny Example repo can be used to explore a pre-made Shiny app and as a skeleton for experimentation or development of other Shiny apps.\nFurther information can be found on the Development documentation page.",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps on NCI's POSIT Connect Servers"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/0_Introduction.html#publishing-to-the-development-dev-server",
+    "href": "docs/shiny/0_Introduction.html#publishing-to-the-development-dev-server",
+    "title": "Publishing Shiny Apps on NCI’s POSIT Connect Servers",
+    "section": "Publishing to the Development (Dev) Server",
+    "text": "Publishing to the Development (Dev) Server\nShiny apps developed for NCI’s POSIT Connect servers are first published first on the dev server: appshare-dev.cancer.gov\nFurther information can be found on the Publishing to Dev documentation page.",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps on NCI's POSIT Connect Servers"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/0_Introduction.html#publishing-to-the-production-prod-servers",
+    "href": "docs/shiny/0_Introduction.html#publishing-to-the-production-prod-servers",
+    "title": "Publishing Shiny Apps on NCI’s POSIT Connect Servers",
+    "section": "Publishing to the Production (Prod) Servers",
+    "text": "Publishing to the Production (Prod) Servers\nAfter a Shiny app has been tested and approved it can be published to the production servers. If the app will be shared with collaborators within NCI, it will be published to the internal production server. If the app will be shared with collaborators outside of NCI, it will be published to the externally facing production server.\nFurther information can be found on the Publishing to Prod documentation page.",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps on NCI's POSIT Connect Servers"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/3_Publishing_Prod.html",
+    "href": "docs/shiny/3_Publishing_Prod.html",
+    "title": "Publishing Shiny Apps to the Production Servers",
+    "section": "",
+    "text": "Similar to the dev server, to get access to the internal prod server contact the server admin George Zaki. If you have not applied for access to the development server, see the information for applying for access on the Publishing to Dev documentation page.",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps to the Production Servers"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/3_Publishing_Prod.html#publishing-to-the-internal-production-server",
+    "href": "docs/shiny/3_Publishing_Prod.html#publishing-to-the-internal-production-server",
+    "title": "Publishing Shiny Apps to the Production Servers",
+    "section": "Publishing to the Internal Production Server",
+    "text": "Publishing to the Internal Production Server\nThe NCI internal production Posit Connect server is useful for sharing deployed Shiny apps with collaborators within NCI.\nThe internal production server is accessible at the URL: posit-connect-prod.cancer.gov\nOnce your app has been tested on the internal development server and is ready for sharing with a collaborator within NCI, confirm with George Zaki that the app can now be deployed and published on internal production.\n\nPublishing\nThe steps for publishing to the internal production server will be the same as publishing to the internal development server, with a change to the URL and some additional steps for sharing.\n\nRecap:\n\nWhen the app is tested and ready for deployment, choose the “Publish” button in R studio. Consult the Publishing to Dev documentation for more information.\n\nIf the app has previously been deployed see the “Republish” section\n\nAdd a new destination and use the URL for the internal production server\nFollow the prompts for connecting R to the server, one prompt on the server and a following prompt in R studio\n\n\n\n\nSharing the App\nOnce the Shiny app has been deployed to the internal production server, we can choose how to share the app for final publishing. Sharing can be done by clicking the Cogwheel in the upper right and choosing the Access tab.\n\n\n\nShare an app through the Access tab (red box)",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps to the Production Servers"
+    ]
+  },
+  {
+    "objectID": "docs/shiny/3_Publishing_Prod.html#publishing-to-the-external-production-server",
+    "href": "docs/shiny/3_Publishing_Prod.html#publishing-to-the-external-production-server",
+    "title": "Publishing Shiny Apps to the Production Servers",
+    "section": "Publishing to the External Production Server",
+    "text": "Publishing to the External Production Server\nThe NCI external production Posit Connect server is useful for sharing deployed Shiny apps with collaborators outside of NCI. A Shiny app published on the external production server can be shared either privately with a select number of non-NCI collaborators, or made public for access by anyone.\nPublishing on the external production server is a different process then the internal dev and prod servers in several ways that are detailed below.\n\n\n\nServer\nPublishing Permissions\nSecurity Check\n508 Compliance\n\n\n\n\nInternal Production\nYes\nNo\nNo\n\n\nExternal Production (Private)\nYes\nYes\nNo\n\n\nExternal Production (Public)\nYes\nYes\nYes\n\n\n\n\nSecurity Check\nThe security check is required for any Shiny apps published to the External Production server. The security check will be run by George Zaki.\n508 Compliance (Accessibility)\n508 compliance is only required for publicly accessible apps, and refers to the accessibility features of the web page.\nFor a more specific explanation and check list, see the NCI article Section 508 Conformance and Accessibility Checklist. You will likely need to login using NIH credentials to see this web page.\nFor 508 compliance tools to check an app, refer to the 508 compliance section in this NCI article.\n508 compliance will also be verified by George Zaki before the app can be published.",
+    "crumbs": [
+      "Home",
+      "Shiny",
+      "Publishing Shiny Apps to the Production Servers"
     ]
   },
   {

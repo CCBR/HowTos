@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Publishing Shiny Apps to the Development Server – CCBR How-Tos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../docs/shiny/3_Publishing_Prod.html" rel="next">
+<link href="../../docs/shiny/1_Development.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-172261f5509728adce88ba6ab5623fe8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CCBR How-Tos</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contributors.html"> 
+<span class="menu-text">Contributors</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/CCBR/HowTos"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/shiny/0_Introduction.html">Shiny</a></li><li class="breadcrumb-item"><a href="../../docs/shiny/2_Publishing_Dev.html">Publishing Shiny Apps to the Development Server</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/datashare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datashare</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/lucidcharts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LucidChart</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/snakemake.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Snakemake</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/zenodo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zenodo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Conda Mamba</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/conda-mamba/ccbr-mamba-biowulf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using the shared CCBR mamba installation on Biowulf</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/conda-mamba/conda-to-mamba.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Move from Conda to Mamba</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Containers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/containers/build-docker-google-cloud.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Build docker containers interactively with Google Cloud Shell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/containers/singularity-biowulf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to use containers with singularity on biowulf</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Generative AI</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/generative-AI/copilot-cli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Copilot CLI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/generative-AI/gh-pilot-vs-code/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Copilot in VS Code</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">GitHub</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/github-actions-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Actions demo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Guide</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/guide/0_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of GitHub Topics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/guide/1_howto_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Setup: Preparing the Environment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/guide/2_howto_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub HowTo: Basic Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/guide/3_basic_repo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Basics: Repository</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/guide/4_basic_docs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Basics: Documentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/guide/5_basic_actions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Basics: GitHub Actions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/guide/6_howto_precommit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub HowTo: Pre-Commit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/guide/7_sop_projpipes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Best Practices: Projects and Pipelines</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/GitHub/guide/8_sop_techdev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Best Practices: TechDev projects</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">HPCDME</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/HPCDME/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HPCDME Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/HPCDME/transfer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File Transfers from Biowulf</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/HPCDME/transferFromHelix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File Transfer from HELIX</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/code-club/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Code Club</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">2025 02 11 Journal Club</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/code-club/2025-02-11_journal-club/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Improving bioinformatics software quality through teamwork</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">2025 08 26 Establishing Code Club</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/code-club/2025-08-26_establishing-code-club/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Establishing a Community of Practice</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">R Package</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Create from Conda</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/R-package/create-from-conda/0_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/R-package/create-from-conda/1_build_pkg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creating the package</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/R-package/create-from-conda/common_issues.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">common issues</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">Shiny</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/shiny/0_Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Publishing Shiny Apps on NCI’s POSIT Connect Servers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/shiny/1_Development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Developing Shiny Apps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/shiny/2_Publishing_Dev.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Publishing Shiny Apps to the Development Server</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/shiny/3_Publishing_Prod.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Publishing Shiny Apps to the Production Servers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">UCSC</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/UCSC/0_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/UCSC/1_creating_inputs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generating Inputs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/UCSC/2_creating_track_info.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generating Track information</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/UCSC/3_creating_tracks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generating New Tracks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/shiny/0_Introduction.html">Shiny</a></li><li class="breadcrumb-item"><a href="../../docs/shiny/2_Publishing_Dev.html">Publishing Shiny Apps to the Development Server</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Publishing Shiny Apps to the Development Server</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This page will cover publishing to the development (dev) server, but the steps for publishing will be similar for the internal production server, with caveats listed in the <a href="../../docs/shiny/3_Publishing_Prod.html">Publishing to Production documentation</a>.</p>
+<p>CBIIT offers an SOP for publishing as well, found in <a href="https://nih.sharepoint.com/:w:/s/NCI-CBIITScientificComputing/IQCUwdpewxeOT7HAWuyY9lOEAeCOXwVZJ0uPSZWBxAt4z1c?e=u6o2GW&amp;ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2Ccauleyes%40nih.gov&amp;clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNTEwMTYxNjUxMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D">this document</a>.</p>
+<section id="access-to-the-servers" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-the-servers">Access to the servers</h3>
+<p>To publish a shiny app on the dev server, you will need publisher access. To get this access, contact George Zaki (<a href="mailto:george.zaki@nih.gov" class="uri">mailto:george.zaki@nih.gov</a>) with a description of the app which includes:</p>
+<ul>
+<li>What data does the shiny app use and how large is the data?</li>
+<li>Where is the data stored?</li>
+<li>How will the data be manipulated by the app i.e.&nbsp;read, or read and write?</li>
+<li>What is an estimate of how much computational resources the app uses to run? For example, what features of the app take the longest to run and how long does it take when run locally?</li>
+</ul>
+<p>Provide this information in the email to George Zaki when asking for publishing access to the dev server.</p>
+<p>As part of receiving access to the dev server, review the following demos of NCI’s posit connect servers:<br>
+<br>
+<a href="https://nih-my.sharepoint.com/:v:/r/personal/zakigf_nih_gov/Documents/Recordings/RStudio%20Connect%20Refresher%20demo-20210930_150214-Meeting%20Recording.mp4?csf=1&amp;web=1&amp;e=k6UV5j&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&amp;isSPOFile=1&amp;xsdata=MDV8MDJ8fDdhOWZmOWRmYTExMjQzZDI2M2U1MDhkZTIyZjgzNjZlfDE0Yjc3NTc4OTc3MzQyZDU4NTA3MjUxY2EyZGMyYjA2fDB8MHw2Mzg5ODY2NDY1OTM2MjcxMDl8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pZeU5UTmpPV0V4TFRZME5HWXRORGd3TVMwNE16VXdMVEl3Tm1Fek1XVm1ObUZtTjE4M05EUmhOVE0yTmkwMVl6VmlMVFE1WTJZdFlUVTJOeTAyTldGaU1UWXdZak0xT1dOQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMk16QTJOemcxT0RJek9BPT18M2ZhYTNiMWFjODRhNDkwMTYzZTUwOGRlMjJmODM2NmV8MDhmNTExNmE3YTc4NDljZmE3OWEyMTZiZTljMTY5MGY%3D&amp;sdata=NWhPRWNtR3AxQ01zdXRaTXcrbnQwQkszT1FhTk9MV0ZIV1NIK2FmenJPQT0%3D&amp;ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2Ccauleyes%40nih.gov" title="https://nih-my.sharepoint.com/:v:/r/personal/zakigf_nih_gov/documents/recordings/rstudio%20connect%20refresher%20demo-20210930_150214-meeting%20recording.mp4?csf=1&amp;web=1&amp;e=k6uv5j&amp;nav=eyjyzwzlcnjhbeluzm8ionsicmvmzxjyywxbchaioijtdhjlyw1xzwjbchailcjyzwzlcnjhbfzpzxcioijtagfyzurpywxvzy1maw5riiwicmvmzxjyywxbchbqbgf0zm9ybsi6ildlyiisinjlzmvycmfstw9kzsi6inzpzxcifx0%3d&amp;isspofile=1&amp;xsdata=mdv8mdj8fddhowzmowrmytexmjqzzdi2m2u1mdhkztiyzjgznjzlfde0yjc3ntc4otc3mzqyzdu4nta3mjuxy2eyzgmyyja2fdb8mhw2mzg5ody2ndy1otm2mjcxmdl8vw5rbm93bnxwr1zoylhovfpxtjfjbwwwzvzobgnuwnbzmly4zxlkrfftstzjbfjswvcxelgwrlvvrk5sy25acfkyvmzvmujqveu5r0lpd2lwauk2swpbdu1dnhdnref3swl3avvdstzjbgrwympneulpd2lrvtrpt2lkugrhagxjaulzswxkvulqb3hnwda9fdf8tdjob1lyunpmeku1t2pzeu5utmppv0v4tfrzme5hwxrorgd3tvmwne16vxdmvel3tm1fek1xvm1obuzttje4m05eumhove0ytmkwmvl6vmlmvfe1wtjzdfluvtjoetaytldgau1uwxdzak0xt1doqwrxnxhmbwrpykm1emnhrmpawe12yldwemmyrm5awe12tvrjmk16qtjoemcxt0rjek9bpt18m2zhytnimwfjodrhndkwmtyzztuwogrlmjjmodm2nmv8mdhmntexnme3ytc4ndljzme3oweymtziztljmty5mgy%3d&amp;sdata=nwhprwntr3axq01zdxratxcrbnqwqkszt1fhtk9mv0ziv1nik2fmenjpqt0%3d&amp;ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2ccauleyes%40nih.gov">RStudio Connect Refresher demo-20210930_150214-Meeting Recording.mp4</a></p>
+<ul>
+<li>~45 minute demo plus ~15 min audience questions</li>
+<li>Content: Publishing to a Posit Connect Server, overview of an example shiny app, overview of settings for app share settings</li>
+</ul>
+<p><a href="https://nih-my.sharepoint.com/:v:/r/personal/zakigf_nih_gov/Documents/Recordings/RStudio%20Connect%20Refresher%20Demo%202-20211021_150326-Meeting%20Recording.mp4?csf=1&amp;web=1&amp;e=KOeBL7&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&amp;isSPOFile=1&amp;xsdata=MDV8MDJ8fDMzODdjZmY0N2IxZTQzMjdmOTViMDhkZTIyZjgzZDg3fDE0Yjc3NTc4OTc3MzQyZDU4NTA3MjUxY2EyZGMyYjA2fDB8MHw2Mzg5ODY2NDY3MTI3NDQyODN8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pZeU5UTmpPV0V4TFRZME5HWXRORGd3TVMwNE16VXdMVEl3Tm1Fek1XVm1ObUZtTjE4M05EUmhOVE0yTmkwMVl6VmlMVFE1WTJZdFlUVTJOeTAyTldGaU1UWXdZak0xT1dOQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMk16QTJOemczTURZNE9BPT18ODcwM2NmOTdlOTdkNDc0MWY5NWIwOGRlMjJmODNkODd8ZDQ1ODQ3ZGJhN2MxNDRhOWIxMzE2NmRiNTdmY2UyYWE%3D&amp;sdata=bEdKcjNjeVprVTREL1FHNnA3U3cvUEQ4MnRYTmtWdjd6Z1hJajdmc2FZYz0%3D&amp;ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2Ccauleyes%40nih.gov" title="https://nih-my.sharepoint.com/:v:/r/personal/zakigf_nih_gov/documents/recordings/rstudio%20connect%20refresher%20demo%202-20211021_150326-meeting%20recording.mp4?csf=1&amp;web=1&amp;e=koebl7&amp;nav=eyjyzwzlcnjhbeluzm8ionsicmvmzxjyywxbchaioijtdhjlyw1xzwjbchailcjyzwzlcnjhbfzpzxcioijtagfyzurpywxvzy1maw5riiwicmvmzxjyywxbchbqbgf0zm9ybsi6ildlyiisinjlzmvycmfstw9kzsi6inzpzxcifx0%3d&amp;isspofile=1&amp;xsdata=mdv8mdj8fdmzoddjzmy0n2ixztqzmjdmotvimdhkztiyzjgzzdg3fde0yjc3ntc4otc3mzqyzdu4nta3mjuxy2eyzgmyyja2fdb8mhw2mzg5ody2ndy3mti3ndqyodn8vw5rbm93bnxwr1zoylhovfpxtjfjbwwwzvzobgnuwnbzmly4zxlkrfftstzjbfjswvcxelgwrlvvrk5sy25acfkyvmzvmujqveu5r0lpd2lwauk2swpbdu1dnhdnref3swl3avvdstzjbgrwympneulpd2lrvtrpt2lkugrhagxjaulzswxkvulqb3hnwda9fdf8tdjob1lyunpmeku1t2pzeu5utmppv0v4tfrzme5hwxrorgd3tvmwne16vxdmvel3tm1fek1xvm1obuzttje4m05eumhove0ytmkwmvl6vmlmvfe1wtjzdfluvtjoetaytldgau1uwxdzak0xt1doqwrxnxhmbwrpykm1emnhrmpawe12yldwemmyrm5awe12tvrjmk16qtjoemczturzne9bpt18odcwm2nmotdlotdkndc0mwy5nwiwogrlmjjmodnkodd8zdq1odq3zgjhn2mxndrhowixmze2nmrintdmy2uyywe%3d&amp;sdata=bedkcjnjevprvtrel1fhnna3u3cvueq4mnrytmtwdjd6z1hjajdmc2fzyz0%3d&amp;ovuser=14b77578-9773-42d5-8507-251ca2dc2b06%2ccauleyes%40nih.gov">RStudio Connect Refresher Demo 2-20211021_150326-Meeting Recording.mp4</a></p>
+<ul>
+<li>~30 minute demo</li>
+<li>Content: Jupyter Notebook on Rstudio Workbench, Plumber API with Rstudio Workbench</li>
+</ul>
+</section>
+<section id="publishing-an-app-to-the-dev-server" class="level2">
+<h2 class="anchored" data-anchor-id="publishing-an-app-to-the-dev-server">Publishing an App to the Dev Server</h2>
+<p>Once the shiny example app has been cloned and run locally.</p>
+<section id="add-an-account-for-publishing" class="level3">
+<h3 class="anchored" data-anchor-id="add-an-account-for-publishing">Add an Account for Publishing</h3>
+<p>Select the “Publish” button to bring up the Publish to Server window. Select “Add new account” in the “Publish from account:” section.</p>
+<p><img src="images/Publish_from_account_window.png" class="img-fluid" width="500"></p>
+<p>Next choose the “Posit Connect” option and in the next window enter the URL for the NCI Posit Connect dev server.</p>
+<p><img src="images/Connect_account_options.png" class="img-fluid" width="500"></p>
+<p><img src="images/Posit_connect_enter_URL.png" class="img-fluid" width="500"></p>
+<p>Upon clicking the “Next” button, a browser will open and redirect you to the Posit Connect Dev server. You will receive a prompt asking you to connect to R.</p>
+<p><img src="images/Connect_to_R_prompt.png" class="img-fluid" width="600"></p>
+<p>Choose “Connect” and then return to the Rstudio window. You will then have another prompt to finalize the connection. Choose “Connect Account”.</p>
+<p><img src="images/Connect_to_R_RStudio_prompt.png" class="img-fluid" width="500"></p>
+<p>You will now have the Posit Connect dev server as an option when choosing the “Publish” button.</p>
+<section id="publish-the-example-shiny-app" class="level4">
+<h4 class="anchored" data-anchor-id="publish-the-example-shiny-app">Publish the example shiny app</h4>
+<p>Now that your account is connected. Click the “Publish” button again, and you will now see that your connected account is listed. Rename your app and then choose “Publish”.</p>
+<p><img src="images/Deploying_example_app.png" class="img-fluid" width="500"></p>
+<p>A log of the app building will begin in Rstudio, including installation of all libraries listed in the renv.lock file. When the app is built, a browser will be opened with your published shiny app on the Posit Connect dev server.</p>
+<p><img src="images/Deployed_App.png" class="img-fluid"></p>
+<p>You have now successfully deployed the example shiny app to the Posit Connect dev server!</p>
+</section>
+<section id="republishing" class="level4">
+<h4 class="anchored" data-anchor-id="republishing">Republishing</h4>
+<p>The options for publishing will look slightly different if an app has already been published and there is local memory of the deployed apps. For example, if you successfully deploy the shiny example app for the first time to the internal dev server, the “Publish” button will now say “Republish”. A drop down for Replublish allows republishing to a specific location if the app was deployed to multiple destinations, as well as adding a new destination.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Replublish_Drop_Down.png" class="img-fluid figure-img" width="750"></p>
+<figcaption>The “Republish” button (red box) and drop down options</figcaption>
+</figure>
+</div>
+<p>Choosing Republish or choosing a specific location gives a prompt specific to that location.</p>
+<p><img src="images/Republish_Window.png" class="img-fluid" width="500"></p>
+<p>While choosing “Other Destination…” from the drop down gives a prompt which allows adding new destinations.</p>
+<p><img src="images/Republish_Other_Destination.png" class="img-fluid" width="500"></p>
+<p>For details on deploying and publishing the app to the NCI production Posit Connect servers, proceed to the <a href="../../docs/shiny/3_Publishing_Prod.html">Publishing documentation</a>.</p>
+</section>
+</section>
+</section>
+<section id="additional-information-for-publishing" class="level2">
+<h2 class="anchored" data-anchor-id="additional-information-for-publishing">Additional Information for Publishing</h2>
+<section id="data-size-limits" class="level3">
+<h3 class="anchored" data-anchor-id="data-size-limits">Data Size Limits</h3>
+<p>When a Shiny app is published, the data used in the app will account for the majority of the total size of the app. For any app with a total data size greater than 3 GB, contact George Zaki for further guidance. Data may need to be stored on the server or in a separate location and not included in the published Shiny app bundle.</p>
+</section>
+<section id="r-environment" class="level3">
+<h3 class="anchored" data-anchor-id="r-environment">R Environment</h3>
+<p>Include a <code>renv.lock</code> file when publishing to control the exact versions of dependencies used for a Shiny app. For more information on updating a <code>renv.lock</code> file, please refer to the <a href="https://rstudio.github.io/renv/articles/renv.html">renv documentation</a>.</p>
+</section>
+<section id="rsconnect-r-package" class="level3">
+<h3 class="anchored" data-anchor-id="rsconnect-r-package">rsconnect R Package</h3>
+<p>An alternative method to publish a Shiny app from the command line is the rsconnect R package. Additional information can be found on the <a href="https://rstudio.github.io/rsconnect/index.html">rsconnect doc page</a>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ccbr\.github\.io\/HowTos");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../docs/shiny/1_Development.html" class="pagination-link" aria-label="Developing Shiny Apps">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Developing Shiny Apps</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../docs/shiny/3_Publishing_Prod.html" class="pagination-link" aria-label="Publishing Shiny Apps to the Production Servers">
+        <span class="nav-page-text">Publishing Shiny Apps to the Production Servers</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Created by the <a href="https://github.com/CCBR">CCR Collaborative Bioinformatics Resource</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/shiny/2_Publishing_Dev.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/shiny/2_Publishing_Dev.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
