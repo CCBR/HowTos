@@ -70,8 +70,8 @@ You have now successfully deployed the example shiny app to the Posit Connect de
 
 #### Republishing
 
-The options for publishing will look slightly different if an app has already been published and there is local memory of the deployed apps. For example, if you successfully deploy the shiny example app for the first time to the internal dev server, the "Publish" button will now say "Republish". A drop down for Replublish allows republishing to a specific location if the app was deployed to multiple destinations, as well as adding a new destination.\
-\
+The options for publishing will look slightly different if an app has already been published and there is local memory of the deployed apps. For example, if you successfully deploy the shiny example app for the first time to the internal dev server, the "Publish" button will now say "Republish". A drop down for Replublish allows republishing to a specific location if the app was deployed to multiple destinations, as well as adding a new destination.
+
 ![The "Republish" button (red box) and drop down options](images/Replublish_Drop_Down.png){width="750"}
 
 Choosing Republish or choosing a specific location gives a prompt specific to that location.
