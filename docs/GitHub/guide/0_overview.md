@@ -19,6 +19,6 @@ author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](htt
 
 ## Best Practices
 
-- [Use Pre-commit Hooks](6_sop_precommit.md)
+- [Use Pre-commit Hooks](6_howto_precommit.md)
 - [CCBR Projects, new Pipelines](7_sop_projpipes.md)
 - [TechDev](8_sop_techdev.md)
