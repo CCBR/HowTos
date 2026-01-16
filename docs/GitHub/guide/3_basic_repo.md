@@ -78,7 +78,7 @@ However, if you're updating an established repository, you may need to add some 
 
 - Pre-commit config files
 
-    Pre-commit hooks provide an automated way to style code, draw attention to typos, and validate commit messages. Learn more about pre-commit [here](https://ccbr.github.io/HowTos/GitHub/howto_precommit/).
+    Pre-commit hooks provide an automated way to style code, draw attention to typos, and validate commit messages. Learn more about pre-commit [here](6_howto_precommit.md).
     These files can be customized depending on the needs of the repo. For example, you don't need the hook for formatting R code if your repo does not and will never contain any R code.
 
     - [`.pre-commit-config.yaml`](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.pre-commit-config.yaml)
