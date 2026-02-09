@@ -1,5 +1,6 @@
 ---
 author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
+date: 2023-04-27
 ---
 
 # GitHub Basics: GitHub Actions

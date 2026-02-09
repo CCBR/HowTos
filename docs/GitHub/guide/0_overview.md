@@ -1,6 +1,7 @@
 ---
 title: Overview of GitHub Topics
 author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
+date: 2023-04-11
 ---
 
 ## Getting set-up and familiar with GitHub

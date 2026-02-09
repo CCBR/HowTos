@@ -1,5 +1,6 @@
 ---
 author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
+date: 2023-05-08
 ---
 
 # GitHub Best Practices: Projects and Pipelines

@@ -1,6 +1,7 @@
 ---
 title: "GitHub Best Practices: TechDev projects"
 author: "[Samantha Sevilla](https://github.com/slsevilla)"
+date: 2023-04-26
 ---
 
 ## GitHub Best Practices
