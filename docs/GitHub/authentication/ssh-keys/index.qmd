@@ -83,20 +83,18 @@ Agent pid 46212
 ```
 
 Next, if you're running this on macOS, you'll need to modify the ssh config file
-to automatically load keys. Open `~/.ssh/config` in your preferred text editor
+to automatically load keys. If you're on Linux, there's no need to modify your
+`~/.ssh/config`. For macOS, open `~/.ssh/config` in your preferred text editor
 and add these lines:
 
-```{filename="~/.ssh/config"}
+```{.email filename="~/.ssh/config"}
 Host github.com
   AddKeysToAgent yes
   IgnoreUnknown UseKeychain
   IdentityFile ~/.ssh/id_ed25519
 ```
 
-If you're on Linux, there should already be an entry for `Host github.com` in
-your `~/.ssh/config`.
-
-Then add the ssh key to the agent:
+Now add the ssh key to the agent:
 
 ```{.bash filename="sh"}
 ssh-add ~/.ssh/id_ed25519
@@ -109,6 +107,42 @@ Identity added: /Users/$USER/.ssh/id_ed25519 (firstname.lastname@nih.gov)
 ```
 
 ### Add the new SSH key to your GitHub Account
+
+Select one of the methods below for adding the new SSH key to your GitHub Account.
+
+<details>
+<summary>
+**Via the web browser**
+</summary>
+
+First, print the contents of the public key file and copy it to your clipboard:
+
+```{.bash filename="sh"}
+cat ~/.ssh/id_ed25519.pub
+```
+
+In a web browser, go to <https://github.com/settings/keys>
+
+Click `New SSH key`
+
+![](./new-ssh-key.png)
+
+1. Add a title with a brief description of the key. For example, I use "NCI macOS
+laptop" for the key I use on my GFE laptop and "biowulf" for the biowulf HPC.
+1. Select `authentication` for the type of key.
+1. Paste the key into the `Key` field.
+1. Click `Add SSH key`
+
+![](./add-ssh-key-browser.png)
+
+</details>
+
+<details>
+<summary>
+**Via the GitHub CLI**
+</summary>
+
+This option works well on a laptop, but not so well on servers such as biowulf.
 
 If you do not already have the GitHub CLI, install it now:
 <https://github.com/cli/cli#installation>
@@ -150,6 +184,7 @@ gh ssh-key add ~/.ssh/id_ed25519.pub --type authentication --title "NCI macOS la
 ```{.email filename="output"}
 ✓ Public key added to your account
 ```
+</details>
 
 ### Test your connection
 
@@ -171,10 +206,10 @@ If successful, you'll see this message:
 Hi GITHUB-USERNAME! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-## Authorize the SSH key for NCI github organizations
+## Authorize the SSH key for GitHub organizations
 
-For each NCI github organization that you are a member of, you will need to
-configure the key for single sign-on.
+For each NCI Enterprise GitHub organization that you are a member of, you will
+need to configure the key for single sign-on.
 
 In a web browser, go to <https://github.com/settings/keys>
 
@@ -188,7 +223,7 @@ Click `Authorize` for the organization you want to add:
 
 Click `continue` and follow the prompts.
 
-![](./nci-sso.png)
+![](./nci-sso.png){width=400px}
 
 Repeat the above steps for each organization you want to configure (e.g. `CCBR`,
 `NIDAP-Community`, etc.)
@@ -276,6 +311,12 @@ you can monitor the progress.
 :::{.callout-tip}
 Make sure you replace `~/projects` with the path on your machine where you clone
 your repositories.
+:::
+:::{.callout-warning}
+Be careful running this command on shared machines such as the Biowulf HPC.
+You do not want to accidentally edit repos belonging to other users!
+You may need to first create a text file containing paths to all of your repos,
+and iterate over that instead of the `find` command for the `while` loop.
 :::
 
 ### Cloning new repos
