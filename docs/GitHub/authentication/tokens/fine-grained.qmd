@@ -5,16 +5,28 @@ date: 2026-02-09
 ---
 
 :::{.callout-tip}
-If you are trying to authenticate to GitHub for syncing repos from your laptop (i.e. `git push` /
-`git pull`), we recommending using SSH keys instead of fine-grained tokens. See
-the [instructions for using SSH keys with
+If you are trying to authenticate to GitHub for syncing repos from your laptop
+(i.e. `git push` / `git pull`), we recommending using SSH keys instead of
+fine-grained tokens. See the [instructions for using SSH keys with
 GitHub](/docs/GitHub/authentication/ssh-keys) for details.
 :::
 
-Fine-grained tokens can be used to authenticate with GitHub when using the GitHub API or syncing repositories over HTTPS.
-Each token can be granted specific, granular permissions for the types of actions they can make (e.g. editing repo contents, triggering github actions, etc.), and they can be scoped to work for an entire account/organization or only specific repositories within an organization. One significant limitation is each fine-grained token can only be granted permissions for one account or organization at a time; this is intentionally for security reasons. Additionally, NCI Enterprise requires GitHub tokens to expire at least every 90 days, so you will need to regenerate them regularly.
+Fine-grained tokens can be used to authenticate with GitHub when using the
+GitHub API or syncing repositories over HTTPS. Each token can be granted
+specific, granular permissions for the types of actions they can make (e.g.
+editing repo contents, triggering github actions, etc.), and they can be scoped
+to work for an entire account/organization or only specific repositories within
+an organization. One significant limitation is each fine-grained token can only
+be granted permissions for one account or organization at a time; this is
+intentionally for security reasons. Additionally, NCI Enterprise requires GitHub
+tokens to expire at least every 90 days, so you will need to regenerate them
+regularly.
 
-In most cases you should instead use either [SSH keys](/docs/GitHub/authentication/ssh-keys) or [GitHub apps](https://ccbr.github.io/actions/gh-app-auth.html), but some times you do need to use a fine-grained token such as for [Code Ocean](https://docs.codeocean.com/user-guide/git-provider-integration-guide/setting-up-the-integration)
+In most cases you should instead use either [SSH
+keys](/docs/GitHub/authentication/ssh-keys) or [GitHub
+apps](https://ccbr.github.io/actions/gh-app-auth.html), but some times you do
+need to use a fine-grained token such as for [Code
+Ocean](https://docs.codeocean.com/user-guide/git-provider-integration-guide/setting-up-the-integration)
 
 ## Creating a new token
 
@@ -25,15 +37,20 @@ Click `Generate new token`
 
 ![](./generate.png)
 
-Fill out the token name and description. It should be descriptive enough that you will know why you created the token and how it is being used when you come back to this page in three months.
+Fill out the token name and description. It should be descriptive enough that
+you will know why you created the token and how it is being used when you come
+back to this page in three months.
 
-Select the **Resource owner**, set the Expiration to **90 days**, and select **All repositories** for access.
-The token will have access to any repository in the resource owner (an organization or your personal account) that you have access to.
+Select the **Resource owner**, set the Expiration to **90 days**, and select
+**All repositories** for access. The token will have access to any repository in
+the resource owner (an organization or your personal account) that you have
+access to.
 
 ![](./token-title.png)
 
-Under **Permissions**, click `Add permissions` and add the scopes that the token will need to access.
-Most likely you will need to add `Read and write` access for `Contents`, and perhaps also `Workflows`.
+Under **Permissions**, click `Add permissions` and add the scopes that the token
+will need to access. Most likely you will need to add `Read and write` access
+for `Contents`, and perhaps also `Workflows`.
 
 ![](./permissions.png)
 
@@ -42,13 +59,15 @@ Once you're ready, click `Generate token`.
 Copy the token to your clipboard.
 
 :::{.callout-warning}
-Protect the token just like you protect your passwords! Do not share it with anyone.
+Protect the token just like you protect your passwords! Do not share it with
+anyone.
 :::
 
 ### Code Ocean
 
-If you're using this token for Code Ocean, click the Account icon,
-go to `Credentials`, click `Add Credentials`, and select `GitHub Credentials`.
+If you're using this token for Code Ocean, you'll need to add it to your Code
+Ocean Account. In Code Ocean, click the Account icon, go to `Credentials`, click
+`Add Credentials`, and select `GitHub Credentials`.
 
 ![](https://docs.codeocean.com/user-guide/~gitbook/image?url=https%3A%2F%2Fcontent.gitbook.com%2Fcontent%2FZcjcjJxTZ10AvAt98Uzr%2Fblobs%2FeAVIvkLZQEX6mxEXm057%2FAccountPage.png&width=768&dpr=2&quality=100&sign=a591b5c7&sv=2)
 
