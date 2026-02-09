@@ -18,7 +18,7 @@ editing repo contents, triggering github actions, etc.), and they can be scoped
 to work for an entire account/organization or only specific repositories within
 an organization. One significant limitation is each fine-grained token can only
 be granted permissions for one account or organization at a time; this is
-intentionally for security reasons. Additionally, NCI Enterprise requires GitHub
+intentional for security reasons. Additionally, NCI Enterprise requires GitHub
 tokens to expire at least every 90 days, so you will need to regenerate them
 regularly.
 
