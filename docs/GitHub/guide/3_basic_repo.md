@@ -1,3 +1,7 @@
+---
+author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
+---
+
 # GitHub Basics: Repository
 
 ## Repository Location
@@ -51,8 +55,12 @@ gh repo create CCBR/techdev_<ADD NEW REPO NAME> \
 Once the repo is created, then you can clone a local copy of the new repository:
 
 ```bash
-gh repo clone CCBR/<reponame>.git
+git clone git@github.com:CCBR/<reponame>.git
 ```
+
+:::{.callout-danger}
+Make sure you use SSH to clone repositories instead of HTTPS. See the [instructions for setting up SSH keys](/docs/GitHub/authentication/ssh-keys/index.html#cloning-new-repos) for details.
+:::
 
 ## Minimal helper components
 

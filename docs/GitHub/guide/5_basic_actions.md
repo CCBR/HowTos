@@ -1,3 +1,7 @@
+---
+author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
+---
+
 # GitHub Basics: GitHub Actions
 
 The following describe the minimum GitHub actions that should be deployed with any production pipeline. The actions are automatically provided via the cookiecutter templates: [NextFlow](https://github.com/CCBR/CCBR_NextflowPipelineCookiecutter) and [Snakemake](https://github.com/CCBR/CCBR_SnakemakePipelineCookiecutter).
@@ -24,3 +28,7 @@ The following describe the minimum GitHub actions that should be deployed with a
 
     When an issue or PR is assigned to a CCBR member, this action will automatically add it to their personal GitHub Project, if they have one.
     This file can be copy and pasted exactly as-is into any CCBR repo from [here](https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/.github/workflows/projects.yml).
+
+## Advanced
+
+View the [GitHub Actions demo](/docs/GitHub/github-actions-demo.qmd) for an in-depth guide for creating your own GitHub Actions workflows.

@@ -1,9 +1,13 @@
+---
+author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
+---
+
 # GitHub Best Practices: Projects and Pipelines
 
 - Users should follow these links to learn more about setting up the repository, before reviewing the best practices below:
 
     - [Preparing your environment](howto_setup.md)
-    - [Basic Commands](howto_functions.md)
+    - [Basic Commands](howto_commands.md)
     - [Creating your GitHub repo](basic_repo.md)
     - [Creating your Documentation](setup_docs.md)
     - [GitHub Actions](basic_actions.md)
