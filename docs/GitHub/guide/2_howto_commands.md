@@ -26,6 +26,10 @@ Push changes to branch named `new_feature`
 git push origin new_feature
 ```
 
+:::{.callout-tip}
+If this command returned a "Permission Denied" error, make sure you have properly [set up authentication with SSH keys.](/docs/GitHub/authentication/ssh-keys)
+:::
+
 ### Pulling remote changes to local
 
 Pull changes from branch `new_feature` into your branch `old_feature`

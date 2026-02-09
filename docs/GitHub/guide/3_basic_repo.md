@@ -59,7 +59,7 @@ Once the repo is created, then you can clone a local copy of the new repository:
 git clone git@github.com:CCBR/<reponame>.git
 ```
 
-:::{.callout-danger}
+:::{.callout-important}
 Make sure you use SSH to clone repositories instead of HTTPS. See the [instructions for setting up SSH keys](/docs/GitHub/authentication/ssh-keys/index.html#cloning-new-repos) for details.
 :::
 
