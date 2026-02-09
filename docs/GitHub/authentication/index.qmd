@@ -1,5 +1,6 @@
 ---
 title: Authentication with GitHub
+date: 2026-02-09
 ---
 
 - [SSH Keys](./ssh-keys/) - **recommend** for running git commands from the terminal
