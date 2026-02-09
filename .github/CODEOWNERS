@@ -1,8 +1,8 @@
 * @kelly-sovacool
 /.github/ @kelly-sovacool
-/docs/lucidcharts* @kopardev
-/docs/conda-mamba/conda-to-mamba @kopardev
 /docs/HPCDME  @kopardev
 /docs/UCSC  @kopardev
-/docs/github/guide @kopardev
+/docs/conda-mamba/conda-to-mamba @kopardev
 /docs/generative-AI/copilot-cli.md @kopardev
+/docs/github/guide @kopardev
+/docs/lucidcharts* @kopardev

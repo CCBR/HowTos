@@ -1,3 +1,9 @@
+---
+author: "[Samantha Sevilla](https://github.com/slsevilla) & [Ned Cauley](https://github.com/escauley)"
+date: 2023-11-01
+date-modified: 2025-12-12
+---
+
 # GitHub HowTo: Pre-Commit
 
 Pre-commit should be added to all GitHub repositories on Biowulf and any clones created elsewhere to ensure cohesive and informative commit messages. After the creating the repository the following commands should be run in order to initialize the pre-commit hook, and establish the following requirements for all commit messages:

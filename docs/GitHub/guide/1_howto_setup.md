@@ -1,24 +1,49 @@
+---
+date: 2023-04-27
+date-modified: 2026-02-09
+author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
+---
+
 # GitHub Setup: Preparing the Environment
 
-## Using GitHub CLI
-The `gh` is installed on Biowulf at `/data/CCBR_Pipeliner/db/PipeDB/bin/gh_1.7.0_linux_amd64/bin/gh`. You can run the following lines to edit your `~/.bashrc` file to add `gh` to your `$PATH`:
-```bash
-echo "export PATH=$PATH:/data/CCBR_Pipeliner/db/PipeDB/bin/gh_1.7.0_linux_amd64/bin" >> ~/.bashrc
-source ~/.bashrc
+git is installed by default on macOS and Linux.
+
+You can also optionally install the GitHub CLI for easy access to GitHub-related commands from your terminal.
+
+## GitHub CLI
+
+On macOS you can install the GitHub CLI with homebrew:
+```sh
+brew install gh
 ```
 
-Alternatively, you can use the `git` commands provided through a Biowulf module
-```bash
-module load git
+For other platforms, see the [github cli installation instructions](https://github.com/cli/cli?tab=readme-ov-file#installation).
+
+### Log in
+
+Log in to GitHub via the CLI and follow the prompts:
+
+```sh
+gh auth login
 ```
 
-## Creating PAT for GH
+## Configure git
 
-Personal Access Token (PAT) is required to access GitHub (GH) without having to authenticate by other means (like password) every single time. You will need [gh cli](https://cli.github.com/) installed on your laptop or use `/data/CCBR_Pipeliner/db/PipeDB/bin/gh_1.7.0_linux_amd64/bin/gh` on Biowulf, as described above. You can create a PAT by going [here](https://github.com/settings/tokens). Then you can copy the PAT and save it into a file on Biowulf (say `~/gh_token`). Next, you can run the following command to set everything up correctly on Biowulf (or your laptop)
+On any machine where you use git (e.g. your laptop, biowulf, frce, etc.), you
+will need to configure your name and email address.
+
+```{.bash filename="sh"}
+git config --global user.name "Firstname Lastname"
+git config --global user.email YOUR_EMAIL@example.com
 ```
-gh auth login --with-token < ~/git_token
-```
 
-## Password-less Login
+Make sure you replace `YOUR_EMAIL@example.com` with the primary email associated
+with your GitHub account. For CCBR members, this should be your NIH email i.e.
+`firstname.lastname@nih.gov`.
 
-If you hate to re-enter (username and) password every time you push/pull to/from github (or mkdocs gh-deploy), then it is totally worthwhile to spend a couple minutes to set up SSH keys for auto-authentication. The instructions to do this are available [here](https://blog.corsego.com/aws-cloud9-github-ssh).
+## Authenticating git with GitHub
+
+It is possible to use a personal access token (PAT) to authenticate with GitHub,
+but we now recommend using SSH Keys instead. [View the instructions on setting
+up SSH keys](/docs/GitHub/authentication) and follow all of the steps before
+proceeding.

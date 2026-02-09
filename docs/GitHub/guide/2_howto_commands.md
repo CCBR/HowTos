@@ -1,5 +1,11 @@
-# GitHub HowTo: Basic Functions
-The following outlines basic GitHub function to `push` and `pull` from your repository. It also includes information on creating a new branch and deleting a branch. These commands should be used in line with guidance on [GitHub Repo Management](https://ccbr.github.io/HowTos/GitHub/sop_repo/).
+---
+author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
+date: 2023-04-27
+---
+
+# GitHub HowTo: Basic Commands
+
+The following outlines basic GitHub commands to `push` and `pull` from your repository. It also includes information on creating a new branch and deleting a branch. These commands should be used in line with guidance on [GitHub Repo Management](https://ccbr.github.io/HowTos/GitHub/sop_repo/).
 
 ### Pushing local changes to remote
 
@@ -20,6 +26,10 @@ Push changes to branch named `new_feature`
 git push origin new_feature
 ```
 
+:::{.callout-tip}
+If this command returned a "Permission Denied" error, make sure you have properly [set up authentication with SSH keys.](/docs/GitHub/authentication/ssh-keys)
+:::
+
 ### Pulling remote changes to local
 
 Pull changes from branch `new_feature` into your branch `old_feature`
@@ -29,7 +39,7 @@ git pull new_feature
 ```
 
 If you have non-compatible changes in the `old_feature` branch, there are two options:
-1) ignore local changes and pull remote anyways. This will delete the changes you've made to your remote respository.
+1) ignore local changes and pull remote anyways. This will delete the changes you've made to your remote repository.
 ```bash
 git reset --hard
 git pull

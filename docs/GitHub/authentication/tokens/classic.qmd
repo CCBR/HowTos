@@ -1,0 +1,14 @@
+---
+title: "Classic Personal Access Tokens"
+author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
+date: 2026-02-09
+---
+
+:::{.callout-important}
+Classic Personal Access Tokens (PATs) will be completely phased out by March
+1st, 2026. Please switch to using [SSH
+keys](/docs/GitHub/authentication/ssh-keys), [fine-grained
+tokens](/docs/GitHub/authentication/tokens/fine-grained.qmd), or [github
+apps](https://ccbr.github.io/actions/gh-app-auth.html) as appropriate for your
+use-case.
+:::

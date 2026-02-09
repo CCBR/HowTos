@@ -1,0 +1,387 @@
+---
+title: "Connect to GitHub with SSH keys"
+author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
+date: 2026-02-09
+execute:
+  eval: false
+---
+
+## Background
+
+If you have been using a personal access token (PAT) to authenticate with
+GitHub, it will become much harder to do so after March 1st, 2026.
+
+Classic PATs are authorized for all resources that a GitHub account has access
+to, so you could create a single classic PAT and use it in lieu of a password
+for any repository in any organization that you have access to. However, this
+poses a security risk, so classic PATs will be phased out on March 1st, 2026.
+
+GitHub is recommending switching to fine-grained PATs. However, fine-grained
+PATs can only be authorized to access resources for a single organization at a
+time. This means you would need to create a separate fine-grained PAT for every
+GitHub organization you have access to (e.g. CCBR, NIDAP-Community, NCI-RBL,
+etc.), and then update your git credential manager to make sure it uses the
+correct PAT for the correct organization. Additionally, NCI Enterprise requires
+that PATs must expire every 90 days, so you would need to update them regularly.
+
+Instead, we recommend using Secure Shell Protocol (SSH) for authentication with
+GitHub. Follow the guide below for step-by-step instructions on creating SSH
+keys and configuring SSH to work with your GitHub account.
+
+:::{.callout-tip}
+You will need to repeat the steps in this guide for every machine that you use
+with GitHub, as each one will need its own SSH key file.
+Most CCBR members will need to generate an SSH key for each of the following:
+
+1. GFE laptop
+1. biowulf/helix
+1. FRCE
+1. Any other HPCs or servers you use with git/GitHub
+:::
+
+## Create a new SSH key for use with GitHub
+
+### Generate a new SSH key
+
+Run the following command to generate a new key, replacing
+`your_email@example.com` with the primary email associated with your GitHub
+account. For CCBR members, it should be your NIH email e.g.
+`firstname.lastname@nih.gov`.
+
+```{.bash filename="sh"}
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+It will then prompt you with a location to save the key. **Press enter** to
+accept the default location.
+
+```{.email filename="output"}
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/$USER/.ssh/id_ed25519):
+```
+
+You can **press enter again** for no password (recommended). If you choose to
+enter a password, you'll [need to set up your
+keychain](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)
+to store it.
+
+```{.email filename="output"}
+Enter passphrase for "/Users/$USER/.ssh/id_ed25519" (empty for no passphrase):
+```
+
+### Add the new SSH key to the ssh-agent
+
+Start up the ssh-agent to run in the background:
+
+```{.bash filename="sh"}
+eval "$(ssh-agent -s)"
+```
+
+It will report the process ID of the ssh-agent:
+```{.email filename="output"}
+Agent pid 46212
+```
+
+Next, if you're running this on macOS, you'll need to modify the ssh config file
+to automatically load keys. If you're on Linux, there's no need to modify your
+`~/.ssh/config`. For macOS, open `~/.ssh/config` in your preferred text editor
+and add these lines:
+
+```{.email filename="~/.ssh/config"}
+Host github.com
+  AddKeysToAgent yes
+  IgnoreUnknown UseKeychain
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+Now add the ssh key to the agent:
+
+```{.bash filename="sh"}
+ssh-add ~/.ssh/id_ed25519
+```
+
+It will report that the new identity was added:
+
+```{.email filename="output"}
+Identity added: /Users/$USER/.ssh/id_ed25519 (firstname.lastname@nih.gov)
+```
+
+### Add the new SSH key to your GitHub Account
+
+Select one of the methods below for adding the new SSH key to your GitHub Account.
+
+<details>
+<summary>
+**Via the web browser**
+</summary>
+
+First, print the contents of the public key file and copy it to your clipboard:
+
+```{.bash filename="sh"}
+cat ~/.ssh/id_ed25519.pub
+```
+
+In a web browser, go to <https://github.com/settings/keys>
+
+Click `New SSH key`
+
+![](./new-ssh-key.png)
+
+1. Add a title with a brief description of the key. For example, I use "NCI macOS
+laptop" for the key I use on my GFE laptop and "biowulf" for the biowulf HPC.
+1. Select `authentication` for the type of key.
+1. Paste the key into the `Key` field.
+1. Click `Add SSH key`
+
+![](./add-ssh-key-browser.png)
+
+</details>
+
+<details>
+<summary>
+**Via the GitHub CLI**
+</summary>
+
+This option works well on a laptop, but not so well on servers such as biowulf.
+
+If you do not already have the GitHub CLI, install it now:
+<https://github.com/cli/cli#installation>
+
+#### Log in via the gh CLI
+
+Authenticate to GitHub via the `gh` CLI with the proper scope for adding ssh keys:
+
+```{.bash filename="sh"}
+gh auth login -h github.com -s admin:public_key
+```
+
+Follow the prompts to log in to GitHub via the web browser, or however you prefer.
+
+```{.email filename="output"}
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: XXXX-XXXX
+Press Enter to open https://github.com/login/device in your browser...
+✓ Authentication complete.
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as github-username
+```
+
+#### Add the SSH key to your account
+
+Run the following command to add the key, replacing the title with a brief
+description of the key. For example, I use "NCI macOS laptop" for the key I use
+on my GFE laptop and "biowulf" for the biowulf HPC.
+
+```{.bash filename="sh"}
+gh ssh-key add ~/.ssh/id_ed25519.pub --type authentication --title "NCI macOS laptop"
+```
+
+```{.email filename="output"}
+✓ Public key added to your account
+```
+</details>
+
+### Test your connection
+
+Try to connect to GitHub via ssh:
+```{.bash filename="sh"}
+ssh -T git@github.com
+```
+
+You'll see a warning. Type "yes" and press Enter:
+
+```{.email filename="output"}
+The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+Are you sure you want to continue connecting (yes/no)?
+```
+
+If successful, you'll see this message:
+```{.email filename="output"}
+Hi GITHUB-USERNAME! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+## Authorize the SSH key for GitHub organizations
+
+For each NCI Enterprise GitHub organization that you are a member of, you will
+need to configure the key for single sign-on.
+
+In a web browser, go to <https://github.com/settings/keys>
+
+Next to the new SSH key you just added, click `Configure SSO`:
+
+![](./ssh-config-sso.png)
+
+Click `Authorize` for the organization you want to add:
+
+![](./sso-authorize.png)
+
+Click `continue` and follow the prompts.
+
+![](./nci-sso.png){width=400px}
+
+Repeat the above steps for each organization you want to configure (e.g. `CCBR`,
+`NIDAP-Community`, etc.)
+
+## Configure your cloned repositories to use SSH
+
+If this is the first time you're setting up SSH keys with GitHub,
+you probably cloned your repositories using HTTPS.
+Go to one of your repos and list the remotes you have configured:
+
+```{.bash filename="sh"}
+git remote -v
+```
+
+If the url begins with `https`, it was cloned via HTTPS:
+
+```{.email filename="output"}
+origin	https://github.com/ORGANIZATION/REPOSITORY (fetch)
+origin	https://github.com/ORGANIZATION/REPOSITORY (push)
+```
+
+You'll need to change the remote URL to use SSH instead:
+
+```{.bash filename="sh"}
+git remote set-url origin git@github.com:ORGANIZATION/REPOSITORY.git
+```
+
+Replace `ORGANIZATION` and `REPOSITORY` with their actual values, e.g. this repo
+would be `CCBR/HowTos`.
+
+You will need to repeat this for every repo you have cloned on your machine.
+But you don't have to do it manually: let's automate it!
+
+### Automate: change the remote for all repositories
+
+We can automate this with a bash command to find all git repositories, determine
+the organization and repository name, and set the remote url to use SSH instead
+of HTTPS. In my case, I clone all of my repositories to a directory in
+`~/projects`. The following command finds all of the git repos I have cloned:
+
+```{.bash filename="sh"}
+find ~/projects -name ".git" -type d
+```
+
+You should replace `~/projects` with the path where you clone your repos, then
+run the above command to make sure it can find the cloned repos.
+
+For an individual repo, you can find out the remote url with the following
+(replace `~/projects/path/to/repo/.git` with the actual path for your example
+repo):
+
+```{.bash filename="sh"}
+git -C ~/projects/path/to/repo/.git config --get remote.origin.url
+```
+```{.email filename="output"}
+https://github.com/ORGANIZATION/REPOSITORY.git
+```
+
+We can use `sed` to extract the name of the organization or username and repo on
+GitHub:
+
+```{.bash filename="sh"}
+git -C ~/projects/path/to/repo/.git config --get remote.origin.url | sed -E 's|.*[:/]([^/]+)/(.*)\.git/?$|\1/\2|; s|.*[:/]([^/]+)/([^/]+)/?$|\1/\2|')
+```
+```{.email filename="output"}
+ORGANIZATION/REPOSITORY
+```
+
+Finally, we can use the `git remote` command to modify the remote url to use SSH
+rather than HTTPS. Putting it all together, here's the full command:
+
+#### Command to set all remotes to use SSH
+
+```{.bash filename="sh" code-line-numbers="true"}
+find ~/projects -name ".git" -type d 2>/dev/null | sed 's|/.git$||' | while read repo; do
+  org_repo=$(git -C "$repo" config --get remote.origin.url 2>/dev/null | sed -E 's|.*[:/]([^/]+)/(.*)\.git/?$|\1/\2|; s|.*[:/]([^/]+)/([^/]+)/?$|\1/\2|')
+  echo $org_repo
+  git -C $repo remote set-url origin git@github.com:${org_repo}.git
+done
+```
+
+The above command will print the organization & repository name as it goes so
+you can monitor the progress.
+
+:::{.callout-tip}
+Make sure you replace `~/projects` with the path on your machine where you clone
+your repositories.
+:::
+:::{.callout-warning}
+Be careful running this command on shared machines such as the Biowulf HPC.
+You do not want to accidentally edit repos belonging to other users!
+You may need to first create a text file containing paths to all of your repos,
+and iterate over that instead of the `find` command for the `while` loop.
+:::
+
+### Cloning new repos
+
+When you make a new clone of a repository, you will need to use the SSH url from
+now on. You can find the SSH url on a repo's GitHub repository page by clicking
+`Code`, then clicking the `SSH` tab.
+
+![](./clone-ssh.png)
+
+Copy the URL to your clipboard, then in a terminal run `git clone` using this
+url:
+
+```{.bash filename="sh"}
+git clone git@github.com:ORGANIZATION/REPOSITORY.git
+```
+
+```{.email filename="output"}
+Cloning into 'REPOSITORY'...
+remote: Enumerating objects: 3650, done.
+remote: Counting objects: 100% (405/405), done.
+remote: Compressing objects: 100% (206/206), done.
+remote: Total 3650 (delta 281), reused 240 (delta 194), pack-reused 3245 (from 2)
+Receiving objects: 100% (3650/3650), 171.17 MiB | 30.70 MiB/s, done.
+Resolving deltas: 100% (2135/2135), done.
+```
+
+You can test that your SSH key works with your repo by creating a new branch and
+pushing it:
+
+```{.bash filename="sh"}
+git switch -c test-ssh
+git push
+```
+
+You'll see a message like the following if it's successful:
+
+```{.email filename="output"}
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (11/11), 522.94 KiB | 16.87 MiB/s, done.
+Total 11 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote:
+remote: Create a pull request for 'test-ssh' on GitHub by visiting:
+remote:      https://github.com/ORGANIZATION/REPOSITORY/pull/new/test-ssh
+remote:
+To github.com:ORGANIZATION/REPOSITORY.git
+ * [new branch]      test-ssh -> test-ssh
+branch 'test-ssh' set up to track 'origin/test-ssh'.
+```
+
+### Help and Troubleshooting
+
+Check out the GitHub Docs for more information about authenticating with SSH
+keys.
+
+- How to create an ssh key: <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>
+- How to add an ssh key to your account: <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account>
+- Test your connection: <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection>
+
+If you run into problems, first make sure you correctly followed all of the
+steps above, then try searching for your problem in the GitHub docs. If you're
+still not able to solve it, [open a question in
+Discussions](https://github.com/CCBR/HowTos/discussions/new?category=q-a) to ask
+for help.

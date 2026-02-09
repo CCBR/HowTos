@@ -1,15 +1,18 @@
 ---
 title: Overview of GitHub Topics
 author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
+date: 2023-04-11
 ---
 
 ## Getting set-up and familiar with GitHub
+
 - [Preparing your environment](1_howto_setup.md):
     - Describes how to create a PAT, add GH to your bash profile and use password-less login features
-- [Basic Commands](2_howto_functions.md):
-    - Describes basic functions to be used with this SOP
+- [Basic Commands](2_howto_commands.md):
+    - Describes basic git commands to be used with this SOP
 
 ## Basics
+
 - [Creating your GitHub repo](3_basic_repo.md):
     - Provides information on how to setup a GitHub repository under CCBR and the use of templates
 - [Creating your Documentation](4_basic_docs.md):
