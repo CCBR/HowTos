@@ -750,7 +750,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#automate-change-the-remote-for-all-repositories" id="toc-automate-change-the-remote-for-all-repositories" class="nav-link" data-scroll-target="#automate-change-the-remote-for-all-repositories">Automate: change the remote for all repositories</a></li>
   <li><a href="#cloning-new-repos" id="toc-cloning-new-repos" class="nav-link" data-scroll-target="#cloning-new-repos">Cloning new repos</a></li>
-  <li><a href="#help-and-troubleshooting" id="toc-help-and-troubleshooting" class="nav-link" data-scroll-target="#help-and-troubleshooting">Help and Troubleshooting</a></li>
+  </ul></li>
+  <li><a href="#help-and-troubleshooting" id="toc-help-and-troubleshooting" class="nav-link" data-scroll-target="#help-and-troubleshooting">Help and Troubleshooting</a>
+  <ul class="collapse">
+  <li><a href="#tips-for-biowulf" id="toc-tips-for-biowulf" class="nav-link" data-scroll-target="#tips-for-biowulf">Tips for Biowulf</a></li>
+  <li><a href="#how-to-get-help" id="toc-how-to-get-help" class="nav-link" data-scroll-target="#how-to-get-help">How to get help</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/GitHub/authentication/ssh-keys/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/GitHub/authentication/ssh-keys/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -1155,15 +1159,44 @@ Warning
 <span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>branch 'test-ssh' set up to track 'origin/test-ssh'.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="help-and-troubleshooting" class="level3">
-<h3 class="anchored" data-anchor-id="help-and-troubleshooting">Help and Troubleshooting</h3>
+</section>
+<section id="help-and-troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="help-and-troubleshooting">Help and Troubleshooting</h2>
+<section id="tips-for-biowulf" class="level3">
+<h3 class="anchored" data-anchor-id="tips-for-biowulf">Tips for Biowulf</h3>
+<p>Connecting to GitHub via SSH works on the Biowulf head node, but it <em>does not work on the compute nodes</em>. This means you cannot run <code>git push</code>/<code>git pull</code> in an interactive session if you followed the steps in this guide on Biowulf to set up SSH keys with GitHub.</p>
+<p>When you’re working on Biowulf, I recommend opening up two tabs or windows in your terminal: one to log in to the head node, and a second one to log in to your compute node. When you need to synchronize changes with GitHub, you can switch to your head node terminal and run the <code>pull</code>/<code>push</code> command.</p>
+<p>View a brief demo <a href="https://nih-my.sharepoint.com/:v:/g/personal/sovacoolkl_nih_gov/IQCzAVHKQTIHQ7yLZkOsW5HyAZq1K2ADWhPMfnlmaaX2AK0?e=zx55db">here</a> (only NIH users have access to view the video).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To check whether you’re on the head node or a compute node, run <code>hostname</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>sh</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30" data-filename="sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>If you’re on a compute node, the host name starts <code>cn</code>, e.g.&nbsp;<code>cn0123</code>. If you’re on the head node, the host name is <code>biowulf.nih.gov</code>.</p>
+</div>
+</div>
+</section>
+<section id="how-to-get-help" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-get-help">How to get help</h3>
 <p>Check out the GitHub Docs for more information about authenticating with SSH keys.</p>
 <ul>
 <li>How to create an ssh key: <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" class="uri">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a></li>
 <li>How to add an ssh key to your account: <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account" class="uri">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account</a></li>
 <li>Test your connection: <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection" class="uri">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection</a></li>
 </ul>
-<p>If you run into problems, first make sure you correctly followed all of the steps above, then try searching for your problem in the GitHub docs. If you’re still not able to solve it, <a href="https://github.com/CCBR/HowTos/discussions/new?category=q-a">open a question in Discussions</a> to ask for help.</p>
+<p>If you run into problems, first make sure you correctly followed all of the steps in this guide, then try searching for your problem in the GitHub docs. If you’re still not able to solve it, <a href="https://github.com/CCBR/HowTos/discussions/new?category=q-a">open a question in Discussions</a> to ask for help.</p>
 
 
 </section>
