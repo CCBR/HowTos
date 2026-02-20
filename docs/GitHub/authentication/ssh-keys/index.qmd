@@ -371,7 +371,36 @@ To github.com:ORGANIZATION/REPOSITORY.git
 branch 'test-ssh' set up to track 'origin/test-ssh'.
 ```
 
-### Help and Troubleshooting
+## Help and Troubleshooting
+
+### Tips for Biowulf
+
+Connecting to GitHub via SSH works on the Biowulf head node, but it _does not
+work on the compute nodes_. This means you cannot run `git push`/`git pull` in
+an interactive session if you followed the steps in this guide on Biowulf to set
+up SSH keys with GitHub.
+
+When you're working on Biowulf, I recommend opening up two tabs or windows in
+your terminal: one to log in to the head node, and a second one to log in to
+your compute node. When you need to synchronize changes with GitHub, you can
+switch to your head node terminal and run the `pull`/`push` command.
+
+View a brief demo
+[here](https://nih-my.sharepoint.com/:v:/g/personal/sovacoolkl_nih_gov/IQCzAVHKQTIHQ7yLZkOsW5HyAZq1K2ADWhPMfnlmaaX2AK0?e=zx55db)
+(only NIH users have access to view the video).
+
+:::{.callout-tip}
+To check whether you're on the head node or a compute node, run `hostname`:
+
+```{.bash filename="sh"}
+hostname
+```
+
+If you're on a compute node, the host name starts `cn`, e.g. `cn0123`.
+If you're on the head node, the host name is `biowulf.nih.gov`.
+:::
+
+### How to get help
 
 Check out the GitHub Docs for more information about authenticating with SSH
 keys.
@@ -381,7 +410,7 @@ keys.
 - Test your connection: <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection>
 
 If you run into problems, first make sure you correctly followed all of the
-steps above, then try searching for your problem in the GitHub docs. If you're
-still not able to solve it, [open a question in
+steps in this guide, then try searching for your problem in the GitHub docs.
+If you're still not able to solve it, [open a question in
 Discussions](https://github.com/CCBR/HowTos/discussions/new?category=q-a) to ask
 for help.
