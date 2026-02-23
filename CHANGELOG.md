@@ -1,5 +1,7 @@
 ## HowTos development version
 
+## HowTos 1.1.0
+
 - New guide: Publishing Shiny apps to NCI's Posit Connect servers (#53, @escauley)
 - Update the Zenodo guide with current CCBR practices (#55, @kelly-sovacool)
 - Create an overview of authentication with GitHub, a guide on using SSH keys with GitHub, and how to use fine-grained tokens. (#61, @kelly-sovacool)
