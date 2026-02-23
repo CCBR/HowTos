@@ -33,6 +33,16 @@
       "givenName": "Samantha"
     },
     {
+      "@id": "https://orcid.org/0000-0002-6446-5718",
+      "@type": "Person",
+      "affiliation": {
+        "@type": "Organization",
+        "legalName": "Advanced Biomedical Computational Science, Frederick National Laboratory for Cancer Research, Frederick, MD 21702, USA"
+      },
+      "familyName": "Mathur",
+      "givenName": "Samarth"
+    },
+    {
       "@id": "https://orcid.org/0000-0001-8978-8495",
       "@type": "Person",
       "affiliation": {
