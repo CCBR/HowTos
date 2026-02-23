@@ -47,11 +47,6 @@ jobs:
         if: ${{ hashFiles('CITATION.cff') != ''}}
         with:
           args: "--format codemeta --outfile codemeta.json"
-
-      - name: pre-commit
-        uses: pre-commit/action@v3.0.1
-        continue-on-error: true
-
       - name: Format R code - air
         uses: rstudio/shiny-workflows/format-r-code@v1
 
@@ -59,6 +54,10 @@ jobs:
         uses: psf/black@stable
         with:
           options: "--verbose"
+
+      - name: pre-commit
+        uses: pre-commit/action@v3.0.1
+        continue-on-error: true
 
       - name: commit & push
         run: |
