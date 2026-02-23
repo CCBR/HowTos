@@ -1110,18 +1110,11 @@
     "text": "Samantha\n\n\n\n\n\n\n\nVishal Koparde, PhD\n\n\n\n\n\n\n\nKelly Sovacool, PhD\n\n\n\n\n\n\n\nNed Cauley\n\n\n\n\n\nView the contributors graph on GitHub for more details."
   },
   {
-    "objectID": "CHANGELOG.html",
-    "href": "CHANGELOG.html",
+    "objectID": "CHANGELOG.html#howtos-1.1.0",
+    "href": "CHANGELOG.html#howtos-1.1.0",
     "title": "CCBR How-Tos",
-    "section": "",
-    "text": "New guide: Publishing Shiny apps to NCI’s Posit Connect servers (#53, @escauley)\nUpdate the Zenodo guide with current CCBR practices (#55, @kelly-sovacool)\nCreate an overview of authentication with GitHub, a guide on using SSH keys with GitHub, and how to use fine-grained tokens. (#61, @kelly-sovacool)"
-  },
-  {
-    "objectID": "CHANGELOG.html#howtos-development-version",
-    "href": "CHANGELOG.html#howtos-development-version",
-    "title": "CCBR How-Tos",
-    "section": "",
-    "text": "New guide: Publishing Shiny apps to NCI’s Posit Connect servers (#53, @escauley)\nUpdate the Zenodo guide with current CCBR practices (#55, @kelly-sovacool)\nCreate an overview of authentication with GitHub, a guide on using SSH keys with GitHub, and how to use fine-grained tokens. (#61, @kelly-sovacool)"
+    "section": "HowTos 1.1.0",
+    "text": "HowTos 1.1.0\n\nNew guide: Publishing Shiny apps to NCI’s Posit Connect servers (#53, @escauley)\nUpdate the Zenodo guide with current CCBR practices (#55, @kelly-sovacool)\nCreate an overview of authentication with GitHub, a guide on using SSH keys with GitHub, and how to use fine-grained tokens. (#61, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-1.0.0",
