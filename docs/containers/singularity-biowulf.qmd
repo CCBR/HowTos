@@ -74,10 +74,10 @@ echo $SINGULARITY_CACHEDIR
 You can find out the versions of R packages installed in a container like so:
 
 ```sh
-singularity exec docker://nciccbr/carlisle_r:v2 R -e "readr::write_tsv(tibble::as_tibble(installed.packages()), 'r-packages.tsv')"
+singularity exec docker://nciccbr/carlisle_r:v2 R -e "readr::write_csv(tibble::as_tibble(installed.packages()), 'r-packages.csv')"
 ```
 
-This command runs R code in the container to write the installed packages to a TSV file called `r-packages.tsv`.
+This command runs R code in the container to write the installed packages to a TSV file called `r-packages.csv`.
 
 ### Python
 
