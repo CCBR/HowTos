@@ -1654,7 +1654,7 @@
     "href": "docs/containers/singularity-biowulf.html#package-versions",
     "title": "How to use containers with singularity on biowulf",
     "section": "Package versions",
-    "text": "Package versions\n\nR\nYou can find out the versions of R packages installed in a container like so:\nsingularity exec docker://nciccbr/carlisle_r:v2 R -e \"readr::write_tsv(tibble::as_tibble(installed.packages()), 'r-packages.tsv')\"\nThis command runs R code in the container to write the installed packages to a TSV file called r-packages.tsv.\n\n\nPython\nRun this command to find out the versions of Python packages installed in a container:\nsingularity exec docker://nciccbr/ccbr_ubuntu_22.04:v4 pip list &gt; pip_list.txt\nThe packages & versions are written to pip_list.txt.",
+    "text": "Package versions\n\nR\nYou can find out the versions of R packages installed in a container like so:\nsingularity exec docker://nciccbr/carlisle_r:v2 R -e \"readr::write_csv(tibble::as_tibble(installed.packages()), 'r-packages.csv')\"\nThis command runs R code in the container to write the installed packages to a TSV file called r-packages.csv.\n\n\nPython\nRun this command to find out the versions of Python packages installed in a container:\nsingularity exec docker://nciccbr/ccbr_ubuntu_22.04:v4 pip list &gt; pip_list.txt\nThe packages & versions are written to pip_list.txt.",
     "crumbs": [
       "Home",
       "Containers",

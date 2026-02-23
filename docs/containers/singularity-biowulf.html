@@ -808,8 +808,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="r" class="level3">
 <h3 class="anchored" data-anchor-id="r">R</h3>
 <p>You can find out the versions of R packages installed in a container like so:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">singularity</span> exec docker://nciccbr/carlisle_r:v2 R <span class="at">-e</span> <span class="st">"readr::write_tsv(tibble::as_tibble(installed.packages()), 'r-packages.tsv')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This command runs R code in the container to write the installed packages to a TSV file called <code>r-packages.tsv</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">singularity</span> exec docker://nciccbr/carlisle_r:v2 R <span class="at">-e</span> <span class="st">"readr::write_csv(tibble::as_tibble(installed.packages()), 'r-packages.csv')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This command runs R code in the container to write the installed packages to a TSV file called <code>r-packages.csv</code>.</p>
 </section>
 <section id="python" class="level3">
 <h3 class="anchored" data-anchor-id="python">Python</h3>
