@@ -19,14 +19,14 @@ date: 2023-04-26
 - All pipelines should provide users with:
     -  documentation for usage
     -  test data
-    -  expected outputs and reports  
+    -  expected outputs and reports
     -  troubleshooting information
 
     Markdown pages can be hosted directly within the repo using GH Pages. [Mkdocs](https://www.mkdocs.org/) is the recommended tool to perform this action, however, other tools may be utilized. The templates ([TechDev](https://github.com/CCBR/CCBR_CCBRTechDevTemplate)) template's (written for mkdocs) provided have basic yaml markdown files provided for this use, and should be edited according to the pipelines function and user needs. Also, track blockers/hurdles using GitHub Issues.
 
     1. **Overview**
         - Information on the goal of the TechDev project.
-    2. **Analysis**  
+    2. **Analysis**
         ***2.1. Background*** - Provide any relevant background to the project to be completed. This might include information on: - problem that was encountered leading to this techdev - new feature or tool developed to be benchmarked - relevant biological or statistical information needed to perform this analysis
 
         ***2.2. Resources***

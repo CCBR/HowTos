@@ -93,7 +93,7 @@ ref:https://nvie.com/posts/a-successful-git-branching-model/
     - recommended usage of `git flow hotfix start unique_hotfix_name`
     - no merges into this branch are expected
 
-> 💡 **Note**  
+> 💡 **Note**
 > While the `git flow feature start` command is recommended for feature branch creation, the `git flow feature finish` command is not. Using the `finish` command will automatically merge the `feature` branch into the `dev` branch without any testing and regardless of any divergence that may have occurred during feature development.
 
 
@@ -146,7 +146,7 @@ The following information is meant to outline test_data requirements for all pip
         - The source of the files
         - Link to scripts used in created the partial test data
 3. Choosing a test data set
-    - At a minimum three test sets are recommended to be available:  
+    - At a minimum three test sets are recommended to be available:
         1) Should include sub-sampled inputs, to test the pipelines functionality, and to be used as the tutorial `test set`.
         2) Should include full-sample inputs, of high quality, to test the robustness of the pipelines resources
         3) Should include full-sample inputs, of expected project-level quality, to test the robustness of the pipelines error handling
