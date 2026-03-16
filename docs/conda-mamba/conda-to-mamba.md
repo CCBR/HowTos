@@ -8,7 +8,7 @@ toc-location: right-body
 # Migrating from Anaconda/Miniconda (**conda**) to **Miniforge** (**mamba**)
 
 ::: {.callout-important}
-This guide migrates your environments away from **Anaconda/Miniconda (conda)** to **Miniforge (mamba)**, using **conda-forge** only (non-commercial) and avoiding `repo.anaconda.com`.  
+This guide migrates your environments away from **Anaconda/Miniconda (conda)** to **Miniforge (mamba)**, using **conda-forge** only (non-commercial) and avoiding `repo.anaconda.com`.
 Steps 1–3 use your existing `conda` to export environments. After uninstall (Step 4) you’ll install **Miniforge** (Step 5) and rebuild environments with **mamba** (Step 9).
 :::
 
@@ -64,7 +64,7 @@ If you have **path-only** environments (created from arbitrary folders), `conda 
 
 ## 4. Uninstall conda (Anaconda/Miniconda)
 
-Follow vendor instructions (macOS/Linux):  
+Follow vendor instructions (macOS/Linux):
 <https://www.anaconda.com/docs/getting-started/anaconda/uninstall#macos-or-linux>
 
 Then remove common leftovers:
