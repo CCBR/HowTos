@@ -47,7 +47,7 @@ scp -r /data/$USER/ username@helix.nih.gov:/data/CCBR/datashare/tutorial/
 
 ### Create public permissions for data
 
-When the data has been successully copied, we need to open the permissions.
+When the data has been successfully copied, we need to open the permissions.
 
 **NOTE: This will give open access to anyone with the link. Ensure this is appropriate for the data type**
 

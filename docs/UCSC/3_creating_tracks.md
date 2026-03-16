@@ -15,14 +15,14 @@ Biowulf/Helix hosts its own instance of the [UCSC Genome Browser](https://hpcnih
 11. Under "Save current settings as named session:" enter a descriptive name of the session
 12. Select "Submit"
 13. This will move the descriptive name entered into the "session name" list
-14. Select the descriptve name, view your track information as saved
+14. Select the descriptive name, view your track information as saved
 15. Copy the hyperlink for this session and share as needed
 
 # Editing a Previous Tracks
 1. Login to VPN
 2. Login to the [UCSC Browser website](https://hpcnihapps.cit.nih.gov/genome/cgi-bin/hgSession)
 3. Select "My Data > My Sessions"
-4. Select the descriptve name of the session you'd like to edit
+4. Select the descriptive name of the session you'd like to edit
 5. Edit the tracks as needed:
     - If wanting to remove or add tracks, then select "My Data > Custom Tracks"; follow steps 5-8 above.
     - If wanting to edit the view of the tracks, follow step 9 above.
@@ -30,7 +30,7 @@ Biowulf/Helix hosts its own instance of the [UCSC Genome Browser](https://hpcnih
 11. Under "Save current settings as named session:" enter a new descriptive name OR the previous name of the session if you'd like to overwrite it
 12. Select "Submit"
 13. This will move the descriptive name entered into the "session name" list
-14. Select the descriptve name, view your track information as saved
+14. Select the descriptive name, view your track information as saved
 15. Copy the hyperlink for this session and share as needed
 
 > TIP: Unindexed file formats like `bed` and `gtf` take significantly longer to load in the genome Browser and it is recommended to convert them to indexed formats like `bigBed` and `bigWig` prior to adding them to your session.

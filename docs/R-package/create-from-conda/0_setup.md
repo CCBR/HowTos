@@ -76,7 +76,7 @@ conda info
 
 
 
-To build a Conda package, 'channels' are needed to supply the dependencies that are specified in the DESCRIPTION and meta.yaml files (discussed below). These R packages in these channels are also Conda packages that have been previously built as a specific version of that package and given a 'build string', a unique indentifier for the build of that specific conda package.
+To build a Conda package, 'channels' are needed to supply the dependencies that are specified in the DESCRIPTION and meta.yaml files (discussed below). These R packages in these channels are also Conda packages that have been previously built as a specific version of that package and given a 'build string', a unique identifier for the build of that specific conda package.
 
 For channels to be available to you when you build your own conda package, you first need to add them. To add a Conda channel run:
 
@@ -104,9 +104,9 @@ https://r-pkgs.org/whole-game.html
 
 Before creating the release on github, please check for proper dependencies listed in the files NAMESPACE and DESCRIPTION.
 
-These files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be editted manually, while the NAMESPACE file should not be editted manually, but rather created automatically using the document() function.
+These files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be edited manually, while the NAMESPACE file should not be edited manually, but rather created automatically using the document() function.
 
-The DESCRITPION file must also be correctly formatted. For more information, see:
+The DESCRIPTION file must also be correctly formatted. For more information, see:
 
 https://r-pkgs.org/description.html
 
@@ -332,7 +332,7 @@ Dependency B version 2.7
   - Dependency C version >= 0.7
 ```
 
-As you can see, the Conda build will not be able to resolve the environment because Dependency A verion 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.
+As you can see, the Conda build will not be able to resolve the environment because Dependency A version 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.
 
 In this case, if we changed our package's DESCRIPTION and meta.yaml file to be:
 
@@ -341,7 +341,7 @@ Dependency A version >= 1.0
 Dependency B version >= 2.5
 ```
 
-The conda build will be able to resolve. This is a simplied version of a what are more often complex dependency structures, but it is an important concept in conda package building that will inevitably arise as a package's dependencies become more specific.
+The conda build will be able to resolve. This is a simplified version of a what are more often complex dependency structures, but it is an important concept in conda package building that will inevitably arise as a package's dependencies become more specific.
 
 
 

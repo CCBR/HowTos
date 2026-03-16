@@ -11,7 +11,7 @@ Users may find it helpful to create a single script which would create this text
 
 Generally, each "track" line should have at least the following key value pairs:
 - name : label for the track
-- description : defines the center lable displayed
+- description : defines the center label displayed
 - type : BAM, BED, bigBed, bigWig, etc.
 - bigDataUrl : URL of the data file
 - for other options see [here](https://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html)
