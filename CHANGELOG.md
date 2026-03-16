@@ -1,5 +1,7 @@
 ## HowTos development version
 
+- Fix minor typos. (#68, @kelly-sovacool)
+
 ## HowTos 1.1.0
 
 - New guide: Publishing Shiny apps to NCI's Posit Connect servers (#53, @escauley)
