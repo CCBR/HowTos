@@ -722,11 +722,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="generating-inputs" class="level2">
 <h2 class="anchored" data-anchor-id="generating-inputs">Generating Inputs</h2>
-<p>In order to use the genomic broswer features, sample files must be created.</p>
+<p>In order to use the genomic browser features, sample files must be created.</p>
 <section id="individual-sample-files" class="level3">
 <h3 class="anchored" data-anchor-id="individual-sample-files">Individual sample files</h3>
 <p>For individual samples, where peak density is to be observed, bigwig formatted files must be generated. If using the CCBR pipelines these are automatically generated as outputs of the pipeline (<code>WORKDIR/results/bigwig</code>). In many cases, scaling or normalization of bigwig is required to visualize multiple samples in comparison with each other. See various <a href="https://deeptools.readthedocs.io/en/develop/content/tools/bamCompare.html?highlight=normalizeUsing#read-coverage-normalization-options">deeptools</a> options for details/ideas. If not using CCBR pipelines, example code is provided below for the file generation.</p>
-<pre><code>modue load ucsc
+<pre><code>module load ucsc
 
 fragments_bed="/path/to/sample1.fragments.bed"
 bw="/path/to/sample1.bigwig"
@@ -735,7 +735,7 @@ bg="/path/to/sample1.bedgraph"
 bw="/path/to/sample2.bigwig"
 
 # if using a spike-in scale, the scaling factor should be applied
-# while not required, it is recommended for CUT&amp;RUN experiements
+# while not required, it is recommended for CUT&amp;RUN experiments
 spikein_scale="spike_in_value"
 
 # create bed file

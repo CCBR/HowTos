@@ -805,7 +805,7 @@ channels:
 <pre><code>conda info</code></pre>
 <section id="setup-conda-channels" class="level3">
 <h3 class="anchored" data-anchor-id="setup-conda-channels">Setup Conda Channels</h3>
-<p>To build a Conda package, ‘channels’ are needed to supply the dependencies that are specified in the DESCRIPTION and meta.yaml files (discussed below). These R packages in these channels are also Conda packages that have been previously built as a specific version of that package and given a ‘build string’, a unique indentifier for the build of that specific conda package.</p>
+<p>To build a Conda package, ‘channels’ are needed to supply the dependencies that are specified in the DESCRIPTION and meta.yaml files (discussed below). These R packages in these channels are also Conda packages that have been previously built as a specific version of that package and given a ‘build string’, a unique identifier for the build of that specific conda package.</p>
 <p>For channels to be available to you when you build your own conda package, you first need to add them. To add a Conda channel run:</p>
 <p>config –add channels <channel_name></channel_name></p>
 <p>For <channel_name>, some examples are:</channel_name></p>
@@ -823,8 +823,8 @@ channels:
 <p>For more information on best practices in R package creation, see:</p>
 <p>https://r-pkgs.org/whole-game.html</p>
 <p>Before creating the release on github, please check for proper dependencies listed in the files NAMESPACE and DESCRIPTION.</p>
-<p>These files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be editted manually, while the NAMESPACE file should not be editted manually, but rather created automatically using the document() function.</p>
-<p>The DESCRITPION file must also be correctly formatted. For more information, see:</p>
+<p>These files should have the same list of dependencies, and the version numbers for dependencies can be specified in the DESCRIPTION file. The DESCRIPTION file must be edited manually, while the NAMESPACE file should not be edited manually, but rather created automatically using the document() function.</p>
+<p>The DESCRIPTION file must also be correctly formatted. For more information, see:</p>
 <p>https://r-pkgs.org/description.html</p>
 <section id="download-the-r-package-release-from-github" class="level3">
 <h3 class="anchored" data-anchor-id="download-the-r-package-release-from-github">Download the R package release from Github</h3>
@@ -986,11 +986,11 @@ Dependency A version 1.2
 
 Dependency B version 2.7
   - Dependency C version &gt;= 0.7</code></pre>
-<p>As you can see, the Conda build will not be able to resolve the environment because Dependency A verion 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.</p>
+<p>As you can see, the Conda build will not be able to resolve the environment because Dependency A version 1.0 needs an old version of Dependency C, while Dependency B version 2.7 needs a newer version.</p>
 <p>In this case, if we changed our package’s DESCRIPTION and meta.yaml file to be:</p>
 <pre><code>Dependency A version &gt;= 1.0
 Dependency B version &gt;= 2.5</code></pre>
-<p>The conda build will be able to resolve. This is a simplied version of a what are more often complex dependency structures, but it is an important concept in conda package building that will inevitably arise as a package’s dependencies become more specific.</p>
+<p>The conda build will be able to resolve. This is a simplified version of a what are more often complex dependency structures, but it is an important concept in conda package building that will inevitably arise as a package’s dependencies become more specific.</p>
 <p>To check on the versions of packages that are available in a Conda channel, use the command:</p>
 <pre><code>conda search $dependency</code></pre>
 <p>Replace $dependency with the name of package you would like to investigate. There are more optional commands for this function which can be found here:</p>
