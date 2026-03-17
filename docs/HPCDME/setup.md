@@ -36,7 +36,7 @@ cp hpcdme.properties-sample hpcdme.properties
 
 #### Customize properties file
 
-Some of the parameters in this file have become obsolete over the course of time and are commmented out. Change paths and default values, as needed.
+Some of the parameters in this file have become obsolete over the course of time and are commented out. Change paths and default values, as needed.
 
 **NOTES**
 
@@ -140,7 +140,7 @@ source ~/.bashrc
 
 #### Generate token
 
-Now, you are all set to generate a token. This prevents from re-entering your password everytime.
+Now, you are all set to generate a token. This prevents from re-entering your password every time.
 
 ```bash
 dm_generate_token

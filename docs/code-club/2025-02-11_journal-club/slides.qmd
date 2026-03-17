@@ -146,7 +146,7 @@ a learning community with:
 
 - external open access resources + internal resources
 - repositories, packages, libraries, seminar recordings
-- result: encourages re-use and further enables knowledge sharing
+- result: encourages reuse and further enables knowledge sharing
 
 :::{.fragment}
 <https://ferenckata.github.io/ImprovingSoftwareTogether.github.io/index.html>
