@@ -5,7 +5,7 @@ author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
 
 How to release new versions of our pipelines and tools using our semi-automated workflow.
 
-1. Ensure your repo has the following files:
+## Ensure your repo has the following files:
 
   - [`CHANGELOG.md`](https://github.com/CCBR/CHAMPAGNE/blob/main/CHANGELOG.md) or [`NEWS.md`](https://github.com/CCBR/MOSuite/blob/main/NEWS.md)
     - The first header should be `## development version`.
@@ -18,11 +18,22 @@ How to release new versions of our pipelines and tools using our semi-automated 
   - [`.github/workflows/draft-release.yml`](https://github.com/CCBR/actions/blob/main/examples/draft-release.yml)
   - [`.github/workflows/post-release.yml`](https://github.com/CCBR/actions/blob/main/examples/post-release.yml)
 
-1. Run the `draft-release` workflow
+## Run the tests on the development branch
+
+  If you haven't already, run the test suite on the development branch.
+  If your repo is a pipeline, use the test dataset/profile/configuration and
+  make sure it completes without errors on Biowulf.
+  If your repo is a Python or R package,
+  the CI workflows should complete successfully in GitHub Actions.
+
+  Do not cut a release if any of the tests fail.
+  We only want to release working software!
+
+## Run the `draft-release` workflow
 
   ![](./draft-release-workflow.png)
 
-1. Once `draft-release` completes successfully, a new draft release will appear under the releases page
+## Once `draft-release` completes successfully, a new draft release will appear under the releases page
 
   `https://github.com/CCBR/<REPO>/releases`
 
@@ -39,7 +50,7 @@ How to release new versions of our pipelines and tools using our semi-automated 
 
   ![](./post-release-complete.png)
 
-1. Review the Pull Request opened by the `post-release` workflow.
+## Review the Pull Request opened by the `post-release` workflow.
 
   ![](./pull-requests.png)
 
@@ -56,7 +67,7 @@ How to release new versions of our pipelines and tools using our semi-automated 
 
   ![](./pr-confirm-merge.png)
 
-1. Install the new release on Biowulf.
+## Install the new release on Biowulf.
 
   You can skip this step if your pipeline/tool is not yet part of the ccbrpipeliner module.
 
