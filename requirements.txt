@@ -1,3 +1,4 @@
 jupyter
 nbconvert
 pyyaml
+git+https://github.com/CCBR/Tools@v0.5
