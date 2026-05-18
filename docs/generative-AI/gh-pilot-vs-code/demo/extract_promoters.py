@@ -51,9 +51,13 @@ def extract_genes(gtf_file, gene_type_filter=PROTEIN_CODING_TYPE):
                     else:
                         raise ValueError(f"Unknown strand: {strand}")
                     # TODO: why yield instead of return?
-                    yield chrom, tss, strand, attr_dict["gene_name"], attr_dict[
-                        "gene_id"
-                    ]
+                    yield (
+                        chrom,
+                        tss,
+                        strand,
+                        attr_dict["gene_name"],
+                        attr_dict["gene_id"],
+                    )
 
 
 def main():
