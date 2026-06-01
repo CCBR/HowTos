@@ -176,7 +176,7 @@ _AI outputs may be incomplete, inaccurate, biased, or fabricated._
 
 ## Resources
 
-- NIH Guidelines for Responsible AI: <https://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx>
+- [NIH Guidelines for Responsible AI](https://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx)
 - Tutorial: [GitHub Copilot in VS Code](https://ccbr.github.io/HowTos/docs/generative-AI/gh-pilot-vs-code/)
 - [GitHub Copilot in VS Code cheat sheet](https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features)
 - [Copilot Instructions file](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
