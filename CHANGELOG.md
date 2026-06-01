@@ -21,8 +21,8 @@ The website is now rendered with Quarto (#24, @kelly-sovacool)
   - Conda to mamba migration guide (#37, #38, #39, @kopardev)
   - How to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)
 - Docker & Singularity
-    - How to build containers interactively with Google Cloud Shell (@kelly-sovacool)
-    - How to use containers with Singularity on Biowulf (@kelly-sovacool)
+  - How to build containers interactively with Google Cloud Shell (@kelly-sovacool)
+  - How to use containers with Singularity on Biowulf (@kelly-sovacool)
 - GitHub Actions demo (@kelly-sovacool)
 - Resources from Code Club presentations (@kelly-sovacool)
 - Generative AI:
