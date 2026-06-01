@@ -1,8 +1,8 @@
 ---
 title: "Reproducible AI Practices for Bioinformatics"
-author: 
+author:
   - name: "Kelly Sovacool, PhD"
-    affiliation: 
+    affiliation:
       - Bioinformatics Software Engineer
       - CCR Collaborative Bioinformatics Resource
 date: 2026-06-02
@@ -129,7 +129,7 @@ _AI outputs may be incomplete, inaccurate, biased, or fabricated._
 
 - Never allow agents to edit data files or output files. _You shouldn't edit these files yourself anyway._
 - Do not allow agents to execute destructive commands without explicit user permission.
-  
+
   > `rm rmdir sudo chmod chown`
 
 ::: {.notes}
