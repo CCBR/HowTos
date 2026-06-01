@@ -56,10 +56,6 @@ Yourself -> Future you -> Your collaborators -> Peers in your field
 
 :::
 
-::: {.notes}
-check that AI generated code works how you expect. ideally, make sure you understand it.
-:::
-
 ## Do: commit your code
 
 and sync it with GitHub
@@ -87,14 +83,18 @@ Add related repos to a single VS Code workspace so Copilot will see the full con
 VS Code automatically detects a `.github/copilot-instructions.md` file
 and applies it to all chat requests in the workspace.
 
-Use custom instructions for:
+:::{.fragment}
+#### Use custom instructions for:
 
 - Coding style and naming conventions, preferred libraries/packages
 - Architectural patterns to follow or avoid
 - Security requirements and error handling approaches
 - Documentation standards
+:::
 
+:::{.fragment}
 Keep it short (< 500 lines), include examples, and explain the reasoning behind rules.
+:::
 
 ::: footer
 <https://code.visualstudio.com/docs/copilot/customization/custom-instructions>
@@ -136,14 +136,48 @@ _AI outputs may be incomplete, inaccurate, biased, or fabricated._
 > GitHub Copilot Agent Mode in VS Code requires manual confirmation for destructive commands by default to prevent accidental or malicious execution.
 :::
 
+## Do's and Don't's for AI Use
+
+::: {.column}
+### Do
+
+- Commit your code early and often
+- Use VS Code workspaces
+- Create a Copilot Instructions file
+
+:::
+
+:::{.column}
+### Don't
+
+- Expose PHI or PII
+- Blindly accept AI-generated code
+- Allow AI agents to execute destructive commands
+
+:::
+
+:::{.align-center}
+![](./img/science-process-code.jpg){width="60%"}
+:::
+
+
+## Reproducible practices for responsible AI use
+
+:::{.align-center}
+![](./img/science-process-ai-agent.jpg){width="60%"}
+:::
+
 ## Final thoughts
 
-- Remember: generative AI tools use statistical models to produce outputs that look like a plausible response to a prompt.
-- AI tools accelerate bioinformatics; just make sure you're facing the direction you want to go. 🚀
+- Generative AI tools use statistical models to produce outputs that look like a plausible response to a prompt.  🦜
+  - Interpreting the meaning of AI outputs is your responsibility.
+- AI tools accelerate bioinformatics. 🚀
+  - Just make sure you're facing the direction you want to go!
 
 ## Resources
 
 - NIH Guidelines for Responsible AI: <https://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx>
+- Tutorial: [GitHub Copilot in VS Code](https://ccbr.github.io/HowTos/docs/generative-AI/gh-pilot-vs-code/)
+- [GitHub Copilot in VS Code cheat sheet](https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features)
+- [Copilot Instructions file](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - Related talk: [Organizing and documenting NGS pipelines on GitHub](https://bioinfo-abcc.ncifcrf.gov/training/event/organizing-and-documenting-ngs-pipelines-on-github-building-549-executive-board-room-nci-frederick-1204241200) | ABCS Programmer's Corner, 2024
-- GitHub Copilot in VS Code cheat sheet: <https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features>
-- Copilot Instructions file: <https://code.visualstudio.com/docs/copilot/customization/custom-instructions>
