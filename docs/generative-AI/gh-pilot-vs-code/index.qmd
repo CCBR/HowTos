@@ -120,7 +120,7 @@ You can adjust this behavior in settings.
 Place your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one.
 If needed, start typing `"""` and see if that triggers Copilot to suggest a docstring.
 
-![](img/auto-suggest.png){fig-alt=VS Code editor window showing GitHub Copilot automatically suggesting code as light gray text inline with the user's typing.}
+![](img/auto-suggest.png){fig-alt="VS Code editor window showing GitHub Copilot automatically suggesting code as light gray text inline with the user's typing."}
 
 You can press {{< kbd Tab >}} to accept the suggestion, or {{< kbd Esc >}} to reject it.
 
@@ -144,9 +144,26 @@ You can toggle the sidebar on and off with the sidebar button in the upper right
 
 ![Open the sidebar](img/chat-sidebar.png){width=300px}
 
+#### Model Selection
+
 You can select which Large Language Model to use for your prompts:
 
 ![Model selection](img/model-selection){width=300px}
+
+GitHub has a table comparing the various AI models available in Copilot here:
+<https://docs.github.com/en/copilot/reference/ai-models/model-comparison>
+
+#### Agent Modes
+
+![Agent modes](img/agent-modes.png){width=300px}
+
+> - Agent: autonomously plans and implements changes across files, runs terminal commands, and invokes tools.
+> - Plan: creates a structured, step-by-step implementation plan before writing any code. Hands the plan off to an implementation agent when it looks right.
+> - Ask: answers questions about coding concepts, your codebase, or VS Code itself without making file changes.
+> 
+> <https://code.visualstudio.com/docs/agents/overview>
+
+### Examples
 
 #### Example: ask Copilot to explain how a line of code works.
 
@@ -187,7 +204,7 @@ If you're not sure where to place the tests, Copilot has a detailed suggestion:
 Be sure to read through the unit tests, understand what they're testing and why,
 and consider if there are any gaps in test coverage that you will need to correct.
 
-### Source Control: git GUI in VS Code
+#### Source Control: git GUI in VS Code
 
 Copilot can even suggest commit messages for you!
 Using the Source Control extension, add your script to the git staging area and
