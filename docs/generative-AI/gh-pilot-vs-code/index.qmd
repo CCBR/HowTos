@@ -160,7 +160,7 @@ GitHub has a table comparing the various AI models available in Copilot here:
 > - Agent: autonomously plans and implements changes across files, runs terminal commands, and invokes tools.
 > - Plan: creates a structured, step-by-step implementation plan before writing any code. Hands the plan off to an implementation agent when it looks right.
 > - Ask: answers questions about coding concepts, your codebase, or VS Code itself without making file changes.
-> 
+>
 > <https://code.visualstudio.com/docs/agents/overview>
 
 ### Examples
