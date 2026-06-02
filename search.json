@@ -379,63 +379,182 @@
     ]
   },
   {
-    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html",
-    "href": "docs/generative-AI/gh-pilot-vs-code/index.html",
-    "title": "GitHub Copilot in VS Code",
+    "objectID": "docs/generative-AI/index.html",
+    "href": "docs/generative-AI/index.html",
+    "title": "Generative AI tools",
     "section": "",
-    "text": "TipRecording\n\n\n\nCCBR members can view the recording of this demo at the link below:\nCCBR TechDev meeting 2025-12-19",
+    "text": "Overview: Reproducible AI Practices for Bioinformatics\nTutorial: GitHub Copilot in VS Code",
     "crumbs": [
       "Home",
-      "Generative AI",
-      "GitHub Copilot in VS Code"
+      "Generative AI tools"
     ]
   },
   {
-    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#why-github-copilot",
-    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#why-github-copilot",
-    "title": "GitHub Copilot in VS Code",
-    "section": "Why GitHub Copilot?",
-    "text": "Why GitHub Copilot?\nGitHub Copilot is built to work seamlessly in your IDE. It acts a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc. Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.\nWith the web interfaces for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can quickly become cumbersome.\nGitHub Copilot in your IDE removes friction and makes using LLMs for development tasks a breeze!",
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#ai-accelerates-bioinformatics",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#ai-accelerates-bioinformatics",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "AI Accelerates Bioinformatics",
+    "text": "AI Accelerates Bioinformatics",
     "crumbs": [
       "Home",
-      "Generative AI",
-      "GitHub Copilot in VS Code"
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
     ]
   },
   {
-    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#setup",
-    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#setup",
-    "title": "GitHub Copilot in VS Code",
-    "section": "Setup",
-    "text": "Setup\n\nSign up for Copilot\n\n\n\n\n\n\nNote\n\n\n\nAt this time, we cannot add more users to the NCI Enterprise premium Copilot license. However, you can still do a lot with the the free version of Copilot!\n\n\nEnable Copilot:\nhttps://github.com/settings/copilot\n\n\nSee more: GitHub Docs\n\n\n\nSet up Copilot in VS Code\nVS Code Docs\n\nHover over the Copilot icon in the Status Bar and select ‘Use AI Features’.\n\n\n\nSign in to GitHub\n\n\n\nStart using Copilot in VS Code!\n\nThe GitHub Copilot Chat extension should now be installed.\n\nVS Code settings\nYou can customize Copilot settings in VS Code by going to Settings &gt; Extensions &gt; GitHub Copilot or by using the keyboard shortcut CmdCmd,, on Mac.\n\n\n\n\n\n\n\nTip\n\n\n\nGitHub Copilot also works well in Positron, an IDE created by Posit based on VS Code.",
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#security-in-the-age-of-ai",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#security-in-the-age-of-ai",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Security in the age of AI",
+    "text": "Security in the age of AI\nWhat do we mean by…?\n\nSecurity\nSafety\nReproducibility",
     "crumbs": [
       "Home",
-      "Generative AI",
-      "GitHub Copilot in VS Code"
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
     ]
   },
   {
-    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#demo-a-simple-python-script",
-    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#demo-a-simple-python-script",
-    "title": "GitHub Copilot in VS Code",
-    "section": "Demo: a simple python script",
-    "text": "Demo: a simple python script\nExample project: given a GTF file, extract the gene transcription start sites and create a BED file of promoter regions.\nFiles:\n\nextract_promoters.py - Example Python script for demonstrating Copilot\nsetup.sh - Download data files for testing the Python script\n\nCreate a new directory called extract-promoters, download these files, and place them in that directory.\n\nOpen project in new window\nOpen the directory for your project with VS Code.\n\n\n\n\n\n\n\nTipUse git\n\n\n\nWe recommend initializing git and making a commit with the existing code before you start using Copilot.\npwd\n# /path/to/extract-promoters/\ngit init\ngit add extract_promoters.py setup.sh\ngit commit -m 'Initial commit'\n\n\n\n\nAutomatic inline suggestions\nCopilot will make suggestions automatically as you type. You can adjust this behavior in settings.\n\n\n\nHow to turn automatic inline suggestions on and off\n\n\n&lt;vscode://settings/editor.inlineSuggest.enabled&gt;\n\nExample: automatic docstring suggestion\nPlace your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one. If needed, start typing \"\"\" and see if that triggers Copilot to suggest a docstring.\n{fig-alt=VS Code editor window showing GitHub Copilot automatically suggesting code as light gray text inline with the user’s typing.}\nYou can press TabTab to accept the suggestion, or EscEsc to reject it.\n\n\n\nInline chat\nPress Cmd-ICmd-I to open the inline chat and ask for modifications right where your cursor is.\n\n\nYou can click the checkmark to accept the suggested edit if it meets your expectations. You can always modify it after accepting it if there are minor corrections to make.\n\n\nChat in the sidebar\nSometimes you may have more long-form questions, or perhaps you’d like to have a record of the prompts you’ve given to Copilot. The sidebar Chat is great for this!\nYou can toggle the sidebar on and off with the sidebar button in the upper right corner of the VS Code window:\n\n\n\nOpen the sidebar\n\n\nYou can select which Large Language Model to use for your prompts:\n\n\n\nModel selection\n\n\n\nExample: ask Copilot to explain how a line of code works.\nHighlight a complicated line of code and ask Copilot to explain how it works.\n\n\n\nExample: ask Copilot to break out a complicated line of code into a separate function.\n\n\nIf you are not in Agent mode, you will need to make the modifications yourself. But Copilot’s instructions make it very clear how to do so!\n\n\nExample: ask Copilot to explain the benefits of yield vs return in Python functions\n\n\n\n\nExample: Writing unit tests\nAsk Copilot to suggest unit tests for the Python script.\n\nCopilot suggested a comprehensive suite of unit tests for the script.\n\nIf you’re not sure where to place the tests, Copilot has a detailed suggestion:\n \nBe sure to read through the unit tests, understand what they’re testing and why, and consider if there are any gaps in test coverage that you will need to correct.\n\n\n\nSource Control: git GUI in VS Code\nCopilot can even suggest commit messages for you! Using the Source Control extension, add your script to the git staging area and ask Copilot to suggest a commit message.\n\nClick the sparkles ✨ icon on the right side of the commit message box to generate a commit message using Copilot.\n\nRead the commit message and make sure it accurately describes the changes you’ve made before you accept it.",
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#reproducibility",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#reproducibility",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Reproducibility",
+    "text": "Reproducibility\nYourself -&gt; Future you -&gt; Your collaborators -&gt; Peers in your field\n\nYou are your own most important collaborator",
     "crumbs": [
       "Home",
-      "Generative AI",
-      "GitHub Copilot in VS Code"
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
     ]
   },
   {
-    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#tips",
-    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#tips",
-    "title": "GitHub Copilot in VS Code",
-    "section": "Tips",
-    "text": "Tips\n\nAlways read and understand the AI suggestion before accepting it\nUse git and commit your changes often\nWrite tests to make sure your code works the way you think it does\nPeriodically step back and reflect on what you’re trying to accomplish",
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#dos-and-donts",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#dos-and-donts",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Do’s and Don’t’s",
+    "text": "Do’s and Don’t’s\n\nDo\n\nCommit your code early and often\nUse VS Code workspaces\nCreate a Copilot Instructions file\n\n\nDon’t\n\nExpose PHI or PII\nBlindly accept AI-generated code\nAllow AI agents to execute destructive commands",
     "crumbs": [
       "Home",
-      "Generative AI",
-      "GitHub Copilot in VS Code"
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#do-commit-your-code",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#do-commit-your-code",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Do: commit your code",
+    "text": "Do: commit your code\nand sync it with GitHub\n\nCreate a GitHub repo for every project\nCommit & push your code before you even start using AI agents\nCommit & push every meaningful change\n\n\nyou don’t need to be an expert git user to get something out of git and GitHub",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#do-use-vs-code-workspaces",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#do-use-vs-code-workspaces",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Do: use VS Code workspaces",
+    "text": "Do: use VS Code workspaces\nAdd related repos to a single VS Code workspace so Copilot will see the full context of your project\n\nCopilot agents search your entire codebase to understand how components connect and provide answers grounded in your actual code. You can use broad prompts like “where is authentication handled?” or “add tests for the list endpoint” and get accurate answers and edits based on your codebase.\n\n\nhttps://code.visualstudio.com/docs/copilot/reference/workspace-context",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#do-create-a-copilot-instructions-file",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#do-create-a-copilot-instructions-file",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Do: create a Copilot Instructions file",
+    "text": "Do: create a Copilot Instructions file\nVS Code automatically detects a .github/copilot-instructions.md file and applies it to all chat requests in the workspace.\n\nUse custom instructions for:\n\nCoding style and naming conventions, preferred libraries/packages\nArchitectural patterns to follow or avoid\nSecurity requirements and error handling approaches\nDocumentation standards\n\n\n\nKeep it short (&lt; 500 lines), include examples, and explain the reasoning behind rules.\n\n\nhttps://code.visualstudio.com/docs/copilot/customization/custom-instructions\n\n\n\nVS Code automatically detects a .github/copilot-instructions.md Markdown file in the root of your workspace and applies the instructions in this file to all chat requests within this workspace.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#dont-expose-phi-or-pii",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#dont-expose-phi-or-pii",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Don’t: expose PHI or PII",
+    "text": "Don’t: expose PHI or PII\n\nGitHub Copilot is not approved to handle PHI or PII\nDo not track sensitive data files with git (use .gitignore file)\n\n\nhttps://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#dont-blindly-accept-ai-generated-code",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#dont-blindly-accept-ai-generated-code",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Don’t: blindly accept AI-generated code",
+    "text": "Don’t: blindly accept AI-generated code\nNIH AI Guidance\n\nDo not rely on the technology to be a software developer by proxy: All well-written code must adhere to security design and ethical principles. All code output needs to be reviewed for completeness, quality, efficiency, and, most of all, security. Leverage manual and automated validation tools and testing technologies to help ensure these factors. If you cannot identify or understand what a piece of AI generated code does, you should not use it.\n\nAI outputs may be incomplete, inaccurate, biased, or fabricated.\n\nhttps://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#dont-allow-agents-to-execute-destructive-commands",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#dont-allow-agents-to-execute-destructive-commands",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Don’t: allow agents to execute destructive commands",
+    "text": "Don’t: allow agents to execute destructive commands\n\nNever allow agents to edit data files or output files. You shouldn’t edit these files yourself anyway.\nDo not allow agents to execute destructive commands without explicit user permission.\n\nrm rmdir sudo chmod chown\n\n\n\n\nGitHub Copilot Agent Mode in VS Code requires manual confirmation for destructive commands by default to prevent accidental or malicious execution.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#dos-and-donts-for-ai-use",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#dos-and-donts-for-ai-use",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Do’s and Don’t’s for AI Use",
+    "text": "Do’s and Don’t’s for AI Use\n\nDo\n\nCommit your code early and often\nUse VS Code workspaces\nCreate a Copilot Instructions file\n\n\nDon’t\n\nExpose PHI or PII\nBlindly accept AI-generated code\nAllow AI agents to execute destructive commands",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#reproducible-practices-for-responsible-ai-use",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#reproducible-practices-for-responsible-ai-use",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Reproducible practices for responsible AI use",
+    "text": "Reproducible practices for responsible AI use",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#final-thoughts",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#final-thoughts",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Final thoughts",
+    "text": "Final thoughts\n\nGenerative AI tools use statistical models to produce outputs that look like a plausible response to a prompt. 🦜\n\nInterpreting the meaning of AI outputs is your responsibility.\n\nAI tools accelerate bioinformatics. 🚀\n\nJust make sure you’re facing the direction you want to go!",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/repro-ai-overview/index.html#resources",
+    "href": "docs/generative-AI/repro-ai-overview/index.html#resources",
+    "title": "Reproducible AI Practices for Bioinformatics",
+    "section": "Resources",
+    "text": "Resources\n\nNIH Guidelines for Responsible AI\nTutorial: GitHub Copilot in VS Code\nGitHub Copilot in VS Code cheat sheet\nCopilot Instructions file\nRelated talk: Organizing and documenting NGS pipelines on GitHub | ABCS Programmer’s Corner, 2024",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Reproducible AI Practices for Bioinformatics"
     ]
   },
   {
@@ -1727,7 +1846,7 @@
     "text": "Installing GitHub Copilot CLI (Laptop Setup Only)\n  \n  🧩 Prerequisites\n  🧱 Step 1. Create and Activate a Unified Environment\n  \n  Verify Installation\n  \n  🔑 Step 2. Authenticate GitHub CLI\n  ⚙️ Step 3. Install Copilot CLI as a GitHub Extension\n  🧠 Step 4. Install Standalone Copilot CLI (via npm)\n  🔑 Step 5. Authenticate Standalone Copilot CLI\n  🧰 Step 6. Enable Shell Aliases (??, gh?, git?)\n  🧪 Step 7. Verify Dual-Mode Copilot Operation\n  \n  Example 1 — Explain a Command\n  Example 2 — Generate a Bash Script\n  Example 3 — Git Workflow Help\n  Example 4 — Commit information\n  Example 5 - GitHub Issues in terminal\n  \n  🧰 Step 8. Maintenance and Upgrades\n  🧾 Summary Table",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1739,7 +1858,7 @@
     "text": "🧩 Prerequisites\nBefore proceeding, ensure you have the following:\n\n✅ A GitHub account with Copilot CLI access (available via your GitHub Enterprise account)\n✅ Mamba or Conda installed locally\n✅ A terminal configured for bash or zsh\n✅ Internet connectivity (Copilot CLI requires an active connection to GitHub servers)",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1751,7 +1870,7 @@
     "text": "🧱 Step 1. Create and Activate a Unified Environment\nWe’ll create a single environment to house both the GitHub CLI (gh) and the Node.js-based Copilot CLI. Using one environment avoids path conflicts and keeps both tools version-synced. You may also use an existing mamba environment on your laptop … remember to activate it first.\nmamba create -n ghcopilot -c conda-forge gh nodejs -y\nmamba activate ghcopilot\n\nVerify Installation\ngh --version\nnode --version\nnpm --version\nExpected output (approximate):\ngh version 2.63.0 (2025-03-15)\nnode v20.11.0\nnpm 10.2.5\n\n🧠 Tip: Using Node.js ≥ 18 ensures ES2022 compatibility and smoother npm package builds.",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1763,7 +1882,7 @@
     "text": "🔑 Step 2. Authenticate GitHub CLI\nAuthenticate GitHub CLI to your personal or enterprise account:\ngh auth login\nWhen prompted:\n\nChoose GitHub.com\nSelect HTTPS as the protocol\nOpt to Authenticate Git with your GitHub credentials\nChoose Login with a web browser and follow the browser flow … you may be given a code in the terminal which you should be copy-pasting in the browser\n\nConfirm authentication:\ngh auth status\nExpected output example:\n✓ Logged in to github.com as &lt;your_GH_handle&gt; (GitHub Enterprise)\n✓ Git operations authenticated for github.com\n...",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1775,7 +1894,7 @@
     "text": "⚙️ Step 3. Install Copilot CLI as a GitHub Extension\nThe GitHub CLI supports extensions that integrate seamlessly. Copilot CLI is one such extension.\ngh extension install github/gh-copilot\nCheck the installation:\ngh extension list\nYou should see:\ngithub/gh-copilot  latest  Copilot for gh CLI\nNow, test the basic commands:\ngh copilot --help\nYour AI command line Copilot.\n\nUsage:\n  copilot [command]\n\nExamples:\n\n$ gh copilot suggest \"Install git\"\n$ gh copilot explain \"traceroute github.com\"\n\n\nAvailable Commands:\n  alias       Generate shell-specific aliases for convenience\n  config      Configure options\n  explain     Explain a command\n  suggest     Suggest a command\n\nFlags:\n  -h, --help              help for copilot\n      --hostname string   The GitHub host to use for authentication\n  -v, --version           version for copilot\n\nUse \"copilot [command] --help\" for more information about a command.\nTake a test drive:\ngh copilot suggest \"a bash script to compress all .fastq.gz files\"\n\nWelcome to GitHub Copilot in the CLI!\nversion 1.1.1 (2025-06-17)\n\nI'm powered by AI, so surprises and mistakes are possible. Make sure to verify any generated code or suggestions, and share feedback so that we can learn and improve. For more information, see https://gh.io/gh-copilot-transparency\n\n? What kind of command can I help you with?\n&gt; generic shell command\n\nSuggestion:\n\n  for file in *.fastq.gz; do\n      gzip \"$file\"\n  done\n\n? Select an option  [Use arrows to move, type to filter]\n&gt; Copy command to clipboard\n  Explain command\n  Execute command\n  Revise command\n  Rate response\n  Exit\ngh copilot suggest \"a command to list all files changed in the last 10 hours\"\n\nWelcome to GitHub Copilot in the CLI!\nversion 1.1.1 (2025-06-17)\n\nI'm powered by AI, so surprises and mistakes are possible. Make sure to verify any generated code or suggestions, and share feedback so that we can learn and improve. For more information, see https://gh.io/gh-copilot-transparency\n\n? What kind of command can I help you with?\n&gt; generic shell command\n\nSuggestion:\n\n  find . -type f -mmin -600\n\n? Select an option  [Use arrows to move, type to filter]\n&gt; Copy command to clipboard\n  Explain command\n  Execute command\n  Revise command\n  Rate response\n  Exit",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1787,7 +1906,7 @@
     "text": "🧠 Step 4. Install Standalone Copilot CLI (via npm)\nWhile the gh extension is GitHub-integrated, the standalone Copilot CLI offers a lightweight, shell-native interface. It provides convenient commands such as ??, gh?, and git?, which allow you to quickly generate shell commands, GitHub CLI commands, or git commands based on natural language prompts. This makes it easier to automate tasks, discover command-line workflows, and boost productivity directly from your terminal without leaving your development environment.\nInstall it inside the same environment:\nnpm install -g @githubnext/github-copilot-cli\nCheck installation path and version:\nwhich github-copilot-cli\ngithub-copilot-cli --version\nExpected output should be something like this:\n~/mambaforge/envs/ghcopilot/bin/github-copilot-cli\nGitHub Copilot CLI version 1.0.8",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1799,7 +1918,7 @@
     "text": "🔑 Step 5. Authenticate Standalone Copilot CLI\nLogin to associate your CLI instance with your GitHub account:\ngithub-copilot-cli auth login\nThis launches a browser window to complete authentication. Again, copy-paste the code in browser.\nConfirm login status:\ngithub-copilot-cli auth status\nExpected output:\n✓ Authenticated as &lt;your_github_handle&gt;\n...",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1811,7 +1930,7 @@
     "text": "🧰 Step 6. Enable Shell Aliases (??, gh?, git?)\nTo enable shortcut-style commands, append the following to your shell configuration file (~/.bashrc or ~/.zshrc):\neval \"$(github-copilot-cli alias -- \"$0\")\"\nReload your shell:\nsource ~/.zshrc\nVerify alias activation:\nalias | grep copilot\nYou should see entries such as:\nalias ??='github-copilot-cli what-the-shell'\nalias gh?='github-copilot-cli git-assist'\nalias git?='github-copilot-cli explain'",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1823,7 +1942,7 @@
     "text": "🧪 Step 7. Verify Dual-Mode Copilot Operation\nNow, test both integrations:\n\nExample 1 — Explain a Command\n?? \"explain this: find . -type f -name '*.fq.gz' | xargs du -sh\"\n\n ──────────────────── Command ────────────────────\n\nThis command finds all files in the current directory and its subdirectories with the extension '.fq.gz' and then calculates and\ndisplays the disk usage (size) of each of those files in a human-readable format.\n\n ────────────────── Explanation ──────────────────\n\n○ find . -name \"*.fq.gz\" is used to list files.\n  ◆ . specifies that we start the search in the current directory.\n  ◆ -name \"*.fq.gz\" stipulates that we search for files ending in .fq.gz.\n○ | xargs du -h means we pass that list of files to xargs which constructs and executes a command using those files as arguments.\n  ◆ du is used to calculate disk usage (size) of files.\n  ◆ -h specifies that we want the sizes in a human-readable format (e.g., KB, MB, GB).\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel\n\n\nExample 2 — Generate a Bash Script\n?? \"bash script to count unique reads in all fastq files\"\n\n ──────────────────── Command ────────────────────\n\nfor file in *.fastq; do\n  awk 'NR % 4 == 2' $file | sort | uniq | wc -l;\ndone\n\n ────────────────── Explanation ──────────────────\n\n○ The for loop iterates over a list of items and executes\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel\n\n\nExample 3 — Git Workflow Help\ngit? \"how to undo the last commit but keep changes\"\n\n ──────────────────── Command ────────────────────\n\ngit reset --soft HEAD~1\n\n ────────────────── Explanation ──────────────────\n\n○ git reset resets the current branch to a previous commit.\n  ◆ --soft means that we keep any changes made to the files in the working directory.\n  ◆ HEAD~1 specifies that we reset to the commit one before the current one.\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel\n\n\nExample 4 — Commit information\ngit? when was the last commit made\n\n ──────────────────── Command ────────────────────\n\ngit log -1 --pretty=format:\"%ad\" --date=iso\n\n ────────────────── Explanation ──────────────────\n\n○ git log is used to show the commit history.\n  ◆ -1 specifies that we only want to see the latest commit.\n  ◆ --pretty=format:\"%ad\" specifies that we want to format the output to only show the author date of the commit.\n  ◆ --date=iso specifies that we want the date to be in ISO format.\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel\n\n\nExample 5 - GitHub Issues in terminal\ngh? list all the issues\n\n ──────────────────── Command ────────────────────\n\ngh issue list -L 10000\n\n ────────────────── Explanation ──────────────────\n\n○ gh issue list lists all issues in the current GitHub repository.\n  ◆ -L 10000 specifies that we want to list up to 10,000 issues.\n\n❯ ✅ Run this command\n  📝 Revise query\n  ❌ Cancel",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1835,7 +1954,7 @@
     "text": "🧰 Step 8. Maintenance and Upgrades\nKeep both components up to date:\n\n\n\n\n\n\n\nAction\nCommand\n\n\n\n\nUpdate gh-copilot\ngh extension upgrade github/gh-copilot\n\n\nRemove gh-copilot\ngh extension remove github/gh-copilot\n\n\nUpdate npm CLI\nnpm update -g @githubnext/github-copilot-cli\n\n\nRemove npm CLI\nnpm uninstall -g @githubnext/github-copilot-cli",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
     ]
   },
@@ -1847,8 +1966,68 @@
     "text": "🧾 Summary Table\n\n\n\n\n\n\n\nTask\nCommand\n\n\n\n\nCreate Environment\nmamba create -n ghcopilot -c conda-forge gh nodejs -y\n\n\nActivate Environment\nmamba activate ghcopilot\n\n\nInstall gh Extension\ngh extension install github/gh-copilot\n\n\nInstall npm CLI\nnpm install -g @githubnext/github-copilot-cli\n\n\nAuthenticate\ngh auth login / github-copilot-cli auth login\n\n\nEnable Aliases\neval \"$(github-copilot-cli alias -- \"$0\")\"\n\n\nTest Commands\ngh copilot suggest / ?? \"explain command\"",
     "crumbs": [
       "Home",
-      "Generative AI",
+      "Generative AI tools",
       "GitHub Copilot CLI"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html",
+    "href": "docs/generative-AI/gh-pilot-vs-code/index.html",
+    "title": "GitHub Copilot in VS Code",
+    "section": "",
+    "text": "TipRecording\n\n\n\nCCBR members can view the recording of this demo at the link below:\nCCBR TechDev meeting 2025-12-19",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "GitHub Copilot in VS Code"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#why-github-copilot",
+    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#why-github-copilot",
+    "title": "GitHub Copilot in VS Code",
+    "section": "Why GitHub Copilot?",
+    "text": "Why GitHub Copilot?\nGitHub Copilot is built to work seamlessly in your IDE. It acts a bridge between you, your codebase, and LLMs like ChatGPT, Claude, etc. Copilot makes suggestions based on the context of your entire project, rather than only a single prompt.\nWith the web interfaces for ChatGPT, Claude, etc, you would have to upload your code in order for it to have access to the context of your project. Further, you would have to copy & paste suggestions from the browser into your IDE. If you frequently switch between working on multiple projects, or have large projects with hundreds or thousands of lines of code, this can quickly become cumbersome.\nGitHub Copilot in your IDE removes friction and makes using LLMs for development tasks a breeze!",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "GitHub Copilot in VS Code"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#setup",
+    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#setup",
+    "title": "GitHub Copilot in VS Code",
+    "section": "Setup",
+    "text": "Setup\n\nSign up for Copilot\n\n\n\n\n\n\nNote\n\n\n\nAt this time, we cannot add more users to the NCI Enterprise premium Copilot license. However, you can still do a lot with the the free version of Copilot!\n\n\nEnable Copilot:\nhttps://github.com/settings/copilot\n\n\nSee more: GitHub Docs\n\n\n\nSet up Copilot in VS Code\nVS Code Docs\n\nHover over the Copilot icon in the Status Bar and select ‘Use AI Features’.\n\n\n\nSign in to GitHub\n\n\n\nStart using Copilot in VS Code!\n\nThe GitHub Copilot Chat extension should now be installed.\n\nVS Code settings\nYou can customize Copilot settings in VS Code by going to Settings &gt; Extensions &gt; GitHub Copilot or by using the keyboard shortcut CmdCmd,, on Mac.\n\n\n\n\n\n\n\nTip\n\n\n\nGitHub Copilot also works well in Positron, an IDE created by Posit based on VS Code.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "GitHub Copilot in VS Code"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#demo-a-simple-python-script",
+    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#demo-a-simple-python-script",
+    "title": "GitHub Copilot in VS Code",
+    "section": "Demo: a simple python script",
+    "text": "Demo: a simple python script\nExample project: given a GTF file, extract the gene transcription start sites and create a BED file of promoter regions.\nFiles:\n\nextract_promoters.py - Example Python script for demonstrating Copilot\nsetup.sh - Download data files for testing the Python script\n\nCreate a new directory called extract-promoters, download these files, and place them in that directory.\n\nOpen project in new window\nOpen the directory for your project with VS Code.\n\n\n\n\n\n\n\nTipUse git\n\n\n\nWe recommend initializing git and making a commit with the existing code before you start using Copilot.\npwd\n# /path/to/extract-promoters/\ngit init\ngit add extract_promoters.py setup.sh\ngit commit -m 'Initial commit'\n\n\n\n\nAutomatic inline suggestions\nCopilot will make suggestions automatically as you type. You can adjust this behavior in settings.\n\n\n\nHow to turn automatic inline suggestions on and off\n\n\n&lt;vscode://settings/editor.inlineSuggest.enabled&gt;\n\nExample: automatic docstring suggestion\nPlace your cursor where a function docstring should be, wait a little bit, and see if Copilot suggests one. If needed, start typing \"\"\" and see if that triggers Copilot to suggest a docstring.\n\nYou can press TabTab to accept the suggestion, or EscEsc to reject it.\n\n\n\nInline chat\nPress Cmd-ICmd-I to open the inline chat and ask for modifications right where your cursor is.\n\n\nYou can click the checkmark to accept the suggested edit if it meets your expectations. You can always modify it after accepting it if there are minor corrections to make.\n\n\nChat in the sidebar\nSometimes you may have more long-form questions, or perhaps you’d like to have a record of the prompts you’ve given to Copilot. The sidebar Chat is great for this!\nYou can toggle the sidebar on and off with the sidebar button in the upper right corner of the VS Code window:\n\n\n\nOpen the sidebar\n\n\n\nModel Selection\nYou can select which Large Language Model to use for your prompts:\n\n\n\nModel selection\n\n\nGitHub has a table comparing the various AI models available in Copilot here: https://docs.github.com/en/copilot/reference/ai-models/model-comparison\n\n\nAgent Modes\n\n\n\nAgent modes\n\n\n\n\nAgent: autonomously plans and implements changes across files, runs terminal commands, and invokes tools.\nPlan: creates a structured, step-by-step implementation plan before writing any code. Hands the plan off to an implementation agent when it looks right.\nAsk: answers questions about coding concepts, your codebase, or VS Code itself without making file changes.\n\nhttps://code.visualstudio.com/docs/agents/overview\n\n\n\n\nExamples\n\nExample: ask Copilot to explain how a line of code works.\nHighlight a complicated line of code and ask Copilot to explain how it works.\n\n\n\nExample: ask Copilot to break out a complicated line of code into a separate function.\n\n\nIf you are not in Agent mode, you will need to make the modifications yourself. But Copilot’s instructions make it very clear how to do so!\n\n\nExample: ask Copilot to explain the benefits of yield vs return in Python functions\n\n\n\n\nExample: Writing unit tests\nAsk Copilot to suggest unit tests for the Python script.\n\nCopilot suggested a comprehensive suite of unit tests for the script.\n\nIf you’re not sure where to place the tests, Copilot has a detailed suggestion:\n \nBe sure to read through the unit tests, understand what they’re testing and why, and consider if there are any gaps in test coverage that you will need to correct.\n\n\nSource Control: git GUI in VS Code\nCopilot can even suggest commit messages for you! Using the Source Control extension, add your script to the git staging area and ask Copilot to suggest a commit message.\n\nClick the sparkles ✨ icon on the right side of the commit message box to generate a commit message using Copilot.\n\nRead the commit message and make sure it accurately describes the changes you’ve made before you accept it.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "GitHub Copilot in VS Code"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/gh-pilot-vs-code/index.html#tips",
+    "href": "docs/generative-AI/gh-pilot-vs-code/index.html#tips",
+    "title": "GitHub Copilot in VS Code",
+    "section": "Tips",
+    "text": "Tips\n\nAlways read and understand the AI suggestion before accepting it\nUse git and commit your changes often\nWrite tests to make sure your code works the way you think it does\nPeriodically step back and reflect on what you’re trying to accomplish",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "GitHub Copilot in VS Code"
     ]
   },
   {
@@ -2329,14 +2508,14 @@
     "href": "CHANGELOG.html",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)"
+    "text": "New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-development-version",
     "href": "CHANGELOG.html#howtos-development-version",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)"
+    "text": "New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-1.1.0",
