@@ -33,18 +33,40 @@ GitHub Copilot in your IDE removes friction and makes using LLMs for development
 
 ### Sign up for Copilot
 
-:::{.callout-note}
-At this time, we cannot add more users to the NCI Enterprise premium Copilot license.
-However, you can still do a lot with the the free version of Copilot!
-:::
+#### Link your work email with your GitHub account
 
-Enable Copilot:
+Your `nih.gov` email address **must**be your primary email in your GitHub
+account. Follow the [instructions in the GitHub docs to change your primary
+email
+address](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/changing-your-primary-email-address).
+
+#### Join a GitHub Organization managed by NCI CBIIT
+
+Use [this form to request to join a GitHub Organization managed by NCI
+CBIIT](https://service.cancer.gov/ncisp?id=nci_sc_cat_item&sys_id=2df2bd6ddb504f002cbcfb0e0f96197c)
+if you are not already a member of one. Under request details, select **Add
+member to a GitHub Organization**.
+
+#### Request a Copilot license from NCI CBIIT
+
+After you have been added as a member of an organization, use [the same form
+linked
+above]((https://service.cancer.gov/ncisp?id=nci_sc_cat_item&sys_id=2df2bd6ddb504f002cbcfb0e0f96197c))
+to request a Copilot license. Under request details, select **Request a Copilot
+license**.
+
+#### Enable Copilot
 
 <https://github.com/settings/copilot>
 
 ![](img/gh-copilot-settings.png)
 
 > See more: _[GitHub Docs](https://docs.github.com/en/copilot/get-started/what-is-github-copilot#getting-access-to-copilot)_
+
+:::{.callout-tip}
+If you have not yet been granted a Copilot license, you can still use the free
+version to get started.
+:::
 
 ### Set up Copilot in VS Code
 
