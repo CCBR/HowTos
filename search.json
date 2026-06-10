@@ -1999,7 +1999,7 @@
     "href": "docs/generative-AI/gh-pilot-vs-code/index.html#setup",
     "title": "GitHub Copilot in VS Code",
     "section": "Setup",
-    "text": "Setup\n\nSign up for Copilot\n\n\n\n\n\n\nNote\n\n\n\nAt this time, we cannot add more users to the NCI Enterprise premium Copilot license. However, you can still do a lot with the the free version of Copilot!\n\n\nEnable Copilot:\nhttps://github.com/settings/copilot\n\n\nSee more: GitHub Docs\n\n\n\nSet up Copilot in VS Code\nVS Code Docs\n\nHover over the Copilot icon in the Status Bar and select ‘Use AI Features’.\n\n\n\nSign in to GitHub\n\n\n\nStart using Copilot in VS Code!\n\nThe GitHub Copilot Chat extension should now be installed.\n\nVS Code settings\nYou can customize Copilot settings in VS Code by going to Settings &gt; Extensions &gt; GitHub Copilot or by using the keyboard shortcut CmdCmd,, on Mac.\n\n\n\n\n\n\n\nTip\n\n\n\nGitHub Copilot also works well in Positron, an IDE created by Posit based on VS Code.",
+    "text": "Setup\n\nSign up for Copilot\n\nLink your work email with your GitHub account\nYour nih.gov email address must be your primary email in your GitHub account. Follow the instructions in the GitHub docs to change your primary email address.\n\n\nJoin a GitHub Organization managed by NCI CBIIT\nUse this form to request to join a GitHub Organization managed by NCI CBIIT if you are not already a member of one. Under request details, select Add member to a GitHub Organization. Add your GitHub username and corresponding NIH email. You will also need to know the name of the GitHub Organization you are requesting to join; ask your supervisor if you’re unsure.\n\n\nRequest a Copilot license from NCI CBIIT\nAfter you have been added as a member of an organization, use the same form linked above to request a Copilot license. Under request details, select Request a Copilot license. CBIIT typically approves these requests in about 1 week.\n\n\nEnable Copilot\nhttps://github.com/settings/copilot\n\n\nSee more: GitHub Docs\n\n\n\n\n\n\n\nTip\n\n\n\nIf you have not yet been granted a Copilot license, you can still use the free version to get started.\n\n\n\n\n\nSet up Copilot in VS Code\nVS Code Docs\n\nHover over the Copilot icon in the Status Bar and select ‘Use AI Features’.\n\n\n\nSign in to GitHub\n\n\n\nStart using Copilot in VS Code!\n\nThe GitHub Copilot Chat extension should now be installed.\n\nVS Code settings\nYou can customize Copilot settings in VS Code by going to Settings &gt; Extensions &gt; GitHub Copilot or by using the keyboard shortcut CmdCmd,, on Mac.\n\n\n\n\n\n\n\nTip\n\n\n\nGitHub Copilot also works well in Positron, an IDE created by Posit based on VS Code.",
     "crumbs": [
       "Home",
       "Generative AI tools",
@@ -2508,14 +2508,14 @@
     "href": "CHANGELOG.html",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)"
+    "text": "New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-development-version",
     "href": "CHANGELOG.html#howtos-development-version",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)"
+    "text": "New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-1.1.0",
