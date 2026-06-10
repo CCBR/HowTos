@@ -1,4 +1,4 @@
-## HowTos development version
+## HowTos 1.2.0
 
 - New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)
 - New slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)

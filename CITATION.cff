@@ -31,8 +31,8 @@ url: https://ccbr.github.io/HowTos/
 repository-code: https://github.com/CCBR/HowTos
 license: MIT
 type: software
-version: v1.1.0
-date-released: '2026-02-23'
+version: v1.2.0
+date-released: '2026-06-10'
 identifiers:
 - type: doi
   value: 10.5281/zenodo.18038599
