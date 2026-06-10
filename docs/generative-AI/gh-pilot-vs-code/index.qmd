@@ -44,8 +44,9 @@ account. Follow the
 Use
 [this form to request to join a GitHub Organization managed by NCI CBIIT](https://service.cancer.gov/ncisp?id=nci_sc_cat_item&sys_id=2df2bd6ddb504f002cbcfb0e0f96197c)
 if you are not already a member of one. Under request details, select **Add
-member to a GitHub Organization**. You will need to know the owner of the GitHub
-Organization you are requesting to join; ask your supervisor if you're unsure.
+member to a GitHub Organization**. Add your GitHub username and corresponding
+NIH email. You will also need to know the name of the GitHub Organization you
+are requesting to join; ask your supervisor if you're unsure.
 
 #### Request a Copilot license from NCI CBIIT
 
