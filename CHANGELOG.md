@@ -3,6 +3,7 @@
 - New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)
 - New slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)
 - Fix minor typos. (#68, @kelly-sovacool)
+- Update instructions for requesting a Copilot license. (#79, @kelly-sovacool)
 
 ## HowTos 1.1.0
 
