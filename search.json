@@ -18,14 +18,14 @@
     "href": "SECURITY.html",
     "title": "NCI Standard Public Repository Security Policy",
     "section": "",
-    "text": "Actively maintained versions of contained software will vary from repository to repository, or may not be relevant at all.\nThe developers of this repository will update this section if any actively maintained versions of the software need to be publicly disclosed. Otherwise, contact the developers directly for any version information.\n\n\n\n\n\nFollow the instructions listed in the HHS vulnerability disclosure policy.\n\n\n\n\nClick on the Security and quality tab of this repository.\nLocate the Report a vulnerability button. If the button is not on the Security and quality landing page, look under the Advisories section in the side bar.\nClick the Report a vulnerability button and submit the form. The developers will receive a notification of your submission."
+    "text": "Actively maintained versions of contained software will vary from repository to repository, or may not be relevant at all. The developers of this repository will update this section if any actively maintained versions of the software need to be publicly disclosed. Otherwise, contact the developers directly for any version information.\n\n\n\n\n\nFollow the instructions listed in the HHS vulnerability disclosure policy.\n\n\n\n\nClick on the Security and quality tab of this repository.\nLocate the Report a vulnerability button. If the button is not on the Security and quality landing page, look under the Advisories section in the side bar.\nClick the Report a vulnerability button and submit the form. The developers will receive a notification of your submission."
   },
   {
     "objectID": "SECURITY.html#maintained-versions",
     "href": "SECURITY.html#maintained-versions",
     "title": "NCI Standard Public Repository Security Policy",
     "section": "",
-    "text": "Actively maintained versions of contained software will vary from repository to repository, or may not be relevant at all.\nThe developers of this repository will update this section if any actively maintained versions of the software need to be publicly disclosed. Otherwise, contact the developers directly for any version information."
+    "text": "Actively maintained versions of contained software will vary from repository to repository, or may not be relevant at all. The developers of this repository will update this section if any actively maintained versions of the software need to be publicly disclosed. Otherwise, contact the developers directly for any version information."
   },
   {
     "objectID": "SECURITY.html#vulnerability-disclosure",
