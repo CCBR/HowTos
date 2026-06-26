@@ -4,3 +4,4 @@ title: "Generative AI tools"
 
 - Overview: [Reproducible AI Practices for Bioinformatics](./repro-ai-overview/index.qmd)
 - Tutorial: [GitHub Copilot in VS Code](./gh-pilot-vs-code/index.qmd)
+- Tutorial: [AI Training for the CCR Genetics Branch](https://ccrgeneticsbranch.github.io/HowTos/AI_Training/)

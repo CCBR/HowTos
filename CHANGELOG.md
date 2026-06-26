@@ -3,6 +3,7 @@
 - Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)
 - New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)
 - New slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)
+- New guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)
 - Fix minor typos. (#68, @kelly-sovacool)
 - Update instructions for requesting a Copilot license. (#79, @kelly-sovacool)
 
