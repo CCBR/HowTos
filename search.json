@@ -2060,7 +2060,7 @@
     "href": "docs/generative-AI/index.html",
     "title": "Generative AI tools",
     "section": "",
-    "text": "Overview: Reproducible AI Practices for Bioinformatics\nTutorial: GitHub Copilot in VS Code",
+    "text": "Overview: Reproducible AI Practices for Bioinformatics\nTutorial: GitHub Copilot in VS Code\nTutorial: AI Training for the CCR Genetics Branch",
     "crumbs": [
       "Home",
       "Generative AI tools"
@@ -2522,14 +2522,14 @@
     "href": "CHANGELOG.html",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)"
+    "text": "Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-development-version",
     "href": "CHANGELOG.html#howtos-development-version",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)"
+    "text": "Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-1.1.0",
