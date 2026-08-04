@@ -1,7 +1,11 @@
 ## HowTos development version
 
+- Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)
 - New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)
+- New slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)
+- New guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)
 - Fix minor typos. (#68, @kelly-sovacool)
+- Update instructions for requesting a Copilot license. (#79, @kelly-sovacool)
 
 ## HowTos 1.1.0
 
@@ -20,8 +24,8 @@ The website is now rendered with Quarto (#24, @kelly-sovacool)
   - Conda to mamba migration guide (#37, #38, #39, @kopardev)
   - How to use CCBR mamba installation & environments on Biowulf (#41, @kelly-sovacool)
 - Docker & Singularity
-    - How to build containers interactively with Google Cloud Shell (@kelly-sovacool)
-    - How to use containers with Singularity on Biowulf (@kelly-sovacool)
+  - How to build containers interactively with Google Cloud Shell (@kelly-sovacool)
+  - How to use containers with Singularity on Biowulf (@kelly-sovacool)
 - GitHub Actions demo (@kelly-sovacool)
 - Resources from Code Club presentations (@kelly-sovacool)
 - Generative AI:

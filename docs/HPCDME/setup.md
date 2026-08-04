@@ -18,6 +18,13 @@ cd /data/$USER/
 git clone https://github.com/CBIIT/HPC_DME_APIs.git
 ```
 
+Then switch to the latest release branch (check the [releases page](https://github.com/CBIIT/HPC_DME_APIs/releases) for the current version):
+
+```bash
+cd /data/$USER/HPC_DME_APIs
+git switch releases/3.27.0
+```
+
 #### Create dirs, log files needed for HPCMDE
 ```
 mkdir -p /data/$USER/HPCDMELOG/tmp
@@ -42,7 +49,7 @@ Some of the parameters in this file have become obsolete over the course of time
 
 - Replace `$USER` with your actual username in the properties file. Bash variables will not be interpolated.
 - Leave `hpc.ssl.keystore.password=changeit` as-is. `changeit` is not a variable but the actual password for our team.
-- Be sure to set the proxy server URL as below (`hpc.server.proxy.url=10.1.200.75`) when running on biowulf/helix.
+- The proxy settings (`hpc.server.proxy.url` and `hpc.server.proxy.port`) are commented out by default in the example below. If you encounter connectivity issues on Biowulf/Helix, uncomment these lines.
 
 ```bash
 #HPC DME Server URL
@@ -58,8 +65,8 @@ hpc.ssl.keystore.password=changeit
 #hpc.ssl.keystore.password=hpc-server-store-pwd
 
 #Proxy Settings
-hpc.server.proxy.url=10.1.200.75
-hpc.server.proxy.port=3128
+#hpc.server.proxy.url=10.1.200.75
+#hpc.server.proxy.port=3128
 
 hpc.user=$USER
 
@@ -85,7 +92,7 @@ hpc.log.file=/data/$USER/HPCDMELOG/tmp/hpc-cli.log
 #Log files directory
 #hpc.error-log.dir=.
 
-#Number of thread to run data file import from a CSV file
+#Number of threads to run data file import from a CSV file (can be set to 1, 2, or 4)
 hpc.job.thread.count=1
 
 upload.buffer.size=10000000
@@ -113,12 +120,10 @@ hpc.login.token=tokens/hpcdme-auth.txt
 #hpc.jar.version=hpc-cli-1.4.0.jar
 ```
 
-> **NOTE**: The current java version used is:
+> **NOTE**: The preferred Java version is **23.0.2**. Switch to it on Biowulf with:
 > ```bash
+module load java/23.0.2
 java -version
-> openjdk version "1.8.0_181"
-> OpenJDK Runtime Environment (build 1.8.0_181-b13)
-> OpenJDK 64-Bit Server VM (build 25.181-b13, mixed mode)
 > ```
 
 #### Edit `~/.bashrc`
