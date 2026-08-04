@@ -25,15 +25,19 @@ touch .pre-commit.config
 ```
 
 ## Structure of Commit Messages
-Commits must follow the format listed below, as designated by [Angular](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines):
+
+Commits must follow the Conventional Commits guidelines. <https://www.conventionalcommits.org/en/v1.0.0/>
+
 ```
 <type>(<scope>): <subject>
+
 <body>
-<BLANK LINE>
+
 <footer>
 ```
 
 ### Type (REQUIRED)
+
 The `type` must be one of the following options:
 
 - feat: A new feature
@@ -51,27 +55,11 @@ The `type` must be one of the following options:
 All other types are non user-facing changes and typically do not need to be included in the changelog.
 
 ### Scope (OPTIONAL)
-The `scope` must be one of the following options:
 
-- animations
-- common
-- compiler
-- compiler-cli
-- core
-- elements
-- forms
-- http
-- language-service
-- platform-browser
-- platform-browser-dynamic
-- platform-server
-- platform-webworker
-- platform-webworker-dynamic
-- router
-- service-worker
-- upgrade
+The `scope` is optional and consists of a noun describing a section of the codebase surrounded by parenthesis, e.g. `fix(parser)`, `feat(cli)`, etc.
 
 ### Subject (REQUIRED)
+
 The `subject` must be a succinct description of the change. It should follow the following rules:
 
 - use the imperative, present tense: "change" not "changed" nor "changes"
@@ -79,19 +67,23 @@ The `subject` must be a succinct description of the change. It should follow the
 - no dot (.) at the end
 
 ### Body (OPTIONAL)
+
 The `body` should include the motivation for the change and contrast this with previous behavior. It should follow the following rule:
 
 - use the imperative, present tense: "change" not "changed" nor "changes"
 
 ### Footer (OPTIONAL)
+
 The `footer` should contain any information about `Breaking Changes` and is also the place to reference GitHub issues that this commit Closes.
 
 - [Breaking Changes](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uyo6cb12dt6w) should start with the word BREAKING CHANGE: with a space or two newlines. The rest of the commit message is then used for this.
-- `Closed bugs` should be listed on a separate line in the footer from `Breaking Changes`, prefixed with "Closes" keyword (Closes #234
-or Closes #123, #245, #992).
+- `Closed bugs` should be listed on a separate line in the footer from `Breaking Changes`, prefixed with "Closes" keyword (`Closes #234`
+or `Closes #123, Closes #245, Closes #992`).
 
 ### Examples
+
 Below are some examples of properly formatted commit messages
+
 ```
 # example
 docs(changelog): update changelog to beta.5
@@ -110,6 +102,7 @@ Breaks $browser.onHashChange, which was removed (use onUrlChange instead)
 
 # example
 fix($compile): couple of unit tests for IE9
+
 Older IEs serialize html uppercased, but IE9 does not...
 Would be better to expect case insensitive, unfortunately jasmine does
 not allow to user regexps for throw expectations.
