@@ -1,0 +1,47 @@
+---
+title: Using containers as development environments
+author: [Kelly Sovacool](https://github.com/kelly-sovacool)
+---
+## Containers as development environments
+
+<https://containers.dev/>
+
+<https://rocker-project.org/use/editor.html>
+
+## Podman
+
+install podman
+
+create new podman machine
+![](img/podman-create-new.png)
+
+increase the default resource allocation
+![](img/podman-default-resources.png)
+
+machine is now running
+![](img/podman-machine-running.png)
+
+## Positron
+
+First, follow the instructions in positron's documentation to enable development containers:
+<https://positron.posit.co/dev-containers.html>
+
+![](img/positron-dev-containers-enable.png)
+
+
+## VS Code
+
+<https://code.visualstudio.com/docs/devcontainers/containers>
+<https://code.visualstudio.com/docs/devcontainers/tutorial>
+
+Install Dev Containers extension
+
+## VS Code + Positron
+
+Change settings to use podman instead of docker
+![](./img/vscode-settings-dev-containers.png)
+
+
+disconnect from your vpn -- it interferes with pulling the container
+
+command palette - `Reopen in container`
