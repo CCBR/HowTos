@@ -70,29 +70,28 @@ def main():
 
     # Open GTF file
     # TODO: handle gzipped gtf files
-    with open(args.gtf, "r") as gtf_file:
-        with open(args.out, "w") as bed_file:
-            # Extract protein-coding genes and write promoter regions
-            for chrom, tss, strand, gene_name, gene_id in extract_genes(gtf_file):
-                # TODO: Only include standard chromosomes
+    with open(args.gtf, "r") as gtf_file, open(args.out, "w") as bed_file:
+        # Extract protein-coding genes and write promoter regions
+        for chrom, tss, strand, gene_name, gene_id in extract_genes(gtf_file):
+            # TODO: Only include standard chromosomes
 
-                # Calculate promoter region based on strand
-                if strand == "+":
-                    # For positive strand: TSS - 2000 to TSS + 200
-                    start = tss - UPSTREAM_DISTANCE
-                    end = tss + DOWNSTREAM_DISTANCE
-                else:  # strand == "-"
-                    # For negative strand: TSS - 200 to TSS + 2000
-                    start = tss - DOWNSTREAM_DISTANCE
-                    end = tss + UPSTREAM_DISTANCE
+            # Calculate promoter region based on strand
+            if strand == "+":
+                # For positive strand: TSS - 2000 to TSS + 200
+                start = tss - UPSTREAM_DISTANCE
+                end = tss + DOWNSTREAM_DISTANCE
+            else:  # strand == "-"
+                # For negative strand: TSS - 200 to TSS + 2000
+                start = tss - DOWNSTREAM_DISTANCE
+                end = tss + UPSTREAM_DISTANCE
 
-                # TODO: handle regions that would have negative coordinates
+            # TODO: handle regions that would have negative coordinates
 
-                # Create BED format region name: chr:start-end|gene_id|gene_name
-                region_name = f"{chrom}:{start}-{end}|{gene_id}|{gene_name}"
+            # Create BED format region name: chr:start-end|gene_id|gene_name
+            region_name = f"{chrom}:{start}-{end}|{gene_id}|{gene_name}"
 
-                # Write BED format: chr, start, end, name, score, strand
-                bed_file.write(f"{chrom}\t{start}\t{end}\t{region_name}\t0\t{strand}\n")
+            # Write BED format: chr, start, end, name, score, strand
+            bed_file.write(f"{chrom}\t{start}\t{end}\t{region_name}\t0\t{strand}\n")
 
 
 if __name__ == "__main__":
