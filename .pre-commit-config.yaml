@@ -30,7 +30,7 @@ repos:
         args: ["-I ./.github/codespell-ignore"]
   # Python formatting
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.2
+    rev: v0.16.4
     hooks:
       - id: ruff-check
         args: [--fix]
@@ -40,14 +40,6 @@ repos:
     rev: 0.11.0
     hooks:
       - id: air-format
-  - repo: https://github.com/lorenzwalthert/precommit
-    rev: v0.4.3.9029
-    hooks:
-      - id: parsable-R
-      - id: use-tidy-description
-      - id: lintr
-        args: [--warn_only]
-        verbose: true
   # enforce commit format
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v4.4.0
