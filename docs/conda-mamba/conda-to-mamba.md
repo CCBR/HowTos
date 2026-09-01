@@ -233,6 +233,7 @@ Usage:
   python3 fix_yaml.py input.yml -o output.yml
   conda env export --name myenv | python3 fix_yaml.py - -o myenv.yml
 """
+
 import sys
 import argparse
 import io
@@ -243,8 +244,10 @@ try:
 except Exception:
     yaml = None
 
+
 def load_text(stream):
     return stream.read()
+
 
 def parse_yaml(text):
     if yaml is None:
@@ -254,6 +257,7 @@ def parse_yaml(text):
         data = {"_raw": text}
         return data
     return yaml.safe_load(text)
+
 
 def dump_yaml(data):
     if yaml is None:
@@ -274,7 +278,11 @@ def dump_yaml(data):
                 continue
             if skip_prefix:
                 # skip original channel lines until a non-channel item appears
-                if ln.startswith(" ") or ln.startswith("\t") or ln.strip().startswith("-"):
+                if (
+                    ln.startswith(" ")
+                    or ln.startswith("\t")
+                    or ln.strip().startswith("-")
+                ):
                     # still channel block; skip
                     continue
                 else:
@@ -286,7 +294,7 @@ def dump_yaml(data):
                 continue
 
             if in_deps:
-                    # New rule: handle lines with two '='
+                # New rule: handle lines with two '='
                 if ln.count("=") >= 2:
                     first = ln.find("=")
                     second = ln.find("=", first + 1)
@@ -344,11 +352,14 @@ def dump_yaml(data):
     # Emit YAML
     class OrderedDumper(yaml.SafeDumper):
         pass
+
     def _dict_representer(dumper, data):
         return dumper.represent_dict(data.items())
+
     OrderedDumper.add_representer(OrderedDict, _dict_representer)
 
     return yaml.dump(data, Dumper=OrderedDumper, sort_keys=False)
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -370,6 +381,7 @@ def main():
             f.write(out)
     else:
         sys.stdout.write(out)
+
 
 if __name__ == "__main__":
     main()
