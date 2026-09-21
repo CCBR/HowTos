@@ -36,6 +36,8 @@ First, follow the instructions in positron's documentation to enable development
 
 Install Dev Containers extension
 
+use full path to podman /opt/podman/bin/podman
+
 ## VS Code + Positron
 
 Change settings to use podman instead of docker
