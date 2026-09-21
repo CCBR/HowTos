@@ -85,3 +85,4 @@ jobs:
           pr-number: ${{ matrix.pr-number }}
           repo: ${{ github.repository }}
           force-review: ${{ github.event.action == 'review_requested' || inputs.force-review || false }}
+          ccbr-actions-version: main
