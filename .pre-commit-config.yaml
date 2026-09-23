@@ -12,7 +12,8 @@ exclude: |
       ^.*.svg|
       ^_extension/|
       ^_freeze/|
-      ^docs/generative-AI/gh-pilot-vs-code/demo/
+      ^docs/generative-AI/gh-pilot-vs-code/demo/|
+      ^pixi.lock
    )
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
