@@ -78,6 +78,8 @@ There can be slight differences in compiled versions of software depending on th
 Container images ship with exact versions of dependencies already compiled and installed for a specific OS.
 :::
 
+TODO show how we're using containers in smk & nxf pipelines
+
 ## Containers as development environments
 
 [![Architecture of dev containers](./img/architecture-containers.png)](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container)
