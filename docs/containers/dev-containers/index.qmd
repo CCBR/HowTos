@@ -1,0 +1,100 @@
+---
+title: Using containers as development environments
+author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
+---
+
+[_slides from Code Club_](./slides.qmd)
+
+## Containers as development environments
+
+<https://containers.dev/>
+
+<https://rocker-project.org/use/editor.html>
+
+## Why?
+
+- Dependency management
+- Consistent dependency version across collaborators
+- Keep genAI tools in a sandbox for security
+
+## Container engines
+
+- docker
+- singularity
+- podman
+
+
+## Podman
+
+install podman
+
+create new podman machine
+![](img/podman-create-new.png)
+
+increase the default resource allocation
+![](img/podman-default-resources.png)
+
+machine is now running
+![](img/podman-machine-running.png)
+
+## VS Code
+
+<https://code.visualstudio.com/docs/devcontainers/containers>
+<https://code.visualstudio.com/docs/devcontainers/tutorial>
+
+Install Dev Containers extension
+
+use full path to podman `/opt/podman/bin/podman`
+
+
+Change settings to use podman instead of docker
+![](./img/vscode-settings-dev-containers.png)
+
+
+disconnect from your vpn -- it interferes with pulling the container
+
+command palette - `Reopen in container`
+
+## Dev container configuration file
+
+`.devcontainer.json`
+
+```json
+{
+    "image": "nciccbr/mosuite-dev:v0.5.0.9000"
+}
+```
+
+## Dev container features
+
+> Development container "Features" are self-contained, shareable units of installation code and dev container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "Features" into your development container for use by you or your collaborators.
+
+[VS Code docs - dev container features](https://code.visualstudio.com/docs/devcontainers/containers#_dev-container-features)
+
+## Project organization
+
+one dev container per repo, or create workspace with repos in subdirs.
+
+
+## Positron
+
+Positron supports dev containers!
+
+...but I haven't gotten it to work...
+
+Instructions in positron's documentation to enable development containers:
+<https://positron.posit.co/dev-containers.html>
+
+![](img/positron-dev-containers-enable.png)
+
+## Biowulf
+
+- [You can open dev containers on a remote host over ssh.](https://code.visualstudio.com/docs/devcontainers/containers#_open-a-folder-on-a-remote-ssh-host-in-a-container)
+- But the dev container extension does not yet support singularity (see [microsoft/vscode-remote-release#3066](https://github.com/microsoft/vscode-remote-release/issues/3066)).
+- This will probably work if the HPC staff make podman available on biowulf.
+
+## Resources
+
+- Development containers specification: https://containers.dev/
+- Dev Containers extension for VS Code: https://code.visualstudio.com/docs/devcontainers/containers
+- The rocker project - containers for R: https://rocker-project.org/use/editor.html#visual-studio-code-dev-containers

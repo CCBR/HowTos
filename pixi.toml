@@ -1,0 +1,15 @@
+[workspace]
+authors = ["Kelly Sovacool <kelly.sovacool@nih.gov>"]
+channels = ["conda-forge"]
+name = "HowTos"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+quarto = ">=1.9.38,<2"
+jupyter = ">=1.1.1,<2"
+
+[pypi-dependencies]
+ccbr-tools = { git = "https://github.com/CCBR/Tools" }
