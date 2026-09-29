@@ -5,40 +5,56 @@
 
 // primary colors
 $black: #000000;
-$white: #ffffff;
-$lime: #7cc349;
-$teal: #296b7f;
+$teal: #2A7386;
+$apple-green: #82C04D;
+$dark-green: #079246;
+$dark-teal: #10404D;
 
-//secondary colors
-$teal-light: #4e9db5;
-$teal-dark: #19424e;
-$almost-black: #03191f;
-$lime-light: #b1ee85;
-$lime-dark: #528230;
-$orange: #ecba4c;
+// secondary colors
+//// secondary neutrals
+$off-black-text: #3B3F3F;
+$pale-teal-neutral: #A6C7C9;
+$light-grey-neutral: #E2E2E2;
+$white: #ffffff;
+//// secondary special
+$brighter-teal: #348FA6;
+$bright-green: #CFFDA9;
+$yellow: #F9EC38;
+$shadows: #10404D; // 70% OPACITY
+
+// deprecated - FNL branding colors changed in 2026
+$dep-lime: #7cc349;
+$dep-teal: #296b7f;
+$dep-teal-light: #4e9db5;
+$dep-teal-dark: #19424e;
+$dep-almost-black: #03191f;
+$dep-lime-light: #b1ee85;
+$dep-lime-dark: #528230;
+$dep-orange: #ecba4c;
 
 // set colors
-$primary: $teal-dark;
-$secondary: $lime;
-$success: $lime-dark;
-$warning: $orange;
-$info: $teal-light;
+$primary: $dark-teal;
+$secondary: $apple-green;
+$success: $dark-green;
+$warning: $yellow;
+$info: $brighter-teal;
 
 $link-color: $teal;
 
 $footer-bg: $black;
 $footer-fg: $white;
 
-$code-color: $lime-dark;
+$code-color: $dark-green;
 
-$callout-color-tip: $lime-dark;
-$callout-color-note: $teal-light;
-$callout-color-caution: $orange;
-$callout-color-warning: $orange;
+$callout-color-tip: $dark-green;
+$callout-color-note: $brighter-teal;
+$callout-color-caution: $yellow;
+$callout-color-warning: $dep-orange;
 
 // font
 $font-family-sans-serif: "Roboto", Helvetica, "Source Sans Pro", sans-serif;
 $font-family-monospace: "Roboto Mono", "Andale Mono" "Source Code Pro",
   monospace;
+
 
 /*-- scss:rules --*/

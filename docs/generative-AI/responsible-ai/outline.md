@@ -55,7 +55,7 @@ Lesson 3: Responsible Use and Validation focusing on bioinformatics
   - zero trust. what outputs are expected? verify the output before committing it.
 - NIH AI responsible use guidelines
   - go over main guidelines
-  - guidelines do not explicit tell us how to follow them. here are some practical tips!
+  - guidelines do not explicitly tell us how to follow them. here are some practical tips!
 - evaluating prompt outputs
   - use genAI as a tool to help you learn. if you don't understand the output, seek to understand it!
   - be critical. add to prompt: "provide counter-factuals". (see Anthropic prompting guidelines/tips)
