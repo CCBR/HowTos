@@ -16,6 +16,6 @@ when referring to the issue.
 
 (~Strikethrough~ any points that are not applicable.)
 
-- [ ] This comment contains a description of changes with justifications, with any relevant issues linked.
-- [ ] Update `CHANGELOG.md` with a short description of any user-facing changes and reference the PR number. Guidelines: https://keepachangelog.com/en/1.1.0/
-- [ ] Render the website locally with `quarto render` and view the documents changed in this PR to ensure they are rendered correctly.
+- [x] This comment contains a description of changes with justifications, with any relevant issues linked.
+- [x] Update `CHANGELOG.md` with a short description of any user-facing changes and reference the PR number. Guidelines: https://keepachangelog.com/en/1.1.0/
+- [ ] ~~Render the website locally with `quarto render` and view the documents changed in this PR to ensure they are rendered correctly.~~
