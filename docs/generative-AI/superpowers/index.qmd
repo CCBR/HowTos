@@ -1,0 +1,162 @@
+---
+title: "Set up AI Superpowers skills on Biowulf"
+---
+
+This page shows a beginner-friendly way to set up the shared CCBR Superpowers skills for GitHub Copilot in VS Code on BioWulf.
+
+The goal is simple: install the shared Superpowers resource once, then point each repository to it instead of copying skill files into every project.
+
+## What this is
+
+Superpowers is a shared collection of skills used by GitHub Copilot and other AI coding tools. CCBR keeps the shared version in a central location on Biowulf:
+
+```bash
+/data/CCBR_Pipeliner/db/PipeDB/AI/superpowers
+```
+
+For full implementation details, see the shared installer documentation in:
+
+- [CCBR/vscode-ghcopilot-superpowers README](https://github.com/CCBR/vscode-ghcopilot-superpowers)
+- the repository-level policy in [AGENTS.md](../../AGENTS.md)
+
+There is also a small installer script for repository setup:
+
+```bash
+/data/CCBR_Pipeliner/db/PipeDB/AI/vscode-ghcopilot-superpowers/install_superpowers.sh
+```
+
+This installer creates the repo-level links and policy files that tell VS Code where the shared skills live.
+
+> The README explains the exact behavior of the installer, and the AGENTS.md section explains the Superpowers usage policy that gets added to each repo.
+
+## Before you start
+
+Make sure you have:
+
+- access to Biowulf
+- a Git repository opened in VS Code through Remote SSH
+- GitHub Copilot enabled in VS Code
+- Agent Skills enabled in VS Code settings (`chat.useAgentSkills`)
+
+If you are a beginner, the easiest way to check is to open a repo in VS Code, then open the Copilot Chat panel and look for the Skills or Configure Skills option.
+
+## Step 1: open the repository you want to configure
+
+From a terminal on Biowulf, go to the repo you want to update:
+
+```bash
+cd /path/to/your/repository
+```
+
+Then run the installer:
+
+```bash
+bash /data/CCBR_Pipeliner/db/PipeDB/AI/vscode-ghcopilot-superpowers/install_superpowers.sh
+```
+
+You can also run it from any subdirectory inside the repo.
+
+## What the installer does
+
+The installer will:
+
+- create `.github/skills/` if needed
+- add symlinks to the shared skill directories in `/data/CCBR_Pipeliner/db/PipeDB/AI/superpowers/skills/`
+- create or update `AGENTS.md` with the CCBR Superpowers policy section
+- leave unrelated project files alone
+
+This means the shared skill definitions stay in one central place, and your repo just points to them.
+
+## Step 2: reload VS Code
+
+After the installer finishes:
+
+1. close the repo folder or reload the VS Code window
+2. reopen the repository in the same Remote SSH session
+3. make sure GitHub Copilot is active
+
+This reload helps VS Code notice the new `.github/skills` entries.
+
+## Step 3: confirm the skills appeared
+
+Check the folder in your repository:
+
+```bash
+ls -l .github/skills
+```
+
+You should see entries such as:
+
+```bash
+.github/skills/brainstorming -> /data/CCBR_Pipeliner/db/PipeDB/AI/superpowers/skills/brainstorming
+```
+
+You can also inspect one skill file:
+
+```bash
+cat .github/skills/brainstorming/SKILL.md
+```
+
+If the file opens and shows the skill frontmatter, the setup is working.
+
+## Step 4: test that Copilot sees the skills
+
+In VS Code:
+
+1. open Copilot Chat
+2. select the Skills or Configure Skills option
+3. look for shared skills such as `brainstorming`
+4. ask Copilot to use a skill in a disposable test prompt
+
+For example, try a simple prompt like:
+
+> Use the brainstorming skill to help me plan a small bioinformatics workflow.
+
+If the skill is discovered, Copilot should respond using the shared skill instructions and not just treat it as a normal chat request.
+
+## Common beginner problems
+
+### I do not see the skills in VS Code
+
+Try these steps:
+
+- reload the VS Code window
+- confirm the repo root is the one you installed in
+- check that `.github/skills` exists and has symlinks
+- confirm `chat.useAgentSkills` is enabled
+
+### The installer says there is a conflict
+
+The installer is intentionally careful. If a repo already has a file or directory in the way, it will stop and ask you to resolve it manually instead of overwriting something important.
+
+### The shared path is missing
+
+Ask a CCBR administrator to confirm that the shared install exists and that you have read and execute permissions on:
+
+```bash
+/data/CCBR_Pipeliner/db/PipeDB/AI/superpowers
+```
+
+## Why this is the recommended approach
+
+This shared setup is better than copying skills into each repo because it:
+
+- keeps the skill library in one maintained location
+- reduces duplication across projects
+- makes updates easier for CCBR admins
+- keeps repo-specific policy separate from the shared skill definitions
+
+For the full technical details on how the shared setup is implemented, consult the [CCBR/vscode-ghcopilot-superpowers README](https://github.com/CCBR/vscode-ghcopilot-superpowers). For the actual repo usage rules, see the CCBR Superpowers policy added to [AGENTS.md](../../AGENTS.md).
+
+## Summary
+
+For a CCBR bioinformatician, the normal workflow is:
+
+```bash
+cd /path/to/your/repository
+bash /data/CCBR_Pipeliner/db/PipeDB/AI/vscode-ghcopilot-superpowers/install_superpowers.sh
+```
+
+Then reload VS Code and confirm the skills appear in Copilot Chat.
+
+If the setup works, you are using the shared CCBR Superpowers installation rather than maintaining your own copy.
