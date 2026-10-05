@@ -1,5 +1,6 @@
 ## HowTos development version
 
+- New guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding setup for remote editing and the local Homebrew fallback for installing uv. (#106, @kopardev)
 - Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)
 - New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)
 - New slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)
