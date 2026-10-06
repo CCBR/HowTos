@@ -5,7 +5,7 @@ author:
     affiliation:
       - Bioinformatics Software Engineer
       - CCR Collaborative Bioinformatics Resource
-date: 2026-10-07
+date: 2026-10-14
 date-format: MMM DD, YYYY
 mainfont: Roboto
 format:
@@ -22,26 +22,28 @@ format:
 
 Audience roles: bioinformatician, computational biologist, data analyst, research software engineer -- **anyone who writes code to analyze biological data**.
 
-:::{.align-center}
-![](./img/science-process-code.jpg){width="80%"}
-:::
-
 ::: notes
 code quality and correctness is essential for research.
 The reproducibility and replicability of data-intensive biological studies
 depend on the quality of the software used during data analysis.
 :::
 
-## Generative AI can accelerate bioinformatics
+## Generative AI has transformed software development {.x-large-text}
 
-TODO very brief into to genAI, link to Samarth's presentation for more detailed background info on AI
+:::{.align-center}
+![](./img/Agentic-AI-Explained_AI-Agent-Diagram.jpg){width="80%"}
+:::
 
 ::: footer
-- [Practical introduction to GenAI](https://bioinformatics.ccr.cancer.gov/btep/classes/a-practical-introduction-to-generative-ai-for-bioinformatics)
-- [From Scripts to Skills: Using Generative AI Without Losing Scientific Control](https://bioinformatics.ccr.cancer.gov/btep/classes/from-scripts-to-skills-using-generative-ai-without-losing-scientific-control)
+Image: <https://orkes.io/blog/agentic-ai-explained-agents-vs-workflows>
 :::
 
 ::: {.notes}
+TODO very brief into to genAI.
+See recent BTEP presentations:
+  - [Practical introduction to GenAI](https://bioinformatics.ccr.cancer.gov/btep/classes/a-practical-introduction-to-generative-ai-for-bioinformatics)
+  - [From Scripts to Skills: Using Generative AI Without Losing Scientific Control](https://bioinformatics.ccr.cancer.gov/btep/classes/from-scripts-to-skills-using-generative-ai-without-losing-scientific-control)
+
 genAI can be used to assist in a number of tasks, but it is most useful for bioinformaticians when assisting with writing code.
 :::
 
@@ -85,8 +87,8 @@ Benefits and Risks of genAI use
 ## Goals for this talk
 
 - Cover the NIH Responsible AI Policy.
-- Provide tips for maximizing the benefits and minimizing the risks of using genAI for bioinformatics.
-- Goal: you feel empowered to use genAI well and maintain a high quality of work.
+- Provide practical tips for minimizing the risks of using genAI for bioinformatics.
+- Take-home message: feel empowered to use genAI well and maintain high quality for your work.
 
 ## NIH Responsible AI Policy
 
@@ -174,25 +176,11 @@ Content retrieved September 2026 from
 <https://nih.sharepoint.com/sites/NIH-ai/SitePages/NIH-AI-Use-Checklist.aspx>
 :::
 
-## NIH Responsible AI Policy
-
-> Do not rely on the technology to be a software developer by proxy:
->
-> - All well-written code must adhere to security design and ethical principles.
-> - All code output needs to be reviewed for completeness, quality, efficiency, and, most of all, security.
-> - Leverage manual and automated validation tools and testing technologies to help ensure these factors.
-> - If you cannot identify or understand what a piece of AI generated code does, you should not use it.
-
-_AI outputs may be incomplete, inaccurate, biased, or fabricated._
-
-::: footer
-Content retrieved September 2026 from
-<https://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx>
-:::
-
 :::{.notes}
 The NIH Responsible AI guidance is a helpful framework to start with.
 The policy is for the entire NIH, while the specifics for our individual roles are left to us to figure out.
+
+> Can human in the loop solve this problem?
 :::
 
 ## Human in the loop
@@ -217,51 +205,69 @@ Another drawback is genAI agents can generate far more output than humans could 
 
 ## Human ~~in~~ driving the loop
 
-A better way: humans judiciously use genAI when appropriate to **support** human-driven tasks.
-GenAI is just another tool in our toolbox.
+::: {.align-center}
 
-TODO insert image/diagram showing tool box with various tools: IDE, terminal, languages, GitHub, GenAI agents
+:::: {.x-large-text}
+A better way: humans judiciously use genAI when appropriate to **support** human-driven tasks.
+::::
+
+![image credit: Samarth Mathur](./img/human-driven-loop.png)
+
+:::
 
 ::: notes
 How can genAI assist us in bioinformatics tasks?
 :::
 
-## Bioinformaticians design, develop, and execute code
+## Bioinformaticians design, develop, and execute code {.x-large-text}
 
-:::{.column}
+:::{.column width="30%" .fragment}
 ### Design
 - Read scientific papers, software documentation, and forums.
 - Plan how to analyze data to answer a scientific question.
 - Decide how new code will accomplish the analysis plan.
 :::
 
-:::{.column}
+:::{.column width="5%"}
+:::
+
+:::{.column width="30%" .fragment}
 ### Develop
 - Write new scripts, packages, and command line tools to accomplish the analysis plan.
 - Write tests to validate the the code performs as expected.
 - Document how the code works and how it is used to produce results.
 :::
 
-:::{.column}
+:::{.column width="5%"}
+:::
+
+:::{.column width="30%" .fragment}
 ### Execute
 - Obtain the data from the study/experiment.
 - Install necessary software dependencies.
 - Run the code on the data and evaluate the results.
 :::
 
-::: fragment
-_How can genAI assist us in bioinformatics tasks?_
+::: {.fragment .align-center}
+
+&nbsp;
+
+#### _How can genAI assist us in bioinformatics tasks?_
+
+Treat GenAI like just another tool in your toolbox.
 :::
 
 ::: notes
 How can genAI assist us in bioinformatics tasks?
+
+TODO insert image/diagram showing tool box with various tools: IDE, terminal, languages, GitHub, GenAI agents
 :::
 
 ## Practical tips for responsible genAI use
 
 - Follow reproducible practices
-- Review, test, and validate
-- Document
+- Review, test, and validate all code
+- Document everything
 
 ## Reproducibility is essential for science {background-gradient="radial-gradient( #A6C7C9, #FFFFFF)"}
 
@@ -272,7 +278,7 @@ Yourself ➡️ Future you ➡️ Your collaborators ➡️ Peers in your field
 - Can each of the above people run your code on the same dataset and get the same results?
 - How difficult would it be for each of them to reproduce your results?
 
-:::{.fragment}
+:::{.fragment .align-center}
 **You are your own most important collaborator**
 :::
 
@@ -311,8 +317,6 @@ Yourself ➡️ Future you ➡️ Your collaborators ➡️ Peers in your field
 ::: notes
 These practices were already essential before genAI use became widespread.
 They are even more important now that genAI agents are frequently writing as much or even more code as human developers are.
-
-TODO show how/why this practice helps reduce risks. version control example of giving too much control to agent and it deletes important code.
 :::
 
 ::: footer
@@ -357,8 +361,6 @@ Credit to Samarth Mathur for these project examples.
 ::: notes
 These practices were already essential before genAI use became widespread.
 They are even more important now that genAI agents are frequently writing as much or even more code as human developers are.
-
-TODO show how/why this practice helps reduce risks. version control example of giving too much control to agent and it deletes important code.
 :::
 
 ::: footer
@@ -398,29 +400,221 @@ Credit to Samarth Mathur for these project examples.
 
 ## Review, test, and validate
 
+From the NIH Responsible AI policy:
+
+> Do not rely on the technology to be a software developer by proxy:
+>
+> - All well-written code must adhere to security design and ethical principles.
+> - All code output needs to be reviewed for completeness, quality, efficiency, and, most of all, security.
+> - Leverage manual and automated validation tools and testing technologies to help ensure these factors.
+> - If you cannot identify or understand what a piece of AI generated code does, you should not use it.
+
+_AI outputs may be incomplete, inaccurate, biased, or fabricated._
+
+::: footer
+Content retrieved September 2026 from
+<https://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx>
+:::
+
+## Review
+
+- Read the entire output of each genAI prompt and ensure you understand it.
+- Be skeptical. Do not blindly trust that the output is complete or correct.
+- Treat genAI like an untrustworthy stranger.
+  - Do not expose passwords or sensitive information.
+
+::: notes
+:::
+
+## Review
+
+:::{.column}
+> If you cannot identify or understand what a piece of AI generated code does, you should not use it.
+:::
+
+:::{.column}
+If you do not understand a piece of AI-generated code, dig into the documentation and tutorials to **learn how it works**.
+:::
+
+:::{.fragment}
+- Come across a **package or function** you've never seen? Find the documentation and learn how it works
+  - R: use `?` and `help()`. Python: use `help()`
+  - Docs websites: <https://rdrr.io/>, <https://docs.python.org/3/>
+- Come across a **large chunk of code** with many patterns you don't understand?
+  - Prompt the genAI agent to explain it line-by-line. Verify the explanation by asking for sources and reading them.
+- Use forums for in-depth help from people.
+  - StackOverflow, biostars, Posit forum, GitHub discussions
+:::
+
+::: notes
+treat it as a learning opportunity
+:::
+
+## Testing & validadtion
+
+Write tests to make sure the code behaves as expected.
+
+- Unit tests for individual functions on trivial inputs/data.
+- Integration tests run multiple functions or even an entire analysis on small & simulated datasets.
+- R: testthat. Python: pytest, unittest
+
+:::{.column width="30%"}
+```
+my-python-project
+├── data/
+├── src/mypackage
+│   └── main.py
+└── tests
+    └── test_main.py
+```
+:::
+
+:::{.column width="10%"}
+:::
+
+:::{.column width="50%" .medium-text}
+```{.python filename="src/mypackage/main.py"}
+def gc_content(seq):
+    """Fraction of G/C bases in a DNA sequence."""
+    seq = seq.upper()
+    return (seq.count("G") + seq.count("C")) / len(seq)
+```
+
+&nbsp;
+
+```{.python filename="tests/test_main.py"}
+from mypackage.main import gc_content
+
+def test_gc_content():
+    assert gc_content("GGCC") == 1.0
+    assert gc_content("ATAT") == 0.0
+    assert gc_content("atgc") == 0.5
+```
+:::
+
+## Testing & validadtion
+
+:::{.column}
+Run tests before accepting code.
+
+![](./img/pytest-local-fail.png)
+:::
+:::{.column}
+Use GitHub actions to automate.
+
+![](./img/build-python-test.png)
+:::
+
+::: notes
+detect problems and bugs sooner
+:::
+
+## Testing & validadtion
+
+:::{.column width="45%"}
+Use linters and code quality checks.
+
+- Ensure code is formatted for readability, quality, and syntax is correct.
+- Security and vulnerability scanning with GitHub Advanced Security.
+- R: air. Python: ruff.
+:::
+
+:::{.column width="5%"}
+:::
+
+:::{.column width="45%"}
+Use `pre-commit` to run checks automatically on every change.
+
+![](./img/pre-commit-lint.png)
+:::
+
+
 ## Document everything
 
-Code documentation: inline comments, function descriptions, vignettes, getting started guides, tutorials.
+Inline comments, function docstrings, vignettes, tutorials, getting started guide
 
-TODO image
+:::{.column width="45%"}
+```{r}
+#| eval: false
+#| echo: true
+#| filename: "Rscript"
 
-## Document how you are using GenAI.
+#' Add together two numbers
+#'
+#' @param x A number
+#' @param y A number
+#' @returns The sum of `x` and `y`
+#' @examples
+#' add(1, 1)
+#' add(10, 1)
+add <- function(x, y) {
+  x + y
+}
+```
 
-- Create a document at the beginning of the project outlining how you will and will _not_ use GenAI.
+:::: fragment
+![Example from <https://r-pkgs.org/man.html>](./img/man-add.png){.align-center}
+::::
 
-  > - Human responsibilities: Formulate the problem statement, design the software, validate the results, write the interpretation.
-  > - GenAI roles: assist in generating code, unit tests, and function documentation.
+:::
 
-- Disclose use of GenAI in commit messages, issue comments, and pull requests.
+:::{.column width="3%"}
+:::
 
+:::{.column width="52%"}
+![](./img/readme-guide.png){.fragment .align-center}
+:::
+
+::: footer
+:::
+
+## Document how you are using GenAI {.x-large-text}
+
+:::{.align-center}
+
+> from the very beginning of the project:
+
+:::
+
+::: {.column width="48%"}
+
+Create a document outlining how you will and will _not_ use GenAI.
+
+```{email}
+#| filename: "docs/ai-usage.md"
+#| echo: true
+
+- Human responsibilities: Formulate the problem statement,
+  design the software,
+  validate the results, write the interpretation.
+- GenAI roles: assist in generating code, unit tests,
+  and function documentation.
+```
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%" .fragment}
+
+Disclose use of GenAI in commit messages, issue comments, and pull requests.
+
+![](./img/pr-ai-usage.png){width="80%"}
+
+:::
+
+::: notes
+Disclosing your use of GenAI is transparent and maintains trust and credibility in your work.
+:::
 
 ## Responsible genAI use to maximize benefits, minimize risks
 
-| Tip                           | Risks minimized   |
-|-------------------------------|-------------------|
-| Follow reproducible practices | unreproducible work, destructive agent actions |
-| Review, test, and validate    | incorrect methods, bugs, inefficiencies,malware            |
-| Document                      | unreadable code, lack of transparency         |
+| Tip    | Risks minimized   |
+|--------|-------------------|
+| Follow reproducible practices       | unreproducible work, destructive agent actions |
+| Review, test, and validate all code | incorrect methods, bugs, inefficiencies,malware |
+| Document everything                 | unreadable code, unusable code, lack of transparency |
 
 ::: notes
 :::
@@ -428,16 +622,25 @@ TODO image
 ## Final reminders
 
 - Generative AI tools use statistical models to produce outputs that look like a plausible response to a prompt.  🦜
-  - Interpreting the meaning of AI outputs is your responsibility.
+  - View GenAI as another tool in your toolbox alongside IDEs, HPCs, and other software.
+  - Interpreting the meaning of AI outputs is your responsibility. Treat it as a learning experience!
 - AI tools can accelerate bioinformatics. 🚀
   - Just make sure you're facing the direction you want to go!
 
+::: notes
 TODO image
+:::
 
 ## Resources
 
+- Related talks:
+  - [Practical introduction to GenAI](https://bioinformatics.ccr.cancer.gov/btep/classes/a-practical-introduction-to-generative-ai-for-bioinformatics) - BTEP
+  - [From Scripts to Skills: Using Generative AI Without Losing Scientific Control](https://bioinformatics.ccr.cancer.gov/btep/classes/from-scripts-to-skills-using-generative-ai-without-losing-scientific-control) - BTEP
+  - [Organizing and documenting NGS pipelines on GitHub](https://bioinfo-abcc.ncifcrf.gov/training/event/organizing-and-documenting-ngs-pipelines-on-github-building-549-executive-board-room-nci-frederick-1204241200) - ABCS Programmer's Corner
 - [NIH Guidelines for Responsible AI](https://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx)
 - Tutorial: [GitHub Copilot in VS Code](https://ccbr.github.io/HowTos/docs/generative-AI/gh-pilot-vs-code/)
 - [GitHub Copilot in VS Code cheat sheet](https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features)
-- [Copilot Instructions file](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
-- Related talk: [Organizing and documenting NGS pipelines on GitHub](https://bioinfo-abcc.ncifcrf.gov/training/event/organizing-and-documenting-ngs-pipelines-on-github-building-549-executive-board-room-nci-frederick-1204241200) | ABCS Programmer's Corner, 2024
+
+::: {.notes}
+- TODO link to github for nih
+:::
