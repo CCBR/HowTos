@@ -11,6 +11,8 @@
 **/*.quarto_ipynb
 *.quarto_ipynb
 /.posit/
+
 # pixi environments
 .pixi/*
 !.pixi/config.toml
+pixi.lock
