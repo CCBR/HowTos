@@ -13,6 +13,8 @@ format:
 
 ## Agenda
 
+TODO
+
 ## Installers & dependency managers
 
 |                         | language | environments |
@@ -27,7 +29,7 @@ format:
 ## Separate environments per project for reproducibility
 
 ::: {.column}
-```
+```md
 projects
 ├── CCBR-abc
 ├── CCBR-xyz
@@ -40,7 +42,7 @@ projects
 
 
 ::: {.column}
-```
+```md
 projects
 ├── CCBR-abc
 │   └── environment.yml
@@ -64,7 +66,7 @@ projects
 
 ## Containers handle dependencies at the OS level
 
-::: {.column }
+::: {.column width="45%"}
 #### Package managers
 
 Install dependency versions on your local machine.
@@ -72,13 +74,16 @@ Install dependency versions on your local machine.
 There can be slight differences in compiled versions of software depending on the hardware and operating system.
 :::
 
-::: {.column}
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
 #### Containers
 
 Container images ship with exact versions of dependencies already compiled and installed for a specific OS.
 :::
 
-TODO show how we're using containers in smk & nxf pipelines
+TODO show how we're using containers in smk & nxf pipelines, also mosuite code ocean capsules
 
 ## Containers as development environments
 
@@ -86,7 +91,7 @@ TODO show how we're using containers in smk & nxf pipelines
 
 ## Why use dev containers?
 
-- Dependency management, including IDE extensions
+- Dependency management for developers, including IDE extensions
 - Consistent dependency versions across collaborators
 - Keep genAI tools in a sandbox for security
 
@@ -96,6 +101,8 @@ TODO show how we're using containers in smk & nxf pipelines
 - Heavier disk usage
 - Building takes time
 - Not user-friendly
+- Not intended for _users_, only _contributors_.
+  - Still need to have adequate documentation of dependencies for users.
 :::
 
 ::: {.notes}
@@ -104,66 +111,195 @@ TODO show how we're using containers in smk & nxf pipelines
 
 ## Container engines
 
-- Docker - Industry standard, but not available on Biowulf or GFE due to security concerns.
-- Singularity/Apptainer - Available on Biowulf, not on macOS.
-- Podman - Available on macOS, not currently on Biowulf. Drop-in replacement for docker. Rootless by default.
-
-|                           | Biowulf HPC | GFE macOS |   |
-|---------------------------|-------------|-----------|---|
-| Docker                    | ❌          |  ❌        | Industry standard, but CBIIT won't allow Docker on macOS due to security concerns.    |
-| Singularity/Apptainer     | ✅          |  ❌        | Great for HPC, doesn't support macOS. CLI not exactly identical to docker.            |
-| Podman                    | ❌          | ✅         | Could be installed on Biowulf in the future. CLI is a drop-in replacement for docker. |
+|           | Biowulf HPC | GFE macOS |                               |
+|-----------|---|---|-------------------------------|
+| ![](./img/docker-logo-ocean-blue.png) | ❌          |  ❌        | Industry standard, but incompatible with HPC due to root privileges. CBIIT won't allow Docker on macOS due to security concerns.   |
+| ![](./img/Apptainer_h-logo_clr_S.png) ![Sylabs Singularity](./img/SingularityLogo.png){width="50px"} | ✅          |  ❌        | Great for HPC, doesn't support macOS. CLI not exactly identical to docker, but generally compatible.       |
+| ![](./img/podman-logo.png) | ❌          | ✅         | Could be installed on Biowulf in the future. CLI is a drop-in replacement for docker. Rootless by default. |
 
 :::{.notes}
 - Docker runs containers with root privileges. Podman, singularity, and apptainer don't have this glaring security risk.
-- Podman is a drop-in replacement for docker. Rootless by default.
+- Singularity history: Singularity was renamed to Apptainer and maintained by the Linux Foundation, then there was a fork of Apptainer to create SingularityCE by Sylabs.
 :::
 
 ## Podman
 
+:::{.align-center}
 ![Install podman from `podman.io`](./img/install-podman.png)
+:::
 
 ## Podman
 
+:::{.align-center}
 ![Create new podman machine](img/podman-create-new.png)
+:::
 
 ## Podman
 
+:::{.align-center}
 ![Increase the default resource allocation](img/podman-default-resources.png)
+:::
 
 ## Podman
 
+:::{.align-center}
 ![Machine is now running](img/podman-machine-running.png)
+:::
 
 ## Podman
 
+:::{.align-center}
 ![Optional: auto-start the machine when podman starts](./img/podman-autostart.png)
+:::
+
+## Podman
+
+:::{.align-center}
+![Optional: start podman when you login](./img/podman-login.png)
+:::
+
+::: footer
+Consider toggling on if you use podman daily, or toggle it off if you use it sparingly.
+:::
 
 ## VS Code
 
-
 Install Dev Containers extension
 
-use full path to podman `/opt/podman/bin/podman`
+TODO use full path to podman `/opt/podman/bin/podman`
 
+:::{.align-center}
+![Change settings to use podman instead of docker](./img/vscode-settings-dev-containers.png)
+:::
 
-Change settings to use podman instead of docker
-![](./img/vscode-settings-dev-containers.png)
-
-
+::: !Tip
 disconnect from your vpn -- it interferes with pulling the container
+:::
 
-command palette - `Reopen in container`
+## Open the project in a new VS Code window
 
-## Dev container configuration file
+TODO screenshot
 
-`.devcontainer/devcontainer.json`
+#### Create a basic dev container configuration file
 
-```json
+```{.json filename="devcontainer.json"}
 {
     "image": "nciccbr/mosuite-dev:v0.5.0.9000"
 }
 ```
+
+## Start the dev container {.x-large-text}
+
+- Open the VS Code command palette: {{< kbd mac=Shift-Command-P win=Shift-Control-P linux=Shift-Ctrl-P >}}
+- Select `Dev Containers: Reopen in Container`
+
+:::{.align-center}
+![](./img/vsc-cmd-pal-devcontainer.png){width="100%"}
+:::
+
+## Start the dev container {.x-large-text}
+
+:::{.align-center}
+
+![It will take some time to build the container the first time. After that it will cache the image and perform much faster.](./img/dev-container-build.gif){width="80%"}
+:::
+
+## Start the dev container {.x-large-text}
+
+![](./img/vsc-mosuite-open-devcontainer.png)
+
+- You'll have all of the dependencies installed in the container available to use during development and testing.
+- Podman mounts the project directory to the container, and those are the only files that can be edited in the VS Code session.
+
+## Dev container from local dockerfile
+
+```{.json filename="devcontainer.json"}
+{
+  "build": {
+    "dockerfile": "../docker/Dockerfile-dev",
+    "context": "..",
+    "cacheFrom": "nciccbr/mosuite-dev:v0.5.0.9000"
+  }
+}
+```
+
+## Rebuild the dev container when the config file changes
+
+![The extension detects when the config file changes and will prompt you to rebuild the container.](./img/vsc-rebuild-devcontainer.png)
+
+## GenAI in dev containers
+
+Keep genAI tools in a sandbox for security
+
+Rootless containers can act as a sandbox for genAI agents to prevent them from reading/writing files in other projects.
+
+TODO is this true? note: chat sessions do not persist. Need to use a handoff file if chat sessions span multiple workdays / vs code sessions.
+
+## Project organization
+
+**Option 1**: One dev container per repository, open a separate VS Code window for each repo you're working on.
+
+:::{.column width="45%"}
+```{.md filename="VS Code window 1"}
+~/CCBR/mosuite
+├── .devcontainer/
+│   ├── devcontainer-lock.json
+│   └── devcontainer.json
+├── DESCRIPTION
+├── docker/
+│   ├── Dockerfile
+│   └── Dockerfile-dev
+├── R/
+└── ...
+```
+:::
+
+:::{.column width="5%"}
+:::
+
+:::{.column width="45%"}
+```{.md filename="VS Code window 2"}
+~/CCBR/Tools
+├── .devcontainer/
+│   ├── devcontainer-lock.json
+│   └── devcontainer.json
+├── docker/
+│   ├── Dockerfile
+│   └── Dockerfile-dev
+├── pyproject.toml
+├── src/
+└── ...
+```
+:::
+
+## Project organization
+
+**Option 2**: Create a workspace with repos in subdirectories. Only need to open one VS Code window for the workspace.
+
+:::{.column width="48%"}
+```{.md filename="VS Code workspace"}
+~/projects/NIDAP
+├── Code-Ocean.code-workspace
+├── devcontainer.json
+├── Code-Ocean-Capsule-Template/
+├── demo-syncweaver-host-capsule/
+├── demo-syncweaver-source-monorepo/
+├── MOSuite-batch-correct-counts/
+├── MOSuite-clean/
+├── MOSuite-create/
+├── MOSuite-diff-counts/
+├── MOSuite-filter-counts/
+├── MOSuite-filter-diff/
+├── MOSuite-normalize-counts/
+├── OMIX/
+└── ...
+```
+:::
+
+## Choosing a base image for the dev container
+
+TODO
+
 
 ## Dev container features
 
@@ -175,15 +311,92 @@ command palette - `Reopen in container`
 
 [VS Code docs - dev container features](https://code.visualstudio.com/docs/devcontainers/containers#_dev-container-features)
 
-## Project organization
+## Dev container features
 
-One dev container per repo, or create workspace with repos in subdirs.
+TODO show examples of more involved dev container configs
+
+TODO Separate "what users need" from "what developers need." The dev container is for contributors; have a separate container for users (if you choose to make one available).
+
+## Container remote user
+
+TODO
+
+## Using Git in a Dev Container
+
+TODO
+
+::: footer
+<https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials>
+:::
+
+## Troubleshooting: when the build fails
+
+![When the container fails to be built, copy the log from the terminal.](./img/vsc-rebuild-devcontainer-error.png)
+
+## Troubleshooting: use agents for help
+
+![Copy relevant parts of the log from the terminal and paste it into a _separate_ window's Copilot session. (Do not use the same VS Code window, the session will not persist.)](./img/devcontainer-error-copilot-prompt.png)
+
+## Troubleshooting: evaluate the response
+
+::::{.column width="50%"}
+![](./img/devcontainer-error-copilot-response.png)
+::::
+
+::::{.column width="1%"}
+::::
+
+::::{.column width="48%" .x-large-text}
+Key diagnosis from Copilot:
+
+> Podman's --cache-from only accepts a repository name, while Docker also accepts a tagged image
+
+:::{.fragment}
+Let's validate the response from Copilot before we rebuild the container.
+:::
+::::
+
+## Troubleshooting: validate the response
+
+Validate the response from Copilot
+
+> Podman's --cache-from only accepts a repository name, while Docker also accepts a tagged image
+
+## Troubleshooting: use a search engine
+
+Validate the response from Copilot
+
+:::{.align-center}
+![Open your preferred search engine](./img/devcontainer-error-copilot-brave.png)
+:::
+
+::: footer
+p.s. I like brave because you can turn off AI overview results.
+:::
+
+## Troubleshooting: likely hits
+
+::: {.align-center}
+![Peruse the results, looking for GitHub issues, StackOverflow answers, and other forums.](./img/devcontainer-error-copilot-brave-results.png){width="70%"}
+:::
+
+## Troubleshooting: found an open issue
+
+:::{.align-center}
+![✅ Confirmed, this is likely the cause: this issue is relevant & still open](./img/devcontainer-error-copilot-issue.png){width="90%"}
+:::
+
+## Troubleshooting: rebuild
+
+Try rebuilding the container
 
 ## Positron
 
 Positron supports dev containers!
 
 ...but I haven't gotten it to work...
+
+I like VS Code for most things, but prefer Positron for R. If anyone can get this working in Positron, please let me know!
 
 Instructions in positron's documentation to enable development containers:
 <https://positron.posit.co/dev-containers.html>
@@ -194,11 +407,22 @@ Instructions in positron's documentation to enable development containers:
 
 - [You can open dev containers on a remote host over ssh.](https://code.visualstudio.com/docs/devcontainers/containers#_open-a-folder-on-a-remote-ssh-host-in-a-container)
 - But the dev container extension does not yet support singularity (see [microsoft/vscode-remote-release#3066](https://github.com/microsoft/vscode-remote-release/issues/3066)).
-- This will probably work if the HPC staff make podman available on biowulf.
+- This will probably work if the HPC staff make podman available on biowulf in the future.
+
+## Conclusion
+
+- dev containers can help developers make their dependency management more precise and streamlined, especially when collaborating with others.
+  - There is an overhead to setting up containers, but using them is fairly smooth once built.
+- Security benefit: rootless containers can act as a sandbox for genAI agents to prevent them from reading/writing files in other projects.
+- Limitations prevent us from getting the most out of dev containers right now.
+  - Lack of support/compatibility on Biowulf.
+  - Difficulties with Positron.
+  - But this could change in the future!
 
 ## Resources
 
-- Dev Containers extension for VS Code: https://code.visualstudio.com/docs/devcontainers/containers
-  - Tutorial: <https://code.visualstudio.com/docs/devcontainers/tutorial>
-- The rocker project - containers for R: https://rocker-project.org/use/editor.html#visual-studio-code-dev-containers
-- Development containers specification: https://containers.dev/
+- [Dev Containers extension for VS Code](https://code.visualstudio.com/docs/devcontainers/containers)
+  - [Tutorial](https://code.visualstudio.com/docs/devcontainers/tutorial)
+  - [Tips & Tricks](https://code.visualstudio.com/docs/devcontainers/tips-and-tricks)
+- [The rocker project - containers for R](https://rocker-project.org/use/editor.html#visual-studio-code-dev-containers)
+- [Development containers specification](https://containers.dev/)
