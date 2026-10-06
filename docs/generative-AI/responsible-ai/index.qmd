@@ -580,7 +580,7 @@ add <- function(x, y) {
 
 Create a document outlining how you will and will _not_ use GenAI.
 
-```{email}
+```{md}
 #| filename: "docs/ai-usage.md"
 #| echo: true
 
@@ -613,7 +613,7 @@ Disclosing your use of GenAI is transparent and maintains trust and credibility 
 | Tip    | Risks minimized   |
 |--------|-------------------|
 | Follow reproducible practices       | unreproducible work, destructive agent actions |
-| Review, test, and validate all code | incorrect methods, bugs, inefficiencies,malware |
+| Review, test, and validate all code | incorrect methods, bugs, inefficiencies, malware |
 | Document everything                 | unreadable code, unusable code, lack of transparency |
 
 ::: notes
