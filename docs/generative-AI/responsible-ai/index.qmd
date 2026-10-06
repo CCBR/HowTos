@@ -16,7 +16,15 @@ format:
 
 ## Bioinformatics is central to biomedical research
 
-Audience: bioinformatician, computational biologist, data analyst -- anyone who writes code to analyze biological data.
+:::{.align-center}
+![](./img/science-process.jpg){width="80%"}
+:::
+
+Audience roles: bioinformatician, computational biologist, data analyst, research software engineer -- **anyone who writes code to analyze biological data**.
+
+:::{.align-center}
+![](./img/science-process-code.jpg){width="80%"}
+:::
 
 ::: notes
 code quality and correctness is essential for research.
@@ -24,10 +32,18 @@ The reproducibility and replicability of data-intensive biological studies
 depend on the quality of the software used during data analysis.
 :::
 
-
 ## Generative AI can accelerate bioinformatics
 
 TODO very brief into to genAI, link to Samarth's presentation for more detailed background info on AI
+
+::: footer
+- [Practical introduction to GenAI](https://bioinformatics.ccr.cancer.gov/btep/classes/a-practical-introduction-to-generative-ai-for-bioinformatics)
+- [From Scripts to Skills: Using Generative AI Without Losing Scientific Control](https://bioinformatics.ccr.cancer.gov/btep/classes/from-scripts-to-skills-using-generative-ai-without-losing-scientific-control)
+:::
+
+::: {.notes}
+genAI can be used to assist in a number of tasks, but it is most useful for bioinformaticians when assisting with writing code.
+:::
 
 ## Generative AI can accelerate bioinformatics
 
@@ -49,12 +65,12 @@ TODO very brief into to genAI, link to Samarth's presentation for more detailed 
 :::{.column width="45%" .medium-text .fragment}
 > ### We can write _bad_ code faster, too
 >
-> incorrect methods, bugs, inefficiencies, unreadable code, malware
+> unreproducible work, incorrect methods, bugs, inefficiencies, unreadable code, lack of transparency, security vulnerabilities, malware, destructive agent actions
 :::
 
 ::::
 
-::: notes
+::: {.notes}
 Agentic GenAI tools have become especially useful for bioinformatics.
 
 Benefits and Risks of genAI use
@@ -66,6 +82,12 @@ Benefits and Risks of genAI use
   - these risks are true whether a human is writing the code or a genAI agent is doing the writing, the genAI agent just scales it faster.
 :::
 
+## Goals for this talk
+
+- Cover the NIH Responsible AI Policy.
+- Provide tips for maximizing the benefits and minimizing the risks of using genAI for bioinformatics.
+- Goal: you feel empowered to use genAI well and maintain a high quality of work.
+
 ## NIH Responsible AI Policy
 
 ![](./img/nih-principles-of-ai-use.png){width="120%"}
@@ -76,60 +98,76 @@ Content retrieved September 2026 from
 :::
 
 :::{.notes}
+Please navigate to the Responsible AI policy page and read it in its entirety.
+The NIH Responsible AI policy is a helpful framework to start with.
+The policy is for the entire NIH, while the specifics for our individual roles are left to us to figure out.
 :::
 
 ## NIH AI Use Checklist
 
-:::: {.columns .medium-text}
+::::: {.columns .medium-text}
 
-::: {.column width="45%" }
+:::: {.column width="45%" }
 
+:::{.fragment}
 ### Stop and Reconsider If:
+>
+> - You cannot verify the output
+> - You cannot explain or justify the result
+> - The task involves high-stakes decisions without expert review
+:::
 
-- You cannot verify the output
-- You cannot explain or justify the result
-- The task involves high-stakes decisions without expert review
-
+:::{.fragment}
 ### 1. Confirm the Use is Appropriate
+>
+> - Can you clearly state what you need, your audience (e.g., internal, external), and why AI helps?
+> - Do you have the time and expertise to review and adapt the output?
+> - Are you using a federally approved or authorized tool?
+:::
 
-- Can you clearly state what you need, your audience (e.g., internal, external), and why AI helps?
-- Do you have the time and expertise to review and adapt the output?
-- Are you using a federally approved or authorized tool?
-
+:::{.fragment}
 ### 2. Define the Human-AI Roles
-
-- What task is the AI performing (e.g., drafting, summarizing, classifying)?
-- What decisions will you make (vs. the AI)?
-- Are you prepared to be accountable for how outputs are used?
-
-:::
-
-:::{.column width="7%"}
-:::
-
-::: {.column width="45%" .medium-text}
-
-### 3. Project Data and Outputs
-
-- Does your input data include clinical, sensitive, identifiable, or restricted information?
-- Is that data allowed in the tool you are using (e.g., consistent with consent, IRB decision, agreements)?
-- Are you sharing only the minimum data necessary?
-- Do the outputs create new sensitivity, intellectual property, or reuse risks?
-
-### 4. Verify Outputs
-
-- Have you checked the facts, numbers, and citations?
-- Have you tested outputs for errors, bias, or omissions?
-- Would you be comfortable defending this output if questioned?
-
-### 5. Be Transparent About AI Use
-
-- Will others know AI was used?
-- Have you documented how outputs were generated (e.g., prompts used)?
-- Have you avoided presenting AI output as authoritative without review?
+>
+> - What task is the AI performing (e.g., drafting, summarizing, classifying)?
+> - What decisions will you make (vs. the AI)?
+> - Are you prepared to be accountable for how outputs are used?
 :::
 
 ::::
+
+::::{.column width="7%"}
+::::
+
+:::: {.column width="45%" .medium-text}
+
+:::{.fragment}
+### 3. Project Data and Outputs
+>
+> - Does your input data include clinical, sensitive, identifiable, or restricted information?
+> - Is that data allowed in the tool you are using (e.g., consistent with consent, IRB decision, agreements)?
+> - Are you sharing only the minimum data necessary?
+> - Do the outputs create new sensitivity, intellectual property, or reuse risks?
+:::
+
+:::{.fragment}
+### 4. Verify Outputs
+>
+> - Have you checked the facts, numbers, and citations?
+> - Have you tested outputs for errors, bias, or omissions?
+> - Would you be comfortable defending this output if questioned?
+:::
+
+:::{.fragment}
+### 5. Be Transparent About AI Use
+>
+> - Will others know AI was used?
+> - Have you documented how outputs were generated (e.g., prompts used)?
+> - Have you avoided presenting AI output as authoritative without review?
+:::
+
+::::
+
+:::::
 
 ::: footer
 Content retrieved September 2026 from
@@ -167,47 +205,72 @@ Image: <https://uvik.net/blog/human-in-the-loop-ai/>
 
 ::: notes
 Humans review and validate the output of AI tools.
+
 AI is the "driver" of the loop
-:::
-
-## Human in the loop
-
-::: notes
 Cartoon: avalanche of AI approval requests <https://marketoonist.com/2026/03/human-in-the-loop.html>
 
 The problem with human-in-the-loop is the human is responding to the AI output,
 rather than being the driving force. Humans must remain in full control.
 
-It is also possible for genAI agents to generate far more output than humans can review in a reasonable amount of time.
+Another drawback is genAI agents can generate far more output than humans could ever possibly review in a reasonable amount of time.
 :::
 
 ## Human ~~in~~ driving the loop
 
-A better way: humans judiciously use genAI when appropriate to support human-driven tasks.
+A better way: humans judiciously use genAI when appropriate to **support** human-driven tasks.
+GenAI is just another tool in our toolbox.
+
+TODO insert image/diagram showing tool box with various tools: IDE, terminal, languages, GitHub, GenAI agents
+
+::: notes
+How can genAI assist us in bioinformatics tasks?
+:::
 
 ## Bioinformaticians design, develop, and execute code
 
-### How can genAI assist us in bioinformatics tasks?
+:::{.column}
+### Design
+- Read scientific papers, software documentation, and forums.
+- Plan how to analyze data to answer a scientific question.
+- Decide how new code will accomplish the analysis plan.
+:::
 
-## Practical tips for responsible AI use in bioinformatics
+:::{.column}
+### Develop
+- Write new scripts, packages, and command line tools to accomplish the analysis plan.
+- Write tests to validate the the code performs as expected.
+- Document how the code works and how it is used to produce results.
+:::
 
-- Have a plan for how/when you will use it, and how/when you will _not_ use it.
-  - Many journals do not allow genAI to be used for writing manuscripts.
-  - Use genAI to write code. Don't use genAI to analyze data or write outputs directly. Code is the record for reproducibility.
-  - Be thoughtful about how much content you are generating with AI. Can you realistically review all of the output thoroughly? Are you shifting more work to your colleagues?
-- Follow reproducible practices always, from the beginning of every project, before you even consider using AI.
-  - Be organized. One directory per project. Keep data, code, and outputs in separate directories. Data is read only, and outputs can only be written by code.
-  - Use version control. Back up your code to GitHub.
-- Review, test, and validate all code (human-written and AI-generated)
-  - **Review**: Treat genAI like an untrustworthy stranger. Be skeptical. Do not blindly trust it. Review every response and output. Ensure you understand it. Do not use AI-generated code until you do understand it. Learning opportunity.
-  - **Automated testing & validation**:
-    - unit and integration testing with simulated and real data, automated with continuous integration workflows.
-    - lint / style checkers: GitHub code quality & security scanning (GitHub Advanced Security)
-- Document your genAI use. Be transparent about how you use it and which tools you used.
+:::{.column}
+### Execute
+- Obtain the data from the study/experiment.
+- Install necessary software dependencies.
+- Run the code on the data and evaluate the results.
+:::
+
+::: fragment
+_How can genAI assist us in bioinformatics tasks?_
+:::
+
+::: notes
+How can genAI assist us in bioinformatics tasks?
+:::
+
+## Practical tips for responsible genAI use
+
+- Follow reproducible practices
+- Review, test, and validate
+- Document
 
 ## Reproducibility is essential for science {background-gradient="radial-gradient( #A6C7C9, #FFFFFF)"}
 
-Yourself -> Future you -> Your collaborators -> Peers in your field
+:::{.filled-box .align-center}
+Yourself ➡️ Future you ➡️ Your collaborators ➡️ Peers in your field
+:::
+
+- Can each of the above people run your code on the same dataset and get the same results?
+- How difficult would it be for each of them to reproduce your results?
 
 :::{.fragment}
 **You are your own most important collaborator**
@@ -215,8 +278,151 @@ Yourself -> Future you -> Your collaborators -> Peers in your field
 
 ## Reproducible practices for responsible AI use
 
-:::{.align-center}
-![](./img/science-process-ai-agent.jpg){width="60%"}
+::: {.column}
+#### Organize your projects
+
+- One project per directory.
+- Keep data, code, and outputs in separate subdirectories.
+- Data is read-only; outputs should only be written by the code.
+
+:::
+
+::: {.column}
+
+```
+/data/$USER/projects
+├── my-rnaseq-project
+│   ├── AGENTS.md
+│   ├── data/
+│   ├── docs/
+│   ├── README.md
+│   ├── results/
+│   ├── scripts/
+│   └── tests/
+└── r-dataviz-explorer
+    ├── references/
+    ├── scripts/
+    ├── SKILL.md
+    └── tests/
+```
+
+:::
+
+::: notes
+These practices were already essential before genAI use became widespread.
+They are even more important now that genAI agents are frequently writing as much or even more code as human developers are.
+
+TODO show how/why this practice helps reduce risks. version control example of giving too much control to agent and it deletes important code.
+:::
+
+::: footer
+Credit to Samarth Mathur for these project examples.
+:::
+
+## Reproducible practices for responsible AI use
+
+::: {.column}
+#### Organize your projects
+
+- One project per directory.
+- Keep data, code, and outputs in separate subdirectories.
+- Data is read-only; outputs should only be written by the code.
+
+#### Version control & backup with git & GitHub
+
+- Create a git repository for each project and upload it to GitHub.
+- Commit meaningful code changes and sync with GitHub frequently.
+:::
+
+::: {.column}
+```
+/data/$USER/projects
+├── my-rnaseq-project
+│   ├── AGENTS.md
+│   ├── data/
+│   ├── docs/
+│   ├── README.md
+│   ├── results/
+│   ├── scripts/
+│   └── tests/
+└── r-dataviz-explorer
+    ├── references/
+    ├── scripts/
+    ├── SKILL.md
+    └── tests/
+```
+
+:::
+
+::: notes
+These practices were already essential before genAI use became widespread.
+They are even more important now that genAI agents are frequently writing as much or even more code as human developers are.
+
+TODO show how/why this practice helps reduce risks. version control example of giving too much control to agent and it deletes important code.
+:::
+
+::: footer
+Credit to Samarth Mathur for these project examples.
+:::
+## Reproducible practices for responsible AI use
+
+::: {.column}
+#### Organize your projects
+
+- One project per directory.
+- Keep data, code, and outputs in separate subdirectories.
+- Data is read-only; outputs should only be written by the code.
+
+#### Version control & backup with git & GitHub
+
+- Create a git repository for each project and upload it to GitHub.
+- Commit meaningful code changes and sync with GitHub frequently.
+:::
+
+::: {.column .align-right}
+
+![](./img/GitHub-sync.jpg){width="75%"}
+
+:::
+
+::: notes
+These practices were already essential before genAI use became widespread.
+They are even more important now that genAI agents are frequently writing as much or even more code as human developers are.
+
+TODO show how/why this practice helps reduce risks. version control example of giving too much control to agent and it deletes important code.
+:::
+
+::: footer
+Credit to Samarth Mathur for these project examples.
+:::
+
+## Review, test, and validate
+
+## Document everything
+
+Code documentation: inline comments, function descriptions, vignettes, getting started guides, tutorials.
+
+TODO image
+
+## Document how you are using GenAI.
+
+- Create a document at the beginning of the project outlining how you will and will _not_ use GenAI.
+
+  > - Human responsibilities: Formulate the problem statement, design the software, validate the results, write the interpretation.
+  > - GenAI roles: assist in generating code, unit tests, and function documentation.
+
+- Disclose use of GenAI in commit messages, issue comments, and pull requests.
+
+
+## Responsible genAI use to maximize benefits, minimize risks
+
+| Tip                           | Risks minimized   |
+|-------------------------------|-------------------|
+| Follow reproducible practices | unreproducible work, destructive agent actions |
+| Review, test, and validate    | incorrect methods, bugs, inefficiencies,malware            |
+| Document                      | unreadable code, lack of transparency         |
+
+::: notes
 :::
 
 ## Final reminders
@@ -225,6 +431,8 @@ Yourself -> Future you -> Your collaborators -> Peers in your field
   - Interpreting the meaning of AI outputs is your responsibility.
 - AI tools can accelerate bioinformatics. 🚀
   - Just make sure you're facing the direction you want to go!
+
+TODO image
 
 ## Resources
 
