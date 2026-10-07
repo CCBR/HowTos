@@ -1,0 +1,11 @@
+---
+title: Using containers as development environments
+author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
+---
+
+:::{.callout-note}
+Presented in CCBR Code Club on Oct 07, 2026:
+
+- [Presentation slides](./slides.qmd)
+- _Recording coming soon!_
+:::

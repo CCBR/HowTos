@@ -6,6 +6,7 @@
 - New guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)
 - Fix minor typos. (#68, @kelly-sovacool)
 - Update instructions for requesting a Copilot license. (#79, @kelly-sovacool)
+- New presentation: Using containers as development environments. (#92, @kelly-sovacool)
 
 ## HowTos 1.1.0
 
