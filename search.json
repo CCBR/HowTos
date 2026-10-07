@@ -279,6 +279,630 @@
     ]
   },
   {
+    "objectID": "docs/containers/dev-containers/slides.html#installers-dependency-managers",
+    "href": "docs/containers/dev-containers/slides.html#installers-dependency-managers",
+    "title": "Using containers as development environments",
+    "section": "Installers & dependency managers",
+    "text": "Installers & dependency managers\n\n\n\n\nlanguage\nenvironments\n\n\n\n\npip\npython\n❌\n\n\nuv, venv, pyenv\npython\n✅\n\n\ninstall.packages, pak\nR\n❌\n\n\nrenv\nR\n✅\n\n\nconda, mamba\npolyglot\n✅\n\n\npixi\npolyglot\n✅\n\n\n\n\nThere’s no one dependency management tool to rule them all. They all have their strengths and weaknesses.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#separate-environments-per-project-for-reproducibility",
+    "href": "docs/containers/dev-containers/slides.html#separate-environments-per-project-for-reproducibility",
+    "title": "Using containers as development environments",
+    "section": "Separate environments per project for reproducibility",
+    "text": "Separate environments per project for reproducibility\n \n\n~/projects\n├── CCBR-abc\n├── CCBR-xyz\n├── cool-python-package\n└── RStatsPackage",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#separate-environments-per-project-for-reproducibility-1",
+    "href": "docs/containers/dev-containers/slides.html#separate-environments-per-project-for-reproducibility-1",
+    "title": "Using containers as development environments",
+    "section": "Separate environments per project for reproducibility",
+    "text": "Separate environments per project for reproducibility\n \n\n~/projects\n├── CCBR-abc\n│   └── environment.yml\n├── CCBR-xyz\n│   ├── data-integration\n│   │   └── env.yml\n│   └── figures\n│       └── env.yml\n├── cool-python-package\n│   └── pyproject.toml\n└── RStatsPackage\n    └── renv.lock\n\n\n\n\nEach project specifies its own package versions.\nCan use different environment managers for different projects.\nKeep configuration in git so it is version-controlled & shared with others.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#containers-handle-dependencies-at-the-os-level",
+    "href": "docs/containers/dev-containers/slides.html#containers-handle-dependencies-at-the-os-level",
+    "title": "Using containers as development environments",
+    "section": "Containers handle dependencies at the OS level",
+    "text": "Containers handle dependencies at the OS level\n\nPackage managers\nInstall dependency versions on your local machine.\nThere can be slight differences in compiled versions of software depending on the hardware and operating system.\n\n\n\nContainers\nShip with exact versions of dependencies already compiled and installed for a specific OS.\nExtremely useful for pipelines; each step gets its own container. Users don’t have to worry about installing dependencies.\n\nTODO show how we’re using containers in smk & nxf pipelines, also mosuite code ocean capsules",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#containers-as-development-environments",
+    "href": "docs/containers/dev-containers/slides.html#containers-as-development-environments",
+    "title": "Using containers as development environments",
+    "section": "Containers as development environments",
+    "text": "Containers as development environments\n\n\nArchitecture of Dev Containers. Source: https://code.visualstudio.com/docs/devcontainers/containers\n\n\nTODO Dev Containers logo?",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#why-use-dev-containers",
+    "href": "docs/containers/dev-containers/slides.html#why-use-dev-containers",
+    "title": "Using containers as development environments",
+    "section": "Why use Dev Containers?",
+    "text": "Why use Dev Containers?\n\nDependency management for developers, including IDE extensions.\nConsistent dependency versions across collaborators.\nKeep genAI tools in a sandbox for security.\n\n\nWhy not?\n\nHeavier disk usage.\nBuilding takes time.\nNot user-friendly.\nNot intended for users, only contributors.\n\nStill need to have adequate documentation of dependencies for users.\n\n\n\n\n\ne.g. conda envs can share package versions across environments, containers can’t",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#container-engines",
+    "href": "docs/containers/dev-containers/slides.html#container-engines",
+    "title": "Using containers as development environments",
+    "section": "Container engines",
+    "text": "Container engines\n\n\n\n\n\n\n\n\n\n\nBiowulf HPC\nGFE macOS\n\n\n\n\n\n\n❌\n❌\nIndustry standard, but incompatible with HPC due to root privileges. CBIIT won’t allow Docker on macOS due to security concerns.\n\n\n \n✅\n❌\nGreat for HPC, doesn’t support macOS. CLI not exactly identical to docker, but generally compatible.\n\n\n\n❌\n✅\nCould be installed on Biowulf in the future. CLI is a drop-in replacement for docker. Rootless by default.\n\n\n\n\n\nDocker runs containers with root privileges. Podman, singularity, and apptainer don’t have this glaring security risk.\nSingularity history: Singularity was renamed to Apptainer and maintained by the Linux Foundation, then there was a fork of Apptainer to create SingularityCE by Sylabs.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#how-to-use-dev-containers-on-macos",
+    "href": "docs/containers/dev-containers/slides.html#how-to-use-dev-containers-on-macos",
+    "title": "Using containers as development environments",
+    "section": "How to use Dev Containers on macOS",
+    "text": "How to use Dev Containers on macOS\n\nInstall podman.\nSet up Dev Containers in VS Code.\nConfigure Dev Containers for your projects.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#podman",
+    "href": "docs/containers/dev-containers/slides.html#podman",
+    "title": "Using containers as development environments",
+    "section": "Podman",
+    "text": "Podman\n\n\n\n\nDownload Podman Desktop from podman.io",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#podman-1",
+    "href": "docs/containers/dev-containers/slides.html#podman-1",
+    "title": "Using containers as development environments",
+    "section": "Podman",
+    "text": "Podman\n\n\n\n\nInstall and open Podman Desktop",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#podman-2",
+    "href": "docs/containers/dev-containers/slides.html#podman-2",
+    "title": "Using containers as development environments",
+    "section": "Podman",
+    "text": "Podman\n\n\n\n\nCreate new podman machine",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#podman-3",
+    "href": "docs/containers/dev-containers/slides.html#podman-3",
+    "title": "Using containers as development environments",
+    "section": "Podman",
+    "text": "Podman\n\n\n\n\nIncrease the default resource allocation. Make sure it is rootless!",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#podman-4",
+    "href": "docs/containers/dev-containers/slides.html#podman-4",
+    "title": "Using containers as development environments",
+    "section": "Podman",
+    "text": "Podman\n\n\n\n\nMachine is now running",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#podman-5",
+    "href": "docs/containers/dev-containers/slides.html#podman-5",
+    "title": "Using containers as development environments",
+    "section": "Podman",
+    "text": "Podman\n\n\n\n\nOptional: auto-start the machine when podman starts",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#podman-6",
+    "href": "docs/containers/dev-containers/slides.html#podman-6",
+    "title": "Using containers as development environments",
+    "section": "Podman",
+    "text": "Podman\n\n\n\n\nOptional: start podman when you login. Consider toggling on if you use podman daily, or toggle it off if you use it sparingly.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#podman-cli",
+    "href": "docs/containers/dev-containers/slides.html#podman-cli",
+    "title": "Using containers as development environments",
+    "section": "Podman CLI",
+    "text": "Podman CLI\n\n\nOptional: you can configure the default machine and start it via the Podman CLI rather than the Desktop\n\n\n\nTerminal\n\npodman machine set --cpus 4 --disk-size 100 --memory 8192 --rootful=false\npodman machine start",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#vs-code",
+    "href": "docs/containers/dev-containers/slides.html#vs-code",
+    "title": "Using containers as development environments",
+    "section": "VS Code",
+    "text": "VS Code\n\n\n\n\nInstall the Dev Containers extension",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#vs-code-1",
+    "href": "docs/containers/dev-containers/slides.html#vs-code-1",
+    "title": "Using containers as development environments",
+    "section": "VS Code",
+    "text": "VS Code\n\n\nOpen VS Code settings \nSearch for “Dev Containers” and scroll down to Docker Compose & Docker Path.\nSet Docker Compose to podman-compose\nSet Docker Path to full path to podman (which podman ➡️ /opt/podman/bin/podman)\n\n\n\n\n\n\nChange settings to use podman instead of docker",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#open-a-project-in-vs-code",
+    "href": "docs/containers/dev-containers/slides.html#open-a-project-in-vs-code",
+    "title": "Using containers as development environments",
+    "section": "Open a project in VS Code",
+    "text": "Open a project in VS Code\n\nFile &gt; Open or",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#create-a-basic-dev-container-configuration-file",
+    "href": "docs/containers/dev-containers/slides.html#create-a-basic-dev-container-configuration-file",
+    "title": "Using containers as development environments",
+    "section": "Create a basic Dev Container configuration file",
+    "text": "Create a basic Dev Container configuration file\n\n\n\n\n\n.devcontainer/devcontainer.json\n\n{\n    \"image\": \"nciccbr/mosuite-dev:v0.5.0.9000\"\n}",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#start-the-dev-container",
+    "href": "docs/containers/dev-containers/slides.html#start-the-dev-container",
+    "title": "Using containers as development environments",
+    "section": "Start the Dev Container",
+    "text": "Start the Dev Container\n\n\nOpen the VS Code command palette: F1F1\nSelect Dev Containers: Reopen in Container\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nDisconnect from the VPN when pulling a base container for the first time – it may interfere with the download.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#start-the-dev-container-1",
+    "href": "docs/containers/dev-containers/slides.html#start-the-dev-container-1",
+    "title": "Using containers as development environments",
+    "section": "Start the Dev Container",
+    "text": "Start the Dev Container\n\n\n\n\nIt will take some time to build the container the first time. After that it will cache the image and perform much faster.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#start-the-dev-container-2",
+    "href": "docs/containers/dev-containers/slides.html#start-the-dev-container-2",
+    "title": "Using containers as development environments",
+    "section": "Start the Dev Container",
+    "text": "Start the Dev Container\n\n\n\n\n\nYou’ll have all of the dependencies installed in the container available to use during development and testing.\nPodman mounts the project directory to the container, and those are the only files that can be edited in the VS Code session.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#dev-container-from-local-dockerfile",
+    "href": "docs/containers/dev-containers/slides.html#dev-container-from-local-dockerfile",
+    "title": "Using containers as development environments",
+    "section": "Dev Container from local dockerfile",
+    "text": "Dev Container from local dockerfile\n\nContainer image from a registry:\n\n\ndevcontainer.json\n\n{\n    \"image\": \"nciccbr/mosuite-dev:v0.5.0.9000\"\n}\n\n\n\n\nContainer image built from a local file:\n\n\ndevcontainer.json\n\n{\n  \"build\": {\n    \"dockerfile\": \"../docker/Dockerfile-dev\",\n    \"context\": \"..\"\n  }\n}\n\n \n\nBenefit of building from a local Dockerfile: you can edit the Dockerfile and immediately use it to rebuild the Dev Container.\nUsing a pre-built image means if you edit the Dockerfile, you would first have to build and push a new image tag to a container registry, then rebuild the Dev Container from the new tag.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#rebuild-the-container-when-the-config-changes",
+    "href": "docs/containers/dev-containers/slides.html#rebuild-the-container-when-the-config-changes",
+    "title": "Using containers as development environments",
+    "section": "Rebuild the container when the config changes",
+    "text": "Rebuild the container when the config changes\n\n\n\n\nThe extension detects when the config file changes and will prompt you to rebuild the container.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#rebuild-the-container-when-the-config-changes-1",
+    "href": "docs/containers/dev-containers/slides.html#rebuild-the-container-when-the-config-changes-1",
+    "title": "Using containers as development environments",
+    "section": "Rebuild the container when the config changes",
+    "text": "Rebuild the container when the config changes\n\nYou can also trigger a rebuild via the command palette.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#genai-in-dev-containers",
+    "href": "docs/containers/dev-containers/slides.html#genai-in-dev-containers",
+    "title": "Using containers as development environments",
+    "section": "GenAI in Dev Containers",
+    "text": "GenAI in Dev Containers\n\nRootless containers can act as a sandbox to prevent agents from accessing files in other projects.\nThis session had the multiOmicDataSet repo attached the workspace.\nCopilot was unable to write to a file in another repo.\nIf it went rogue and tried to anyway, it would be incapable of doing so.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#project-organization",
+    "href": "docs/containers/dev-containers/slides.html#project-organization",
+    "title": "Using containers as development environments",
+    "section": "Project organization",
+    "text": "Project organization\nOption 1: One Dev Container per repository, open a separate VS Code window for each repo you’re working on.\n\n\n\nVS Code window 1\n\n~/CCBR/mosuite\n├── .devcontainer/\n│   ├── devcontainer-lock.json\n│   └── devcontainer.json\n├── DESCRIPTION\n├── docker/\n│   ├── Dockerfile\n│   └── Dockerfile-dev\n├── R/\n└── ...\n\n\n\n\n\n\nVS Code window 2\n\n~/CCBR/Tools\n├── .devcontainer/\n│   ├── devcontainer-lock.json\n│   └── devcontainer.json\n├── docker/\n│   ├── Dockerfile\n│   └── Dockerfile-dev\n├── pyproject.toml\n├── src/\n└── ...\n\n\n\n\n\n\n\n\nTip\n\n\nThis works best when the projects are mostly unrelated and not interdependent.\n\n\n\n\n\nSeparate “what users need” from “what developers need.” The Dev Container is for contributors; have a separate container for users (if you choose to make one available).",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#project-organization-1",
+    "href": "docs/containers/dev-containers/slides.html#project-organization-1",
+    "title": "Using containers as development environments",
+    "section": "Project organization",
+    "text": "Project organization\nOption 2: Create a workspace with repos in subdirectories. Only need to open one VS Code window for the workspace.\n\n\n\nVS Code workspace\n\n~/projects/NIDAP\n├── .devcontainer/\n│   ├── devcontainer-lock.json\n│   └── devcontainer.json\n├── Code-Ocean.code-workspace\n├── Code-Ocean-Capsule-Template/\n├── demo-syncweaver-host-capsule/\n├── demo-syncweaver-source-monorepo/\n├── MOSuite-batch-correct-counts/\n├── MOSuite-clean/\n├── MOSuite-create/\n├── MOSuite-diff-counts/\n├── MOSuite-filter-counts/\n├── MOSuite-filter-diff/\n├── MOSuite-normalize-counts/\n├── OMIX/\n└── ...\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nThis option works best for projects with multiple related and interconnected repositories. If you often need to edit code across multiple repos for a given task, set up a workspace with all of those repos.\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nThese 2 options are not mutually-exclusive. You can mix-and-match as you see fit!\n\n\n\n\n\nFor option 2 (multiple repos in subdirectories), the subdirs must form a clade, aka a monophyletic group.\n\n\n\nCredit: 1999 by Addison Wesley Longman\n\n\nImage source: OpenStax. (n.d.). 23.2: Determining evolutionary relationships. Biology LibreTexts.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#how-to-find-examples-of-dev-containers",
+    "href": "docs/containers/dev-containers/slides.html#how-to-find-examples-of-dev-containers",
+    "title": "Using containers as development environments",
+    "section": "How to find examples of Dev Containers",
+    "text": "How to find examples of Dev Containers\nLook for samples and template Dev Containers from established projects for inspiration.\n\nOfficial registry of Dev Container templates: https://containers.dev/templates\nrocker (R containers): https://rocker-project.org/images/devcontainer/templates.html\nVS Code sample Dev Containers",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#sample-dev-containers",
+    "href": "docs/containers/dev-containers/slides.html#sample-dev-containers",
+    "title": "Using containers as development environments",
+    "section": "Sample Dev Containers",
+    "text": "Sample Dev Containers\n\nOpen the command palette (F1F1) and search for “sample”.\n\n \n\nhttps://code.visualstudio.com/docs/devcontainers/tutorial#_get-the-sample",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#sample-dev-container-python",
+    "href": "docs/containers/dev-containers/slides.html#sample-dev-container-python",
+    "title": "Using containers as development environments",
+    "section": "Sample Dev Container: Python",
+    "text": "Sample Dev Container: Python",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#dev-container-features",
+    "href": "docs/containers/dev-containers/slides.html#dev-container-features",
+    "title": "Using containers as development environments",
+    "section": "Dev Container Features",
+    "text": "Dev Container Features\n\nDevelopment container “Features” are self-contained, shareable units of installation code and Dev Container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library “Features” into your development container for use by you or your collaborators.\n– VS Code docs: Dev Container Features\n\nRegistry of Features: https://containers.dev/features",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#dev-container-features-1",
+    "href": "docs/containers/dev-containers/slides.html#dev-container-features-1",
+    "title": "Using containers as development environments",
+    "section": "Dev Container Features",
+    "text": "Dev Container Features\n\n\ndevcontainer.json\n\n{\n    \"name\": \"Data Science (Python and R)\",\n    \"image\": \"mcr.microsoft.com/devcontainers/base:ubuntu\",\n    // Features to add to the Dev Container. More info: https://containers.dev/features.\n    \"features\": {\n        \"ghcr.io/devcontainers/features/python:1\": {\n            \"version\": \"latest\"\n        },\n        \"ghcr.io/rocker-org/devcontainer-features/r-apt:latest\": {\n            \"vscodeRSupport\": \"full\",\n            \"installDevTools\": true,\n            \"installRadian\": true,\n            \"installRMarkdown\": true,\n            \"installVscDebugger\": true\n        },\n        \"ghcr.io/rocker-org/devcontainer-features/apt-packages:1\": {\n            \"packages\": \"r-cran-data.table,r-cran-tidyverse\",\n            \"upgradePackages\": true\n        }\n    },\n    \"overrideFeatureInstallOrder\": [\n        \"ghcr.io/rocker-org/devcontainer-features/r-apt\"\n    ],\n    // Use 'postCreateCommand' to run commands after the container is created.\n    \"postCreateCommand\": \"pip install ipykernel ipywidgets && if [ -f requirements.txt* ]; then pip install -r requirements.txt; else pip install pandas numpy matplotlib seaborn scikit-learn; fi\",\n    // Use 'forwardPorts' to make a list of ports inside the container available locally.\n    // \"forwardPorts\": [],\n    // Configure tool-specific properties.\n    \"customizations\": {\n        // Configure properties specific to VS Code.\n        \"vscode\": {\n            // Set *default* container specific settings.json values on container create.\n            \"settings\": {\n                \"[python]\": {\n                    \"defaultInterpreterPath\": \"/opt/conda/bin/python\",\n                    \"editor.defaultFormatter\": \"ms-python.black-formatter\",\n                    \"editor.formatOnType\": true,\n                    \"editor.formatOnSave\": true\n                },\n                \"[jupyter]\": {\n                    \"themeMatplotlibPlots\": true,\n                    \"widgetScriptSources\": [\n                        \"unpkg.com\",\n                        \"jsdelivr.com\"\n                    ]\n                },\n                \"[r]\": {\n                    \"rterm.linux\": \"/usr/local/bin/radian\",\n                    \"r.bracketedPaste\": true\n                }\n            },\n            // Add the IDs of extensions you want installed when the container is created.\n            \"extensions\": [\n                \"ms-toolsai.jupyter\",\n                \"ms-python.python\",\n                \"reditorsupport.r\"\n            ]\n        }\n    },\n    // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.\n    \"remoteUser\": \"vscode\"\n}\n\n\nWhen you start using Features, a devcontainers-lock.json will be created alongside the config file to pin the exact Feature versions.\n\n\nhttps://github.com/microsoft/datascience-py-r/blob/main/src/datascience-py-r/.devcontainer/devcontainer.json",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#what-to-install-via-features-vs-in-dockerfile",
+    "href": "docs/containers/dev-containers/slides.html#what-to-install-via-features-vs-in-dockerfile",
+    "title": "Using containers as development environments",
+    "section": "What to install via Features vs in Dockerfile",
+    "text": "What to install via Features vs in Dockerfile\n\nYou could install all of the dependencies via Features and not even have a Dockerfile. (See datascience-py-r on previous slide).\nBut, it is harder to control R/Python package versions via Features. You could get newer package versions when the container is rebuilt.\n\n\nDependencies of the project: Install in Dockerfile\nAnything a user would need to run the code. In dependencies of pyproject.toml file, Imports of DESCRIPTION, or imported/loaded by an analysis script.\n\nMOSuite requires DESeq2; ccbr_tools requires biopython.\n\n\n\n\nIDE extensions: Install via Features\nAnything unrelated to the execution of the code but assists in development and may not be universally used by all developers/contributors.\n\nVS Code extensions, GitHub CLI, Copilot CLI, Codex CLI.\n\n\n\n\nDeveloper dependencies: Install either way\nIn project.optional-dependencies of pyproject.toml or Suggests: of DESCRIPTION file. Anything that assists developers in chores: testing, linting, etc.\n\ndevtools, testthat, air for R code; pytest & ruff for Python code.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#using-git-in-a-dev-container",
+    "href": "docs/containers/dev-containers/slides.html#using-git-in-a-dev-container",
+    "title": "Using containers as development environments",
+    "section": "Using Git in a Dev Container",
+    "text": "Using Git in a Dev Container\nMost git commands will work, but GitHub credentials must be shared with the container in order to do git fetch/push/pull.\n\n\n\nTerminal\n\n$ git push\n\ngit@github.com: Permission denied (publickey).\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n\n\n\n\n\n\n\n\nImportant\n\n\n\nIf you’re using fine-grained PATs with the macOS keychain, it’ll probably work for you by default. ✅\nIf you’re using SSH keys, I haven’t figured out how to get SSH forwarding to work yet. 🚧",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#github-cli-in-a-dev-container",
+    "href": "docs/containers/dev-containers/slides.html#github-cli-in-a-dev-container",
+    "title": "Using containers as development environments",
+    "section": "GitHub CLI in a Dev Container",
+    "text": "GitHub CLI in a Dev Container\n\nAdd the GitHub CLI Feature to your Dev Container config:\n\n\ndevcontainer.json\n\n{\n  \"build\": {\n    \"dockerfile\": \"../docker/Dockerfile-dev\",\n    \"context\": \"..\"\n  },\n  \"features\": {\n    \"ghcr.io/devcontainers/features/github-cli:1\": {\n      \"version\": \"latest\"\n    }\n  }\n}\n\n\n\n\nThen authenticate:\n\n\nTerminal\n\n$ gh auth login\n\n? Where do you use GitHub? GitHub.com\n? What is your preferred protocol for Git operations on this host? SSH\n? Generate a new SSH key to add to your GitHub account? No\n? How would you like to authenticate GitHub CLI? Login with a web browser\n\n! Failed to copy one-time code to clipboard\n  No clipboard utilities available. Please install xsel, xclip, wl-clipboard or Termux:API add-on for termux-clipboard-get/set.\n! First copy your one-time code: XXXX-XXXX\nPress Enter to open https://github.com/login/device in your browser...\n✓ Authentication complete.\n- gh config set -h github.com git_protocol ssh\n✓ Configured git protocol\n! Authentication credentials saved in plain text\n✓ Logged in as kelly-sovacool\n\nNow you can use gh CLI commands from inside the Dev Container.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#troubleshooting",
+    "href": "docs/containers/dev-containers/slides.html#troubleshooting",
+    "title": "Using containers as development environments",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\n\n\nWhen opening the Dev Container fails instantly, make sure you started the podman machine.\n\n\nThis happens most often when I restart my computer and forget to start podman before developing. Key part of the error message:\n\nMake sure the docker daemon is running",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#troubleshooting-1",
+    "href": "docs/containers/dev-containers/slides.html#troubleshooting-1",
+    "title": "Using containers as development environments",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\n\n\nWhen opening the Dev Container fails instantly, make sure you started the podman machine.\n\n\nThis happens most often when I restart my computer and forget to start podman before developing.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#troubleshooting-insufficient-resources",
+    "href": "docs/containers/dev-containers/slides.html#troubleshooting-insufficient-resources",
+    "title": "Using containers as development environments",
+    "section": "Troubleshooting: insufficient resources",
+    "text": "Troubleshooting: insufficient resources\n\n\nIf processes in the Dev Container fail due to insufficient resources (memory, disk space), increase the resources for the default podman machine and restart it.\n\ndisk size in GB\nmemory in MB\n\n\n\n\nTerminal\n\npodman machine stop\npodman machine set --cpus 4 --disk-size 112 --memory 12288 --rootful=false\npodman machine start",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#troubleshooting-when-the-build-fails",
+    "href": "docs/containers/dev-containers/slides.html#troubleshooting-when-the-build-fails",
+    "title": "Using containers as development environments",
+    "section": "Troubleshooting: when the build fails",
+    "text": "Troubleshooting: when the build fails\n\n\n\n\nWhen the container fails to be built, copy the log from the terminal.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#troubleshooting-use-agents-for-help",
+    "href": "docs/containers/dev-containers/slides.html#troubleshooting-use-agents-for-help",
+    "title": "Using containers as development environments",
+    "section": "Troubleshooting: use agents for help",
+    "text": "Troubleshooting: use agents for help\n\n\n\n\n\nCopy relevant parts of the log from the terminal and paste it into a separate window’s Copilot session.\nDo not use the same VS Code window; you’re going to want to reload the window when trying to build the container again.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#troubleshooting-evaluate-the-response",
+    "href": "docs/containers/dev-containers/slides.html#troubleshooting-evaluate-the-response",
+    "title": "Using containers as development environments",
+    "section": "Troubleshooting: evaluate the response",
+    "text": "Troubleshooting: evaluate the response\n\n\n\n\n\nDiagnosis from Copilot:\n\nPodman’s –cache-from only accepts a repository name, while Docker also accepts a tagged image",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#dev-containers-in-vs-code-on-macos",
+    "href": "docs/containers/dev-containers/slides.html#dev-containers-in-vs-code-on-macos",
+    "title": "Using containers as development environments",
+    "section": "Dev Containers in VS Code on macOS",
+    "text": "Dev Containers in VS Code on macOS\nSo far I’ve shown you how to get started using Dev Containers in VS Code on macOS.\n\nBut what about other IDEs? RStudio, Positron\nOther environments? Biowulf, FRCE",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#positron",
+    "href": "docs/containers/dev-containers/slides.html#positron",
+    "title": "Using containers as development environments",
+    "section": "Positron",
+    "text": "Positron\nPositron supports Dev Containers!\n\n\n\n…but I haven’t gotten it to work 😿\n\nInstructions in positron’s documentation to enable development containers: https://positron.posit.co/dev-containers.html\n\n\nI like VS Code for most things, but prefer Positron for R. If anyone can get this working in Positron, please let me know!",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#biowulf",
+    "href": "docs/containers/dev-containers/slides.html#biowulf",
+    "title": "Using containers as development environments",
+    "section": "Biowulf",
+    "text": "Biowulf\n\nYou can open Dev Containers on a remote host over ssh.\nBut the Dev Container extension does not yet support singularity (see microsoft/vscode-remote-release#3066).\nThis will probably work if the HPC staff make podman available on biowulf in the future.",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#conclusion",
+    "href": "docs/containers/dev-containers/slides.html#conclusion",
+    "title": "Using containers as development environments",
+    "section": "Conclusion",
+    "text": "Conclusion\nDev Containers have a lot of potential\n\nDev Containers can help developers make their dependency management more precise and streamlined, especially when collaborating with others.\n\nThere is an overhead to setting up containers, but using them is fairly smooth once built.\n\nSecurity benefit: rootless containers can act as a sandbox for genAI agents to prevent them from reading/writing files in other projects.\n\n\nLimitations prevent us from getting the most out of them right now\n\nDifficulties with git authentication via SSH.\nLack of support/compatibility on Biowulf.\nDifficulties with Positron.\nGenAI is not as helpful at troubleshooting Dev Containers. Lots of red herrings.\n\nBut these could change in the future!",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/slides.html#resources",
+    "href": "docs/containers/dev-containers/slides.html#resources",
+    "title": "Using containers as development environments",
+    "section": "Resources",
+    "text": "Resources\n\nDev Containers extension for VS Code\n\nTutorial\nTips & Tricks\n\nThe rocker project - containers for R\nDevelopment containers specification",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments",
+      "Using containers as development environments"
+    ]
+  },
+  {
     "objectID": "docs/containers/singularity-biowulf.html",
     "href": "docs/containers/singularity-biowulf.html",
     "title": "How to use containers with singularity on biowulf",
@@ -1385,14 +2009,14 @@
     "href": "CHANGELOG.html",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)"
+    "text": "Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)\nNew presentation: Using containers as development environments. (#92, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-development-version",
     "href": "CHANGELOG.html#howtos-development-version",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)"
+    "text": "Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)\nNew presentation: Using containers as development environments. (#92, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-1.1.0",
@@ -2162,6 +2786,18 @@
       "Home",
       "Shiny",
       "Publishing Shiny Apps on NCI's POSIT Connect Servers"
+    ]
+  },
+  {
+    "objectID": "docs/containers/dev-containers/index.html",
+    "href": "docs/containers/dev-containers/index.html",
+    "title": "Using containers as development environments",
+    "section": "",
+    "text": "Note\n\n\n\nPresented in CCBR Code Club on Oct 07, 2026:\n\nPresentation slides\nRecording coming soon!",
+    "crumbs": [
+      "Home",
+      "Containers",
+      "Using containers as development environments"
     ]
   },
   {
