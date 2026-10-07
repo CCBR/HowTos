@@ -2,7 +2,7 @@
 title: Using containers as development environments
 subtitle: "CCBR Code Club"
 author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
-date: 2026-09-23
+date: 2026-10-07
 date-format: MMM DD, YYYY
 mainfont: Roboto
 format:
@@ -604,15 +604,56 @@ Registry of Features: <https://containers.dev/features>
 }
 ```
 
+:::{.x-large-text}
 When you start using Features, a `devcontainers-lock.json` will be created alongside the config file to pin the exact Feature versions.
+:::
 
 ::: footer
 <https://github.com/microsoft/datascience-py-r/blob/main/src/datascience-py-r/.devcontainer/devcontainer.json>
 :::
 
+## What to install via Features vs in Dockerfile {.x-large-text}
+
+- You could install all of the dependencies via Features and not even have a Dockerfile. (See `datascience-py-r` on previous slide).
+- But, it is harder to control R/Python package versions via Features. You could get newer package versions when the container is rebuilt.
+
+:::{.column width="30%" .fragment}
+#### Dependencies of the project: Install in Dockerfile
+
+Anything a user would need to run the code.
+In **`dependencies`** of `pyproject.toml` file, **`Imports`** of `DESCRIPTION`,
+or imported/loaded by an analysis script.
+
+> MOSuite requires DESeq2; ccbr_tools requires biopython.
+:::
+
+:::{.column width="3%"}
+:::
+
+:::{.column width="30%" .fragment}
+#### IDE extensions: Install via Features
+
+Anything unrelated to the execution of the code but assists in development and may not be universally used by all developers/contributors.
+
+> VS Code extensions, GitHub CLI, Copilot CLI, Codex CLI.
+:::
+
+:::{.column width="3%"}
+:::
+
+:::{.column width="30%" .fragment}
+#### Developer dependencies: Install either way
+
+In **`project.optional-dependencies`** of `pyproject.toml` or **`Suggests:`** of `DESCRIPTION` file.
+Anything that assists developers in chores: testing, linting, etc.
+
+> devtools, testthat, air for R code; pytest & ruff for Python code.
+:::
+
+
 ## Using Git in a Dev Container
 
-Most git commands will work, but credentials must be shared with the container in order to do `git fetch/push/pull`.
+Most git commands will work, but GitHub credentials must be shared with the container in order to do `git fetch/push/pull`.
 
 :::{.column}
 ```{.sh filename="Terminal"}
@@ -650,6 +691,55 @@ AllowAgentForwarding yes
 <https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials>
 :::
 -->
+
+## GitHub CLI in a Dev Container
+
+:::{.column width="45%" .x-large-text}
+Add the GitHub CLI Feature to your Dev Container config:
+
+```{.json filename="devcontainer.json"}
+{
+  "build": {
+    "dockerfile": "../docker/Dockerfile-dev",
+    "context": ".."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
+    }
+  }
+}
+```
+:::
+
+:::{.column width="5%"}
+:::
+
+:::{.column width="50%" .x-large-text .fragment}
+Then authenticate:
+
+```{.sh filename="Terminal"}
+$ gh auth login
+
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host? SSH
+? Generate a new SSH key to add to your GitHub account? No
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! Failed to copy one-time code to clipboard
+  No clipboard utilities available. Please install xsel, xclip, wl-clipboard or Termux:API add-on for termux-clipboard-get/set.
+! First copy your one-time code: XXXX-XXXX
+Press Enter to open https://github.com/login/device in your browser...
+✓ Authentication complete.
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+! Authentication credentials saved in plain text
+✓ Logged in as kelly-sovacool
+```
+
+Now you can use `gh` CLI commands from inside the Dev Container.
+:::
+
 
 ## Troubleshooting
 
