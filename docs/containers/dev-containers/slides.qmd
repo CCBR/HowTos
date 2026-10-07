@@ -11,9 +11,6 @@ format:
     embed-resources: true
 ---
 
-## Agenda
-
-TODO
 
 ## Installers & dependency managers
 
@@ -26,11 +23,18 @@ TODO
 | conda, mamba            | polyglot | ✅ |
 | pixi                    | polyglot | ✅ |
 
-## Separate environments per project for reproducibility
+:::{.notes}
+There's no one dependency management tool to rule them all.
+They all have their strengths and weaknesses.
+:::
 
-::: {.column}
-```md
-projects
+## Separate environments per project for reproducibility {.x-large-text}
+
+&nbsp;
+
+::: {.column width="40%"}
+```{.md}
+~/projects
 ├── CCBR-abc
 ├── CCBR-xyz
 ├── cool-python-package
@@ -38,12 +42,13 @@ projects
 ```
 :::
 
-## Separate environments per project for reproducibility
+## Separate environments per project for reproducibility {.x-large-text}
 
+&nbsp;
 
-::: {.column}
-```md
-projects
+::: {.column width="40%"}
+```{.md}
+~/projects
 ├── CCBR-abc
 │   └── environment.yml
 ├── CCBR-xyz
@@ -58,7 +63,10 @@ projects
 ```
 :::
 
-::: {.column .fragment}
+:::{.column width="5%"}
+:::
+
+::: {.column width="50%" .fragment}
 - Each project specifies its own package versions.
 - Can use different environment managers for different projects.
 - Keep configuration in git so it is version-controlled & shared with others.
@@ -67,9 +75,9 @@ projects
 ## Containers handle dependencies at the OS level
 
 ::: {.column width="45%"}
-#### Package managers
+### Package managers
 
-Install dependency versions on your local machine.
+**Install dependency versions on your local machine.**
 
 There can be slight differences in compiled versions of software depending on the hardware and operating system.
 :::
@@ -78,36 +86,41 @@ There can be slight differences in compiled versions of software depending on th
 :::
 
 ::: {.column width="45%"}
-#### Containers
+### Containers
 
-Container images ship with exact versions of dependencies already compiled and installed for a specific OS.
+**Ship with exact versions of dependencies already compiled and installed for a specific OS.**
+
+Extremely useful for pipelines; each step gets its own container. Users don't have to worry about installing dependencies.
 :::
 
+:::{.notes}
 TODO show how we're using containers in smk & nxf pipelines, also mosuite code ocean capsules
+:::
 
 ## Containers as development environments
-
-
-TODO dev containers logo?
 
 [![](./img/architecture-containers.png)](https://code.visualstudio.com/docs/devcontainers/containers)
 
 ::: footer
-Architecture of dev containers. Source: <https://code.visualstudio.com/docs/devcontainers/containers>
+Architecture of Dev Containers. Source: <https://code.visualstudio.com/docs/devcontainers/containers>
 :::
 
-## Why use dev containers?
+:::{.notes}
+TODO Dev Containers logo?
+:::
 
-- Dependency management for developers, including IDE extensions
-- Consistent dependency versions across collaborators
-- Keep genAI tools in a sandbox for security
+## Why use Dev Containers?
+
+- Dependency management for developers, including IDE extensions.
+- Consistent dependency versions across collaborators.
+- Keep genAI tools in a sandbox for security.
 
 :::{.fragment}
 ### Why _not_?
 
-- Heavier disk usage
-- Building takes time
-- Not user-friendly
+- Heavier disk usage.
+- Building takes time.
+- Not user-friendly.
 - Not intended for _users_, only _contributors_.
   - Still need to have adequate documentation of dependencies for users.
 :::
@@ -172,7 +185,7 @@ Create new podman machine
 :::
 
 ::: footer
-Increase the default resource allocation
+Increase the default resource allocation. Make sure it is rootless!
 :::
 
 ## Podman
@@ -206,6 +219,19 @@ Optional: start podman when you login.
 Consider toggling on if you use podman daily, or toggle it off if you use it sparingly.
 :::
 
+## Podman CLI
+
+:::{.column width="80%"}
+:::{.x-large-text}
+Optional: you can configure the default machine and start it via the Podman CLI rather than the Desktop
+:::
+
+```{.sh filename="Terminal"}
+podman machine set --cpus 4 --disk-size 100 --memory 8192 --rootful=false
+podman machine start
+```
+:::
+
 ## VS Code
 
 :::{.align-center}
@@ -222,7 +248,7 @@ Install the Dev Containers extension
 - Open VS Code settings {{< kbd mac=Command-, win=Control-, linux=Control-, >}}
 - Search for "Dev Containers" and scroll down to **Docker Compose** & **Docker Path**.
 - Set **Docker Compose** to `podman-compose`
-- Set **Docker Path** to full path to podman (`which podman` -> `/opt/podman/bin/podman`)
+- Set **Docker Path** to full path to podman (`which podman` ➡️ `/opt/podman/bin/podman`)
 :::
 
 :::{.align-center}
@@ -235,25 +261,32 @@ Change settings to use podman instead of docker
 
 ## Open a project in VS Code
 
+:::{.large-text}
 `File` > `Open` or {{< kbd mac=Command-O win=Control-O linux=Control-O >}}
+:::
 
 :::{.align-center}
 ![](./img/vscode-open-new-window.png){width="90%"}
 :::
 
-#### Create a basic dev container configuration file
+## Create a basic Dev Container configuration file
 
-```{.json filename="devcontainer.json"}
+:::{.column width="9%"}
+:::
+
+:::{.column width="50%"}
+```{.json filename=".devcontainer/devcontainer.json"}
 {
     "image": "nciccbr/mosuite-dev:v0.5.0.9000"
 }
 ```
+:::
 
 :::{.align-center}
 ![](./img/vscode-basic-devc-json.png){width="90%"}
 :::
 
-## Start the dev container {.x-large-text}
+## Start the Dev Container {.x-large-text}
 
 
 :::{.column width="45%" .large-text}
@@ -269,7 +302,7 @@ Change settings to use podman instead of docker
 Disconnect from the VPN when pulling a base container for the first time -- it may interfere with the download.
 :::
 
-## Start the dev container {.x-large-text}
+## Start the Dev Container {.x-large-text}
 
 :::{.align-center}
 
@@ -280,7 +313,7 @@ Disconnect from the VPN when pulling a base container for the first time -- it m
 It will take some time to build the container the first time. After that it will cache the image and perform much faster.
 :::
 
-## Start the dev container {.x-large-text}
+## Start the Dev Container {.x-large-text}
 
 :::{.align-center}
 ![](./img/vsc-mosuite-open-devcontainer.png){width="80%"}
@@ -291,7 +324,7 @@ It will take some time to build the container the first time. After that it will
 - Podman mounts the project directory to the container, and those are the only files that can be edited in the VS Code session.
 :::
 
-## Dev container from local dockerfile
+## Dev Container from local dockerfile
 
 :::{.column width="45%"}
 Container image from a registry:
@@ -307,7 +340,7 @@ Container image from a registry:
 :::
 
 :::{.column width="45%"}
-Container image built from a local dockerfile:
+Container image built from a local file:
 
 ```{.json filename="devcontainer.json"}
 {
@@ -317,29 +350,62 @@ Container image built from a local dockerfile:
   }
 }
 ```
-
-Benefit: you can edit the Dockerfile and immediately use it to rebuild the dev container.
-Using a pre-built image means you would first have to build and push a new image tag to a container registry,
-then rebuild the dev container from the new tag.
 :::
 
-## Rebuild the dev container when the config file changes
+&nbsp;
 
-![](./img/vsc-rebuild-devcontainer.png){.align-center width="90%"}
+:::{.column width="96%" .x-large-text}
+**Benefit of building from a local Dockerfile**:
+you can edit the Dockerfile and immediately use it to rebuild the Dev Container.
+
+Using a pre-built image means if you edit the Dockerfile,
+you would first have to build and push a new image tag to a container registry,
+then rebuild the Dev Container from the new tag.
+:::
+
+## Rebuild the container when the config changes
+
+:::{.align-center width="80%"}
+![](./img/vsc-rebuild-devcontainer.png)
+:::
 
 ::: footer
 The extension detects when the config file changes and will prompt you to rebuild the container.
 :::
 
-## GenAI in dev containers
 
-Keep genAI tools in a sandbox for security
+## Rebuild the container when the config changes
 
-Rootless containers can act as a sandbox for genAI agents to prevent them from reading/writing files in other projects.
+:::{.x-large-text}
+You can also trigger a rebuild via the command palette.
+:::
+
+:::{.align-center width="60%"}
+![](./img/vsc-rebuild-devcontainer-cmd.png)
+:::
+
+## GenAI in Dev Containers
+
+:::{ .column width="45%" .x-large-text .fragment}
+##### Rootless containers can act as a sandbox to prevent agents from accessing files in other projects.
+
+This session had the multiOmicDataSet repo attached the workspace.
+
+Copilot was unable to write to a file in another repo.
+
+If it went rogue and tried to anyway, it would be _incapable_ of doing so.
+:::
+
+:::{.column width="3%"}
+:::
+
+:::{.column width="52%"}
+![](./img/dev-container-copilot.png)
+:::
 
 ## Project organization
 
-**Option 1**: One dev container per repository, open a separate VS Code window for each repo you're working on.
+**Option 1**: One Dev Container per repository, open a separate VS Code window for each repo you're working on.
 
 :::{.column width="45%"}
 ```{.md filename="VS Code window 1"}
@@ -374,6 +440,15 @@ Rootless containers can act as a sandbox for genAI agents to prevent them from r
 ```
 :::
 
+::::{.callout-tip .fragment}
+This works best when the projects are mostly unrelated and not interdependent.
+::::
+
+::: {.notes}
+
+Separate "what users need" from "what developers need." The Dev Container is for contributors; have a separate container for users (if you choose to make one available).
+:::
+
 ## Project organization
 
 **Option 2**: Create a workspace with repos in subdirectories. Only need to open one VS Code window for the workspace.
@@ -381,8 +456,10 @@ Rootless containers can act as a sandbox for genAI agents to prevent them from r
 :::{.column width="45%"}
 ```{.md filename="VS Code workspace"}
 ~/projects/NIDAP
+├── .devcontainer/
+│   ├── devcontainer-lock.json
+│   └── devcontainer.json
 ├── Code-Ocean.code-workspace
-├── devcontainer.json
 ├── Code-Ocean-Capsule-Template/
 ├── demo-syncweaver-host-capsule/
 ├── demo-syncweaver-source-monorepo/
@@ -401,45 +478,146 @@ Rootless containers can act as a sandbox for genAI agents to prevent them from r
 :::{.column width="5%"}
 :::
 
-:::{.callout-tip .column width="40%" .fragment}
-These options are not mutually-exclusive. You can mix-and-match as you see fit!
+:::{.column width="40%"}
+::::{.callout-tip .fragment}
+This option works best for projects with multiple related and interconnected repositories.
+If you often need to edit code across multiple repos for a given task, set up a workspace with all of those repos.
+::::
+
+::::{.callout-tip .fragment}
+These 2 options are not mutually-exclusive. You can mix-and-match as you see fit!
+::::
 :::
 
-## Choosing a base image for your project's dev container
+:::{.notes}
+For option 2 (multiple repos in subdirectories), the subdirs must form a **clade**, aka a **monophyletic group**.
 
-TODO
+![Credit: 1999 by Addison Wesley Longman](./img/monophyletic-clade.jpg)
+
+Image source: [OpenStax. (n.d.). 23.2: Determining evolutionary relationships. Biology LibreTexts.](https://bio.libretexts.org/Bookshelves/Introductory_and_General_Biology/Principles_of_Biology/03%3A_Chapter_3/23%3A_Evolutionary_Relationships/23.02%3A_Determining_Evolutionary_Relationships)
+:::
+
+## How to find examples of Dev Containers
+
+Look for samples and template Dev Containers from established projects for inspiration.
+
+- Official registry of Dev Container templates: <https://containers.dev/templates>
+- rocker (R containers): <https://rocker-project.org/images/devcontainer/templates.html>
+- VS Code sample Dev Containers
 
 ## Sample Dev Containers
 
-TODO
+:::{.large-text}
+Open the command palette ({{< kbd F1 >}}) and search for "sample".
+:::
 
+![](./img/dev-container-sample-cmd.png){width="65%"}
+![](./img/dev-container-sample-options.png){width="65%"}
+
+
+::: footer
 <https://code.visualstudio.com/docs/devcontainers/tutorial#_get-the-sample>
+:::
 
-## Dev container Features
+## Sample Dev Container: Python
+
+:::{.align-center}
+![](./img/dev-container-sample-python.png)
+:::
+
+## Dev Container Features
 
 > Development container "Features" are self-contained, shareable units of
-> installation code and dev container configuration. The name comes from the idea
+> installation code and Dev Container configuration. The name comes from the idea
 > that referencing one of them allows you to quickly and easily add more tooling,
 > runtime, or library "Features" into your development container for use by you or
 > your collaborators.
 >
-> [VS Code docs - dev container features](https://code.visualstudio.com/docs/devcontainers/containers#_dev-container-features)
+> _-- [VS Code docs: Dev Container Features](https://code.visualstudio.com/docs/devcontainers/containers#_dev-container-features)_
 
-## Dev container Features
+Registry of Features: <https://containers.dev/features>
 
-TODO show examples of more involved dev container configs
+## Dev Container Features
 
-TODO Separate "what users need" from "what developers need." The dev container is for contributors; have a separate container for users (if you choose to make one available).
+```{.json filename="devcontainer.json"}
+{
+	"name": "Data Science (Python and R)",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	// Features to add to the Dev Container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "latest"
+		},
+		"ghcr.io/rocker-org/devcontainer-features/r-apt:latest": {
+			"vscodeRSupport": "full",
+			"installDevTools": true,
+			"installRadian": true,
+			"installRMarkdown": true,
+			"installVscDebugger": true
+		},
+		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+			"packages": "r-cran-data.table,r-cran-tidyverse",
+			"upgradePackages": true
+		}
+	},
+	"overrideFeatureInstallOrder": [
+		"ghcr.io/rocker-org/devcontainer-features/r-apt"
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "pip install ipykernel ipywidgets && if [ -f requirements.txt* ]; then pip install -r requirements.txt; else pip install pandas numpy matplotlib seaborn scikit-learn; fi",
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"[python]": {
+					"defaultInterpreterPath": "/opt/conda/bin/python",
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.formatOnType": true,
+					"editor.formatOnSave": true
+				},
+				"[jupyter]": {
+					"themeMatplotlibPlots": true,
+					"widgetScriptSources": [
+						"unpkg.com",
+						"jsdelivr.com"
+					]
+				},
+				"[r]": {
+					"rterm.linux": "/usr/local/bin/radian",
+					"r.bracketedPaste": true
+				}
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-toolsai.jupyter",
+				"ms-python.python",
+				"reditorsupport.r"
+			]
+		}
+	},
+	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
+```
 
 When you start using Features, a `devcontainers-lock.json` will be created alongside the config file to pin the exact Feature versions.
 
+::: footer
+<https://github.com/microsoft/datascience-py-r/blob/main/src/datascience-py-r/.devcontainer/devcontainer.json>
+:::
+
 ## Using Git in a Dev Container
 
-Git credentials must be shared with the container in order to do `git fetch/push/pull`.
+Most git commands will work, but credentials must be shared with the container in order to do `git fetch/push/pull`.
 
-:::
-`git push`
-```
+:::{.column}
+```{.sh filename="Terminal"}
+$ git push
+
 git@github.com: Permission denied (publickey).
 fatal: Could not read from remote repository.
 
@@ -448,13 +626,21 @@ and the repository exists.
 ```
 :::
 
+:::{.callout-important .fragment}
+- If you're using **fine-grained PATs** with the macOS keychain, it'll probably work for you by default. ✅
+- If you're using **SSH keys**, I haven't figured out how to get SSH forwarding to work yet. 🚧
+:::
+
+<!--
 ## Using Git in a Dev Container
 
 Allow SSH Keys to be forwarded to the container.
 
-:::
-Search for `AllowAgentForwarding` in `/etc/ssh/sshd_config` and ensure it is
-uncommented and set to "yes". You will need sudo privileges to save the file.
+- Search for `AllowAgentForwarding` in `/etc/ssh/sshd_config`.
+- Ensure it is uncommented and set to "yes".
+- You will need sudo privileges to save the file.
+
+:::{.column}
 ```{.text filename="/etc/ssh/sshd_config"}
 AllowAgentForwarding yes
 ```
@@ -463,7 +649,53 @@ AllowAgentForwarding yes
 ::: footer
 <https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials>
 :::
+-->
 
+## Troubleshooting
+
+![](./img/docker-error.png)
+
+::: footer
+When opening the Dev Container fails instantly, make sure you started the podman machine.
+:::
+
+:::{.notes}
+This happens most often when I restart my computer and forget to start podman before developing.
+Key part of the error message:
+
+> Make sure the docker daemon is running
+:::
+
+## Troubleshooting
+
+![](./img/podman-machine-start.png)
+
+::: footer
+When opening the Dev Container fails instantly, make sure you started the podman machine.
+:::
+
+:::{.notes}
+This happens most often when I restart my computer and forget to start podman before developing.
+:::
+
+## Troubleshooting: insufficient resources
+
+:::{.column width="80%"}
+
+::::{.x-large-text}
+If processes in the Dev Container fail due to insufficient resources (memory, disk space),
+increase the resources for the default podman machine and restart it.
+
+- disk size in GB
+- memory in MB
+::::
+
+```{.sh filename="Terminal"}
+podman machine stop
+podman machine set --cpus 4 --disk-size 112 --memory 12288 --rootful=false
+podman machine start
+```
+:::
 
 ## Troubleshooting: when the build fails
 
@@ -576,7 +808,7 @@ Fix the devcontainer config file, then try rebuilding the container
 **It worked!**
 -->
 
-## Dev containers in VS Code on macOS
+## Dev Containers in VS Code on macOS
 
 So far I've shown you how to get started using Dev Containers in VS Code on macOS.
 
@@ -585,7 +817,7 @@ So far I've shown you how to get started using Dev Containers in VS Code on macO
 
 ## Positron
 
-Positron supports dev containers!
+Positron supports Dev Containers!
 
 :::{.align-center}
 ![](img/positron-dev-containers-enable.png)
@@ -604,20 +836,28 @@ I like VS Code for most things, but prefer Positron for R. If anyone can get thi
 
 ## Biowulf
 
-- [You can open dev containers on a remote host over ssh.](https://code.visualstudio.com/docs/devcontainers/containers#_open-a-folder-on-a-remote-ssh-host-in-a-container)
-- But the dev container extension does not yet support singularity (see [microsoft/vscode-remote-release#3066](https://github.com/microsoft/vscode-remote-release/issues/3066)).
+- [You can open Dev Containers on a remote host over ssh.](https://code.visualstudio.com/docs/devcontainers/containers#_open-a-folder-on-a-remote-ssh-host-in-a-container)
+- But the Dev Container extension does not yet support singularity (see [microsoft/vscode-remote-release#3066](https://github.com/microsoft/vscode-remote-release/issues/3066)).
 - This will probably work if the HPC staff make podman available on biowulf in the future.
 
-## Conclusion
+## Conclusion {.x-large-text}
 
-- dev containers can help developers make their dependency management more precise and streamlined, especially when collaborating with others.
+#### Dev Containers have a lot of potential
+
+- Dev Containers can help developers make their dependency management more precise and streamlined, especially when collaborating with others.
   - There is an overhead to setting up containers, but using them is fairly smooth once built.
 - Security benefit: rootless containers can act as a sandbox for genAI agents to prevent them from reading/writing files in other projects.
-- Limitations prevent us from getting the most out of dev containers right now.
-  - Lack of support/compatibility on Biowulf.
-  - Difficulties with Positron.
-  - GenAI is not as helpful at troubleshooting dev containers. Lots of red herrings.
-  - But this could change in the future!
+
+:::{.fragment}
+#### Limitations prevent us from getting the most out of them right now
+
+- Difficulties with git authentication via SSH.
+- Lack of support/compatibility on Biowulf.
+- Difficulties with Positron.
+- GenAI is not as helpful at troubleshooting Dev Containers. Lots of red herrings.
+
+**_But these could change in the future!_**
+:::
 
 ## Resources
 
