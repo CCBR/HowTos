@@ -36,13 +36,17 @@ Rawdata or Project folders from Helix can be parked at a secure location after t
 
 ###  <a name='projarkusage'></a>`projark` usage
 
-#### load conda env
+#### load mamba env
 
 ```bash
-# source conda
-. "/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"
-# activate parkit or parkit_dev environment
-conda activate parkit
+# make sure you completed the shared CCBR mamba setup first:
+# https://ccbr.github.io/HowTos/docs/conda-mamba/ccbr-mamba-biowulf.html
+# initialize the shell hook for the shared CCBR miniforge3 install
+eval "$(/data/CCBR_Pipeliner/db/PipeDB/miniforge3/bin/mamba shell hook --shell bash)"
+# list the shared CCBR environments and identify the latest parkit install
+mamba env list | grep '/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/parkit'
+# at the time of this documentation, the latest shared parkit environment is:
+mamba activate "/data/CCBR_Pipeliner/db/PipeDB/miniforge3/envs/parkit_3"
 # check version of parkit
 parkit --version
 projark --version
@@ -111,7 +115,7 @@ projark --folder /data/$USER/parkit_tmp/CCBR-12345-$USER --projectnumber 12345-$
   <summary><em>Expected sample output</em></summary>
 
 ```bash
-SOURCE_CONDA_CMD is set to: . "/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"
+Using shared CCBR miniforge3 at: /data/CCBR_Pipeliner/db/PipeDB/miniforge3
 HPC_DM_UTILS is set to: /data/kopardevn/GitRepos/HPC_DME_APIs/utils
 parkit_folder2hpcdme --folder "/data/$USER/parkit_tmp/CCBR-12345-$USER" --dest "/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn" --projecttitle "CCBR-12345-kopardevn" --projectdesc "CCBR-12345-kopardevn" --executor "local" --hpcdmutilspath /data/kopardevn/GitRepos/HPC_DME_APIs/utils --makereadme
 ################ Running createtar #############################
