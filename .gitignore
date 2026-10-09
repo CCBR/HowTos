@@ -11,6 +11,8 @@
 **/*.quarto_ipynb
 *.quarto_ipynb
 /.posit/
+/.venv-quarto/
+/.venv-quarto-python312-backup/
 
 # pixi environments
 .pixi/*
