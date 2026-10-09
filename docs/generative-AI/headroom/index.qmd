@@ -1,0 +1,49 @@
+---
+title: "Use Headroom with VS Code on Biowulf"
+---
+
+Headroom is a local context-compression layer for AI coding tools. It sits between your coding agent and the model and compresses large tool outputs, logs, file reads, and other context before they reach the LLM. The result is less noise, lower token usage, and often faster responses without changing the underlying code or the answers you get. This is especially helpful in bioinformatics work where sessions can involve large logs, search results, and multi-file analyses.
+
+For more details, see the project homepage at <https://github.com/headroomlabs-ai/headroom> and the official documentation at <https://docs.headroomlabs.ai/docs>.
+
+## Quick start on your macbook
+
+If `uv` is already installed, you can use it directly:
+
+```bash
+uv tool install --python 3.13 "headroom-ai[all]"
+headroom proxy --port 8788
+```
+
+If you do not have `uv` yet on a Mac, install it with Homebrew first:
+
+```bash
+brew install uv
+uv tool install --python 3.13 "headroom-ai[all]"
+headroom proxy --port 8788
+```
+
+Then check the savings dashboard at:
+
+- <http://127.0.0.1:8788/dashboard>
+- or run `headroom savings`
+
+Use the dashboard to confirm that the proxy is active and to inspect the estimated token reduction. The proxy is intentionally set to port 8788 to match the local forwarding setup used for the Biowulf remote connection.
+
+## Using it with VS Code
+
+When you are editing files on Biowulf through Remote-SSH, add the following to the `cn*` block in your local `~/.ssh/config` so the Headroom dashboard is forwarded on the same port:
+
+```ssh
+Host cn*
+    RemoteForward 127.0.0.1:8788 127.0.0.1:8788
+    ExitOnForwardFailure yes
+```
+
+Then start the proxy on the remote compute node, reconnect to the host from VS Code, and reload the VS Code window if it was already open so the Copilot settings pick up the new proxy configuration. This keeps the remote editing session working while Headroom compresses large agent context before it reaches the model.
+
+This setup also works for local VS Code editing with GitHub Copilot. The same proxy can sit on your laptop or workstation and reduce the token load for local coding sessions, while leaving the repo and files themselves unchanged.
+
+## Good fit for CCBR
+
+Headroom is a good choice when you are running long AI-assisted coding sessions, reading large log files, or exploring large codebases. It is not a replacement for good prompt design or careful validation, but it is a useful way to keep Copilot and other agent workflows efficient and cost-aware.
