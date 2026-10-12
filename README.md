@@ -11,14 +11,14 @@ You'll find how-to guides, best practices, and tutorials on the website:
 To render locally on a system with the `ccbrpipeliner` module available, run:
 
 ```bash
-bash render.sh
+bash render-biowulf.sh
 ```
 
 The script loads `ccbrpipeliner` and `python/3.11`, creates `.venv-quarto` on first use, installs any
 missing Jupyter dependencies, and renders the site into `_site/`. Later runs
 reuse the environment. The first setup requires access to the Python package
 index. Additional Quarto render arguments can be passed through, for example
-`bash render.sh contributors.qmd`.
+`bash render-biowulf.sh contributors.qmd`.
 
 CCBR developers can install optional Superpowers Agent Skills by following the
 [CCBR Superpowers setup guide](https://ccbr.github.io/HowTos/generative-AI/superpowers/).
