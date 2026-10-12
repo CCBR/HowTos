@@ -8,6 +8,36 @@ This page is designed to share knowledge between analysts within [CCBR](https://
 You'll find how-to guides, best practices, and tutorials on the website:
 <https://ccbr.github.io/HowTos/>
 
+## Rendering
+
+### Local
+
+To render on macOS or another local platform, first
+[install Pixi](https://pixi.sh/latest/installation/), then run:
+
+```bash
+pixi run quarto render
+```
+
+### BioWulf
+
+To render on a system with the `ccbrpipeliner` module available, run:
+
+```bash
+bash render-biowulf.sh
+```
+
+The script loads `ccbrpipeliner` and `python/3.11`, creates `.venv-quarto` on first use, installs any
+missing Jupyter dependencies, and renders the site into `_site/`. Later runs
+reuse the environment. The first setup requires access to the Python package
+index. Additional Quarto render arguments can be passed through, for example
+`bash render-biowulf.sh contributors.qmd`.
+
+CCBR developers can install optional Superpowers Agent Skills by following the
+[CCBR Superpowers setup guide](https://ccbr.github.io/HowTos/generative-AI/superpowers/).
+Skills are installed in each environment's personal home directory; repositories
+contain only the portable usage policy in `AGENTS.md`.
+
 If you come across a **bug**, would like to **suggest an improvement**,
 or have an **idea** for a new how-to guide,
 please [**open an issue**](https://github.com/CCBR/HowTos/issues).

@@ -1,0 +1,155 @@
+---
+title: "Set up CCBR Superpowers skills"
+---
+
+Superpowers is a collection of Agent Skills for GitHub Copilot and other compatible coding agents. CCBR installs these skills in your home directory so they are available to every repository you open in the same computing environment.
+
+## How the integration works
+
+The installer creates an exact upstream checkout and managed skill links under your personal home directory:
+
+```text
+~/.claude/
+├── repos/
+│   └── superpowers/          # Upstream checkout at an exact tag
+└── skills/
+		├── brainstorming -> ../repos/superpowers/skills/brainstorming
+		└── ...
+```
+
+BioWulf, FRCE, and your government-furnished equipment (GFE) have separate home directories. Run the installer once in each environment where you want to use the skills.
+
+Repositories do not contain links to your personal installation. Instead, the installer adds a portable CCBR usage policy to the repository's root-level `AGENTS.md`. The policy controls when agents may use Superpowers; it does not install or locate the skills.
+
+## Before you start
+
+Make sure you have:
+
+- Bash, Git, `tar`, and HTTPS access to GitHub
+- write access to `~/.claude`
+- a Git repository open locally or through VS Code Remote SSH
+- GitHub Copilot enabled in VS Code
+- Agent Skills enabled in VS Code settings (`chat.useAgentSkills`)
+
+## Preview and install
+
+From anywhere inside the repository you want to configure, preview the changes:
+
+```bash
+cd /path/to/your/repository
+curl -fsSL \
+	https://raw.githubusercontent.com/CCBR/vscode-ghcopilot-superpowers/main/install_superpowers.sh \
+	| bash -s -- --dry-run
+```
+
+If the preview is correct, install the personal skills and repository policy:
+
+```bash
+curl -fsSL \
+	https://raw.githubusercontent.com/CCBR/vscode-ghcopilot-superpowers/main/install_superpowers.sh \
+	| bash -s --
+```
+
+The installer will:
+
+- create or update the personal checkout and skill links in `~/.claude`
+- pin the checkout to an exact upstream tag
+- add or refresh the managed CCBR section in the repository's `AGENTS.md`
+- preserve unrelated personal skills and repository content
+
+It does not create `.github/skills` links or commit machine-specific paths to the repository.
+
+## Confirm the installation
+
+Check the installed version and managed links:
+
+```bash
+curl -fsSL \
+	https://raw.githubusercontent.com/CCBR/vscode-ghcopilot-superpowers/main/install_superpowers.sh \
+	| bash -s -- --status
+```
+
+Run the detailed read-only health check from inside the repository:
+
+```bash
+curl -fsSL \
+	https://raw.githubusercontent.com/CCBR/vscode-ghcopilot-superpowers/main/install_superpowers.sh \
+	| bash -s -- --verify
+```
+
+This verifies the checkout, exact version, origin, manifest, skill links, `SKILL.md` frontmatter, and repository policy. Use `--verify --no-agents-policy` to check only the personal installation.
+
+Reload the VS Code window after the first installation. In Copilot Chat, open **Skills** or **Configure Skills** and look for skills such as `brainstorming`.
+
+You can also inspect the personal links directly:
+
+```bash
+ls -l ~/.claude/skills
+head -20 ~/.claude/skills/brainstorming/SKILL.md
+```
+
+## Use another repository or environment
+
+In another repository in the same environment, rerun the installer from that repository. The personal skills are already installed, and the installer adds or refreshes only that repository's policy.
+
+After moving to another environment, such as BioWulf to FRCE or a GFE laptop, run the installer again. The repository's `AGENTS.md` remains portable, while the new environment receives its own personal checkout and links.
+
+If the repository policy is already current and you only need the personal installation, use:
+
+```bash
+curl -fsSL \
+	https://raw.githubusercontent.com/CCBR/vscode-ghcopilot-superpowers/main/install_superpowers.sh \
+	| bash -s -- --no-agents-policy
+```
+
+Never copy personal links into a repository or commit links to `~/.claude`.
+
+## Update or roll back
+
+List available upstream versions, newest first:
+
+```bash
+curl -fsSL \
+	https://raw.githubusercontent.com/CCBR/vscode-ghcopilot-superpowers/main/install_superpowers.sh \
+	| bash -s -- --list-versions
+```
+
+Preview a version change before applying it:
+
+```bash
+curl -fsSL \
+	https://raw.githubusercontent.com/CCBR/vscode-ghcopilot-superpowers/main/install_superpowers.sh \
+	| bash -s -- --dry-run --version v6.4.3
+```
+
+Then install or roll back to the selected exact tag by removing `--dry-run`. The installer refuses to switch a checkout with local changes or an unexpected origin.
+
+## Resolve conflicts and installation problems
+
+If an ordinary file or directory in `~/.claude/skills` conflicts with an approved skill, the installer asks before moving it into a timestamped backup. For noninteractive use, preview and then approve this behavior with `--replace-conflicts`:
+
+```bash
+curl -fsSL \
+	https://raw.githubusercontent.com/CCBR/vscode-ghcopilot-superpowers/main/install_superpowers.sh \
+	| bash -s -- --dry-run --replace-conflicts
+```
+
+If `--verify` reports an invalid checkout, wrong origin, or local changes, follow its repair recommendation. Back up anything you need before deleting or replacing `~/.claude/repos/superpowers`; the installer never deletes that checkout for you.
+
+If skills do not appear in VS Code:
+
+- run `--verify` in the same environment used by VS Code
+- confirm `chat.useAgentSkills` is enabled
+- reload the VS Code window
+- confirm `~/.claude/skills` contains readable links
+- remember that `AGENTS.md` controls usage policy but does not install skills
+
+## When to use Superpowers
+
+Superpowers is optional, not the default workflow for every task. Use the smallest appropriate workflow when work is large, non-routine, ambiguous, risky, or explicitly requests one. Routine documentation, configuration, obvious fixes, and simple tests should normally proceed directly.
+
+The Superpowers test-driven-development workflow is reserved for substantial behavioral changes, critical shared code, meaningful regression risk, or explicit requests. See this repository's [AGENTS.md](../../../AGENTS.md) for the complete policy.
+
+## Technical reference
+
+See the [CCBR Superpowers installer README](https://github.com/CCBR/vscode-ghcopilot-superpowers) for the complete option reference, environment overrides, implementation details, and development tests.
