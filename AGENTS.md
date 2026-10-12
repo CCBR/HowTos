@@ -1,7 +1,17 @@
 <!-- CCBR-SUPERPOWERS-START -->
 ## CCBR Superpowers integration
 
-Superpowers skills are available through this repository's VS Code Agent Skills integration in `.github/skills/`. The shared CCBR installation is authoritative for skill definitions. This repository policy determines whether a skill should be invoked; discovery alone never requires its use. Once deliberately selected, the chosen skill governs its workflow.
+Approved Superpowers skills may be available as personal Agent Skills under `~/.claude/skills/`. The local installation is managed separately. This repository policy determines whether a skill should be invoked; discovery alone never requires its use. Once deliberately selected, follow the chosen skill's workflow.
+
+If a requested Superpowers skill is unavailable, tell the user to run the CCBR Superpowers installer from anywhere inside this repository:
+
+```bash
+curl -fsSL \
+  https://raw.githubusercontent.com/CCBR/vscode-ghcopilot-superpowers/main/install_superpowers.sh \
+  | bash -s --
+```
+
+Do not install Superpowers automatically. Do not create or use repository-local links to a machine-specific Superpowers installation.
 
 ## Superpowers usage policy
 
@@ -9,88 +19,13 @@ Superpowers is an optional workflow framework, not the default way to perform ta
 
 Optimize for **correctness, speed, and token efficiency**. For routine work, prefer direct repository inspection, implementation, and targeted validation using the normal available tools.
 
-### Default: do not invoke Superpowers
+Do NOT invoke a Superpowers skill merely because it appears relevant. For small, routine, low-risk, or well-understood tasks, work directly without Superpowers. Examples include documentation, minor configuration, obvious bug fixes, mechanical refactors, routine dependency updates, simple tests, code explanation, and repository exploration.
 
-Do NOT invoke a Superpowers skill merely because it appears relevant to the task.
-
-For small, routine, low-risk, or well-understood tasks, work directly without Superpowers.
-
-Examples that normally should NOT use Superpowers include:
-
-- Documentation, README, comments, spelling, formatting, or other prose-only changes.
-- Minor configuration changes.
-- Small bug fixes with an obvious cause and solution.
-- Small or mechanical refactors.
-- Adding or modifying a few lines/functions where the implementation is clear.
-- Routine dependency/version updates.
-- Simple test changes.
-- Code explanation or repository exploration.
-- Other inconsequential changes where an elaborate workflow would add more overhead than value.
-
-### When Superpowers is appropriate
-
-Consider Superpowers only when the task is sufficiently **large, non-routine, ambiguous, or risky** that a structured workflow is likely to materially improve the result.
-
-Good candidates include:
-
-- Large or non-routine feature additions.
-- Significant architectural or design changes.
-- Changes spanning multiple components or subsystems.
-- Complex bugs whose root cause is unclear.
-- Refactors with substantial regression risk.
-- Changes to core infrastructure, pipelines, APIs, schemas, or shared interfaces where mistakes could break existing functionality.
-- Work where requirements are ambiguous enough that structured brainstorming or planning would materially reduce risk.
-- Tasks where the user explicitly requests a Superpowers workflow.
-
-Use the smallest subset of Superpowers necessary for the task. Do not automatically chain brainstorming, planning, TDD, review, and verification workflows.
+Consider Superpowers only when the task is sufficiently **large, non-routine, ambiguous, or risky** that a structured workflow is likely to materially improve the result. Good candidates include large features, significant architectural changes, complex bugs with unclear causes, risky refactors, critical infrastructure or interfaces, and explicit user requests. Use the smallest subset of Superpowers necessary; do not automatically chain every workflow.
 
 ## TDD policy
 
-**Do NOT use the Superpowers TDD workflow by default.**
+**Do NOT use the Superpowers TDD workflow by default.** Reserve it for substantial behavioral changes, complex business or scientific logic, critical shared code, meaningful regression risk, or an explicit user request. Documentation, formatting, simple configuration, obvious fixes, minor refactors, and routine maintenance need only the minimum targeted validation appropriate to the change.
 
-The TDD workflow is intentionally reserved for substantial implementation work where its additional tests, validation steps, and token/latency cost are justified by the risk or complexity of the change.
-
-### Use TDD when
-
-Consider the Superpowers TDD workflow for:
-
-- Large or non-routine feature additions.
-- Significant behavioral changes.
-- Complex business or scientific logic.
-- Changes to critical shared code.
-- Refactors where preserving existing behavior is difficult or especially important.
-- Bugs where a regression test is important to prevent recurrence.
-- Work where the user explicitly requests TDD.
-
-### Do NOT use TDD when
-
-Do not invoke the Superpowers TDD workflow for:
-
-- Documentation, README, comments, or prose changes.
-- Formatting or lint-only changes.
-- Simple configuration changes.
-- Small and obvious bug fixes.
-- Minor refactors with low regression risk.
-- Mechanical code changes.
-- Routine maintenance.
-- Changes where existing tests already provide adequate coverage and only targeted validation is necessary.
-- Any task where generating substantial new test scaffolding would be disproportionate to the size or risk of the change.
-
-For these tasks, perform only the **minimum targeted validation appropriate to the change**.
-
-For example, a small code fix may warrant running an existing relevant test or a focused command. A documentation-only edit generally does not warrant adding tests or invoking a TDD workflow.
-
-### Decision rule
-
-Before invoking any Superpowers workflow, ask:
-
-1. Is this task large, non-routine, ambiguous, or potentially code-breaking?
-2. Will the structured workflow materially improve correctness or reduce meaningful risk?
-3. Is that benefit proportional to the additional latency, context usage, tests, and validation work?
-
-If not, do the task directly.
-
-When uncertain, prefer the simpler workflow.
-
-**Do not turn a small task into a large task merely to satisfy a Superpowers process.**
+Before invoking any Superpowers workflow, ask whether the task is large, non-routine, ambiguous, or potentially code-breaking; whether the workflow will materially improve correctness or reduce risk; and whether that benefit is proportional to its cost. If not, work directly.
 <!-- CCBR-SUPERPOWERS-END -->
