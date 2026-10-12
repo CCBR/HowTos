@@ -8,7 +8,20 @@ This page is designed to share knowledge between analysts within [CCBR](https://
 You'll find how-to guides, best practices, and tutorials on the website:
 <https://ccbr.github.io/HowTos/>
 
-To render locally on a system with the `ccbrpipeliner` module available, run:
+## Rendering
+
+### Local
+
+To render on macOS or another local platform, first
+[install Pixi](https://pixi.sh/latest/installation/), then run:
+
+```bash
+pixi run quarto render
+```
+
+### BioWulf
+
+To render on a system with the `ccbrpipeliner` module available, run:
 
 ```bash
 bash render-biowulf.sh
