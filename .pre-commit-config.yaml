@@ -13,6 +13,7 @@ exclude: |
       ^_extension/|
       ^_freeze/|
       ^docs/generative-AI/gh-pilot-vs-code/demo/|
+      ^.*\.(md|qmd)$|
       ^pixi.lock
    )
 repos:
