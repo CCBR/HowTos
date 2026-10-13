@@ -2,214 +2,214 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ccbr.github.io/HowTos/contributors.html</loc>
-    <lastmod>2026-10-13T01:32:07.238Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.811Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/HPCDME/setup.html</loc>
-    <lastmod>2026-10-13T01:32:07.245Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.819Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/lucidcharts.html</loc>
-    <lastmod>2026-10-13T01:32:07.429Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.065Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/generative-AI/copilot-cli.html</loc>
-    <lastmod>2026-10-13T01:32:07.381Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.001Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/generative-AI/headroom/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.420Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.054Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/generative-AI/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.420Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.054Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/maintenance/release.html</loc>
-    <lastmod>2026-10-13T01:32:07.441Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.081Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/containers/dev-containers/slides.html</loc>
-    <lastmod>2026-10-13T01:32:07.381Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.001Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/containers/singularity-biowulf.html</loc>
-    <lastmod>2026-10-13T01:32:07.381Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.001Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/shiny/3_Publishing_Prod.html</loc>
-    <lastmod>2026-10-13T01:32:07.442Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.083Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/shiny/2_Publishing_Dev.html</loc>
-    <lastmod>2026-10-13T01:32:07.442Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.083Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/conda-mamba/conda-to-mamba.html</loc>
-    <lastmod>2026-10-13T01:32:07.278Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.863Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/UCSC/3_creating_tracks.html</loc>
-    <lastmod>2026-10-13T01:32:07.246Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.820Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/UCSC/1_creating_inputs.html</loc>
-    <lastmod>2026-10-13T01:32:07.246Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.820Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/code-club/2025-02-11_journal-club/slides.html</loc>
-    <lastmod>2026-10-13T01:32:07.276Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.861Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/zenodo.html</loc>
-    <lastmod>2026-10-13T01:32:07.480Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.134Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/R-package/create-from-conda/common_issues.html</loc>
-    <lastmod>2026-10-13T01:32:07.246Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.820Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/authentication/tokens/classic.html</loc>
-    <lastmod>2026-10-13T01:32:07.242Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.815Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/authentication/ssh-keys/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.240Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.813Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/3_basic_repo.html</loc>
-    <lastmod>2026-10-13T01:32:07.245Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.819Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/7_sop_projpipes.html</loc>
-    <lastmod>2026-10-13T01:32:07.245Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.819Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/6_howto_precommit.html</loc>
-    <lastmod>2026-10-13T01:32:07.245Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.819Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/8_sop_techdev.html</loc>
-    <lastmod>2026-10-13T01:32:07.245Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.819Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/4_basic_docs.html</loc>
-    <lastmod>2026-10-13T01:32:07.245Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.819Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/datashare.html</loc>
-    <lastmod>2026-10-13T01:32:07.381Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.001Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.480Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.134Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/CHANGELOG.html</loc>
-    <lastmod>2026-10-13T01:32:07.237Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.810Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/LICENSE.html</loc>
-    <lastmod>2026-10-13T01:32:07.237Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.810Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/SECURITY.html</loc>
-    <lastmod>2026-10-13T01:32:07.237Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.810Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/github-actions-demo.html</loc>
-    <lastmod>2026-10-13T01:32:07.244Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.818Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/1_howto_setup.html</loc>
-    <lastmod>2026-10-13T01:32:07.245Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.819Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/5_basic_actions.html</loc>
-    <lastmod>2026-10-13T01:32:07.245Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.819Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/2_howto_commands.html</loc>
-    <lastmod>2026-10-13T01:32:07.245Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.819Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/guide/0_overview.html</loc>
-    <lastmod>2026-10-13T01:32:07.244Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.818Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/authentication/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.239Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.812Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/GitHub/authentication/tokens/fine-grained.html</loc>
-    <lastmod>2026-10-13T01:32:07.243Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.816Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/R-package/create-from-conda/1_build_pkg.html</loc>
-    <lastmod>2026-10-13T01:32:07.246Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.820Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/R-package/create-from-conda/0_setup.html</loc>
-    <lastmod>2026-10-13T01:32:07.246Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.820Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/code-club/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.277Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.863Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/code-club/2025-08-26_establishing-code-club/slides.html</loc>
-    <lastmod>2026-10-13T01:32:07.277Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.863Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/UCSC/2_creating_track_info.html</loc>
-    <lastmod>2026-10-13T01:32:07.246Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.820Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/UCSC/0_overview.html</loc>
-    <lastmod>2026-10-13T01:32:07.246Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.820Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/conda-mamba/ccbr-mamba-biowulf.html</loc>
-    <lastmod>2026-10-13T01:32:07.277Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.863Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/shiny/1_Development.html</loc>
-    <lastmod>2026-10-13T01:32:07.442Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.083Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/shiny/0_Introduction.html</loc>
-    <lastmod>2026-10-13T01:32:07.441Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.081Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/containers/dev-containers/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.380Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.001Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/containers/build-docker-google-cloud.html</loc>
-    <lastmod>2026-10-13T01:32:07.278Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.863Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/snakemake.html</loc>
-    <lastmod>2026-10-13T01:32:07.480Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.134Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/generative-AI/superpowers/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.424Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.058Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/generative-AI/gh-pilot-vs-code/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.419Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.053Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/generative-AI/repro-ai-overview/index.html</loc>
-    <lastmod>2026-10-13T01:32:07.424Z</lastmod>
+    <lastmod>2026-10-13T01:50:49.058Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/HPCDME/transfer.html</loc>
-    <lastmod>2026-10-13T01:32:07.246Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.820Z</lastmod>
   </url>
   <url>
     <loc>https://ccbr.github.io/HowTos/docs/HPCDME/transferFromHelix.html</loc>
-    <lastmod>2026-10-13T01:32:07.246Z</lastmod>
+    <lastmod>2026-10-13T01:50:48.820Z</lastmod>
   </url>
 </urlset>

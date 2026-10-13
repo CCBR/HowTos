@@ -27,41 +27,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -793,12 +758,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
-  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"></a><a name="Background" class="nav-link" data-scroll-target="undefined"></a>Background</li>
-  <li><a href="#parkit" id="toc-parkit" class="nav-link" data-scroll-target="#parkit"></a><a name="parkit" class="nav-link" data-scroll-target="undefined"></a>parkit
-  <ul class="collapse">
-  <li><a href="#projark-usage" id="toc-projark-usage" class="nav-link" data-scroll-target="#projark-usage"></a><a name="projarkusage" class="nav-link" data-scroll-target="undefined"></a><code>projark</code> usage</li>
-  <li><a href="#projark-testing" id="toc-projark-testing" class="nav-link" data-scroll-target="#projark-testing"></a><a name="projarktest" class="nav-link" data-scroll-target="undefined"></a><code>projark</code> testing</li>
-  </ul></li>
+  <li><a href="#short-answer" id="toc-short-answer" class="nav-link active" data-scroll-target="#short-answer">Short answer</a></li>
+  <li><a href="#why-this-is-required" id="toc-why-this-is-required" class="nav-link" data-scroll-target="#why-this-is-required">Why this is required</a></li>
+  <li><a href="#follow-the-helix-guide" id="toc-follow-the-helix-guide" class="nav-link" data-scroll-target="#follow-the-helix-guide">Follow the HELIX guide</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/HPCDME/transfer.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/HPCDME/transfer.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -832,172 +794,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <blockquote class="blockquote">
-<p>🛑 <strong>STOP</strong>: <code>dm_register_dataobject_multipart</code> does not work via SLURM. Hence, file transfers are NOT working when initiated from BIOWULF. We recommend <a href="../../docs/HPCDME/transferFromHelix.html">transferring files from Helix.</a></p>
+<p>🛑 <strong>STOP</strong>: File transfers must go through HELIX. Do not start transfers from Biowulf.</p>
+<p><code>dm_register_dataobject_multipart</code> is not supported from Biowulf, and the supported workflow is to transfer files from HELIX instead. See <a href="../../docs/HPCDME/transferFromHelix.html">File Transfer from HELIX</a> for the correct procedure.</p>
 </blockquote>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background"><a name="Background"></a>Background</h2>
-<p>Rawdata or Project folders from Biowulf can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP Globus Archive for doing this. But, this Globus Archive has been running relatively full lately and it is hard to estimate how much space is left there as the volume is shared among multiple groups.</p>
+<section id="short-answer" class="level2">
+<h2 class="anchored" data-anchor-id="short-answer">Short answer</h2>
+<p>If you need to move data to HPC-DME, do this:</p>
+<ol type="1">
+<li>Log in to HELIX.</li>
+<li>Run the supported transfer workflow from HELIX.</li>
+<li>Do not use Biowulf for the transfer step.</li>
+</ol>
 </section>
-<section id="parkit" class="level2">
-<h2 class="anchored" data-anchor-id="parkit"><a name="parkit"></a>parkit</h2>
-<p><a href="https://github.com/CCBR/parkit"><strong>parkit</strong></a> is designed to assist analysts in archiving project data from the NIH’s Biowulf/Helix systems to the HPC-DME storage platform. It provides functionalities to package and store data such as raw FastQ files or processed data from bioinformatics pipelines. Users can automatically:</p>
+<section id="why-this-is-required" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-is-required">Why this is required</h2>
+<p>The Biowulf-side multipart transfer path is currently not working. Use HELIX as the supported transfer host for HPC-DME archiving and backup workflows.</p>
+</section>
+<section id="follow-the-helix-guide" class="level2">
+<h2 class="anchored" data-anchor-id="follow-the-helix-guide">Follow the HELIX guide</h2>
+<p>Use the HELIX workflow here:</p>
 <ul>
-<li>create tarballs of their data (including <code>.filelist</code> and <code>.md5sum</code> files),</li>
-<li>generate metadata,</li>
-<li>create collections on HPC-DME, and</li>
-<li>deposit tar files into the system for long-term storage.</li>
+<li><a href="../../docs/HPCDME/transferFromHelix.html">File Transfer from HELIX</a></li>
 </ul>
-<p><strong>parkit</strong> also features comprehensive workflows that support both folder-based and tarball-based archiving. These workflows are integrated with the SLURM job scheduler, enabling efficient execution of archival tasks on the Biowulf HPC cluster. This integration ensures that bioinformatics project data is securely archived and well-organized, allowing for seamless long-term storage.</p>
-<blockquote class="blockquote">
-<p>❗ <strong>NOTE</strong>: HPC DME API CLUs should already be setup as per <a href="https://ccbr.github.io/HowTos/HPCDME/setup/">these</a> instructions in order to use <strong>parkit</strong></p>
-</blockquote>
-<blockquote class="blockquote">
-<p>❗ <strong>NOTE</strong>: <code>HPC_DM_UTILS</code> environment variable should be set to point to the <code>utils</code> folder under the <code>HPC_DME_APIs</code> repo setup. Please see <a href="https://ccbr.github.io/HowTos/HPCDME/setup/#edit-bashrc">these</a> instructions.</p>
-</blockquote>
-<p><a href="https://github.com/CCBR/parkit"><code>projark</code></a> is the preferred <strong>parkit</strong> command to completely archive an entire folder as a tarball on HPCDME using SLURM.</p>
-<section id="projark-usage" class="level3">
-<h3 class="anchored" data-anchor-id="projark-usage"><a name="projarkusage"></a><code>projark</code> usage</h3>
-<section id="load-conda-env" class="level4">
-<h4 class="anchored" data-anchor-id="load-conda-env">load conda env</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># source conda</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span> <span class="st">"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># activate parkit or parkit_dev environment</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate parkit</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># check version of parkit</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">parkit</span> <span class="at">--version</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">projark</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<details>
-<summary>
-<em>Expected sample output</em>
-</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">v2.0.2-dev</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">projark</span> is using the following parkit version:</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">v2.0.2-dev</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</section>
-<section id="projark-help" class="level4">
-<h4 class="anchored" data-anchor-id="projark-help">projark help</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">projark</span> <span class="at">--help</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<details>
-<summary>
-<em>Expected sample output</em>
-</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">usage:</span> projark <span class="pp">[-</span><span class="ss">h</span><span class="pp">]</span> <span class="at">--folder</span> FOLDER <span class="at">--projectnumber</span> PROJECTNUMBER</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>               <span class="ex">[--executor</span> EXECUTOR] <span class="pp">[--</span><span class="ss">rawdata</span><span class="pp">]</span> <span class="pp">[--</span><span class="ss">cleanup</span><span class="pp">]</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Wrapper</span> for folder2hpcdme for quick CCBR project archiving!</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">options:</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-h,</span> <span class="at">--help</span>            show this help message and exit</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--folder</span> FOLDER       Input folder path to archive</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--projectnumber</span> PROJECTNUMBER</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                        <span class="ex">CCBR</span> project number.. destination will be</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                        <span class="ex">/CCBR_Archive/GRIDFTP/Project_CCBR-</span><span class="op">&lt;</span>projectnumber<span class="op">&gt;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--executor</span> EXECUTOR   slurm or local</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--rawdata</span>             If tarball is rawdata and needs to go under folder</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                        <span class="ex">Rawdata</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--cleanup</span>             post transfer step to delete local files</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</section>
-</section>
-<section id="projark-testing" class="level3">
-<h3 class="anchored" data-anchor-id="projark-testing"><a name="projarktest"></a><code>projark</code> testing</h3>
-<section id="get-dummy-data" class="level4">
-<h4 class="anchored" data-anchor-id="get-dummy-data">get dummy data</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make a tmp folder</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> /data/<span class="va">$USER</span>/parkit_tmp</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># copy dummy project folder into the tmp folder</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /data/CCBR/projects/CCBR-12345 /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># check if HPC_DM_UTILS has been set</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$HPC_DM_UTILS</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="run-projark" class="level4">
-<h4 class="anchored" data-anchor-id="run-projark">run <code>projark</code></h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">projark</span> <span class="at">--folder</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span> <span class="at">--projectnumber</span> 12345-<span class="va">$USER</span> <span class="at">--executor</span> local</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<details>
-<summary>
-<em>Expected sample output</em>
-</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">SOURCE_CONDA_CMD</span> is set to: . <span class="st">"/data/CCBR_Pipeliner/db/PipeDB/Conda/etc/profile.d/conda.sh"</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">HPC_DM_UTILS</span> is set to: /data/kopardevn/GitRepos/HPC_DME_APIs/utils</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">parkit_folder2hpcdme</span> <span class="at">--folder</span> <span class="st">"/data/</span><span class="va">$USER</span><span class="st">/parkit_tmp/CCBR-12345-</span><span class="va">$USER</span><span class="st">"</span> <span class="at">--dest</span> <span class="st">"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"</span> <span class="at">--projecttitle</span> <span class="st">"CCBR-12345-kopardevn"</span> <span class="at">--projectdesc</span> <span class="st">"CCBR-12345-kopardevn"</span> <span class="at">--executor</span> <span class="st">"local"</span> <span class="at">--hpcdmutilspath</span> /data/kopardevn/GitRepos/HPC_DME_APIs/utils <span class="at">--makereadme</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">################ Running createtar #############################</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">parkit</span> createtar <span class="at">--folder</span> <span class="st">"/data/</span><span class="va">$USER</span><span class="st">/parkit_tmp/CCBR-12345-</span><span class="va">$USER</span><span class="st">"</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> cvf /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span> <span class="op">&gt;</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar.filelist</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">createmetadata:</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar file was created!</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">createmetadata:</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar.filelist file was created!</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="ex">createmetadata:</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar.md5 file was created!</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ex">createmetadata:</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar.filelist.md5 file was created!</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">################################################################</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">############ Running createemptycollection ######################</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="ex">parkit</span> createemptycollection <span class="at">--dest</span> <span class="st">"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"</span> <span class="at">--projectdesc</span> <span class="st">"CCBR-12345-kopardevn"</span> <span class="at">--projecttitle</span> <span class="st">"CCBR-12345-kopardevn"</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load java/11.0.21 <span class="kw">&amp;&amp;</span> <span class="bu">source</span> <span class="va">$HPC_DM_UTILS</span>/functions <span class="kw">&amp;&amp;</span> <span class="ex">dm_register_collection</span> /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="at">-f</span> /dev/shm/a213dedc-9363-44ec-8a7a-d29f2345a0b5.json</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load java/11.0.21 <span class="kw">&amp;&amp;</span> <span class="bu">source</span> <span class="va">$HPC_DM_UTILS</span>/functions <span class="kw">&amp;&amp;</span> <span class="ex">dm_register_collection</span> /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load java/11.0.21 <span class="kw">&amp;&amp;</span> <span class="bu">source</span> <span class="va">$HPC_DM_UTILS</span>/functions <span class="kw">&amp;&amp;</span> <span class="ex">dm_register_collection</span> /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Rawdata</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="at">-f</span> /dev/shm/cabf7826-81b5-4b6a-addd-09fbcf279591.json</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">################################################################</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">########### Running createmetadata ##############################</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="ex">parkit</span> createmetadata <span class="at">--tarball</span> <span class="st">"/data/</span><span class="va">$USER</span><span class="st">/parkit_tmp/CCBR-12345-</span><span class="va">$USER</span><span class="st">.tar"</span> <span class="at">--dest</span> <span class="st">"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="ex">createmetadata:</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar.metadata.json file was created!</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="ex">createmetadata:</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar.filelist.metadata.json file was created!</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co">################################################################</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co">############# Running deposittar ###############################</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="ex">parkit</span> deposittar <span class="at">--tarball</span> <span class="st">"/data/</span><span class="va">$USER</span><span class="st">/parkit_tmp/CCBR-12345-</span><span class="va">$USER</span><span class="st">.tar"</span> <span class="at">--dest</span> <span class="st">"/CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn"</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load java/11.0.21 <span class="kw">&amp;&amp;</span> <span class="bu">source</span> <span class="va">$HPC_DM_UTILS</span>/functions <span class="kw">&amp;&amp;</span> <span class="ex">dm_register_dataobject</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar.filelist.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar.filelist /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar.filelist</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load java/11.0.21 <span class="kw">&amp;&amp;</span> <span class="bu">source</span> <span class="va">$HPC_DM_UTILS</span>/functions <span class="kw">&amp;&amp;</span> <span class="ex">dm_register_dataobject_multipart</span> /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar.metadata.json /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn/Analysis/CCBR-12345.tar /data/<span class="va">$USER</span>/parkit_tmp/CCBR-12345-<span class="va">$USER</span>.tar</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co">################################################################</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<blockquote class="blockquote">
-<p>❗ <strong>NOTE</strong>: remove <code>--executor local</code> from the command when running on real data (not test data) to submit jobs through SLURM</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>❗ <strong>NOTE</strong>: add <code>--rawdata</code> when folder contains raw fastqs</p>
-</blockquote>
-</section>
-<section id="verify-transfer" class="level4">
-<h4 class="anchored" data-anchor-id="verify-transfer">verify transfer</h4>
-<p>Transfer can be verified by logging into <a href="https://hpcdmeweb.nci.nih.gov/browse?base">HPC DME web interface</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="verification.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
-</figure>
-</div>
-</section>
-<section id="cleanup" class="level4">
-<h4 class="anchored" data-anchor-id="cleanup">cleanup</h4>
-<p>Delete unwanted collection from HPC DME.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load java</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load java</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load dm_ commands</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> <span class="va">$HPC_DM_UTILS</span>/functions</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># delete collection recursively</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">dm_delete_collection</span> <span class="at">-r</span> /CCBR_Archive/GRIDFTP/Project_CCBR-12345-<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<details>
-<summary>
-<em>Expected sample output</em>
-</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Reading</span> properties from /data/kopardevn/GitRepos/HPC_DME_APIs/utils/hpcdme.properties</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">WARNING:</span> You have requested recursive delete of the collection. This will delete all files and sub-collections within it recursively. Are you sure you want to proceed<span class="pp">?</span> <span class="er">(</span><span class="ex">Y/N</span><span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Y</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Would</span> you like to see the list of files to delete <span class="pp">?</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">N</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> collection /CCBR_Archive/GRIDFTP/Project_CCBR-12345-kopardevn and all files and sub-collections within it will be recursively deleted. Proceed with deletion <span class="pp">?</span> <span class="er">(</span><span class="ex">Y/N</span><span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Y</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Executing:</span> https://hpcdmeapi.nci.nih.gov:8080/collection</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Wrote</span> results into /data/kopardevn/HPCDMELOG/tmp/getCollections_Records20241010.txt</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Cmd</span> process Completed</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Oct</span> 10, 2024 4:43:09 PM org.springframework.shell.core.AbstractShell handleExecutionResult</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ex">INFO:</span> CLI_SUCCESS</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<blockquote class="blockquote">
-<p>⚠️ Reach out to <a href="mailto:vishal.koparde@nih.gov">Vishal Koparde</a> in case you run into issues.</p>
-</blockquote>
+<p>This is the supported path for managing HPC-DME transfers.</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
