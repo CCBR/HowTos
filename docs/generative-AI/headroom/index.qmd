@@ -22,7 +22,7 @@ Do not start another Headroom proxy on Biowulf or FRCE.
 
 ## Quick start on your MacBook
 
-If you do not have `uv` yet, install it with Homebrew:
+If you do not have `uv` yet, follow the [official installation instructions](https://docs.astral.sh/uv/getting-started/installation/). On a Mac with Homebrew, run:
 
 ```bash
 brew install uv
@@ -40,7 +40,7 @@ headroom proxy --port 8788
 Then check the savings dashboard at:
 
 - <http://127.0.0.1:8788/dashboard>
-- or run `headroom savings`
+- or run `headroom dashboard --port 8788`
 
 Use the dashboard to confirm that the proxy is active and to inspect the estimated token reduction. The proxy uses port 8788 to match the forwarding setup for the Biowulf remote connection.
 
