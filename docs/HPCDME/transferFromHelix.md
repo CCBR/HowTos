@@ -38,9 +38,9 @@ Rawdata or Project folders from Helix can be parked at a secure location after t
 
 #### load mamba env
 
+First, make sure you complete the [shared CCBR mamba setup instructions](/docs/conda-mamba/ccbr-mamba-biowulf.qmd).
+
 ```bash
-# make sure you completed the shared CCBR mamba setup first:
-# https://ccbr.github.io/HowTos/docs/conda-mamba/ccbr-mamba-biowulf.html
 # initialize the shell hook for the shared CCBR miniforge3 install
 eval "$(/data/CCBR_Pipeliner/db/PipeDB/miniforge3/bin/mamba shell hook --shell bash)"
 # list the shared CCBR environments and identify the latest parkit install

@@ -1,7 +1,7 @@
 ## HowTos development version
 
-- Update the HPCDME HELIX transfer guide to use the shared Miniforge/mamba setup, including listing shared `parkit` environments and activating the current `parkit_3` path instead of the retired PipeDB Conda path. (@kopardev)
-- Clarify that HPCDME transfers must be initiated from HELIX and not from Biowulf; shorten the transfer guide to the supported workflow. (#111, @kopardev)
+- Update the HPCDME transfer guide to use the shared `parkit_3` mamba environment. (#112, @kopardev)
+- Clarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)
 - New guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding setup for remote editing and the local Homebrew fallback for installing uv. (#106, @kopardev)
 - Add a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)
 - Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)
