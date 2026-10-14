@@ -244,11 +244,76 @@
     ]
   },
   {
+    "objectID": "docs/generative-AI/responsible-ai/outline.html",
+    "href": "docs/generative-AI/responsible-ai/outline.html",
+    "title": "CCBR How-Tos",
+    "section": "",
+    "text": "Title: Responsible AI Use, Validation, and Reproducibility in Bioinformatics\nGenerative AI models are powerful tools that can enhance research, but they also pose risks that can be detrimental to our work. This session will focus on responsible use of AI tools for Bioinformatics to help researchers get the most out of them while avoiding common pitfalls. We’ll cover best practices for AI use in a research setting including reproducibility, documentation, and validation for responsible integration of AI into research workflows.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/outline.html#description",
+    "href": "docs/generative-AI/responsible-ai/outline.html#description",
+    "title": "CCBR How-Tos",
+    "section": "",
+    "text": "Title: Responsible AI Use, Validation, and Reproducibility in Bioinformatics\nGenerative AI models are powerful tools that can enhance research, but they also pose risks that can be detrimental to our work. This session will focus on responsible use of AI tools for Bioinformatics to help researchers get the most out of them while avoiding common pitfalls. We’ll cover best practices for AI use in a research setting including reproducibility, documentation, and validation for responsible integration of AI into research workflows.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/outline.html#outline",
+    "href": "docs/generative-AI/responsible-ai/outline.html#outline",
+    "title": "CCBR How-Tos",
+    "section": "Outline",
+    "text": "Outline\nLesson 3: Responsible Use and Validation focusing on bioinformatics\n\nEthical Considerations in Using Generative AI\n\nstart with general responsible use guidelines, then focus on bioinformatics and data science.\n\nhttps://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx\n\n\nValidating AI-Generated Code and Outputs (Human-in-the-Loop).\n\nCreating tests and validation datasets to ensure accuracy and reliability of AI-generated results.\nEmphasize the importance of human oversight and critical thinking when using AI tools. Foundational understanding of biology, data science, bioinformatics, and the specific research context is essential for effective use of AI tools. BTEP is useful for this.\n\nBest Practices for Integrating AI into Research Workflows\n\nVersion control, reproducibility, and documentation.\n\nInclude specific examples relevant to bioinformatics and data science.\n\nActionable takeaways for participants to implement in their own workflows.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/outline.html#brainstorm",
+    "href": "docs/generative-AI/responsible-ai/outline.html#brainstorm",
+    "title": "CCBR How-Tos",
+    "section": "Brainstorm",
+    "text": "Brainstorm\n\ngoals of this talk\n\npractical advice on how to use genAI well, regardless of which models or tools you’re using.\n\nstrengths of genAI\nweaknesses of genAI\n\nconfirmation bias. sycophantic. genAI tells you what you want to hear.\n\nrisks:\n\nai-gen code:\n\nbugs in code leading to incorrect results\nbad quality code that is hard to maintain, wasting your time\n\nai-gen prose (documentation, issue/PR comments):\n\nincorrect details\noverly verbose, wasting readers’ time\nweird phrases/jargon/ai-“isms”, making others distrust your work\n\ndeskilling\n\nobligations\n\nunderstand when it is appropriate and not appropriate to use AI\nliteracy, formal and informal training\ndisclose what you’re doing, how you’re using AI\n\nif you rely on AI, write it down in your electronic lab notebook (could be a markdown file in your github repo).\n\nguard against AI risks: from wasting time, to wrong answers, to research misconduct\n\nwhat does meaningful validation look like?\n\nhuman-in-the-loop is always mandatory\nzero trust. what outputs are expected? verify the output before committing it.\n\nNIH AI responsible use guidelines\n\ngo over main guidelines\nguidelines do not explicitly tell us how to follow them. here are some practical tips!\n\nevaluating prompt outputs\n\nuse genAI as a tool to help you learn. if you don’t understand the output, seek to understand it!\nbe critical. add to prompt: “provide counter-factuals”. (see Anthropic prompting guidelines/tips)\n\ngh copilot modes: ask, plan, agent. use ask + plan modes most often, switch to agent mode when you’re ready for it to edit/write files.\n\nask for simple questions\nplan for writing out plan documents. then edit the plan document.\ngive plan document to agent mode to execute.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/outline.html#practical-tips-for-responsible-ai-use-in-bioinformatics",
+    "href": "docs/generative-AI/responsible-ai/outline.html#practical-tips-for-responsible-ai-use-in-bioinformatics",
+    "title": "CCBR How-Tos",
+    "section": "Practical tips for responsible AI use in bioinformatics",
+    "text": "Practical tips for responsible AI use in bioinformatics\n\nGoals\n\nRelevant guidance regardless of vendor & model\nTips that are unlikely to be solved by models incrementally improving\n\nHave a plan for how/when you will use GenAI, and how/when you will not use GenAI.\n\nGenAI performs well at writing code when the requirements are well defined.\ne.g. many journals do not allow genAI to be used for writing manuscripts.\n\nBe thoughtful about how much content you are generating with AI.\n\nCan you realistically review all of the output thoroughly?\nAre you shifting more work to your colleagues?\n\nUse genAI to write code. Don’t use genAI to analyze data or write outputs directly. Code is the record for reproducibility.\nFollow reproducible practices always, from the beginning of every project, before you even consider using AI.\n\nBe organized. One directory per project. Keep data, code, and outputs in separate directories. Data is read only, and outputs can only be written by code.\nUse version control. Back up your code to GitHub.\n\nReview, test, and validate all code (human-written and AI-generated)\n\nReview: Treat genAI like an untrustworthy stranger. Be skeptical. Do not blindly trust it. Review every response and output. Ensure you understand it. Do not use AI-generated code until you do understand it. Learning opportunity.\nAutomated testing & validation:\n\nunit and integration testing with simulated and real data, automated with continuous integration workflows.\nlint / style checkers: GitHub code quality & security scanning (GitHub Advanced Security)\n\n\nDocument your genAI use. Be transparent about how you use it and which tools you used.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+      "Description"
+    ]
+  },
+  {
     "objectID": "docs/generative-AI/index.html",
     "href": "docs/generative-AI/index.html",
     "title": "Generative AI tools",
     "section": "",
-    "text": "Overview: Reproducible AI Practices for Bioinformatics\nTutorial: GitHub Copilot in VS Code\nTutorial: Use Headroom with VS Code on Biowulf\nTutorial: Set up CCBR Superpowers skills\nTutorial: AI Training for the CCR Genetics Branch",
+    "text": "Presentation: Reproducible AI Practices for Bioinformatics\nPresentation: Responsible AI for Bioinformatics\nTutorial: GitHub Copilot in VS Code\nTutorial: Use Headroom with VS Code on Biowulf\nTutorial: Set up CCBR Superpowers skills\nTutorial: AI Training for the CCR Genetics Branch",
     "crumbs": [
       "Home",
       "Generative AI tools"
@@ -2069,14 +2134,14 @@
     "href": "CHANGELOG.html",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "Update the HPCDME transfer guide to use the shared parkit_3 mamba environment. (#112, @kopardev)\nClarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)\nNew guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding setup for remote editing and the local Homebrew fallback for installing uv. (#106, @kopardev)\nAdd a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)\nUpdate HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)\nNew presentation: Using containers as development environments. (#92, @kelly-sovacool)"
+    "text": "Update the HPCDME transfer guide to use the shared parkit_3 mamba environment. (#112, @kopardev)\nClarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)\nNew guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding setup for remote editing and the local Homebrew fallback for installing uv. (#106, @kopardev)\nAdd a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)\nUpdate HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)\nNew presentation: Using containers as development environments. (#92, @kelly-sovacool)\nAdd slides for BTEP responsible AI presentation. (#117, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-development-version",
     "href": "CHANGELOG.html#howtos-development-version",
     "title": "CCBR How-Tos",
     "section": "",
-    "text": "Update the HPCDME transfer guide to use the shared parkit_3 mamba environment. (#112, @kopardev)\nClarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)\nNew guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding setup for remote editing and the local Homebrew fallback for installing uv. (#106, @kopardev)\nAdd a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)\nUpdate HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)\nNew presentation: Using containers as development environments. (#92, @kelly-sovacool)"
+    "text": "Update the HPCDME transfer guide to use the shared parkit_3 mamba environment. (#112, @kopardev)\nClarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)\nNew guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding setup for remote editing and the local Homebrew fallback for installing uv. (#106, @kopardev)\nAdd a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)\nUpdate HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)\nNew presentation: Using containers as development environments. (#92, @kelly-sovacool)\nAdd slides for BTEP responsible AI presentation. (#117, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-1.1.0",
@@ -3073,6 +3138,354 @@
       "Home",
       "Generative AI tools",
       "Set up CCBR Superpowers skills"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#section",
+    "href": "docs/generative-AI/responsible-ai/index.html#section",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "",
+    "text": "Important\n\n\nThis presentation was created before the directive to use the term “Super Intelligence (SI)” in place of “Artificial Intelligence (AI)”.\nAlways refer to the official NIH AI Hub for the most up-to-date policy information.\n\n\n\n\n\nhttps://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#goals-for-this-talk",
+    "href": "docs/generative-AI/responsible-ai/index.html#goals-for-this-talk",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Goals for this talk",
+    "text": "Goals for this talk\n\nProvide background information on AI for Bioinformatics.\nCover the NIH Responsible AI Policy.\nEquip you with practical tips for minimizing the risks of using LLMs & agents for bioinformatics.\n\n\n\n\n\n\n\n\n\n\nTake-home message\n\n\nBy the end, you should feel empowered with the knowledge to use agentic LLMs proficiently for bioinformatics, without compromising the quality of your science.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#bioinformatics-is-central-to-biomedical-research",
+    "href": "docs/generative-AI/responsible-ai/index.html#bioinformatics-is-central-to-biomedical-research",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Bioinformatics is central to biomedical research",
+    "text": "Bioinformatics is central to biomedical research\n\n\n\nAudience roles: bioinformatician, computational biologist, data analyst, research software engineer – anyone who writes code to analyze biological data.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#academic-definition-of-generative-ai",
+    "href": "docs/generative-AI/responsible-ai/index.html#academic-definition-of-generative-ai",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Academic Definition of Generative AI",
+    "text": "Academic Definition of Generative AI\n\n\n\n\nImage: https://www.aiforeducation.io/ai-resources/generative-ai-explainer",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#agentic-llms-have-transformed-software-development",
+    "href": "docs/generative-AI/responsible-ai/index.html#agentic-llms-have-transformed-software-development",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Agentic LLMs have transformed software development",
+    "text": "Agentic LLMs have transformed software development\n\n\n\n\nImage: https://orkes.io/blog/agentic-ai-explained-agents-vs-workflows",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#agentic-llms-can-accelerate-bioinformatics",
+    "href": "docs/generative-AI/responsible-ai/index.html#agentic-llms-can-accelerate-bioinformatics",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Agentic LLMs can accelerate bioinformatics",
+    "text": "Agentic LLMs can accelerate bioinformatics\n\n\n\n\n\n\nWe can write code faster than ever before\ngenerate new code, troubleshoot bugs, search the web, write tests, execute code\n\n\n\n\n\nWe can write bad code faster, too\nunreproducible work, incorrect methods, bugs, inefficiencies, unreadable code, lack of transparency, security vulnerabilities, malware, destructive agent actions",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#nih-responsible-ai-policy",
+    "href": "docs/generative-AI/responsible-ai/index.html#nih-responsible-ai-policy",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "NIH Responsible AI Policy",
+    "text": "NIH Responsible AI Policy\n\n\nContent retrieved September 2026 from the NIH Responsible AI site. Please refer to the official site for the latest guidance.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#nih-ai-use-checklist",
+    "href": "docs/generative-AI/responsible-ai/index.html#nih-ai-use-checklist",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "NIH AI Use Checklist",
+    "text": "NIH AI Use Checklist\n\n\n\n\n\n\n\n\n\nStop and Reconsider If:\n\n\n\nYou cannot verify the output\nYou cannot explain or justify the result\nThe task involves high-stakes decisions without expert review\n\n\n\n\n\n\n\n\n\n1. Confirm the Use is Appropriate\n\n\n\nCan you clearly state what you need, your audience (e.g., internal, external), and why AI helps?\nDo you have the time and expertise to review and adapt the output?\nAre you using a federally approved or authorized tool?\n\n\n\n\n\n\n\n\n\n2. Define the Human-AI Roles\n\n\n\nWhat task is the AI performing (e.g., drafting, summarizing, classifying)?\nWhat decisions will you make (vs. the AI)?\nAre you prepared to be accountable for how outputs are used?\n\n\n\n\n\n\n\n\n\n\n\n\n3. Project Data and Outputs\n\n\n\nDoes your input data include clinical, sensitive, identifiable, or restricted information?\nIs that data allowed in the tool you are using (e.g., consistent with consent, IRB decision, agreements)?\nAre you sharing only the minimum data necessary?\nDo the outputs create new sensitivity, intellectual property, or reuse risks?\n\n\n\n\n\n\n\n\n\n4. Verify Outputs\n\n\n\nHave you checked the facts, numbers, and citations?\nHave you tested outputs for errors, bias, or omissions?\nWould you be comfortable defending this output if questioned?\n\n\n\n\n\n\n\n\n\n5. Be Transparent About AI Use\n\n\n\nWill others know AI was used?\nHave you documented how outputs were generated (e.g., prompts used)?\nHave you avoided presenting AI output as authoritative without review?\n\n\n\n\n\n\n\nContent retrieved September 2026 from the NIH AI Use Checklist. Please refer to the official site for the latest guidance.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#human-in-the-loop",
+    "href": "docs/generative-AI/responsible-ai/index.html#human-in-the-loop",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Human in the loop",
+    "text": "Human in the loop\n\n\nImage: https://uvik.net/blog/human-in-the-loop-ai/",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#human-in-driving-the-loop",
+    "href": "docs/generative-AI/responsible-ai/index.html#human-in-driving-the-loop",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Human in driving the loop",
+    "text": "Human in driving the loop\n\n\nA better way: humans judiciously use agents when appropriate to support human-driven tasks.\n\n\n\n\nImage credit: Samarth Mathur",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#bioinformaticians-design-develop-and-execute-code",
+    "href": "docs/generative-AI/responsible-ai/index.html#bioinformaticians-design-develop-and-execute-code",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Bioinformaticians design, develop, and execute code",
+    "text": "Bioinformaticians design, develop, and execute code\n\n\n\n\nDesign\n\n\n\n{{&lt; fa brain size=2x &gt;}}   {{&lt; fa palette size=2x &gt;}}\n\n\nRead scientific papers, software documentation, and forums.\nPlan how to analyze data to answer a scientific question.\nDecide how new code will accomplish the analysis plan.\n\n\n\n\n\n\n\n\n\n\nDevelop\n\n\n\n{{&lt; fa pen-to-square size=2x &gt;}}   {{&lt; fa file-code size=2x &gt;}}\n\n\nWrite new scripts, packages, and command line tools to accomplish the analysis plan.\nWrite tests to validate the code performs as expected.\nDocument how the code works and how it is used to produce results.\n\n\n\n\n\n\n\n\n\n\nExecute\n\n\n\n{{&lt; fa person-hiking size=2x &gt;}}   {{&lt; fa terminal size=2x &gt;}}\n\n\nObtain the data from the study/experiment.\nInstall necessary software dependencies.\nRun the code on the data and evaluate the results.\n\n\n\n\n\n \nHow can agents assist us in bioinformatics tasks?\nTreat agents like just another tool in your toolbox.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#practical-tips-for-responsible-agent-use",
+    "href": "docs/generative-AI/responsible-ai/index.html#practical-tips-for-responsible-agent-use",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Practical tips for responsible agent use",
+    "text": "Practical tips for responsible agent use\n\n\n\n\n\n\n{{&lt; fa arrows-spin &gt;}}   Follow reproducible practices\n\n\n\n\n\n\n\n\n\n{{&lt; fa vial-circle-check &gt;}}   Review, test, and validate all code\n\n\n\n\n\n\n\n\n\n{{&lt; fa file-lines &gt;}}   Document everything",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#reproducibility-is-essential-for-science-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206172726f77732d7370696e203e7d7d",
+    "href": "docs/generative-AI/responsible-ai/index.html#reproducibility-is-essential-for-science-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206172726f77732d7370696e203e7d7d",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Reproducibility is essential for science {{< fa arrows-spin >}}",
+    "text": "Reproducibility is essential for science {{&lt; fa arrows-spin &gt;}}\n\nYourself ➡️ Future you ➡️ Your collaborators ➡️ Peers in your field\n\n\n\nCan each of the above people run your code on the same dataset and get the same results?\nHow difficult would it be for each of them to reproduce your results?\n\n\n\nYou are your own most important collaborator",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#reproducible-practices-for-responsible-ai-use-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206172726f77732d7370696e203e7d7d",
+    "href": "docs/generative-AI/responsible-ai/index.html#reproducible-practices-for-responsible-ai-use-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206172726f77732d7370696e203e7d7d",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Reproducible practices for responsible AI use {{< fa arrows-spin >}}",
+    "text": "Reproducible practices for responsible AI use {{&lt; fa arrows-spin &gt;}}\n\nOrganize your projects\n\nOne project per directory.\nKeep data, code, and outputs in separate subdirectories.\nData is read-only; outputs should only be written by the code.\n\n\n\n\nfile system tree\n\n/data/$USER/projects\n├── my-rnaseq-project\n│   ├── AGENTS.md\n│   ├── data/\n│   ├── docs/\n│   ├── README.md\n│   ├── results/\n│   ├── scripts/\n│   └── tests/\n└── r-dataviz-explorer\n    ├── references/\n    ├── scripts/\n    ├── SKILL.md\n    └── tests/\n\n\nCredit to Samarth Mathur for these project examples.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#reproducible-practices-for-responsible-ai-use-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206172726f77732d7370696e203e7d7d-1",
+    "href": "docs/generative-AI/responsible-ai/index.html#reproducible-practices-for-responsible-ai-use-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206172726f77732d7370696e203e7d7d-1",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Reproducible practices for responsible AI use {{< fa arrows-spin >}}",
+    "text": "Reproducible practices for responsible AI use {{&lt; fa arrows-spin &gt;}}\n\nOrganize your projects\n\nOne project per directory.\nKeep data, code, and outputs in separate subdirectories.\nData is read-only; outputs should only be written by the code.\n\nVersion control & backup with git & GitHub\n\nCreate a git repository for each project and upload it to GitHub.\nCommit meaningful code changes and sync with GitHub frequently.\n\n\n\n\nfile system tree\n\n/data/$USER/projects\n├── my-rnaseq-project\n│   ├── AGENTS.md\n│   ├── data/\n│   ├── docs/\n│   ├── README.md\n│   ├── results/\n│   ├── scripts/\n│   └── tests/\n└── r-dataviz-explorer\n    ├── references/\n    ├── scripts/\n    ├── SKILL.md\n    └── tests/\n\n\nCredit to Samarth Mathur for these project examples.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#reproducible-practices-for-responsible-ai-use-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206172726f77732d7370696e203e7d7d-2",
+    "href": "docs/generative-AI/responsible-ai/index.html#reproducible-practices-for-responsible-ai-use-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206172726f77732d7370696e203e7d7d-2",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Reproducible practices for responsible AI use {{< fa arrows-spin >}}",
+    "text": "Reproducible practices for responsible AI use {{&lt; fa arrows-spin &gt;}}\n\nOrganize your projects\n\nOne project per directory.\nKeep data, code, and outputs in separate subdirectories.\nData is read-only; outputs should only be written by the code.\n\nVersion control & backup with git & GitHub\n\nCreate a git repository for each project and upload it to GitHub.\nCommit meaningful code changes and sync with GitHub frequently.\n\n\n\n\nCredit to Samarth Mathur for these project examples.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#review-test-and-validate-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d",
+    "href": "docs/generative-AI/responsible-ai/index.html#review-test-and-validate-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Review, test, and validate {{< fa vial-circle-check >}}",
+    "text": "Review, test, and validate {{&lt; fa vial-circle-check &gt;}}\nFrom the NIH Responsible AI policy:\n\nDo not rely on the technology to be a software developer by proxy:\n\nAll well-written code must adhere to security design and ethical principles.\nAll code output needs to be reviewed for completeness, quality, efficiency, and, most of all, security.\nLeverage manual and automated validation tools and testing technologies to help ensure these factors.\nIf you cannot identify or understand what a piece of AI generated code does, you should not use it.\n\n\nAI outputs may be incomplete, inaccurate, biased, or fabricated.\n\nContent retrieved September 2026 from the NIH Responsible AI site. Please refer to the official site for the latest guidance.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#review-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d",
+    "href": "docs/generative-AI/responsible-ai/index.html#review-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Review {{< fa vial-circle-check >}}",
+    "text": "Review {{&lt; fa vial-circle-check &gt;}}\n\nRead the entire output of each prompt and ensure you understand it.\nBe skeptical. Do not blindly trust that the output is complete or correct.\nTreat agents as untrustworthy, in terms of both inputs and outputs.\n\nDo not expose passwords, access tokens, or sensitive information.\nRefer to the NIH Responsible AI page - approved tools and data types for which types of data can be used with the tools we have access to.\n\n\n\nPlease refer to the official NIH Responsible AI site for the latest guidance.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#review-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d-1",
+    "href": "docs/generative-AI/responsible-ai/index.html#review-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d-1",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Review {{< fa vial-circle-check >}}",
+    "text": "Review {{&lt; fa vial-circle-check &gt;}}\n\n\nIf you cannot identify or understand what a piece of AI generated code does, you should not use it.\n\n\nContent retrieved September 2026 from the NIH Responsible AI site. Please refer to the official site for the latest guidance.\n\n\n\n\n\n\n\n\nChallenge yourself!\n\n\nIf you do not understand a piece of AI-generated code, dig into the documentation and tutorials to learn how it works.\n\n\n\n\n\n\nCome across a package or function you’ve never seen? Find the documentation and learn how it works!\n\nR: use ? and help(). Python: use help()\nDocs websites: https://rdrr.io/, https://docspython.org/3/\n\n\n\n\n\nCome across a large chunk of code with many patterns you don’t understand?\n\nPrompt the agent to explain it line-by-line. Verify the explanation by asking for sources and reading them.\n\n\n\n\n\nUse forums for in-depth help from people.\n\nStackOverflow, biostars, Posit forum, GitHub discussions, your colleagues.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#testing-validation-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d",
+    "href": "docs/generative-AI/responsible-ai/index.html#testing-validation-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Testing & validation {{< fa vial-circle-check >}}",
+    "text": "Testing & validation {{&lt; fa vial-circle-check &gt;}}\nWrite tests to make sure the code behaves as expected.\n\nUnit tests for individual functions on trivial inputs/data.\nIntegration tests run multiple functions or even an entire analysis on small & simulated datasets.\nR: testthat. Python: pytest, unittest\n\n\n\n\nfile system tree\n\nmy-python-project\n├── data/\n├── src/mypackage\n│   └── main.py\n└── tests\n    └── test_main.py\n\n\n\n\n\n\nsrc/mypackage/main.py\n\ndef gc_content(seq):\n    \"\"\"Fraction of G/C bases in a DNA sequence.\"\"\"\n    seq = seq.upper()\n    return (seq.count(\"G\") + seq.count(\"C\")) / len(seq)\n\n\n\ntests/test_main.py\n\nfrom mypackage.main import gc_content\n\ndef test_gc_content():\n    assert gc_content(\"GGCC\") == 1.0\n    assert gc_content(\"ATAT\") == 0.0\n    assert gc_content(\"atgc\") == 0.5",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#testing-validation-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d-1",
+    "href": "docs/generative-AI/responsible-ai/index.html#testing-validation-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d-1",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Testing & validation {{< fa vial-circle-check >}}",
+    "text": "Testing & validation {{&lt; fa vial-circle-check &gt;}}\n\nRun tests before accepting code.\n\n\n\n\nUse GitHub actions to automate.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#testing-validation-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d-2",
+    "href": "docs/generative-AI/responsible-ai/index.html#testing-validation-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661207669616c2d636972636c652d636865636b203e7d7d-2",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Testing & validation {{< fa vial-circle-check >}}",
+    "text": "Testing & validation {{&lt; fa vial-circle-check &gt;}}\n\nUse linters and code quality checks.\n\nEnsure code is formatted for readability, quality, and syntax is correct.\nSecurity and vulnerability scanning with GitHub Advanced Security.\nR: air. Python: ruff.\n\n\n\n\nUse pre-commit to run checks automatically on every change.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#document-everything-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612066696c652d6c696e6573203e7d7d",
+    "href": "docs/generative-AI/responsible-ai/index.html#document-everything-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612066696c652d6c696e6573203e7d7d",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Document everything {{< fa file-lines >}}",
+    "text": "Document everything {{&lt; fa file-lines &gt;}}\nInline comments, function docstrings, vignettes, tutorials, getting started guide\n\n\n\nRscript\n\n#' Add together two numbers\n#'\n#' @param x A number\n#' @param y A number\n#' @returns The sum of `x` and `y`\n#' @examples\n#' add(1, 1)\n#' add(10, 1)\nadd &lt;- function(x, y) {\n  x + y\n}\n\n\n\n\n\n\nExample from https://r-pkgs.org/man.html",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#document-how-you-are-using-agents-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612066696c652d6c696e6573203e7d7d",
+    "href": "docs/generative-AI/responsible-ai/index.html#document-how-you-are-using-agents-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612066696c652d6c696e6573203e7d7d",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Document how you are using agents {{< fa file-lines >}}",
+    "text": "Document how you are using agents {{&lt; fa file-lines &gt;}}\nfrom the very beginning of the project:\n\nCreate a document outlining how you will and will not use LLMs and agents.\n\n\ndocs/ai-usage.md\n\n- Human responsibilities: Formulate the problem\n  statement, design the software,\n  validate the results, write the interpretation.\n- Agent roles: assist in generating code,\n  unit tests, and function documentation.\n\n\n\n\nDisclose use of LLMs and agents in commit messages, issue comments, and pull requests.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#responsible-agent-use-to-minimize-risks",
+    "href": "docs/generative-AI/responsible-ai/index.html#responsible-agent-use-to-minimize-risks",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Responsible agent use to minimize risks",
+    "text": "Responsible agent use to minimize risks\n \n\n\n\n\n\n\n\n\n\nPractice\nRisks minimized\n\n\n\n\n{{&lt; fa arrows-spin &gt;}}\nFollow reproducible practices\nunreproducible work, destructive agent actions\n\n\n{{&lt; fa vial-circle-check &gt;}}\nReview, test, and validate all code\nincorrect methods, bugs, inefficiencies, malware\n\n\n{{&lt; fa file-lines &gt;}}\nDocument everything\nunreadable code, unusable code, lack of transparency",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#a-checklist-for-agent-assisted-bioinformatics",
+    "href": "docs/generative-AI/responsible-ai/index.html#a-checklist-for-agent-assisted-bioinformatics",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "A checklist for agent-assisted Bioinformatics",
+    "text": "A checklist for agent-assisted Bioinformatics\n\n\n\n\nCheck off every item in this checklist before you trust LLM-generated code\n\n\n\n\n\n\n\n\n\n1. Understand\n\n\n\nCan I explain what the code is doing?\nDid I review all functions, parameters, and methods?\n\n\n\n\n\n\n\n2. Test\n\n\n\nDid I run it on a small or known dataset?\nDid I test edge cases and check expected outputs?\nHave I set up an automated testing framework (pytest, testthat, GitHub Actions)?\n\n\n\n\n\n\n\n\n\n\n3. Sanity check\n\n\n\nDo the results make biological sense?\nDid I check for silent problems: missing samples/genes, genome build, coordinates, strandedness, IDs?\n\n\n\n\n\n\n\n4. Make it reproducible\n\n\n\nAre code, parameters, software versions/environment, and inputs captured?\nIs the validated code committed & synced with GitHub?\n\n\n\n\n\n\n\n5. Own it\n\n\n\nAm I comfortable putting my name on this analysis?\nHave I documented AI use where appropriate?\n\n\n\n\n\nChecklist credit: Vishal Koparde",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#final-reminders",
+    "href": "docs/generative-AI/responsible-ai/index.html#final-reminders",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Final reminders",
+    "text": "Final reminders\n\n\n\n\n\n\nLLMs produce outputs that look like a plausible response to a prompt 🦜\n\n\n\nView these models as another tool in your toolbox alongside IDEs, HPCs, and other software.\nInterpreting the meaning of the generated outputs is your responsibility. Treat it as a learning experience!\n\n\n\n\n\n\n\nAgentic tools can accelerate bioinformatics 🚀\n\n\n\nJust make sure you’re facing the direction you want to go!",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#ai-use-statement",
+    "href": "docs/generative-AI/responsible-ai/index.html#ai-use-statement",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "AI Use Statement",
+    "text": "AI Use Statement\n\nHuman roles: all text content was written by the author and reviewed by colleagues.\nGenerative AI use: Copilot was used for reformatting and syntax lookup while drafting this presentation.\nImages: image sources are noted on the slides where they appear; images created by others may or may not have used GenAI for assistance. Images listed without a source were created by the author, without GenAI.",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+    ]
+  },
+  {
+    "objectID": "docs/generative-AI/responsible-ai/index.html#resources",
+    "href": "docs/generative-AI/responsible-ai/index.html#resources",
+    "title": "Responsible AI Use, Validation, and Reproducibility in Bioinformatics",
+    "section": "Resources",
+    "text": "Resources\n\nNIH Guidelines for Responsible AI\nBTEP Coding Club\nNIH Library\nRelated talks:\n\nPractical introduction to GenAI - BTEP\nFrom Scripts to Skills: Using Generative AI Without Losing Scientific Control - BTEP\nOrganizing and documenting NGS pipelines on GitHub - ABCS Programmer’s Corner\n\nTutorial: GitHub Copilot in VS Code\nGitHub Copilot in VS Code cheat sheet",
+    "crumbs": [
+      "Home",
+      "Generative AI tools",
+      "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
     ]
   },
   {
