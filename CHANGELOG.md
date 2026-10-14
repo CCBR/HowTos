@@ -1,11 +1,16 @@
 ## HowTos development version
 
-- Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (@kopardev)
+- Update the HPCDME transfer guide to use the shared `parkit_3` mamba environment. (#112, @kopardev)
+- Clarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)
+- New guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding setup for remote editing and the local Homebrew fallback for installing uv. (#106, @kopardev)
+- Add a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)
+- Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)
 - New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)
 - New slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)
 - New guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)
 - Fix minor typos. (#68, @kelly-sovacool)
 - Update instructions for requesting a Copilot license. (#79, @kelly-sovacool)
+- New presentation: Using containers as development environments. (#92, @kelly-sovacool)
 - Add slides for BTEP responsible AI presentation. (#117, @kelly-sovacool)
 
 ## HowTos 1.1.0

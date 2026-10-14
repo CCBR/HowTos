@@ -1,0 +1,10 @@
+---
+title: "Generative AI tools"
+---
+
+- Presentation: [Reproducible AI Practices for Bioinformatics](./repro-ai-overview/index.qmd)
+- Presentation: [Responsible AI for Bioinformatics](./responsible-ai/index.qmd)
+- Tutorial: [GitHub Copilot in VS Code](./gh-pilot-vs-code/index.qmd)
+- Tutorial: [Use Headroom with VS Code on Biowulf](./headroom/index.qmd)
+- Tutorial: [Set up CCBR Superpowers skills](./superpowers/index.qmd)
+- Tutorial: [AI Training for the CCR Genetics Branch](https://ccrgeneticsbranch.github.io/HowTos/AI_Training/)

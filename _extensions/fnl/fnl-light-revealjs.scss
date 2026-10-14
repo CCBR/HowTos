@@ -47,6 +47,7 @@ $footer-fg: $white;
 $code-color: $dark-green;
 $code-block-border-color: $dark-teal;
 
+
 $callout-color-tip: $dark-green;
 $callout-color-note: $brighter-teal;
 $callout-color-caution: $yellow;
@@ -143,6 +144,10 @@ $body-color: $off-black-text;
   text-align: center !important;
   vertical-align: middle !important;
   padding: 200px 0;
+}
+
+.vertical-align-top {
+  vertical-align: top !important;
 }
 
 .align-center {
