@@ -45,6 +45,8 @@ $footer-bg: $black;
 $footer-fg: $white;
 
 $code-color: $dark-green;
+$code-block-border-color: $apple-green;
+$code-block-border-left: $dark-green;
 
 $callout-color-tip: $dark-green;
 $callout-color-note: $brighter-teal;
@@ -58,3 +60,8 @@ $font-family-monospace: "Roboto Mono", "Andale Mono" "Source Code Pro",
 
 
 /*-- scss:rules --*/
+
+.code-with-filename .code-with-filename-file {
+  background-color: $light-grey-neutral;
+  color: $off-black-text;
+}
