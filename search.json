@@ -1563,7 +1563,7 @@
     "href": "docs/zenodo.html#prepare-github-repository",
     "title": "Zenodo",
     "section": "Prepare GitHub Repository",
-    "text": "Prepare GitHub Repository\nThe GitHub repository must be public and should include the following:\n\nREADME file\nDocumentation pages, such as via mkdocs, quarto, or pkgdown, with usage and contact information\nA citation CITATION.cff file; Example here\nTagged and versioned, stable repository",
+    "text": "Prepare GitHub Repository\nThe GitHub repository must be public and should include the following:\n\nREADME.md file.\nLICENSE.md file\nCITATION.cff file.\nDocumentation pages, such as via mkdocs, quarto, or pkgdown, with usage and contact information.\nStable repository ready to be released to the public.",
     "crumbs": [
       "Home",
       "Zenodo"
@@ -1574,7 +1574,7 @@
     "href": "docs/zenodo.html#link-github-account-to-zenodo",
     "title": "Zenodo",
     "section": "Link GitHub account to Zenodo",
-    "text": "Link GitHub account to Zenodo\n\nGo to Zenodo\nSelect username in the top right &gt;&gt; Profile. Select `GitHub``\nClick Sync Now (top right) to update repos. NOTE: You may have to refresh the page\nToggle the On button on the repo you wish to publish. This will move the pipeline to the Enable Repositories list.",
+    "text": "Link GitHub account to Zenodo\n\nGo to Zenodo.\nSelect username in the top right &gt;&gt; Profile. Select `GitHub``.\nClick Sync Now (top right) to update repos. NOTE: You may have to refresh the page.\nToggle the On button on the repo you wish to publish. This will move the pipeline to the Enable Repositories list.",
     "crumbs": [
       "Home",
       "Zenodo"
@@ -1585,7 +1585,7 @@
     "href": "docs/zenodo.html#prepare-github-repo",
     "title": "Zenodo",
     "section": "Prepare GitHub Repo",
-    "text": "Prepare GitHub Repo\n\nGo to GitHub and find the repository page.\nSelect Releases &gt;&gt; Draft a new release\nCreate a tag, following semantic versioning guidelines.\nFill out the Release notes from the CHANGELOG.md or NEWS.md file.\nPublish the release.\n\nZenodo will then automatically create a new record with a DOI for the release.",
+    "text": "Prepare GitHub Repo\n\nGo to GitHub and find the repository page.\nSelect Releases &gt;&gt; Draft a new release.\nCreate a tag, following semantic versioning guidelines.\nFill out the Release notes from the CHANGELOG.md or NEWS.md file.\nPublish the release.\n\nZenodo will then automatically create a new record with a DOI for the release.",
     "crumbs": [
       "Home",
       "Zenodo"
@@ -1618,7 +1618,7 @@
     "href": "docs/zenodo.html#add-doi-citation-to-github",
     "title": "Zenodo",
     "section": "Add DOI, citation to GitHub",
-    "text": "Add DOI, citation to GitHub\n\nGo to the record on Zenodo\nCopy the all-versions DOI.\nReturn to the GitHub repository and edit the README of the GitHub repo, adding the DOI as a badge.\nUpdate the CITATION.cff with the new DOI:\nidentifiers:\n  - description: \"Archived snapshots of all versions\"\n    type: doi\n    value: ALL_VERSIONS_DOI\n(replace ALL_VERSIONS_DOI with the actual DOI from Zenodo)\nAdd a line to your repo’s changelog or news file under the development header to announce the new DOI: This repo is now archived in Zenodo with a DOI: ALL_VERSIONS_DOI",
+    "text": "Add DOI, citation to GitHub\n\nGo to the record on Zenodo.\nCopy the all-versions DOI.\nReturn to the GitHub repository and edit the README of the GitHub repo, adding the DOI as a badge.\nUpdate the CITATION.cff with the new DOI:\ndoi: ALL_VERSIONS_DOI\nidentifiers:\n  - description: \"Archived snapshots of all versions\"\n    type: doi\n    value: ALL_VERSIONS_DOI\n(replace both instances of ALL_VERSIONS_DOI with the actual DOI from Zenodo)\nAdd a line to your repo’s changelog or news file under the development header to announce the new DOI: This repo is now archived in Zenodo with a DOI: https://doi.org/ALL_VERSIONS_DOI",
     "crumbs": [
       "Home",
       "Zenodo"

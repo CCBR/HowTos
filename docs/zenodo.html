@@ -828,18 +828,19 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="prepare-github-repository">Prepare GitHub Repository</h2>
 <p>The GitHub repository must be <strong>public</strong> and should include the following:</p>
 <ul>
-<li>README file</li>
-<li>Documentation pages, such as via mkdocs, quarto, or pkgdown, with usage and contact information</li>
-<li>A citation <code>CITATION.cff</code> file; <a href="https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff">Example here</a></li>
-<li>Tagged and versioned, stable repository</li>
+<li><a href="https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/README.md"><code>README.md</code></a> file.</li>
+<li><a href="https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/LICENSE.md"><code>LICENSE.md</code></a> file</li>
+<li><a href="https://github.com/CCBR/CCBR_NextflowTemplate/blob/main/CITATION.cff"><code>CITATION.cff</code></a> file.</li>
+<li>Documentation pages, such as via mkdocs, quarto, or pkgdown, with usage and contact information.</li>
+<li>Stable repository ready to be released to the public.</li>
 </ul>
 </section>
 <section id="link-github-account-to-zenodo" class="level2">
 <h2 class="anchored" data-anchor-id="link-github-account-to-zenodo">Link GitHub account to Zenodo</h2>
 <ol type="1">
-<li>Go to <a href="https://zenodo.org/">Zenodo</a></li>
-<li>Select <code>username</code> in the top right &gt;&gt; <code>Profile</code>. Select `GitHub``</li>
-<li>Click <code>Sync Now</code> (top right) to update repos. NOTE: You may have to refresh the page</li>
+<li>Go to <a href="https://zenodo.org/">Zenodo</a>.</li>
+<li>Select <code>username</code> in the top right &gt;&gt; <code>Profile</code>. Select `GitHub``.</li>
+<li>Click <code>Sync Now</code> (top right) to update repos. NOTE: You may have to refresh the page.</li>
 <li>Toggle the <code>On</code> button on the repo you wish to publish. This will move the pipeline to the <code>Enable Repositories</code> list.</li>
 </ol>
 </section>
@@ -847,7 +848,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="prepare-github-repo">Prepare GitHub Repo</h2>
 <ol type="1">
 <li>Go to <a href="https://www.github.com">GitHub</a> and find the repository page.</li>
-<li>Select <code>Releases</code> &gt;&gt; <code>Draft a new release</code></li>
+<li>Select <code>Releases</code> &gt;&gt; <code>Draft a new release</code>.</li>
 <li>Create a tag, following <a href="https://semver.org/">semantic versioning guidelines</a>.</li>
 <li>Fill out the Release notes from the <code>CHANGELOG.md</code> or <code>NEWS.md</code> file.</li>
 <li>Publish the release.</li>
@@ -870,16 +871,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="add-doi-citation-to-github" class="level2">
 <h2 class="anchored" data-anchor-id="add-doi-citation-to-github">Add DOI, citation to GitHub</h2>
 <ol type="1">
-<li><p>Go to the record on Zenodo</p></li>
+<li><p>Go to the record on Zenodo.</p></li>
 <li><p>Copy the all-versions DOI.</p></li>
 <li><p>Return to the GitHub repository and edit the <code>README</code> of the GitHub repo, adding the DOI as a badge.</p></li>
 <li><p>Update the <code>CITATION.cff</code> with the new DOI:</p>
-<pre><code>identifiers:
+<pre><code>doi: ALL_VERSIONS_DOI
+identifiers:
   - description: "Archived snapshots of all versions"
     type: doi
     value: ALL_VERSIONS_DOI</code></pre>
-<p>(replace <code>ALL_VERSIONS_DOI</code> with the actual DOI from Zenodo)</p></li>
-<li><p>Add a line to your repo’s changelog or news file under the development header to announce the new DOI: <code>This repo is now archived in Zenodo with a DOI: ALL_VERSIONS_DOI</code></p></li>
+<p>(replace both instances of <code>ALL_VERSIONS_DOI</code> with the actual DOI from Zenodo)</p></li>
+<li><p>Add a line to your repo’s changelog or news file under the development header to announce the new DOI: <code>This repo is now archived in Zenodo with a DOI: https://doi.org/ALL_VERSIONS_DOI</code></p></li>
 </ol>
 </section>
 <section id="getting-help" class="level2">
