@@ -313,7 +313,7 @@
     "href": "docs/generative-AI/index.html",
     "title": "Generative AI tools",
     "section": "",
-    "text": "Presentation: Reproducible AI Practices for Bioinformatics\nPresentation: Responsible AI for Bioinformatics\nTutorial: GitHub Copilot in VS Code\nTutorial: Use Headroom with VS Code on Biowulf\nTutorial: Set up CCBR Superpowers skills\nTutorial: AI Training for the CCR Genetics Branch",
+    "text": "Presentation: Reproducible AI Practices for Bioinformatics – Kelly Sovacool\nPresentation: Responsible AI for Bioinformatics – Kelly Sovacool\nPresentation: From Scripts to Skills: Using Generative AI Without Losing Scientific Control – Samarth Mathur\nTutorial: GitHub Copilot in VS Code – Kelly Sovacool\nTutorial: Use Headroom with VS Code on Biowulf – Vishal Koparde\nTutorial: Set up CCBR Superpowers skills – Vishal Koparde\nTutorial: AI Training for the CCR Genetics Branch – Vineela Gangalapudi & Erica Pehrsson",
     "crumbs": [
       "Home",
       "Generative AI tools"
