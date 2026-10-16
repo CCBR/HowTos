@@ -2,9 +2,10 @@
 title: "Generative AI tools"
 ---
 
-- Presentation: [Reproducible AI Practices for Bioinformatics](./repro-ai-overview/index.qmd)
-- Presentation: [Responsible AI for Bioinformatics](./responsible-ai/index.qmd)
-- Tutorial: [GitHub Copilot in VS Code](./gh-pilot-vs-code/index.qmd)
-- Tutorial: [Use Headroom with VS Code on Biowulf](./headroom/index.qmd)
-- Tutorial: [Set up CCBR Superpowers skills](./superpowers/index.qmd)
-- Tutorial: [AI Training for the CCR Genetics Branch](https://ccrgeneticsbranch.github.io/HowTos/AI_Training/)
+- Presentation: [Reproducible AI Practices for Bioinformatics](./repro-ai-overview/index.qmd) -- Kelly Sovacool
+- Presentation: [Responsible AI for Bioinformatics](./responsible-ai/index.qmd) -- Kelly Sovacool
+- Presentation: [From Scripts to Skills: Using Generative AI Without Losing Scientific Control](https://bioinformatics.ccr.cancer.gov/docs/genai-in-bioinformatics/Scripts_To_Skills/) -- Samarth Mathur
+- Tutorial: [GitHub Copilot in VS Code](./gh-pilot-vs-code/index.qmd) -- Kelly Sovacool
+- Tutorial: [Use Headroom with VS Code on Biowulf](./headroom/index.qmd) -- Vishal Koparde
+- Tutorial: [Set up CCBR Superpowers skills](./superpowers/index.qmd) -- Vishal Koparde
+- Tutorial: [AI Training for the CCR Genetics Branch](https://ccrgeneticsbranch.github.io/HowTos/AI_Training/) -- Vineela Gangalapudi & Erica Pehrsson
