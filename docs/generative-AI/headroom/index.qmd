@@ -12,58 +12,110 @@ Headroom runs on your GFE or laptop in both workflows. Local VS Code connects to
 
 ```{mermaid}
 flowchart LR
-    local["GFE or laptop<br/>VS Code + Copilot"] --> headroom["Headroom on GFE or laptop<br/>127.0.0.1:8788"]
-    hpc["Biowulf or FRCE<br/>Remote VS Code + Copilot"] --> hpc_port["HPC localhost:8788"]
+    local["GFE or laptop<br/>VS Code + Copilot"] --> headroom["Headroom on GFE or laptop<br/>127.0.0.1:58788"]
+    hpc["Biowulf or FRCE<br/>Remote VS Code + Copilot"] --> hpc_port["HPC localhost:58788"]
     hpc_port -->|SSH RemoteForward| headroom
     headroom --> model["Model provider"]
 ```
 
 Do not start another Headroom proxy on Biowulf or FRCE.
 
-## Quick start on your MacBook
+## Pick a port for Biowulf
 
-If you do not have `uv` yet, follow the [official installation instructions](https://docs.astral.sh/uv/getting-started/installation/). On a Mac with Homebrew, run:
+It is important to pick a free remote port on Biowulf that is not already occupied by another user.
 
-```bash
-brew install uv
+You can pick a port based on your user ID.
+Log on to biowulf, and add these lines to your shell profile (`~/.bashrc` or `~/.zshrc`):
+```.bashrc
+export HEADROOM_PORT=$(( 20000 + ($(id -u) % 40000) ))
+export HEADROOM_URL="http://127.0.0.1:${HEADROOM_PORT}"
 ```
 
-Install Headroom, then start the proxy in a dedicated terminal on your Mac:
+Source the profile, then
+find out your chosen port with:
+```sh
+echo $HEADROOM_PORT
+```
+It will be a 5-digit number that is unique to you based on your user, e.g `58788`.
+Copy the port to your clipboard. 
+Everywhere you see `$HEADROOM_PORT` below, replace it with your actual chosen port.
 
-```bash
-uv tool install --python 3.13 "headroom-ai[all]"
-headroom proxy --port 8788
+## Start headroom on your MacBook
+
+First, [install `uv`](https://docs.astral.sh/uv/getting-started/installation/):
+```sh
+wget -qO- https://astral.sh/uv/install.sh | sh
 ```
 
-`headroom proxy` runs in the foreground. Keep this terminal open while you use Headroom. If you stop the command with `Ctrl+C`, close the terminal, log out, or restart your Mac, rerun `headroom proxy --port 8788` before starting your next VS Code session.
+Next, [install Headroom](https://docs.headroomlabs.ai/docs/installation):
 
-Then check the savings dashboard at:
+```bash
+uv tool install --python 3.14 "headroom-ai[all]"
+```
 
-- <http://127.0.0.1:8788/dashboard>
-- or run `headroom dashboard --port 8788`
+In a dedicated terminal on your Mac, start the proxy and wrap vscode:
+```sh
+headroom wrap vscode --port $HEADROOM_PORT
+```
 
-Use the dashboard to confirm that the proxy is active and to inspect the estimated token reduction. The proxy uses port 8788 to match the forwarding setup for the Biowulf remote connection.
+(Replace `$HEADROOM_PORT` with the actual port you determined above.)
 
-A working dashboard should show a green **Healthy** status and populate its request, token-savings, throughput, and performance panels as Copilot sends traffic through the proxy. Your values will differ from this example.
+`headroom` runs in the foreground. 
+Keep this terminal open while you use Headroom. 
+If you stop the command with `Ctrl+C`, close the terminal, log out, or restart your Mac, 
+rerun the `headroom wrap vscode --port $HEADROOM_PORT` command before starting your next VS Code session.
+
+Try a few prompts in VS Code's Copilot chat, then check the savings dashboard at:
+
+- <http://127.0.0.1:$HEADROOM_PORT/dashboard>
+- or run `headroom dashboard --port $HEADROOM_PORT`
+
+Use the dashboard to confirm that the proxy is active and to inspect the estimated token reduction. 
+The proxy uses port to match the forwarding setup for the Biowulf remote connection.
+
+A working dashboard should show a green **Healthy** status and populate its 
+request, token-savings, throughput, and performance panels as VS Code's Copilot sends traffic through the proxy. 
+Your values will differ from this example.
 
 ![Example Headroom dashboard showing a Healthy proxy, completed and cached request counts, tokens and cost saved, throughput, and performance metrics.](img/headroom_dashboard.jpg){width="90%"}
 
-## Using it with VS Code
+If you only use Copilot on your mac, this is all you need to do.
+To make headroom work for your remote VS Code sessions on biowulf, follow the next steps below.
 
-This setup uses one Headroom proxy running on your Mac. SSH makes that proxy available to the remote VS Code session at `127.0.0.1:8788` on Biowulf.
+## Configure remote forwarding for Biowulf
 
-Add the following to the `cn*` block in your local `~/.ssh/config`:
+This setup uses one Headroom proxy running on your Mac.
+SSH makes that proxy available to the remote VS Code session at `127.0.0.1:$HEADROOM_PORT` on Biowulf.
+
+If you already run VS Code on Biowulf compute nodes via SSH (see [Biowulf VSCode instructions](https://hpc.nih.gov/apps/vscode.html)),
+You likely already have a `cn*` block in your Mac's local `~/.ssh/config` that looks something like this:
+```ssh
+Host cn*
+  User $USERNAME
+  ProxyCommand /usr/bin/ssh -o ForwardAgent=yes $USERNAME@biowulf.nih.gov nc -w 120ms %h %p
+```
+
+For Headroom to work over SSH, you'll need to add two lines:
 
 ```ssh
 Host cn*
-    RemoteForward 127.0.0.1:8788 127.0.0.1:8788
-    ExitOnForwardFailure yes
+  User $USERNAME
+  ProxyCommand /usr/bin/ssh -o ForwardAgent=yes $USERNAME@biowulf.nih.gov nc -w 120ms %h %p
+  RemoteForward 127.0.0.1:58788 127.0.0.1:58788
+  ExitOnForwardFailure yes
 ```
 
-Start the proxy in its dedicated terminal on your Mac before connecting to Biowulf. Then reconnect to the host from VS Code and reload the VS Code window if it was already open so the Copilot settings pick up the proxy configuration. Do not start another Headroom proxy on the compute node; the SSH `RemoteForward` connects the remote port to the proxy already running on your Mac.
+(Replace `58788` with your actual `$HEADROOM_PORT` chosen [above](#pick-a-port-for-biowulf).)
 
-For local VS Code editing, use the same Mac proxy directly without SSH forwarding. In both cases, the repository and its files remain unchanged.
+If you haven't already, start the proxy in its dedicated terminal on your Mac before connecting to Biowulf.
+Then, connect to the host from VS Code through the usual command: `Remote-SSH Connect to Host` and type `cnXXXX` (replace `XXXX` with your compute node number).
+**Do not start another Headroom proxy on the compute node**; the SSH `RemoteForward` connects the remote port to the proxy already running on your Mac.
+Try prompting Copilot in your VS Code session attached to Biowulf and observe the total savings increase in your headroomm dashboard.
 
-## Good fit for CCBR
+
+## Benefits
 
 Headroom is a good choice when you are running long AI-assisted coding sessions, reading large log files, or exploring large codebases. It is not a replacement for good prompt design or careful validation, but it is a useful way to keep Copilot and other agent workflows efficient and cost-aware.
+
+## Troubleshooting
+
