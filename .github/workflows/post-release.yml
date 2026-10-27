@@ -20,3 +20,5 @@ jobs:
       - uses: CCBR/actions/post-release@v0.8
         with:
           github-token: ${{ github.token }}
+          # The ./ prefix prevents R package detection from substituting NEWS.md.
+          changelog-filepath: ./CHANGELOG.md

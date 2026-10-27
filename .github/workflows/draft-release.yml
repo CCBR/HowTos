@@ -28,3 +28,5 @@ jobs:
         with:
           github-token: ${{ github.token }}
           version-tag: ${{ github.event.inputs.version-tag }}
+          # The ./ prefix prevents R package detection from substituting NEWS.md.
+          changelog-filepath: ./CHANGELOG.md
