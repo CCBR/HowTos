@@ -2,7 +2,7 @@
 
 - Update the HPCDME transfer guide to use the shared `parkit_3` mamba environment. (#112, @kopardev)
 - Clarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)
-- New guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding setup for remote editing and the local Homebrew fallback for installing uv. (#106, @kopardev)
+- New guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding. (#106, #120, @kopardev, @kelly-sovacool)
 - Add a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)
 - Update HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)
 - New guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)
