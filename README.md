@@ -33,11 +33,6 @@ reuse the environment. The first setup requires access to the Python package
 index. Additional Quarto render arguments can be passed through, for example
 `bash render-biowulf.sh contributors.qmd`.
 
-CCBR developers can install optional Superpowers Agent Skills by following the
-[CCBR Superpowers setup guide](https://ccbr.github.io/HowTos/generative-AI/superpowers/).
-Skills are installed in each environment's personal home directory; repositories
-contain only the portable usage policy in `AGENTS.md`.
-
 If you come across a **bug**, would like to **suggest an improvement**,
 or have an **idea** for a new how-to guide,
 please [**open an issue**](https://github.com/CCBR/HowTos/issues).
