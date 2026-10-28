@@ -1,4 +1,4 @@
-## HowTos development version
+## HowTos 1.2.0
 
 - Update the HPCDME transfer guide to use the shared `parkit_3` mamba environment. (#112, @kopardev)
 - Clarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)
