@@ -3790,18 +3790,11 @@
     ]
   },
   {
-    "objectID": "CHANGELOG.html",
-    "href": "CHANGELOG.html",
+    "objectID": "CHANGELOG.html#howtos-1.2.0",
+    "href": "CHANGELOG.html#howtos-1.2.0",
     "title": "CCBR How-Tos",
-    "section": "",
-    "text": "Update the HPCDME transfer guide to use the shared parkit_3 mamba environment. (#112, @kopardev)\nClarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)\nNew guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding. (#106, #120, @kopardev, @kelly-sovacool)\nAdd a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)\nUpdate HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)\nNew presentation: Using containers as development environments. (#92, @kelly-sovacool)\nAdd slides for BTEP responsible AI presentation. (#117, @kelly-sovacool)"
-  },
-  {
-    "objectID": "CHANGELOG.html#howtos-development-version",
-    "href": "CHANGELOG.html#howtos-development-version",
-    "title": "CCBR How-Tos",
-    "section": "",
-    "text": "Update the HPCDME transfer guide to use the shared parkit_3 mamba environment. (#112, @kopardev)\nClarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)\nNew guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding. (#106, #120, @kopardev, @kelly-sovacool)\nAdd a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)\nUpdate HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)\nNew presentation: Using containers as development environments. (#92, @kelly-sovacool)\nAdd slides for BTEP responsible AI presentation. (#117, @kelly-sovacool)"
+    "section": "HowTos 1.2.0",
+    "text": "HowTos 1.2.0\n\nUpdate the HPCDME transfer guide to use the shared parkit_3 mamba environment. (#112, @kopardev)\nClarify that HPCDME transfers must be initiated from HELIX, not Biowulf. (#112, @kopardev)\nNew guide: Use Headroom with VS Code on Biowulf, including the required SSH forwarding. (#106, #120, @kopardev, @kelly-sovacool)\nAdd a CCBR-wide guide for personal Superpowers skills and repository usage policy. (#108, @kopardev)\nUpdate HPCDME setup guide: comment out proxy settings by default, add thread count options, update preferred Java version to 23.0.2, and add release branch checkout step. (#84, @kopardev)\nNew guide: How to release new versions of pipelines & tools. (#72, @kelly-sovacool)\nNew slides for talk: Reproducible AI Practices for Bioinformatics. (#77, @kelly-sovacool)\nNew guide: AI Training for the CCR Genetics Branch. (#83, @vinegang, @epehrsson)\nFix minor typos. (#68, @kelly-sovacool)\nUpdate instructions for requesting a Copilot license. (#79, @kelly-sovacool)\nNew presentation: Using containers as development environments. (#92, @kelly-sovacool)\nAdd slides for BTEP responsible AI presentation. (#117, @kelly-sovacool)"
   },
   {
     "objectID": "CHANGELOG.html#howtos-1.1.0",
