@@ -22,3 +22,6 @@ jobs:
           github-token: ${{ github.token }}
           # The ./ prefix prevents R package detection from substituting NEWS.md.
           changelog-filepath: ./CHANGELOG.md
+          # This repository has an R DESCRIPTION file, but releases use VERSION.
+          # Point elsewhere to disable the action's automatic R-package detection.
+          description-filepath: .github/nonexistent-DESCRIPTION
