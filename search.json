@@ -157,7 +157,7 @@
     "href": "docs/generative-AI/headroom/index.html#how-headroom-works",
     "title": "Use Headroom with VS Code on Biowulf",
     "section": "How Headroom works",
-    "text": "How Headroom works\nHeadroom runs on your GFE or laptop. Local VS Code connects to it directly; a Remote-SSH session on Biowulf or FRCE reaches the same proxy through SSH port forwarding.\n\n\n\n\n\nflowchart LR\n    local[\"GFE or laptop&lt;br/&gt;VS Code + Copilot\"] --&gt; headroom[\"Headroom on GFE or laptop&lt;br/&gt;127.0.0.1:58788\"]\n    hpc[\"Biowulf or FRCE&lt;br/&gt;Remote VS Code + Copilot\"] --&gt; hpc_port[\"HPC localhost:58788\"]\n    hpc_port --&gt;|SSH RemoteForward| headroom\n    headroom --&gt; model[\"Model provider\"]",
+    "text": "How Headroom works\nHeadroom runs on your GFE or laptop. Local VS Code connects to it directly; a Remote-SSH session on Biowulf or FRCE reaches the same proxy through SSH port forwarding.\n\n\n\n\n\n\nflowchart LR\n    local[\"GFE or laptop&lt;br/&gt;VS Code + Copilot\"] --&gt; headroom[\"Headroom on GFE or laptop&lt;br/&gt;127.0.0.1:58788\"]\n    hpc[\"Biowulf or FRCE&lt;br/&gt;Remote VS Code + Copilot\"] --&gt; hpc_port[\"HPC localhost:58788\"]\n    hpc_port --&gt;|SSH RemoteForward| headroom\n    headroom --&gt; model[\"Model provider\"]",
     "crumbs": [
       "Home",
       "Generative AI tools",
