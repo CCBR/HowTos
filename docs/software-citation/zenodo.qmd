@@ -1,9 +1,10 @@
 ---
 title: "Zenodo"
+description: "Submit a repository to Zenodo to create a DOI for publication"
 author: "[Ned Cauley](https://github.com/escauley) & [Kelly Sovacool](https://github.com/kelly-sovacool)"
+aliases: 
+  - docs/zenodo.html
 ---
-
-Submit a pipeline to Zenodo in order to create a DOI for publication.
 
 ## Reference link
 
