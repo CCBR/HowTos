@@ -1,6 +1,6 @@
 ## HowTos development version
 
-- New guide: How to cite CCBR software and analysis repositories. (#127, @kelly-sovacool)
+- New guide: How to cite CCBR software and analysis repositories. (#128, @kelly-sovacool)
 
 ## HowTos 1.2.0
 
