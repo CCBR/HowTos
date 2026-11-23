@@ -1,6 +1,6 @@
 ---
 title: "How to Cite CCBR Software in Scientific Publications"
-author: [Kelly Sovacool](https://github.com/kelly-sovacool)
+author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
 date: 2026-11-23
 ---
 
