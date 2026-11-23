@@ -1,13 +1,17 @@
 ---
 title: "Zenodo"
+description: "Submit a repository to Zenodo to create a DOI for publication"
 author: "[Ned Cauley](https://github.com/escauley) & [Kelly Sovacool](https://github.com/kelly-sovacool)"
+aliases: 
+  - docs/zenodo.html
+date-modified: 2026-11-23
 ---
 
-Submit a pipeline to Zenodo in order to create a DOI for publication.
-
-## Reference link
-
-Use the link for full information, summarized below: <https://www.youtube.com/watch?v=A9FGAU9S9Ow>
+If you're preparing a manuscript for publication, chances are you [need to cite
+a CCBR pipeline, tool, or other software](./citing-ccbr-software.qmd).
+For a new project or analysis repository that doesn't yet have a DOI, you'll
+need to archive the repository in Zenodo and generate a DOI in order to cite it.
+Follow the instructions below and [reach out](#getting-help) if you have any questions!
 
 ## Prepare GitHub Repository
 
@@ -80,6 +84,10 @@ Update any metadata information as needed such as the title, author names and OR
     ```
     This repo is now archived in Zenodo with a DOI: https://doi.org/ALL_VERSIONS_DOI
     ```
+
+## Reference link
+
+Use the link for full information, summarized above: <https://www.youtube.com/watch?v=A9FGAU9S9Ow>
 
 ## Getting Help
 

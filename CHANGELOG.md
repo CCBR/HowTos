@@ -1,5 +1,7 @@
 ## HowTos development version
 
+- New guide: How to cite CCBR software and analysis repositories. (#128, @kelly-sovacool)
+
 ## HowTos 1.2.0
 
 - Update the HPCDME transfer guide to use the shared `parkit_3` mamba environment. (#112, @kopardev)
