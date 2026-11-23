@@ -1,0 +1,8 @@
+---
+title: "Creating a Conda Package from an R Package"
+description: "Build a conda package from an R package"
+listing:
+  contents:
+  - ./*.md
+  sort: filename
+---
