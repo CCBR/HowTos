@@ -1,6 +1,7 @@
 ## HowTos development version
 
 - New guide: How to cite CCBR software and analysis repositories. (#128, @kelly-sovacool)
+- Replace manual guide link lists with Quarto listings and add index pages for documentation sections. Also fix broken links. (#129, @kelly-sovacool)
 
 ## HowTos 1.2.0
 
