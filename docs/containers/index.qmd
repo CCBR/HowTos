@@ -1,2 +1,9 @@
+---
+title: "Containers"
+listing:
+  contents:
+  - ./*.qmd
+---
+
 View the [CCBR Dockers site](https://ccbr.github.io/Dockers2) for a list of
 available container images maintained by CCBR.
