@@ -857,22 +857,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>When your analysis uses a CCBR pipeline, tool, or analysis repository, you need to cite it in your manuscript. Name the software and the version you used in the Methods, then include its full citation and DOI in the References.</p>
+<p>If your analysis uses a CCBR pipeline, tool, or analysis repository, cite it in your manuscript. In the Methods section, name the software and give the exact version you used. In the References section, include its full citation and DOI.</p>
 <section id="how-to-write-the-manuscript" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-write-the-manuscript">How to write the manuscript</h2>
-<p>For each CCBR resource:</p>
 <ol type="1">
-<li>In Methods, mention the name, exact version used, and a citation marker linking to the references section.</li>
-<li>In References, include the authors, year, title, version, software type, archive URL (usually Zenodo or GitHub), and <strong>DOI</strong>. Including the DOI is critical.</li>
-<li>Cite the scientific methods and third-party software you used separately.</li>
-<li>If you share analysis code in a repository, cite that repository too.</li>
+<li>In Methods, name each CCBR software, give the exact version you used, and add a citation marker that points to its References entry.</li>
+<li>In References, include the authors, year, title, version, archive or repository URL, and <strong>DOI</strong>.</li>
+<li>Cite the software separately from papers describing its scientific methods and from third-party tools.</li>
+<li>If you publish analysis code in a separate repository, cite it separately.</li>
 </ol>
-<p>The version in Methods should match the version in the reference. Cite the specific release DOI when available, rather than a DOI for a different version. If the version is not known, use the all-versions DOI. Check the title, author list, version, and DOI against the software’s archive record before submitting your manuscript.</p>
+<p>The version in Methods must match the version in the reference. Use the DOI for that specific release when one is available. If you do not know the version, first try to find it in your run logs or other analysis records. If you cannot, use the all-versions DOI and state that the version is unknown. Before submitting, check the title, author list, version, and DOI against the software’s archive record.</p>
 <section id="example" class="level3">
 <h3 class="anchored" data-anchor-id="example">Example</h3>
-<p>For example, in the methods section:</p>
+<p>For example, in the Methods section:</p>
 <blockquote class="blockquote">
-<p>Bulk RNA-seq data were processed with RENEE v2.7.7 (1), and differential expression analysis was performed with MOSuite v0.5.0 (2) using limma-voom (3, 4). Analysis code is available in a GitHub repository archived in Zenodo (5).</p>
+<p>Bulk RNA-seq data were processed with RENEE v2.7.7 (1), and differential expression analysis was performed with MOSuite v0.5.0 (2) using limma and voom (3, 4). The analysis code is available in a GitHub repository archived in Zenodo (5).</p>
 </blockquote>
 <p>The corresponding references might look like this:</p>
 <ol type="1">
@@ -882,7 +881,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Add the appropriate reference for voom.</li>
 <li>Nathan, W. (2026). <em>CCBR/hTLX3_mutIL7R_leukemia_Rodrigues 1.0.0</em> (Version v1.0.0) [Computer software]. Zenodo. <a href="https://doi.org/10.5281/zenodo.24093943" class="uri">https://doi.org/10.5281/zenodo.24093943</a></li>
 </ol>
-<p>While the references in this example are numbered 1-5, in a real manuscript these will likely not be the first 5 references of the manuscript. We recommend using a <a href="#reference-management-software">reference manager</a> rather than numbering and formatting references by hand.</p>
+<p>These example references are numbered 1-5, but in a real manuscript they will usually have different numbers. We recommend using a <a href="#reference-management-software">reference manager</a> instead of numbering and formatting references by hand.</p>
 </section>
 </section>
 <section id="find-the-software-citation" class="level2">
@@ -892,47 +891,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="zenodo-record">Zenodo record</h3>
 <p>Follow the DOI badge from the GitHub repository to its Zenodo record.</p>
 <p><img src="../../img/repo-badge.png" class="img-fluid"></p>
-<p>At the bottom of the record, select <strong>Export</strong> and choose BibTeX or another format supported by your citation manager. The <a href="../../docs/software-citation/zenodo.html">Zenodo guide</a> explains how CCBR repositories are archived there.</p>
+<p>At the bottom of the record, select <strong>Export</strong> and choose BibTeX or another format supported by your reference manager. The <a href="../../docs/software-citation/zenodo.html">Zenodo guide</a> explains how CCBR repositories are archived there.</p>
 <p><img src="../../img/zenodo-record-citation.png" class="img-fluid"></p>
-<p>Include the DOI in the reference as a link, for example <code>https://doi.org/10.5281/zenodo.21074664</code>, or as <code>doi:10.5281/zenodo.21074664</code>. Prefer the DOI for the exact release you used; a general project page or GitHub URL is not a substitute when a release DOI is available.</p>
+<p>Include the DOI in the reference as a link, such as <code>https://doi.org/10.5281/zenodo.21074664</code>, or in the format <code>doi:10.5281/zenodo.21074664</code>. Use the DOI for the exact release you used; a project page or GitHub URL is not a substitute when a release DOI is available.</p>
 </section>
 <section id="github-citation-button" class="level3">
 <h3 class="anchored" data-anchor-id="github-citation-button">GitHub citation button</h3>
-<p>On the software’s GitHub repository, select <strong>Cite this repository</strong> (in the About panel) to view citation formats. This is available when the repository has a <code>CITATION.cff</code> file. Check whether the citation points to the exact release or only to the project in general.</p>
+<p>On the software’s GitHub repository, select <strong>Cite this repository</strong> in the About panel to view citation formats. This option is available when the repository has a <code>CITATION.cff</code> file. Check whether the citation points to the exact release or to the project in general.</p>
 <p><img src="../../img/github-cite-button.png" class="img-fluid"></p>
 </section>
 <section id="command-line-citation-option" class="level3">
 <h3 class="anchored" data-anchor-id="command-line-citation-option">Command-line citation option</h3>
-<p>Some CCBR pipelines and tools provide a <code>--citation</code> option or a <code>cite</code> command. Run it as documented by the software; for example:</p>
+<p>Some CCBR pipelines and tools provide a <code>--citation</code> option or a <code>cite</code> command. Run it as documented by the software. For example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">champagne</span> <span class="at">--citation</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre><code>@misc{YourReferenceHere,
-author = {Sovacool, Kelly and Koparde, Vishal},
-doi = {10.5281/zenodo.10516078},
-month = {10},
-title = {CHAMPAGNE: CHromAtin iMmuno PrecipitAtion sequencinG aNalysis pipEline},
-url = {https://ccbr.github.io/CHAMPAGNE/},
-year = {2026}
-}</code></pre>
-<p>The command exports BibTeX, so save the output to a <code>.bib</code> file and import it into your <a href="#reference-management-software">reference manager</a>. Check that the exported version matches the version you used and that the DOI is present.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">YourReferenceHere</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">author</span> = {Sovacool, Kelly and Koparde, Vishal},</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">doi</span> = {10.5281/zenodo.10516078},</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">month</span> = {10},</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">title</span> = {CHAMPAGNE: CHromAtin iMmuno PrecipitAtion sequencinG aNalysis pipEline},</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">url</span> = {https://ccbr.github.io/CHAMPAGNE/},</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dt">year</span> = {2026}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The command exports BibTeX. Save the output to a <code>.bib</code> file and import it into your <a href="#reference-management-software">reference manager</a>. This example does not include a version, so check the archive record and report the exact version you used in Methods. Also check whether the DOI identifies that specific release or all versions.</p>
 </section>
 </section>
 <section id="cite-an-analysis-repository" class="level2">
 <h2 class="anchored" data-anchor-id="cite-an-analysis-repository">Cite an analysis repository</h2>
-<p>If you wrote analysis code for the manuscript, upload the code to its own GitHub repository and cite it as a separate software reference. See <a href="#example">reference 5 above</a> for an example.</p>
-<p>If the analysis repository does not yet have a DOI or you are unsure how to cite it, <a href="#getting-help">contact Kelly</a> before submitting the manuscript.</p>
+<p>If you wrote analysis code for the manuscript, publish it in a separate GitHub repository and cite it as a separate software reference. See <a href="#example">reference 5 above</a> for an example.</p>
+<p>If the analysis repository does not yet have a DOI, or you are unsure how to cite it, <a href="#getting-help">contact Kelly</a> before submitting the manuscript.</p>
 </section>
 <section id="reference-management-software" class="level2">
 <h2 class="anchored" data-anchor-id="reference-management-software">Reference management software</h2>
-<p>We recommend using reference management software such as <a href="https://www.zotero.org/">Zotero</a> to organize the manuscripts you cite and format the references in the manuscript. Zotero is open source and has excellent tools to integrate with your Word processor of choice or export bibliographies for use with LaTeX and Quarto. See the Zotero documentation for details: <a href="https://www.zotero.org/support/" class="uri">https://www.zotero.org/support/</a></p>
-<p>If you are not the first author, chances are someone else is responsible for preparing the references and formatting the manuscript. Make sure they have the correct citation information for all of the CCBR software used for the manuscript. <strong>Do not approve the manuscript for submission until the software citations are included correctly with DOIs</strong> as outlined above in <a href="#how-to-write-the-manuscript">How to write the manuscript</a>.</p>
+<p>Use reference management software, such as <a href="https://www.zotero.org/">Zotero</a>, to organize your references and format your bibliography. Zotero is open source, works with MS Word, and exports bibliographies for LaTeX and Quarto. See the <a href="https://www.zotero.org/support/">Zotero documentation</a> for more information.</p>
+<p>If you are not the first author, changes are someone else is responsible for preparing the references and formatting the manuscript. Send them the verified citation information for all CCBR software used. Before submission, check that each software citation includes the correct version and DOI, as described in <a href="#how-to-write-the-manuscript">How to write the manuscript</a>. Do not approve a manuscript for submission until the software citations are included correctly with DOIs.</p>
 </section>
 <section id="getting-help" class="level2">
 <h2 class="anchored" data-anchor-id="getting-help">Getting help</h2>
-<p>Contact Kelly (<a href="mailto:kelly.sovacool@nih.gov">kelly.sovacool@nih.gov</a>) if you have any questions or run into any problems!</p>
+<p>Contact Kelly (<a href="mailto:kelly.sovacool@nih.gov">kelly.sovacool@nih.gov</a>) with questions or if you run into problems.</p>
 </section>
 <section id="learning-more" class="level2">
 <h2 class="anchored" data-anchor-id="learning-more">Learning more</h2>
-<p>If you’re interested in learning more about the importance of software citation, read the <a href="https://force11.org/info/software-citation-principles-published-2016/">FORCE11 Software Citation Principles</a>.</p>
+<p>For more information on why software citation matters, read the <a href="https://force11.org/info/software-citation-principles-published-2016/">FORCE11 Software Citation Principles</a>.</p>
 
 
 </section>
