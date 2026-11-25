@@ -1,4 +1,6 @@
 ---
+categories: [Basics]
+description: Provides information for using GitHub Actions under your repository; provided with all template repos
 author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
 date: 2023-04-27
 ---

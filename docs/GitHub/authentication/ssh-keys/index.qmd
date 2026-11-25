@@ -1,5 +1,6 @@
 ---
 title: "Connect to GitHub with SSH keys"
+description: "**Recommended** for running git commands from the terminal"
 author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
 date: 2026-02-09
 execute:

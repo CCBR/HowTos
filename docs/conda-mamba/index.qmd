@@ -1,0 +1,8 @@
+---
+title: "Conda & Mamba"
+description: "Use conda and mamba environments"
+listing:
+  contents:
+  - ./**/*.qmd
+  - ./**/*.md
+---

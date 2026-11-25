@@ -1,4 +1,6 @@
 ---
+categories: [Getting set-up and familiar with GitHub]
+description: Describes basic git commands to be used with this SOP
 author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
 date: 2023-04-27
 ---

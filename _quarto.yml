@@ -18,7 +18,7 @@ website:
     title: CCBR How-Tos
     left:
       - text: Home
-        href: index.md
+        href: index.qmd
       - href: contributors.qmd
     right:
       - icon: github
@@ -38,3 +38,4 @@ format:
     code-fold: true
     toc: true
     toc-title: "Table of Contents"
+    css: listing-links.css

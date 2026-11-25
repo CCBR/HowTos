@@ -1,2 +1,12 @@
-View the [CCBR Dockers site](https://ccbr.github.io/Dockers2) for a list of
-available container images maintained by CCBR.
+---
+title: "Containers"
+listing:
+  contents:
+  - ./*.qmd
+  - ./*.md
+  - ./*/index.qmd
+  - ./*/index.md
+  - path: https://ccbr.github.io/Dockers2
+    title: "CCBR/Dockers2 repository"
+    description: "Container images maintained by CCBR"
+---

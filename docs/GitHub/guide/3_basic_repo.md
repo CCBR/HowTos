@@ -1,4 +1,6 @@
 ---
+categories: [Basics]
+description: Provides information on how to setup a GitHub repository under CCBR and the use of templates
 author: "[Samantha Sevilla](https://github.com/slsevilla) & [Vishal Koparde](https://github.com/kopardev)"
 date: 2023-04-27
 ---

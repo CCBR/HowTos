@@ -1,0 +1,9 @@
+---
+title: "Shiny"
+description: "Develop and publish Shiny apps on NCI's Posit Connect servers"
+listing:
+  contents:
+  - ./**/*.qmd
+  - ./**/*.md
+  sort: filename
+---

@@ -1,0 +1,9 @@
+---
+title: "UCSC Genome Browser"
+description: "Visualize genomic data with the UCSC Genome Browser hosted on Biowulf"
+listing:
+  contents:
+  - ./**/*.qmd
+  - ./**/*.md
+  sort: filename
+---

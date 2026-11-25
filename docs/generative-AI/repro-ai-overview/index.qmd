@@ -1,5 +1,8 @@
 ---
 title: "Reproducible AI Practices for Bioinformatics"
+categories: [Presentation]
+image: ./img/science-process-ai-agent.jpg
+image-alt: "Research workflow from data to paper, highlighting the code stage"
 author:
   - name: "Kelly Sovacool, PhD"
     affiliation:

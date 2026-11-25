@@ -1,5 +1,6 @@
 ---
 title: "Use Headroom with VS Code on Biowulf"
+categories: [Tutorial]
 author: "Vishal Koparde and Kelly Sovacool"
 ---
 

@@ -22,11 +22,11 @@ You can create an account with your `@nih.gov` email.
 Certain aspects of Google Cloud cost money, but the free tier offers more than
 enough usage for building containers with the Google Cloud Shell.
 
-![After logging into Google Cloud Console, click the "Active Cloud Shell" button near the top right corner.](img/cloud-console.png)
+![After logging into Google Cloud Console, click the "Active Cloud Shell" button near the top right corner.](dev-containers/img/cloud-console.png)
 
-![Cloud Shell has a Terminal to run commands.](img/cloud-shell-terminal.png)
+![Cloud Shell has a Terminal to run commands.](dev-containers/img/cloud-shell-terminal.png)
 
-![Cloud Shell has an editor that's a lot like VS Code.](img/cloud-shell-editor.png)
+![Cloud Shell has an editor that's a lot like VS Code.](dev-containers/img/cloud-shell-editor.png)
 
 ## Create a Dockerfile
 
@@ -43,17 +43,17 @@ RUN echo 'hello world' > /data2/file.txt
 
 If you already have a Dockerfile written, you can upload it to Cloud Shell.
 
-![In the file explorer tab, right-click and select "Upload".](img/editor-upload.png)
+![In the file explorer tab, right-click and select "Upload".](dev-containers/img/editor-upload.png)
 
 ### Write
 
 Create a new text file:
 
-![Click `File` > `New Text File` and write the contents of your Dockerfile.](img/file-new.png)
+![Click `File` > `New Text File` and write the contents of your Dockerfile.](dev-containers/img/file-new.png)
 
 Save it with the name "Dockerfile".
 
-![](img/dockerfile.png)
+![](dev-containers/img/dockerfile.png)
 
 ## Build the container
 
@@ -66,7 +66,7 @@ docker build -t minimal:v1 -f ./Dockerfile .
 
 Run `docker build --help` for more options.
 
-![The build completed successfully.](img/docker-build.png)
+![The build completed successfully.](dev-containers/img/docker-build.png)
 
 ## Test the container image
 
@@ -85,7 +85,7 @@ which python
 python --version
 ```
 
-![This container should have python installed and should have the "hello world" file.](img/docker-run-bash.png)
+![This container should have python installed and should have the "hello world" file.](dev-containers/img/docker-run-bash.png)
 
 Close the container with the keyboard shortcut {{< kbd Control-D >}} or type `exit` and press enter.
 
@@ -104,7 +104,7 @@ such as dockerhub so you can pull it for use on other platforms.
 docker login
 ```
 
-![Open your web browser and type in the confirmation code. This step goes very smoothly if you're already logged in to dockerhub in your web browser.](img/docker-login.png)
+![Open your web browser and type in the confirmation code. This step goes very smoothly if you're already logged in to dockerhub in your web browser.](dev-containers/img/docker-login.png)
 
 If it worked, you'll see "Login Succeeded" in the Terminal.
 
@@ -125,11 +125,11 @@ Push the container image to dockerhub:
 docker push NAMESPACE/minimal:v1
 ```
 
-![In these examples, the namespace is `kellysovacool` (my username)](img/docker-tag-push.png)
+![In these examples, the namespace is `kellysovacool` (my username)](dev-containers/img/docker-tag-push.png)
 
-![If the push succeeded, you'll see it in your list of repositories on dockerhub](img/dockerhub-repos.png)
+![If the push succeeded, you'll see it in your list of repositories on dockerhub](dev-containers/img/dockerhub-repos.png)
 
-![On the repository page, you can see the list of tags that have been pushed and optionally add a description, category, overview, etc.](img/dockerhub-minimal.png)
+![On the repository page, you can see the list of tags that have been pushed and optionally add a description, category, overview, etc.](dev-containers/img/dockerhub-minimal.png)
 
 ## Pull any public container
 
@@ -138,9 +138,9 @@ You can pull any public container from dockerhub (including the one you just pus
 Here is the base image that we use for building most other CCBR containers.
 You can see details about it on dockerhub:
 
-[![<https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general>](img/dockerhub-ubuntu-base.png)](https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general)
+[![<https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general>](dev-containers/img/dockerhub-ubuntu-base.png)](https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general)
 
-[![CCBR base image overview with list of installed tools](img/dockerhub-ubuntu-base-overview.png)](https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general)
+[![CCBR base image overview with list of installed tools](dev-containers/img/dockerhub-ubuntu-base-overview.png)](https://hub.docker.com/repository/docker/nciccbr/ccbr_ubuntu_22.04/general)
 
 Here's an example of pulling this container from the CCBR dockerhub account:
 
@@ -151,7 +151,7 @@ docker pull nciccbr/ccbr_ubuntu_22.04:v4
 The namespace is `nciccbr`, the container name is `ccbr_ubuntu_22.04`, and
 the version tag is `v4`.
 
-![](img/docker-pull.png)
+![](dev-containers/img/docker-pull.png)
 
 Run the container interactively:
 

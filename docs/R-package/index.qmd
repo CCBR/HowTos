@@ -1,0 +1,10 @@
+---
+title: "R Packages"
+description: "Guides for developing and distributing R packages"
+listing:
+  contents:
+  - ./*.qmd
+  - ./*.md
+  - ./*/index.qmd
+  - ./*/index.md
+---

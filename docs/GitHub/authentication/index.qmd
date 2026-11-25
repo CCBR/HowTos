@@ -1,9 +1,14 @@
 ---
 title: Authentication with GitHub
+description: "Ways to authenticate with GitHub"
 date: 2026-02-09
+listing:
+  contents:
+  - ./*.qmd
+  - ./*.md
+  - ./*/index.qmd
+  - ./*/index.md
+  - path: https://ccbr.github.io/actions/gh-app-auth.html
+    title: "GitHub Apps"
+    description: "For GitHub Actions and other automation platforms"
 ---
-
-- [SSH Keys](./ssh-keys/) - **recommend** for running git commands from the terminal
-- [GitHub Apps](https://ccbr.github.io/actions/gh-app-auth.html) - for GitHub Actions and other automation platforms
-- [Fine-grained tokens](./tokens/fine-grained.qmd) - needed for **Code Ocean** and other platforms requiring a token
-- [Classic tokens](./tokens/classic.qmd) - no longer in use as of March 1st, 2026

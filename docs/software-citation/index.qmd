@@ -2,6 +2,7 @@
 title: "Software Citation"
 description: "All about citing software in publications"
 listing:
-  contents: 
-  - ./*.qmd
+  contents:
+  - ./**/*.qmd
+  - ./**/*.md
 ---
