@@ -1,0 +1,8 @@
+.quarto-listing .listing-title a[href^="http://"]::after,
+.quarto-listing .listing-title a[href^="https://"]:not([href^="https://ccbr.github.io/HowTos"])::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.25em;
+  font-size: 0.8em;
+  vertical-align: super;
+}

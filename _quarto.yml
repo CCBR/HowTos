@@ -38,3 +38,4 @@ format:
     code-fold: true
     toc: true
     toc-title: "Table of Contents"
+    css: listing-links.css

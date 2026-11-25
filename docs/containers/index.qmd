@@ -7,6 +7,6 @@ listing:
   - ./*/index.qmd
   - ./*/index.md
   - path: https://ccbr.github.io/Dockers2
-    title: "CCBR container images"
-    description: "Available container images maintained by CCBR"
+    title: "CCBR/Dockers2 repository"
+    description: "Container images maintained by CCBR"
 ---
