@@ -1,9 +1,123 @@
 [
   {
+    "listing": "/docs/code-club/index.html",
+    "items": [
+      "/docs/code-club/2025-08-26_establishing-code-club/slides.html",
+      "/docs/code-club/2025-02-11_journal-club/slides.html"
+    ]
+  },
+  {
+    "listing": "/docs/containers/index.html",
+    "items": [
+      "/docs/containers/build-docker-google-cloud.html",
+      "/docs/containers/singularity-biowulf.html",
+      "/docs/containers/dev-containers/index.html"
+    ]
+  },
+  {
+    "listing": "/docs/maintenance/index.html",
+    "items": [
+      "/docs/maintenance/release.html"
+    ]
+  },
+  {
+    "listing": "/docs/R-package/create-from-conda/index.html",
+    "items": [
+      "/docs/R-package/create-from-conda/0_setup.html",
+      "/docs/R-package/create-from-conda/1_build_pkg.html",
+      "/docs/R-package/create-from-conda/common_issues.html"
+    ]
+  },
+  {
+    "listing": "/docs/GitHub/guide/index.html",
+    "items": [
+      "/docs/GitHub/guide/1_howto_setup.html",
+      "/docs/GitHub/guide/2_howto_commands.html",
+      "/docs/GitHub/guide/3_basic_repo.html",
+      "/docs/GitHub/guide/4_basic_docs.html",
+      "/docs/GitHub/guide/5_basic_actions.html",
+      "/docs/GitHub/guide/6_howto_precommit.html",
+      "/docs/GitHub/guide/7_sop_projpipes.html",
+      "/docs/GitHub/guide/8_sop_techdev.html"
+    ]
+  },
+  {
+    "listing": "/docs/GitHub/index.html",
+    "items": [
+      "/docs/GitHub/authentication/index.html",
+      "/docs/GitHub/github-actions-demo.html",
+      "/docs/GitHub/guide/index.html"
+    ]
+  },
+  {
+    "listing": "/docs/GitHub/authentication/tokens/index.html",
+    "items": [
+      "/docs/GitHub/authentication/tokens/classic.html",
+      "/docs/GitHub/authentication/tokens/fine-grained.html"
+    ]
+  },
+  {
+    "listing": "/docs/GitHub/authentication/index.html",
+    "items": [
+      "/docs/GitHub/authentication/ssh-keys/index.html",
+      "/docs/GitHub/authentication/tokens/index.html"
+    ]
+  },
+  {
     "listing": "/docs/software-citation/index.html",
     "items": [
       "/docs/software-citation/citing-ccbr-software.html",
       "/docs/software-citation/zenodo.html"
+    ]
+  },
+  {
+    "listing": "/docs/R-package/index.html",
+    "items": [
+      "/docs/R-package/create-from-conda/index.html"
+    ]
+  },
+  {
+    "listing": "/docs/shiny/index.html",
+    "items": [
+      "/docs/shiny/0_Introduction.html",
+      "/docs/shiny/1_Development.html",
+      "/docs/shiny/2_Publishing_Dev.html",
+      "/docs/shiny/3_Publishing_Prod.html"
+    ]
+  },
+  {
+    "listing": "/docs/HPCDME/index.html",
+    "items": [
+      "/docs/HPCDME/setup.html",
+      "/docs/HPCDME/transfer.html",
+      "/docs/HPCDME/transferFromHelix.html"
+    ]
+  },
+  {
+    "listing": "/docs/UCSC/index.html",
+    "items": [
+      "/docs/UCSC/0_overview.html",
+      "/docs/UCSC/1_creating_inputs.html",
+      "/docs/UCSC/2_creating_track_info.html",
+      "/docs/UCSC/3_creating_tracks.html"
+    ]
+  },
+  {
+    "listing": "/docs/conda-mamba/index.html",
+    "items": [
+      "/docs/conda-mamba/conda-to-mamba.html",
+      "/docs/conda-mamba/ccbr-mamba-biowulf.html"
+    ]
+  },
+  {
+    "listing": "/docs/generative-AI/index.html",
+    "items": [
+      "/docs/generative-AI/copilot-cli.html",
+      "/docs/generative-AI/gh-pilot-vs-code/index.html",
+      "/docs/generative-AI/repro-ai-overview/index.html",
+      "/docs/generative-AI/responsible-ai/index.html",
+      "/docs/generative-AI/superpowers/index.html",
+      "/docs/generative-AI/headroom/index.html"
     ]
   }
 ]

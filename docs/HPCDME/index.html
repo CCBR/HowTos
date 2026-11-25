@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Set up HPC DME and transfer files to it">
 
-<title>outline – CCBR How-Tos</title>
+<title>HPC DME – CCBR How-Tos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,30 +30,32 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../docs/code-club/index.html" rel="next">
-<link href="../../../docs/generative-AI/responsible-ai/index.html" rel="prev">
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-57848762e20a3451db10beb870f05df8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0f2d48003d4795890a244ce7500b71cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-57848762e20a3451db10beb870f05df8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-07cf0867457457b8b4cf44cd640cae2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-c55c4147cc2347befe679353e36354cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-07cf0867457457b8b4cf44cd640cae2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../docs/HPCDME/setup.html" rel="next">
+<link href="../../docs/shiny/3_Publishing_Prod.html" rel="prev">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-57848762e20a3451db10beb870f05df8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0f2d48003d4795890a244ce7500b71cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-57848762e20a3451db10beb870f05df8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-07cf0867457457b8b4cf44cd640cae2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c55c4147cc2347befe679353e36354cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-07cf0867457457b8b4cf44cd640cae2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,8 +82,61 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../listing-links.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
@@ -260,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">CCBR How-Tos</span>
     </a>
   </div>
@@ -270,11 +326,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.md"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../contributors.html"> 
+    <a class="nav-link" href="../../contributors.html"> 
 <span class="menu-text">Contributors</span></a>
   </li>  
 </ul>
@@ -297,7 +353,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/generative-AI/index.html">Generative AI tools</a></li><li class="breadcrumb-item"><a href="../../../docs/generative-AI/responsible-ai/index.html">Responsible AI Use, Validation, and Reproducibility in Bioinformatics</a></li><li class="breadcrumb-item"><a href="../../../docs/generative-AI/responsible-ai/outline.html">Description</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/HPCDME/index.html">HPC DME</a></li></ol></nav>
         <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -311,111 +367,91 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/datashare.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/datashare.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Datashare</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/lucidcharts.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/lucidcharts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">LucidChart</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/snakemake.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/snakemake.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Snakemake</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-1-label">Conda Mamba</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+            <a href="../../docs/GitHub/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">GitHub</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section: GitHub">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
       <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/conda-mamba/ccbr-mamba-biowulf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using the shared CCBR mamba installation on Biowulf</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/conda-mamba/conda-to-mamba.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Move from Conda to Mamba</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-2-label">GitHub</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
-      </div>
-      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/github-actions-demo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/github-actions-demo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Actions demo</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-3-label">Guide</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+            <a href="../../docs/GitHub/guide/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">GitHub Tutorial</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section: GitHub Tutorial">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/guide/0_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview of GitHub Topics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/guide/1_howto_setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/1_howto_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Setup: Preparing the Environment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/guide/2_howto_commands.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/2_howto_commands.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub HowTo: Basic Commands</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/guide/3_basic_repo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/3_basic_repo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Basics: Repository</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/guide/4_basic_docs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/4_basic_docs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Basics: Documentation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/guide/5_basic_actions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/5_basic_actions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Basics: GitHub Actions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/guide/6_howto_precommit.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/6_howto_precommit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub HowTo: Pre-Commit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/guide/7_sop_projpipes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/7_sop_projpipes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Best Practices: Projects and Pipelines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/guide/8_sop_techdev.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/guide/8_sop_techdev.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Best Practices: TechDev projects</span></a>
   </div>
 </li>
@@ -423,34 +459,37 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../docs/GitHub/authentication/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text" id="quarto-sidebar-section-4-label">Authentication with GitHub</span></a>
-            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section: Authentication with GitHub">
+            <a href="../../docs/GitHub/authentication/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Authentication with GitHub</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section: Authentication with GitHub">
               <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
             </button> 
       </div>
-      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/authentication/ssh-keys/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/authentication/ssh-keys/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Connect to GitHub with SSH keys</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-5-label">Tokens</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+            <a href="../../docs/GitHub/authentication/tokens/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Personal Access Tokens</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section: Personal Access Tokens">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/authentication/tokens/classic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/authentication/tokens/classic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Classic Personal Access Tokens</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/GitHub/authentication/tokens/fine-grained.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/GitHub/authentication/tokens/fine-grained.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Fine-Grained Personal Access Tokens</span></a>
   </div>
 </li>
@@ -462,48 +501,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-6-label">HPCDME</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
-      </div>
-      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/HPCDME/setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HPCDME Setup</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/HPCDME/transfer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">File Transfers from Biowulf</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/HPCDME/transferFromHelix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">File Transfer from HELIX</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../../docs/software-citation/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text" id="quarto-sidebar-section-7-label">Software Citation</span></a>
-            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section: Software Citation">
+            <a href="../../docs/software-citation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Software Citation</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section: Software Citation">
               <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
             </button> 
       </div>
-      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/software-citation/citing-ccbr-software.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/software-citation/citing-ccbr-software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Cite CCBR Software in Scientific Publications</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/software-citation/zenodo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/software-citation/zenodo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Zenodo</span></a>
   </div>
 </li>
@@ -511,182 +524,37 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../docs/containers/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text" id="quarto-sidebar-section-8-label">index.html</span></a>
-            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-controls="quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section: index.html">
+            <a href="../../docs/R-package/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">R Packages</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section: R Packages">
               <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
             </button> 
       </div>
-      <ul id="quarto-sidebar-section-8" aria-labelledby="quarto-sidebar-section-8-label" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/containers/build-docker-google-cloud.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Build docker containers interactively with Google Cloud Shell</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/containers/singularity-biowulf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to use containers with singularity on biowulf</span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../docs/containers/dev-containers/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text" id="quarto-sidebar-section-9-label">Using containers as development environments</span></a>
-            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-controls="quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section: Using containers as development environments">
+            <a href="../../docs/R-package/create-from-conda/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Creating a Conda Package from an R Package</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section: Creating a Conda Package from an R Package">
               <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
             </button> 
       </div>
-      <ul id="quarto-sidebar-section-9" aria-labelledby="quarto-sidebar-section-9-label" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/containers/dev-containers/slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using containers as development environments</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../../docs/generative-AI/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text" id="quarto-sidebar-section-10-label">Generative AI tools</span></a>
-            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-controls="quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section: Generative AI tools">
-              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
-            </button> 
-      </div>
-      <ul id="quarto-sidebar-section-10" aria-labelledby="quarto-sidebar-section-10-label" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/generative-AI/copilot-cli.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitHub Copilot CLI</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/generative-AI/repro-ai-overview/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reproducible AI Practices for Bioinformatics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/generative-AI/superpowers/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Set up CCBR Superpowers skills</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/generative-AI/gh-pilot-vs-code/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitHub Copilot in VS Code</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/generative-AI/headroom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Use Headroom with VS Code on Biowulf</span></a>
-  </div>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../../docs/generative-AI/responsible-ai/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text" id="quarto-sidebar-section-11-label">Responsible AI Use, Validation, and Reproducibility in Bioinformatics</span></a>
-            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-controls="quarto-sidebar-section-11" aria-expanded="true" aria-label="Toggle section: Responsible AI Use, Validation, and Reproducibility in Bioinformatics">
-              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
-            </button> 
-      </div>
-      <ul id="quarto-sidebar-section-11" aria-labelledby="quarto-sidebar-section-11-label" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/generative-AI/responsible-ai/outline.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Description</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../../docs/code-club/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text" id="quarto-sidebar-section-12-label">Code Club</span></a>
-            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-controls="quarto-sidebar-section-12" aria-expanded="false" aria-label="Toggle section: Code Club">
-              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
-            </button> 
-      </div>
-      <ul id="quarto-sidebar-section-12" aria-labelledby="quarto-sidebar-section-12-label" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-controls="quarto-sidebar-section-13" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-13-label">2025 02 11 Journal Club</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
-      </div>
-      <ul id="quarto-sidebar-section-13" aria-labelledby="quarto-sidebar-section-13-label" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/code-club/2025-02-11_journal-club/slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Improving bioinformatics software quality through teamwork</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-controls="quarto-sidebar-section-14" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-14-label">2025 08 26 Establishing Code Club</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
-      </div>
-      <ul id="quarto-sidebar-section-14" aria-labelledby="quarto-sidebar-section-14-label" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/code-club/2025-08-26_establishing-code-club/slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Establishing a Community of Practice</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-controls="quarto-sidebar-section-15" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-15-label">Maintenance</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
-      </div>
-      <ul id="quarto-sidebar-section-15" aria-labelledby="quarto-sidebar-section-15-label" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/maintenance/release.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to Release New Versions</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" aria-controls="quarto-sidebar-section-16" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-16-label">R Package</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
-      </div>
-      <ul id="quarto-sidebar-section-16" aria-labelledby="quarto-sidebar-section-16-label" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-controls="quarto-sidebar-section-17" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-17-label">Create from Conda</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
-      </div>
-      <ul id="quarto-sidebar-section-17" aria-labelledby="quarto-sidebar-section-17-label" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/R-package/create-from-conda/0_setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R-package/create-from-conda/0_setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/R-package/create-from-conda/1_build_pkg.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R-package/create-from-conda/1_build_pkg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Creating the package</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/R-package/create-from-conda/common_issues.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/R-package/create-from-conda/common_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">common issues</span></a>
   </div>
 </li>
@@ -696,31 +564,34 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-controls="quarto-sidebar-section-18" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-18-label">Shiny</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+            <a href="../../docs/shiny/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-8-label">Shiny</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-controls="quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section: Shiny">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-18" aria-labelledby="quarto-sidebar-section-18-label" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" aria-labelledby="quarto-sidebar-section-8-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/shiny/0_Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/shiny/0_Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Publishing Shiny Apps on NCI’s POSIT Connect Servers</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/shiny/1_Development.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/shiny/1_Development.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Developing Shiny Apps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/shiny/2_Publishing_Dev.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/shiny/2_Publishing_Dev.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Publishing Shiny Apps to the Development Server</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/shiny/3_Publishing_Prod.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/shiny/3_Publishing_Prod.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Publishing Shiny Apps to the Production Servers</span></a>
   </div>
 </li>
@@ -728,34 +599,232 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-controls="quarto-sidebar-section-19" aria-expanded="false">
- <span class="menu-text" id="quarto-sidebar-section-19-label">UCSC</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+            <a href="../../docs/HPCDME/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text" id="quarto-sidebar-section-9-label">HPC DME</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-controls="quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section: HPC DME">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-19" aria-labelledby="quarto-sidebar-section-19-label" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-9" aria-labelledby="quarto-sidebar-section-9-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/UCSC/0_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/HPCDME/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HPCDME Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/HPCDME/transfer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File Transfers from Biowulf</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/HPCDME/transferFromHelix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File Transfer from HELIX</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/UCSC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-10-label">UCSC Genome Browser</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-controls="quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section: UCSC Genome Browser">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-10" aria-labelledby="quarto-sidebar-section-10-label" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/UCSC/0_overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/UCSC/1_creating_inputs.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/UCSC/1_creating_inputs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Generating Inputs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/UCSC/2_creating_track_info.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/UCSC/2_creating_track_info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Generating Track information</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/UCSC/3_creating_tracks.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/UCSC/3_creating_tracks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Generating New Tracks</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/conda-mamba/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-11-label">Conda &amp; Mamba</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-controls="quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section: Conda &amp; Mamba">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-11" aria-labelledby="quarto-sidebar-section-11-label" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/conda-mamba/ccbr-mamba-biowulf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using the shared CCBR mamba installation on Biowulf</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/conda-mamba/conda-to-mamba.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Move from Conda to Mamba</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/maintenance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-12-label">Maintenance</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-controls="quarto-sidebar-section-12" aria-expanded="false" aria-label="Toggle section: Maintenance">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-12" aria-labelledby="quarto-sidebar-section-12-label" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/maintenance/release.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Release New Versions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/containers/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-13-label">Containers</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-controls="quarto-sidebar-section-13" aria-expanded="false" aria-label="Toggle section: Containers">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-13" aria-labelledby="quarto-sidebar-section-13-label" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/containers/build-docker-google-cloud.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Build docker containers interactively with Google Cloud Shell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/containers/singularity-biowulf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to use containers with singularity on biowulf</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/containers/dev-containers/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-14-label">Using containers as development environments</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-controls="quarto-sidebar-section-14" aria-expanded="false" aria-label="Toggle section: Using containers as development environments">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-14" aria-labelledby="quarto-sidebar-section-14-label" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/containers/dev-containers/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using containers as development environments</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/generative-AI/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-15-label">Generative AI tools</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-controls="quarto-sidebar-section-15" aria-expanded="false" aria-label="Toggle section: Generative AI tools">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-15" aria-labelledby="quarto-sidebar-section-15-label" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/generative-AI/copilot-cli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Copilot CLI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/generative-AI/repro-ai-overview/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducible AI Practices for Bioinformatics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/generative-AI/responsible-ai/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Responsible AI Use, Validation, and Reproducibility in Bioinformatics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/generative-AI/superpowers/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set up CCBR Superpowers skills</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/generative-AI/gh-pilot-vs-code/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub Copilot in VS Code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/generative-AI/headroom/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Use Headroom with VS Code on Biowulf</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/code-club/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-16-label">Code Club</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" aria-controls="quarto-sidebar-section-16" aria-expanded="false" aria-label="Toggle section: Code Club">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-16" aria-labelledby="quarto-sidebar-section-16-label" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-controls="quarto-sidebar-section-17" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-17-label">2025 02 11 Journal Club</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-17" aria-labelledby="quarto-sidebar-section-17-label" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/code-club/2025-02-11_journal-club/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Improving bioinformatics software quality through teamwork</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-controls="quarto-sidebar-section-18" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-18-label">2025 08 26 Establishing Code Club</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-18" aria-labelledby="quarto-sidebar-section-18-label" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/code-club/2025-08-26_establishing-code-club/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Establishing a Community of Practice</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -763,156 +832,118 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
-    <h2 id="toc-title">Table of Contents</h2>
-   
-  <ul>
-  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description">Description</a></li>
-  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
-  <li><a href="#brainstorm" id="toc-brainstorm" class="nav-link" data-scroll-target="#brainstorm">Brainstorm</a></li>
-  <li><a href="#practical-tips-for-responsible-ai-use-in-bioinformatics" id="toc-practical-tips-for-responsible-ai-use-in-bioinformatics" class="nav-link" data-scroll-target="#practical-tips-for-responsible-ai-use-in-bioinformatics">Practical tips for responsible AI use in bioinformatics</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/generative-AI/responsible-ai/outline.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/generative-AI/responsible-ai/outline.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content" tabindex="-1"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/generative-AI/index.html">Generative AI tools</a></li><li class="breadcrumb-item"><a href="../../../docs/generative-AI/responsible-ai/index.html">Responsible AI Use, Validation, and Reproducibility in Bioinformatics</a></li><li class="breadcrumb-item"><a href="../../../docs/generative-AI/responsible-ai/outline.html">Description</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">HPC DME</h1>
+</div>
+
+<div>
+  <div class="description">
+    Set up HPC DME and transfer files to it
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 
 
 
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p>Title: Responsible AI Use, Validation, and Reproducibility in Bioinformatics</p>
-<p>Generative AI models are powerful tools that can enhance research, but they also pose risks that can be detrimental to our work. This session will focus on responsible use of AI tools for Bioinformatics to help researchers get the most out of them while avoiding common pitfalls. We’ll cover best practices for AI use in a research setting including reproducibility, documentation, and validation for responsible integration of AI into research workflows.</p>
-</section>
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
-<p>Lesson 3: Responsible Use and Validation focusing on bioinformatics</p>
-<ul>
-<li>Ethical Considerations in Using Generative AI
-<ul>
-<li>start with general responsible use guidelines, then focus on bioinformatics and data science.
-<ul>
-<li>https://nih.sharepoint.com/sites/NIH-ai/SitePages/Responsible-AI.aspx</li>
-</ul></li>
-</ul></li>
-<li>Validating AI-Generated Code and Outputs (Human-in-the-Loop).
-<ul>
-<li>Creating tests and validation datasets to ensure accuracy and reliability of AI-generated results.</li>
-<li>Emphasize the importance of human oversight and critical thinking when using AI tools. Foundational understanding of biology, data science, bioinformatics, and the specific research context is essential for effective use of AI tools. BTEP is useful for this.</li>
-</ul></li>
-<li>Best Practices for Integrating AI into Research Workflows
-<ul>
-<li>Version control, reproducibility, and documentation.</li>
-</ul></li>
-<li>Include specific examples relevant to bioinformatics and data science.
-<ul>
-<li>Actionable takeaways for participants to implement in their own workflows.</li>
-</ul></li>
-</ul>
-</section>
-<section id="brainstorm" class="level2">
-<h2 class="anchored" data-anchor-id="brainstorm">Brainstorm</h2>
-<ul>
-<li><p>goals of this talk</p>
-<ul>
-<li>practical advice on how to use genAI well, regardless of which models or tools you’re using.</li>
-</ul></li>
-<li><p>strengths of genAI</p></li>
-<li><p>weaknesses of genAI</p>
-<ul>
-<li>confirmation bias. sycophantic. genAI tells you what you want to hear.</li>
-</ul></li>
-<li><p>risks:</p>
-<ul>
-<li>ai-gen code:
-<ul>
-<li>bugs in code leading to incorrect results</li>
-<li>bad quality code that is hard to maintain, wasting your time</li>
-</ul></li>
-<li>ai-gen prose (documentation, issue/PR comments):
-<ul>
-<li>incorrect details</li>
-<li>overly verbose, wasting readers’ time</li>
-<li>weird phrases/jargon/ai-“isms”, making others distrust your work</li>
-</ul></li>
-<li>deskilling</li>
-</ul></li>
-<li><p>obligations</p>
-<ul>
-<li>understand when it is appropriate and not appropriate to use AI</li>
-<li>literacy, formal and informal training</li>
-<li>disclose what you’re doing, how you’re using AI
-<ul>
-<li>if you rely on AI, write it down in your electronic lab notebook (could be a markdown file in your github repo).</li>
-</ul></li>
-<li>guard against AI risks: from wasting time, to wrong answers, to research misconduct</li>
-</ul></li>
-<li><p>what does meaningful validation look like?</p>
-<ul>
-<li>human-in-the-loop is always mandatory</li>
-<li>zero trust. what outputs are expected? verify the output before committing it.</li>
-</ul></li>
-<li><p>NIH AI responsible use guidelines</p>
-<ul>
-<li>go over main guidelines</li>
-<li>guidelines do not explicitly tell us how to follow them. here are some practical tips!</li>
-</ul></li>
-<li><p>evaluating prompt outputs</p>
-<ul>
-<li>use genAI as a tool to help you learn. if you don’t understand the output, seek to understand it!</li>
-<li>be critical. add to prompt: “provide counter-factuals”. (see Anthropic prompting guidelines/tips)</li>
-</ul></li>
-<li><p>gh copilot modes: ask, plan, agent. use ask + plan modes most often, switch to agent mode when you’re ready for it to edit/write files.</p>
-<ul>
-<li>ask for simple questions</li>
-<li>plan for writing out plan documents. then edit the plan document.</li>
-<li>give plan document to agent mode to execute.</li>
-</ul></li>
-</ul>
-</section>
-<section id="practical-tips-for-responsible-ai-use-in-bioinformatics" class="level2">
-<h2 class="anchored" data-anchor-id="practical-tips-for-responsible-ai-use-in-bioinformatics">Practical tips for responsible AI use in bioinformatics</h2>
-<ul>
-<li>Goals
-<ul>
-<li>Relevant guidance regardless of vendor &amp; model</li>
-<li>Tips that are unlikely to be solved by models incrementally improving</li>
-</ul></li>
-<li>Have a plan for how/when you will use GenAI, and how/when you will <em>not</em> use GenAI.
-<ul>
-<li>GenAI performs well at writing code when the requirements are well defined.</li>
-<li>e.g.&nbsp;many journals do not allow genAI to be used for writing manuscripts.</li>
-</ul></li>
-<li>Be thoughtful about how much content you are generating with AI.
-<ul>
-<li>Can you realistically review all of the output thoroughly?</li>
-<li>Are you shifting more work to your colleagues?</li>
-</ul></li>
-<li>Use genAI to <strong>write code</strong>. Don’t use genAI to analyze data or write outputs directly. Code is the record for reproducibility.</li>
-<li>Follow reproducible practices always, from the beginning of every project, before you even consider using AI.
-<ul>
-<li>Be organized. One directory per project. Keep data, code, and outputs in separate directories. Data is read only, and outputs can only be written by code.</li>
-<li>Use version control. Back up your code to GitHub.</li>
-</ul></li>
-<li>Review, test, and validate all code (human-written and AI-generated)
-<ul>
-<li><strong>Review</strong>: Treat genAI like an untrustworthy stranger. Be skeptical. Do not blindly trust it. Review every response and output. Ensure you understand it. Do not use AI-generated code until you do understand it. Learning opportunity.</li>
-<li><strong>Automated testing &amp; validation</strong>:
-<ul>
-<li>unit and integration testing with simulated and real data, automated with continuous integration workflows.</li>
-<li>lint / style checkers: GitHub code quality &amp; security scanning (GitHub Advanced Security)</li>
-</ul></li>
-</ul></li>
-<li>Document your genAI use. Be transparent about how you use it and which tools you used.</li>
-</ul>
 
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1795633958451" data-listing-reading-time-sort="3" data-listing-word-count-sort="413">
+<div class="thumbnail"><a href="../../docs/HPCDME/setup.html" class="no-external-icon" aria-hidden="true" tabindex="-1">
 
-</section>
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
-</main> <!-- /main -->
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../docs/HPCDME/setup.html" class="no-external-icon">HPCDME Setup</a>
+</h3>
+<div class="listing-description">
+<a href="../../docs/HPCDME/setup.html" class="no-external-icon">
+HPC_DME_APIs provides command line utilities or CLUs to interface with HPCDME. This document describes some of the initial setup steps to get the CLUs working on Biowulf.
+</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../../docs/HPCDME/setup.html" class="no-external-icon">
+</a><div class="listing-author"><a href="../../docs/HPCDME/setup.html" class="no-external-icon">
+</a><a href="https://github.com/kopardev">Vishal Koparde</a>
+</div>
+
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1795633958451" data-listing-reading-time-sort="1" data-listing-word-count-sort="114">
+<div class="thumbnail"><a href="../../docs/HPCDME/transfer.html" class="no-external-icon" aria-hidden="true" tabindex="-1">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../docs/HPCDME/transfer.html" class="no-external-icon">File Transfers from Biowulf</a>
+</h3>
+<div class="listing-description">
+<a href="../../docs/HPCDME/transfer.html" class="no-external-icon">
+🛑 <strong>STOP</strong>: File transfers must go through HELIX. Do not start transfers from Biowulf.
+</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../../docs/HPCDME/transfer.html" class="no-external-icon">
+</a><div class="listing-author"><a href="../../docs/HPCDME/transfer.html" class="no-external-icon">
+</a><a href="https://github.com/kopardev">Vishal Koparde</a>
+</div>
+
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1795633958451" data-listing-reading-time-sort="5" data-listing-word-count-sort="913">
+<div class="thumbnail"><a href="../../docs/HPCDME/transferFromHelix.html" class="no-external-icon">
+
+<p class="card-img-top"><img loading='lazy' src="verification.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../docs/HPCDME/transferFromHelix.html" class="no-external-icon">File Transfer from HELIX</a>
+</h3>
+<div class="listing-description">
+<a href="../../docs/HPCDME/transferFromHelix.html" class="no-external-icon">
+Rawdata or Project folders from Helix can be parked at a secure location after the analysis has reached an endpoint. Traditionally, CCBR analysts have been using GridFTP…
+</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../../docs/HPCDME/transferFromHelix.html" class="no-external-icon">
+</a><div class="listing-author"><a href="../../docs/HPCDME/transferFromHelix.html" class="no-external-icon">
+</a><a href="https://github.com/kopardev">Vishal Koparde</a>
+</div>
+
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1439,13 +1470,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation" aria-label="Page">
   <div class="nav-page nav-page-previous">
-      <a href="../../../docs/generative-AI/responsible-ai/index.html" class="pagination-link" aria-label="Responsible AI Use, Validation, and Reproducibility in Bioinformatics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Responsible AI Use, Validation, and Reproducibility in Bioinformatics</span>
+      <a href="../../docs/shiny/3_Publishing_Prod.html" class="pagination-link" aria-label="Publishing Shiny Apps to the Production Servers">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Publishing Shiny Apps to the Production Servers</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../docs/code-club/index.html" class="pagination-link" aria-label="Code Club">
-        <span class="nav-page-text">Code Club</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../docs/HPCDME/setup.html" class="pagination-link" aria-label="HPCDME Setup">
+        <span class="nav-page-text">HPCDME Setup</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1457,7 +1488,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/generative-AI/responsible-ai/outline.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/generative-AI/responsible-ai/outline.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/CCBR/HowTos/edit/main/docs/HPCDME/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CCBR/HowTos/blob/main/docs/HPCDME/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/CCBR/HowTos/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
