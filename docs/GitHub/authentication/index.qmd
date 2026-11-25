@@ -4,8 +4,10 @@ description: "Ways to authenticate with GitHub"
 date: 2026-02-09
 listing:
   contents:
-  - ./**/*.qmd
-  - ./**/*.md
+  - ./*.qmd
+  - ./*.md
+  - ./*/index.qmd
+  - ./*/index.md
   - path: https://ccbr.github.io/actions/gh-app-auth.html
     title: "GitHub Apps"
     description: "For GitHub Actions and other automation platforms"

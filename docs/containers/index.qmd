@@ -2,8 +2,10 @@
 title: "Containers"
 listing:
   contents:
-  - ./**/*.qmd
-  - ./**/*.md
+  - ./*.qmd
+  - ./*.md
+  - ./*/index.qmd
+  - ./*/index.md
   - path: https://ccbr.github.io/Dockers2
     title: "CCBR container images"
     description: "Available container images maintained by CCBR"

@@ -3,8 +3,10 @@ title: "Generative AI tools"
 listing:
   categories: true
   contents:
-  - ./**/*.qmd
-  - ./**/*.md
+  - ./*.qmd
+  - ./*.md
+  - ./*/index.qmd
+  - ./*/index.md
   - path: https://bioinformatics.ccr.cancer.gov/docs/genai-in-bioinformatics/Scripts_To_Skills/
     title: "From Scripts to Skills: Using Generative AI Without Losing Scientific Control"
     author: Samarth Mathur

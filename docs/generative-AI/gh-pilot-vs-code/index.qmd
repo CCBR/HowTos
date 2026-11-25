@@ -171,7 +171,7 @@ You can toggle the sidebar on and off with the sidebar button in the upper right
 
 You can select which Large Language Model to use for your prompts:
 
-![Model selection](img/model-selection){width=300px}
+![Model selection](img/model-selection.png){width=300px}
 
 GitHub has a table comparing the various AI models available in Copilot here:
 <https://docs.github.com/en/copilot/reference/ai-models/model-comparison>

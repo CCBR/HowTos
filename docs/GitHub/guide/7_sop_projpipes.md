@@ -74,7 +74,7 @@ date: 2023-05-08
 #### Strategy Outline
 - We encourage the use of the [Git Flow tools](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for some actions, available on Biowulf (module load gitflow). Our current branching strategy is based off of the Git Flow strategy shown below :
 
-![](../images/gitmodel.png)
+![](../../images/gitmodel.png)
 ref:https://nvie.com/posts/a-successful-git-branching-model/
 
 1.  Master (named main or master)
