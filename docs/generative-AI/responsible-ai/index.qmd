@@ -1,6 +1,8 @@
 ---
 title: "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
 categories: [Presentation]
+image: ./img/GitHub-sync.jpg
+image-alt: "Research workflow from data through code and results to a paper"
 author:
   - name: "Kelly Sovacool, PhD"
     affiliation:
