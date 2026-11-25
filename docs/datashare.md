@@ -1,6 +1,6 @@
 ---
 title: Datashare
-description: "Host data on helix & biowulf with"
+description: "Host data on helix & biowulf with Datashare"
 author: "[Ned Cauley](https://github.com/escauley)"
 ---
 
