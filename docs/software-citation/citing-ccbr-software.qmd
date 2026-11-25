@@ -44,8 +44,8 @@ The corresponding references might look like this:
 2. Sovacool, K., Homan, P., Koparde, V., & Chill, S. (2026). *MOSuite: R
    package for differential multi-omics analysis* (Version v0.5.0)
    [Computer software]. Zenodo. <https://doi.org/10.5281/zenodo.22262260>
-3. Add the appropriate reference for limma.
-4. Add the appropriate reference for voom.
+3. [Add the appropriate reference for limma.]
+4. [Add the appropriate reference for voom.]
 5. Nathan, W. (2026).
    *CCBR/hTLX3\_mutIL7R\_leukemia\_Rodrigues 1.0.0*
    (Version v1.0.0) [Computer software]. Zenodo.
@@ -55,6 +55,8 @@ These example references are numbered 1-5, but in a real manuscript they will
 usually have different numbers.
 We recommend using a [reference manager](#reference-management-software) instead
 of numbering and formatting references by hand.
+Different journals have their own preferred references style, so the formatting
+will vary.
 
 ## Find the software citation
 
@@ -126,26 +128,27 @@ cite it, [contact Kelly](#getting-help) before submitting the manuscript.
 
 ## Reference management software
 
-Use reference management software, such as [Zotero](https://www.zotero.org/), to
-organize your references and format your bibliography.
+We recommend using reference management software, such as
+[Zotero](https://www.zotero.org/), to organize your references and format your
+bibliography.
 Zotero is open source, works with MS Word, and exports bibliographies
 for LaTeX and Quarto.
 See the [Zotero documentation](https://www.zotero.org/support/) for more
 information.
 
-If you are not the first author, changes are someone else is responsible for
-preparing the references and formatting the manuscript. Send them the verified
-citation information for all CCBR software used.
+If you are not the first author, chances are someone else is responsible for
+preparing the references and formatting the manuscript.
+Send them the verified citation information for all CCBR software used.
 Before submission, check that each software citation includes the correct
-version and DOI, as described in [How to write the
-manuscript](#how-to-write-the-manuscript).
+version and DOI, as described in 
+[How to write the manuscript](#how-to-write-the-manuscript).
 Do not approve a manuscript for submission until the software citations are
 included correctly with DOIs.
 
 ## Getting help
 
 Contact Kelly ([kelly.sovacool@nih.gov](mailto:kelly.sovacool@nih.gov)) with
-questions or if you run into problems.
+questions or if you run into any problems.
 
 ## Learning more
 
