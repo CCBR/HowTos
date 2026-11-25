@@ -1,5 +1,6 @@
 ---
 title: "Reproducible AI Practices for Bioinformatics"
+categories: [Presentation]
 author:
   - name: "Kelly Sovacool, PhD"
     affiliation:

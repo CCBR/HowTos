@@ -6,52 +6,10 @@ date: 2023-04-11
 aliases:
   - 0_overview.html
 listing:
-  - id: setup
-    sort: false
-    fields: [title, description]
-    contents:
-    - path: ./1_howto_setup.md
-      title: Preparing your environment
-      description: Describes how to install git and authenticate with GitHub
-    - path: ./2_howto_commands.md
-      title: Basic Commands
-      description: Describes basic git commands to be used with this SOP
-  - id: basics
-    sort: false
-    fields: [title, description]
-    contents:
-    - path: ./3_basic_repo.md
-      title: Creating your GitHub repo
-      description: Provides information on how to setup a GitHub repository under CCBR and the use of templates
-    - path: ./4_basic_docs.md
-      title: Creating your Documentation
-      description: Provides information on how to setup documentation under your repository; provided with all template repos
-    - path: ./5_basic_actions.md
-      title: GitHub Actions
-      description: Provides information for using GitHub Actions under your repository; provided with all template repos
-  - id: best-practices
-    sort: false
-    fields: [title, description]
-    contents:
-    - path: ./6_howto_precommit.md
-      title: Use Pre-commit Hooks
-    - path: ./7_sop_projpipes.md
-      title: CCBR Projects, new Pipelines
-    - path: ./8_sop_techdev.md
-      title: TechDev
+  contents:
+  - ./**/*.qmd
+  - ./**/*.md
+  sort: filename
+  fields: [title, description]
+  categories: true
 ---
-
-## Getting set-up and familiar with GitHub
-
-::: {#setup}
-:::
-
-## Basics
-
-::: {#basics}
-:::
-
-## Best Practices
-
-::: {#best-practices}
-:::

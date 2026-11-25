@@ -1,4 +1,6 @@
 ---
+categories: [Getting set-up and familiar with GitHub]
+description: Describes how to install git and authenticate with GitHub
 date: 2023-04-27
 date-modified: 2026-02-09
 author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"

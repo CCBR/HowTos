@@ -1,5 +1,6 @@
 ---
 title: "Responsible AI Use, Validation, and Reproducibility in Bioinformatics"
+categories: [Presentation]
 author:
   - name: "Kelly Sovacool, PhD"
     affiliation:

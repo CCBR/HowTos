@@ -1,5 +1,6 @@
 ---
 title: "GitHub Copilot in VS Code"
+categories: [Tutorial]
 author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
 resources:
     - ./demo/extract_promoters.py

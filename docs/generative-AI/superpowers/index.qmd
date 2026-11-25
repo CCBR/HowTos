@@ -1,5 +1,6 @@
 ---
 title: "Set up CCBR Superpowers skills"
+categories: [Tutorial]
 ---
 
 Superpowers is a collection of Agent Skills for GitHub Copilot and other compatible coding agents. CCBR installs these skills in your home directory so they are available to every repository you open in the same computing environment.

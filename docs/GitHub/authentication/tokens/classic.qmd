@@ -1,5 +1,6 @@
 ---
 title: "Classic Personal Access Tokens"
+description: "No longer in use as of March 1st, 2026"
 author: "[Kelly Sovacool](https://github.com/kelly-sovacool)"
 date: 2026-02-09
 ---

@@ -3,4 +3,5 @@ title: Code Club
 listing:
   contents:
   - ./**/*.qmd
+  - ./**/*.md
 ---

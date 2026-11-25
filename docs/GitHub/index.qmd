@@ -3,6 +3,6 @@ title: "GitHub"
 description: "Guides for using git and GitHub at CCBR"
 listing:
   contents:
-  - ./*.qmd
-  - ./*/index.qmd
+  - ./**/*.qmd
+  - ./**/*.md
 ---

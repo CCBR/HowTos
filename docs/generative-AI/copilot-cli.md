@@ -1,5 +1,6 @@
 ---
 title: GitHub Copilot CLI
+categories: [Tutorial]
 description: "How to install and use GitHub Copilot CLI"
 author: "[Vishal Koparde](https://github.com/kopardev)"
 toc-location: right-body

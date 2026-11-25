@@ -3,5 +3,6 @@ title: "Personal Access Tokens"
 description: "Using personal access tokens to authenticate with GitHub"
 listing:
   contents:
-  - ./*.qmd
+  - ./**/*.qmd
+  - ./**/*.md
 ---
